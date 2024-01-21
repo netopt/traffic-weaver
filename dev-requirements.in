@@ -1,0 +1,6 @@
+matplotlib
+sphinx
+sphinx-rtd-theme
+pytest
+pytest-cov
+twine

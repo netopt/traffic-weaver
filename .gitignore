@@ -1,0 +1,12 @@
+requirements.txt
+dev-requirements.txt
+
+/docs/build/
+/dist
+/gfx
+
+*.egg-info/
+/.idea
+.coverage
+.husky
+__pycache__/

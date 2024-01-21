@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "traffic_weaver"
+version = "1.0.0-alpha.0"
+dynamic = ["dependencies", "optional-dependencies"]
+
+authors = [
+    { name = "Piotr T. Lechowicz", email = "piotr.lechowicz@pwr.edu.pl" },
+]
+maintainers = [
+    { name = "Piotr T. Lechowicz", email = "piotr.lechowicz@pwr.edu.pl" },
+]
+description = "Recreate time-series from averaged data"
+readme = "README.md"
+license = { file = "LICENSE" }
+
+requires-python = ">= 3.9"
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3.9",
+]
+
+[project.urls]
+homepage = "https://github.com/netopt/weaver"
+documentation = "https://netopt.github.io/traffic_weaver/"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+packages = ["traffic_weaver"]
+
+[tool.setuptools.package-data]
+"traffic_weaver.datasets" = ["*.json"]
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.in"] }
+optional-dependencies.dev = { file = ["dev-requirements.in"] }
+
