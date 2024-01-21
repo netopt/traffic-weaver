@@ -1,5 +1,5 @@
-./requirements.txt
-./dev-requirements.txt
+/requirements.txt
+/dev-requirements.txt
 
 /docs/build/
 /dist
