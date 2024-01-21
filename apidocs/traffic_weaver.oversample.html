@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>traffic_weaver.oversample module &mdash; traffic_weaver  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="traffic_weaver.oversample_fun module" href="traffic_weaver.oversample_fun.html" />
+    <link rel="prev" title="traffic_weaver.interval module" href="traffic_weaver.interval.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            traffic_weaver
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="traffic_weaver.html">traffic_weaver</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="traffic_weaver.html#modules">Modules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.weaver.html">traffic_weaver.weaver module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.datasets.html">traffic_weaver.datasets module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.funfit.html">traffic_weaver.funfit module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.interval.html">traffic_weaver.interval module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">traffic_weaver.oversample module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.oversample.AbstractOversample"><code class="docutils literal notranslate"><span class="pre">AbstractOversample</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.oversample.PiecewiseConstantOversample"><code class="docutils literal notranslate"><span class="pre">PiecewiseConstantOversample</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.oversample.FunctionOversample"><code class="docutils literal notranslate"><span class="pre">FunctionOversample</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.oversample.CubicSplineOversample"><code class="docutils literal notranslate"><span class="pre">CubicSplineOversample</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.oversample.IntervalOversample"><code class="docutils literal notranslate"><span class="pre">IntervalOversample</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.oversample.LinearFixedOversample"><code class="docutils literal notranslate"><span class="pre">LinearFixedOversample</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.oversample.LinearAdaptiveOversample"><code class="docutils literal notranslate"><span class="pre">LinearAdaptiveOversample</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.oversample.ExpFixedOversample"><code class="docutils literal notranslate"><span class="pre">ExpFixedOversample</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.oversample.ExpAdaptiveOversample"><code class="docutils literal notranslate"><span class="pre">ExpAdaptiveOversample</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.oversample_fun.html">traffic_weaver.oversample_fun module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.stretch.html">traffic_weaver.stretch module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.utils.html">traffic_weaver.utils module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">traffic_weaver</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="traffic_weaver.html">traffic weaver package</a></li>
+      <li class="breadcrumb-item active">traffic_weaver.oversample module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/apidocs/traffic_weaver.oversample.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-traffic_weaver.oversample">
+<span id="traffic-weaver-oversample-module"></span><h1>traffic_weaver.oversample module<a class="headerlink" href="#module-traffic_weaver.oversample" title="Link to this heading"></a></h1>
+<p>Oversample average function with given recreation strategy.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="traffic_weaver.oversample.AbstractOversample">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">traffic_weaver.oversample.</span></span><span class="sig-name descname"><span class="pre">AbstractOversample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.oversample.AbstractOversample" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Abstract class for oversampling <cite>n</cite> times. a function <cite>y</cite> measured in <cite>x</cite>.</p>
+<p>To perform oversampling, call <cite>oversample()</cite> method, which returns newly created
+points.</p>
+<p>By default, <cite>x</cite> axis is oversampled with <cite>n</cite> linearly space values between each
+point. To change this behaviour, override <cite>_initial_x_oversample</cite> method.</p>
+<p>By default, <cite>y</cite> axis is oversampled with <cite>n</cite> piecewise constant values between each
+point. To change this behaviour, override <cite>_initial_y_oversample</cite> method.</p>
+<p>The <cite>oversample()</cite> method returns oversampled values for x and y.</p>
+<p>In the following derived classes, term ‘interval’ refers to the distance
+between two consecutive observations (values in <cite>y</cite> based on <cite>x</cite>).
+Each interval contains <cite>n</cite> samples obtained by oversampling.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>1-D array-like</em>) – Independent variable in strictly increasing order.</p></li>
+<li><p><strong>y</strong> (<em>1-D array-like</em>) – Dependent variable.</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – Number of points oversampled and recreated in the function for each interval.
+Cannot be lower than 2.</p></li>
+<li><p><strong>**kwargs</strong> (<em>dict</em>) – Arbitrary keyword arguments for concrete implementations.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><code class="xref py py-func docutils literal notranslate"><span class="pre">interval.IntervalArray()</span></code></p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="traffic_weaver.oversample.AbstractOversample.oversample">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">oversample</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.oversample.AbstractOversample.oversample" title="Link to this definition"></a></dt>
+<dd><p>Perform oversample on <cite>x</cite> and <cite>y</cite> variables.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>xs</strong> (<em>ndarray</em>) – Oversampled independent variable <cite>x</cite>.</p></li>
+<li><p><strong>ys</strong> (<em>ndarray</em>) – Oversampled dependent variable <cite>y</cite>.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="traffic_weaver.oversample.PiecewiseConstantOversample">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">traffic_weaver.oversample.</span></span><span class="sig-name descname"><span class="pre">PiecewiseConstantOversample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.oversample.PiecewiseConstantOversample" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#traffic_weaver.oversample.AbstractOversample" title="traffic_weaver.oversample.AbstractOversample"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractOversample</span></code></a></p>
+<p>Oversample function using piecewise constant values.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="traffic_weaver.oversample.PiecewiseConstantOversample.oversample">
+<span class="sig-name descname"><span class="pre">oversample</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.oversample.PiecewiseConstantOversample.oversample" title="Link to this definition"></a></dt>
+<dd><p>Perform oversample on <cite>x</cite> and <cite>y</cite> variables.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>xs</strong> (<em>ndarray</em>) – Oversampled independent variable <cite>x</cite>.</p></li>
+<li><p><strong>ys</strong> (<em>ndarray</em>) – Oversampled dependent variable <cite>y</cite>.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="traffic_weaver.oversample.FunctionOversample">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">traffic_weaver.oversample.</span></span><span class="sig-name descname"><span class="pre">FunctionOversample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling_function_supplier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling_function_supplier_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.oversample.FunctionOversample" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#traffic_weaver.oversample.AbstractOversample" title="traffic_weaver.oversample.AbstractOversample"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractOversample</span></code></a></p>
+<p>Oversample using created sampling function.</p>
+<p>Created sampling function should take <cite>x</cite> as an argument and return corresponding
+<cite>y</cite> value.</p>
+<p>Sampling function can be specified by overriding <code class="xref py py-func docutils literal notranslate"><span class="pre">_get_sampling_function()</span></code>
+method. If method is not override <cite>sampling_function_supplier</cite> factory is used to
+produce a sampling function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>1-D array-like</em>) – Independent variable in strictly increasing order.</p></li>
+<li><p><strong>y</strong> (<em>1-D array-like</em>) – Dependent variable.</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – Number of points oversampled and recreated in the function.</p></li>
+<li><p><strong>sampling_function_supplier</strong> (<em>Callable</em><em>[</em><em>[</em><em>np.ndarray</em><em>, </em><em>np.ndarray</em><em>]</em><em>, </em><em>Callable</em><em>]</em>) – Factory that takes an input <cite>x</cite> and <cite>y</cite> points and creates a new function
+<cite>f(float) -&gt; float</cite>. New function takes any arbitrary point as an input,
+and returning its corresponding value as an output.</p></li>
+<li><p><strong>sampling_function_supplier_kwargs</strong> (<em>dict</em><em>, </em><em>optional</em>) – Kwargs passed to <cite>sampling_function_supplier</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="traffic_weaver.oversample.FunctionOversample.oversample">
+<span class="sig-name descname"><span class="pre">oversample</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.oversample.FunctionOversample.oversample" title="Link to this definition"></a></dt>
+<dd><p>Perform oversample on <cite>x</cite> and <cite>y</cite> variables.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>xs</strong> (<em>ndarray</em>) – Oversampled independent variable <cite>x</cite>.</p></li>
+<li><p><strong>ys</strong> (<em>ndarray</em>) – Oversampled dependent variable <cite>y</cite>.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="traffic_weaver.oversample.CubicSplineOversample">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">traffic_weaver.oversample.</span></span><span class="sig-name descname"><span class="pre">CubicSplineOversample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling_function_supplier=&lt;function</span> <span class="pre">CubicSplineOversample.&lt;lambda&gt;&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.oversample.CubicSplineOversample" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#traffic_weaver.oversample.FunctionOversample" title="traffic_weaver.oversample.FunctionOversample"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionOversample</span></code></a></p>
+<p>Oversample function using cubic spline between given points.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="traffic_weaver.oversample.IntervalOversample">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">traffic_weaver.oversample.</span></span><span class="sig-name descname"><span class="pre">IntervalOversample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.oversample.IntervalOversample" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#traffic_weaver.oversample.AbstractOversample" title="traffic_weaver.oversample.AbstractOversample"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractOversample</span></code></a></p>
+<p>Abstraction for interval based oversampling classes.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="traffic_weaver.oversample.LinearFixedOversample">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">traffic_weaver.oversample.</span></span><span class="sig-name descname"><span class="pre">LinearFixedOversample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.oversample.LinearFixedOversample" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#traffic_weaver.oversample.AbstractOversample" title="traffic_weaver.oversample.AbstractOversample"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractOversample</span></code></a></p>
+<p>Linearly moves between points in fixed transition intervals.</p>
+<img alt="../_images/linear_fixed_oversample.png" src="../_images/linear_fixed_oversample.png" />
+<p>Transition linearly between intervals in transition window (part of the interval).
+Transition window is defined in number of samples <cite>a</cite> and divided proportionally
+to the left and right side of the interval. If <cite>a</cite> is not specified, it is obtained
+based on the transition samples factor <cite>alpha</cite> multiplied by the number of inserted
+samples for each interval <cite>n</cite>. <cite>a</cite> cannot be lower, than 2 samples. If it is,
+it’s value is changed to correct that.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>1-D array-like</em>) – Independent variable in strictly increasing order.</p></li>
+<li><p><strong>y</strong> (<em>1-D array-like</em>) – Dependent variable.</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – Number of points oversampled and recreated in the function.</p></li>
+<li><p><strong>alpha</strong> (<em>float</em><em>, </em><em>default: 1.0</em>) – Transition window samples factor for moving between intervals.</p></li>
+<li><p><strong>a</strong> (<em>int</em><em>, </em><em>optional</em>) – Transition window samples for moving between intervals.
+If not specified, it is equal to <cite>alpha</cite> * <cite>n</cite>. Cannot be lower than 2.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Let us consider <cite>k</cite>-th interval and <span class="math notranslate nohighlight">\(x_{k,i}\)</span>, <span class="math notranslate nohighlight">\(y{k,i}\)</span>
+refer to <cite>i</cite>-th sample of <cite>k</cite>-th interval for <cite>x</cite> and <cite>y</cite>, respectively.
+When omitting value, e.g., <span class="math notranslate nohighlight">\(x_{k}\)</span>, it refers to the <cite>x_{k,0}</cite>.</p>
+<p>Oversampling creates function <span class="math notranslate nohighlight">\(z = g(x)\)</span> from <span class="math notranslate nohighlight">\(y=f(x)\)</span>.</p>
+<p>Let assume, that:</p>
+<ul class="simple">
+<li><p>the function is going to be oversampled with <cite>n</cite> samples in each interval.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha\)</span> is a given transition window factor parameter.</p></li>
+<li><p><span class="math notranslate nohighlight">\(z_{k}\)</span> is transition value between interval <cite>k</cite> and <cite>k - 1</cite>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(z_{k+1}\)</span> is transition value between interval <cite>k</cite> and <cite>k + 1</cite>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(y_{k}\)</span> is original function value in interval <cite>k</cite>.</p></li>
+</ul>
+<p>Left <span class="math notranslate nohighlight">\(a_l\)</span> and right <span class="math notranslate nohighlight">\(a_r\)</span> transition number of samples is calculated
+as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}a = \alpha \cdot n \\
+a_l = a_r = a / 2\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(z_k\)</span> is calculated as a linear combination between <span class="math notranslate nohighlight">\(y_{k-1}\)</span> and <cite>y_k</cite>,
+proportionally to the distance between the <span class="math notranslate nohighlight">\(x_{k-1,n-a_l}\)</span> and <span class="math notranslate nohighlight">\(x_{k,
+a_r}\)</span>, i.e.,</p>
+<div class="math notranslate nohighlight">
+\[z_k = y_{k-1} + (y_k - y_{k-1}) \cdot (x_k - x_{k-1, n - a_r}) /
+(x_{k, a_l} - x_{k-1, n - a_r})\]</div>
+<p>Value for <span class="math notranslate nohighlight">\(z_{k+1}\)</span> is calculated analogously.</p>
+<p>Based on found transition values, remaining points in function <span class="math notranslate nohighlight">\(z = g(x)\)</span>
+are calculated as a linear combination of transition point and previous value.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+    z_{k, i} = \mbox{lin_fit}(x_{k, i}, (x_{k, 0}, z_{k, 0}), (x_{k, a_l},
+    y_{k, 0})) &amp;   i \in \{0, a_l - 1\} \\
+    z_{k,i} = y_{k,i} &amp; i \in \{a_l, n - a_r\} \\
+    z_{k, i} = \mbox{lin_fit}(x_{k, i}, (x_{k, n - a_r}, y_{k,0}),
+    (x_{k, n}, z_{k+1,0})) &amp;  i \in \{n - a_r + 1, n\}
+\end{cases}\end{split}\]</div>
+<p>where <cite>linfit</cite> linearly fits value based on two other points.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><code class="xref py py-func docutils literal notranslate"><span class="pre">funfit.lin_fit()</span></code></p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="traffic_weaver.oversample.LinearFixedOversample.oversample">
+<span class="sig-name descname"><span class="pre">oversample</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.oversample.LinearFixedOversample.oversample" title="Link to this definition"></a></dt>
+<dd><p>Perform oversample on <cite>x</cite> and <cite>y</cite> variables.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>xs</strong> (<em>ndarray</em>) – Oversampled independent variable <cite>x</cite>.</p></li>
+<li><p><strong>ys</strong> (<em>ndarray</em>) – Oversampled dependent variable <cite>y</cite>.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="traffic_weaver.oversample.LinearAdaptiveOversample">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">traffic_weaver.oversample.</span></span><span class="sig-name descname"><span class="pre">LinearAdaptiveOversample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adaptive_smooth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.oversample.LinearAdaptiveOversample" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#traffic_weaver.oversample.AbstractOversample" title="traffic_weaver.oversample.AbstractOversample"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractOversample</span></code></a></p>
+<p>Linearly moves between points in adaptive transition intervals.</p>
+<img alt="../_images/linear_adaptive_oversample.png" src="../_images/linear_adaptive_oversample.png" />
+<p>Transition linearly between intervals in transition window (part of the interval).
+Transition window is defined in number of samples <cite>a</cite> and divided according to the
+<cite>adaptive_factor</cite>. <cite>adaptive_factor</cite> is inversely proportionally to the change of
+function value on both edges of the interval, i.e., if function value has higher
+change on the right side of the interval, than on the left side, the right side
+transition window is smaller than the left one.</p>
+<p>The impact of the <cite>adaptive_factor</cite> can be decreased by adjusting <cite>adaptive_smooth</cite>.</p>
+<p>If <cite>a</cite> is not specified, it is obtained based on the transition samples factor
+<cite>alpha</cite> multiplied by the number of inserted samples for each interval <cite>n</cite>.
+<cite>a</cite> cannot be lower, than 2 samples. If it is, it’s value is changed to correct
+that.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>1-D array-like</em>) – Independent variable in strictly increasing order.</p></li>
+<li><p><strong>y</strong> (<em>1-D array-like</em>) – Dependent variable.</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – Number of points oversampled and recreated in the function.</p></li>
+<li><p><strong>alpha</strong> (<em>float</em><em>, </em><em>default: 1.0</em>) – Transition window samples factor for moving between intervals.</p></li>
+<li><p><strong>a</strong> (<em>int</em><em>, </em><em>optional</em>) – Transition window samples for moving between intervals.
+If not specified, it is equal to <cite>alpha</cite> * <cite>n</cite>. Cannot be lower than 2.</p></li>
+<li><p><strong>adaptive_smooth</strong> (<em>float</em><em>, </em><em>default: 1.0</em>) – Decreasing impact of <cite>adaptive_factor</cite> by raising it to the power
+<cite>1/adaptive_smooth</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Let us consider <cite>k</cite>-th interval and <span class="math notranslate nohighlight">\(x_{k,i}\)</span>, <span class="math notranslate nohighlight">\(y{k,i}\)</span>
+refer to <cite>i</cite>-th sample of <cite>k</cite>-th interval for <cite>x</cite> and <cite>y</cite>, respectively.
+When omitting value, e.g., <span class="math notranslate nohighlight">\(x_{k}\)</span>, it refers to the <cite>x_{k,0}</cite>.</p>
+<p>Oversampling creates function <span class="math notranslate nohighlight">\(z = g(x)\)</span> from <span class="math notranslate nohighlight">\(y=f(x)\)</span>.</p>
+<p>Let assume, that:</p>
+<ul class="simple">
+<li><p>the function is going to be oversampled with <cite>n</cite> samples in each interval.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha\)</span> is a given transition window factor parameter.</p></li>
+<li><p><span class="math notranslate nohighlight">\(s\)</span> is a given <cite>adaptive_smooth</cite> parameter</p></li>
+<li><p><span class="math notranslate nohighlight">\(z_{k}\)</span> is transition value between interval <cite>k</cite> and <cite>k - 1</cite>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(z_{k+1}\)</span> is transition value between interval <cite>k</cite> and <cite>k + 1</cite>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(y_{k}\)</span> is original function value in interval <cite>k</cite>.</p></li>
+</ul>
+<p>Transition ranges depend on the change in function value between intervals.</p>
+<p>1. When function changes between intervals, i.e., <span class="math notranslate nohighlight">\(y_{k-1} \neq y_k \neq
+y_{k+1}\)</span>,
+an <cite>adaptive_factor</cite> <span class="math notranslate nohighlight">\(\gamma_k\)</span> and left and right transition windows
+<span class="math notranslate nohighlight">\(a_k,l\)</span> and <span class="math notranslate nohighlight">\(a_k,r\)</span> are calculated, as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\gamma_k = \frac{|y_{1} - y_{0}|}{|y_{0} - y_{-1}|} ^ \frac{1/s} \\
+\frac{a_{k,l}}{a_{k,r}} = \gamma_k \\
+a_{k,l} = \min(\max(\frac{\gamma_k \cdot a}{1 + \gamma_k}, 1), a) \\
+a_{k,r} = \min(\max(\frac{a}{1 + \gamma_k}, 1), a)\end{split}\]</div>
+<p>The transition values are kept between <cite>1</cite> and <cite>n</cite>, thus:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}a_{k,l} = \min(\max(a_{k,l}, 1) n) \\
+a_{k,r} = \min(\max(a_{k,r}, 1) n) \\\end{split}\]</div>
+<p>2. If function value is left and right side constant, i.e.,  <span class="math notranslate nohighlight">\(y_{k-1} = y_k
+= y_{k+1}\)</span>,
+transition windows are calculated as:</p>
+<div class="math notranslate nohighlight">
+\[a_{k, l} = a_{k, r} = 0\]</div>
+<p>3. If function value is changing only on right side of the interval, i.e.,
+<span class="math notranslate nohighlight">\(y_{k-1} \neq y_k = y_{k+1}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[a_{k, l} = 0
+a_{k, r} = \frac{a}{2}\]</div>
+<p>4. If function value is changing only on left side of the interval, i.e.,
+<span class="math notranslate nohighlight">\(y_{k-1} = y_k \neq y_{k+1}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[a_{k, l} = \frac{a}{2}
+a_{k, r} = 0\]</div>
+<p>Transition points and remaining points inside the interval are calculated same as
+in <a class="reference internal" href="#traffic_weaver.oversample.LinearFixedOversample" title="traffic_weaver.oversample.LinearFixedOversample"><code class="xref py py-func docutils literal notranslate"><span class="pre">LinearFixedOversample()</span></code></a>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+    z_{k, i} = \mbox{lin_fit}(x_{k, i}, (x_{k, 0}, z_{k, 0}), (x_{k, a_{k,
+    l}}, y_{k, 0})) &amp;   i \in \{0, a_l - 1\} \\
+    z_{k,i} = y_{k,i} &amp; i \in \{a_{k,l}, n - a_r\} \\
+    z_{k, i} = \mbox{lin_fit}(x_{k, i}, (x_{k, n - a_{k, r}}, y_{k, 0}),
+    (x_{k, n}, z_{k+1,0}))
+    &amp;  i \in \{n - a_{k,r} + 1, n\}
+\end{cases}\end{split}\]</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#traffic_weaver.oversample.LinearFixedOversample" title="traffic_weaver.oversample.LinearFixedOversample"><code class="xref py py-func docutils literal notranslate"><span class="pre">LinearFixedOversample()</span></code></a></p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="traffic_weaver.oversample.LinearAdaptiveOversample.get_adaptive_transition_points">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_adaptive_transition_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adaptive_smooth</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.oversample.LinearAdaptiveOversample.get_adaptive_transition_points" title="Link to this definition"></a></dt>
+<dd><p>Calculate transition points</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<a class="reference internal" href="traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray" title="traffic_weaver.interval.IntervalArray"><em>IntervalArray</em></a>) – independent variable</p></li>
+<li><p><strong>y</strong> (<a class="reference internal" href="traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray" title="traffic_weaver.interval.IntervalArray"><em>IntervalArray</em></a>) – dependent variable</p></li>
+<li><p><strong>a</strong> (<em>int</em>) – transition window in samples</p></li>
+<li><p><strong>adaptive_smooth</strong> (<em>float</em>) – smoothing of adaptive_factor</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>list of floats</em> – Left transition window for each interval.</p></li>
+<li><p><em>list of floats</em> – Right transition window for each interval.</p></li>
+<li><p><em>list of floats</em> – Adaptive factor for each interval.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="traffic_weaver.oversample.LinearAdaptiveOversample.oversample">
+<span class="sig-name descname"><span class="pre">oversample</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.oversample.LinearAdaptiveOversample.oversample" title="Link to this definition"></a></dt>
+<dd><p>Perform oversample on <cite>x</cite> and <cite>y</cite> variables.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>xs</strong> (<em>ndarray</em>) – Oversampled independent variable <cite>x</cite>.</p></li>
+<li><p><strong>ys</strong> (<em>ndarray</em>) – Oversampled dependent variable <cite>y</cite>.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="traffic_weaver.oversample.ExpFixedOversample">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">traffic_weaver.oversample.</span></span><span class="sig-name descname"><span class="pre">ExpFixedOversample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.oversample.ExpFixedOversample" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#traffic_weaver.oversample.AbstractOversample" title="traffic_weaver.oversample.AbstractOversample"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractOversample</span></code></a></p>
+<p>Moves between points in fixed transition intervals by combining linear and
+exponential function.</p>
+<img alt="../_images/exp_fixed_oversample.png" src="../_images/exp_fixed_oversample.png" />
+<p>Transition combining linear and exponential function between intervals in
+transition window (part of the interval).
+Transition window is defined in number of samples <cite>a</cite> and divided proportionally
+to the left and right side of the interval.
+If <cite>a</cite> is not specified, it is obtained based on the transition samples factor
+<cite>alpha</cite> multiplied by the number of inserted samples for each interval <cite>n</cite>.
+<cite>a</cite> cannot be lower, than 2 samples. If it is, it’s value is changed to correct
+that.</p>
+<p>Left and right transition window is further divided into linear only part and
+combination of
+linear and exponential one. Division is done according to parameter <cite>beta</cite> and
+linear transition window is calculated as <cite>b = beta * a_l</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>1-D array-like</em>) – Independent variable in strictly increasing order.</p></li>
+<li><p><strong>y</strong> (<em>1-D array-like</em>) – Dependent variable.</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – Number of points oversampled and recreated in the function.</p></li>
+<li><p><strong>alpha</strong> (<em>float</em><em>, </em><em>default: 1.0</em>) – Transition window samples factor for moving between intervals.</p></li>
+<li><p><strong>beta</strong> (<em>float</em><em>, </em><em>default: 0.5</em>) – Linear transition window samples factor.</p></li>
+<li><p><strong>a</strong> (<em>int</em><em>, </em><em>optional</em>) – Transition window samples for moving between intervals.
+If not specified, it is equal to <cite>alpha</cite> * <cite>n</cite>. Cannot be lower than 2.</p></li>
+<li><p><strong>exp</strong> (<em>float</em><em>, </em><em>default: 2.0</em>) – Exponent in exponential transition function.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Let us consider <cite>k</cite>-th interval and <span class="math notranslate nohighlight">\(x_{k,i}\)</span>, <span class="math notranslate nohighlight">\(y{k,i}\)</span>
+refer to <cite>i</cite>-th sample of <cite>k</cite>-th interval for <cite>x</cite> and <cite>y</cite>, respectively.
+When omitting value, e.g., <span class="math notranslate nohighlight">\(x_{k}\)</span>, it refers to the <cite>x_{k,0}</cite>.</p>
+<p>Oversampling creates function <span class="math notranslate nohighlight">\(z = g(x)\)</span> from <span class="math notranslate nohighlight">\(y=f(x)\)</span>.</p>
+<p>Let assume, that:
+* the function is going to be oversampled with <cite>n</cite> samples in each interval.
+* <span class="math notranslate nohighlight">\(\alpha\)</span> is a given transition window factor parameter.
+* <span class="math notranslate nohighlight">\(\beta\)</span> is a given linear part of transition window factor parameter.
+* <span class="math notranslate nohighlight">\(z_{k}\)</span> is transition value between interval <cite>k</cite> and <cite>k - 1</cite>.
+* <span class="math notranslate nohighlight">\(z_{k+1}\)</span> is transition value between interval <cite>k</cite> and <cite>k + 1</cite>.
+* <span class="math notranslate nohighlight">\(y_{k}\)</span> is original function value in interval <cite>k</cite>.</p>
+<p>Left <span class="math notranslate nohighlight">\(a_l\)</span> and right <span class="math notranslate nohighlight">\(a_r\)</span> transition number of samples is calculated
+as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}a = \alpha \cdot n \\
+a_l = a_r = a / 2\end{split}\]</div>
+<p>Let <span class="math notranslate nohighlight">\(b\)</span> denote  Linear part of transition window, and it is calculated as:</p>
+<div class="math notranslate nohighlight">
+\[b = \beta \cdot a_l\]</div>
+<p>Transition points are calculated the same as in <a class="reference internal" href="#traffic_weaver.oversample.LinearFixedOversample" title="traffic_weaver.oversample.LinearFixedOversample"><code class="xref py py-func docutils literal notranslate"><span class="pre">LinearFixedOversample()</span></code></a>.</p>
+<p>Based on found transition values, remaining points in function <span class="math notranslate nohighlight">\(z = g(x)\)</span>
+are calculated
+as a linear combination of transition point and previous value using linear and
+exponential functions.</p>
+<p>Two additional transition points are calculated, corresponding to <span class="math notranslate nohighlight">\(x_{k,
+b}\)</span> and <span class="math notranslate nohighlight">\(x_{k, n - b}\)</span>
+denoted as <cite>z_{k, b}</cite> and <cite>z_{k, n-b}</cite>. They are calculated as linear combination
+between
+<span class="math notranslate nohighlight">\(z_{k, 0}\)</span> and <span class="math notranslate nohighlight">\(y_{k, 0}\)</span>, and <span class="math notranslate nohighlight">\(z_{k+1, 0}\)</span> and <span class="math notranslate nohighlight">\(y_{k,
+0}\)</span>, respectively.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+    z_{k, i} = \mbox{lin_fit}(x_{k, i}, (x_{k, 0}, z_{k, 0}), (x_{k, b},
+    z_{k, b})) &amp;   i \in \{0, b - 1\} \\
+    z_{k, i} = \mbox{lin_exp_xy_fit}(x_{k, i}, (x_{k, b}, z_{k, b}), (x_{k,
+    a_l}, y_{k, 0})) &amp;   i \in \{b, a_l - 1\} \\
+    z_{k,i} = y_{k,i} &amp; i \in \{a_l, n - a_r\} \\
+    z_{k, i} = \mbox{exp_lin_fit}(x_{k, i}, (x_{k, n - a_r}, y_{k, 0}),
+    (x_{k, n -b}, z_{k+1,n-b}))
+        &amp;  i \in \{n - a_r + 1, n - b\} \\
+    z_{k, i} = \mbox{lin_fit}(x_{k, i}, (x_{k, n - b}, y_{k, n - b}), (x_{k,
+    n}, z_{k+1,0}))
+        &amp;  i \in \{n - b + 1, n\}
+\end{cases}\end{split}\]</div>
+<p>where <cite>linfit</cite> linearly fits value based on two other points; <cite>lin_exp_xy_fit</cite>
+gradually fits combination of linear
+function and exponential function scaled from (0, 1) range and mirrored over y=x
+line;
+<cite>exp_lin_fit</cite> gradually fits combination of exponential function scaled from
+<cite>(0, 1)</cite> range and linear function.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#traffic_weaver.oversample.LinearFixedOversample" title="traffic_weaver.oversample.LinearFixedOversample"><code class="xref py py-func docutils literal notranslate"><span class="pre">LinearFixedOversample()</span></code></a>, <code class="xref py py-func docutils literal notranslate"><span class="pre">funfit.lin_fit()</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">funfit.lin_exp_xy_fit()</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">funfit.exp_lin_fit()</span></code></p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="traffic_weaver.oversample.ExpFixedOversample.oversample">
+<span class="sig-name descname"><span class="pre">oversample</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.oversample.ExpFixedOversample.oversample" title="Link to this definition"></a></dt>
+<dd><p>Perform oversample on <cite>x</cite> and <cite>y</cite> variables.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>xs</strong> (<em>ndarray</em>) – Oversampled independent variable <cite>x</cite>.</p></li>
+<li><p><strong>ys</strong> (<em>ndarray</em>) – Oversampled dependent variable <cite>y</cite>.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="traffic_weaver.oversample.ExpAdaptiveOversample">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">traffic_weaver.oversample.</span></span><span class="sig-name descname"><span class="pre">ExpAdaptiveOversample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adaptive_smooth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.oversample.ExpAdaptiveOversample" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#traffic_weaver.oversample.AbstractOversample" title="traffic_weaver.oversample.AbstractOversample"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractOversample</span></code></a></p>
+<p>Moves between points in adaptive transition intervals by combining linear and
+exponential function.</p>
+<img alt="../_images/exp_adaptive_oversample.png" src="../_images/exp_adaptive_oversample.png" />
+<p>Transition combining linear and exponential function between intervals in
+transition window (part of the interval).
+Transition window is defined in number of samples <cite>a</cite> and divided according to the
+<cite>adaptive_factor</cite>. <cite>adaptive_factor</cite> is inversely proportionally to the change of
+function
+value on both edges of the interval, i.e., if function value has higher change on
+the
+right side of the interval, than on the left side,
+the right side transition window is smaller than the left one.</p>
+<p>The impact of the <cite>adaptive_factor</cite> can be decreased by adjusting <cite>adaptive_smooth</cite>.</p>
+<p>If <cite>a</cite> is not specified, it is obtained based on the transition samples factor
+<cite>alpha</cite>
+multiplied by the number of inserted samples for each interval <cite>n</cite>.
+<cite>a</cite> cannot be lower, than 2 samples. If it is, it’s value is changed to correct
+that.</p>
+<p>Left and right transition window is further divided into linear only part and
+combination of
+linear and exponential one. Division is done according to parameter <cite>beta</cite> and
+linear transition window is calculated as <cite>b = beta * a_l</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>1-D array-like</em>) – Independent variable in strictly increasing order.</p></li>
+<li><p><strong>y</strong> (<em>1-D array-like</em>) – Dependent variable.</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – Number of points oversampled and recreated in the function.</p></li>
+<li><p><strong>alpha</strong> (<em>float</em><em>, </em><em>default: 1.0</em>) – Transition window samples factor for moving between intervals.</p></li>
+<li><p><strong>beta</strong> (<em>float</em><em>, </em><em>default: 0.5</em>) – Linear transition window samples factor.</p></li>
+<li><p><strong>a</strong> (<em>int</em><em>, </em><em>optional</em>) – Transition window samples for moving between intervals.
+If not specified, it is equal to <cite>alpha</cite> * <cite>n</cite>. Cannot be lower than 2.</p></li>
+<li><p><strong>adaptive_smooth</strong> (<em>float</em><em>, </em><em>default: 1.0</em>) – Decreasing impact of <cite>adaptive_factor</cite> by raising it to the power
+<cite>1/adaptive_smooth</cite>.</p></li>
+<li><p><strong>exp</strong> (<em>float</em><em>, </em><em>default: 2.0</em>) – Exponent in exponential transition function.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>This class combines functionality of <a class="reference internal" href="#traffic_weaver.oversample.LinearAdaptiveOversample" title="traffic_weaver.oversample.LinearAdaptiveOversample"><code class="xref py py-func docutils literal notranslate"><span class="pre">LinearAdaptiveOversample()</span></code></a> to
+calculate adaptive transition
+window, and <a class="reference internal" href="#traffic_weaver.oversample.ExpFixedOversample" title="traffic_weaver.oversample.ExpFixedOversample"><code class="xref py py-func docutils literal notranslate"><span class="pre">ExpFixedOversample()</span></code></a> to combine both linear and exponential
+function to change
+between intervals.</p>
+<p>In particular, for each interval corresponding number of transition samples is
+calculated, respectively,
+and they are denoted as: <span class="math notranslate nohighlight">\(a_{k, l}\)</span>, <span class="math notranslate nohighlight">\(a_{k, r}\)</span>, <span class="math notranslate nohighlight">\(b_{k, l}\)</span>,
+and <span class="math notranslate nohighlight">\(b_{k, r}\)</span>.</p>
+<p>Based on found transition values, remaining points in function <span class="math notranslate nohighlight">\(z = g(x)\)</span>
+are calculated
+as a linear combination of transition point and previous value using linear and
+exponential functions.</p>
+<p>Two additional transition points are calculated, corresponding to <span class="math notranslate nohighlight">\(x_{k,
+b}\)</span> and <span class="math notranslate nohighlight">\(x_{k, n - b}\)</span>
+denoted as <cite>z_{k, b}</cite> and <cite>z_{k, n-b}</cite>. They are calculated as linear combination
+between
+<span class="math notranslate nohighlight">\(z_{k, 0}\)</span> and <span class="math notranslate nohighlight">\(y_{k, 0}\)</span>, and <span class="math notranslate nohighlight">\(z_{k+1, 0}\)</span> and <span class="math notranslate nohighlight">\(y_{k,
+0}\)</span>, respectively.</p>
+<p>Then the points in interval are calculated as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+    z_{k, i} = \mbox{lin_fit}(x_{k, i}, (x_{k, 0}, z_{k, 0}), (x_{k, b_{k,
+    l}}, z_{k, b_{k, l}})) &amp;   i \in \{0, b_{k, l} - 1\} \\
+    z_{k, i} = \mbox{lin_exp_xy_fit}(x_{k, i}, (x_{k, b_{k, l}}, z_{k, b_{k,
+    l}}), (x_{k, a_{k, l}}, y_{k, 0})) &amp;   i \in \{b_{k, l}, a_{k, l} - 1\} \\
+    z_{k,i} = y_{k,i} &amp; i \in \{a_{k, l}, n - a_{k, r}\} \\
+    z_{k, i} = \mbox{exp_lin_fit}(x_{k, i}, (x_{k, n - a_{k, r}}, y_{k, 0}),
+    (x_{k, n - b_{k, r}}, z_{k+1,n-b_{k,r}}))
+        &amp;  i \in \{n - a_{k, r} + 1, n - b_{k,r}\} \\
+    z_{k, i} = \mbox{lin_fit}(x_{k, i}, (x_{k, n - b_{k,r}}, y_{k, n - b_{k,
+    r}}), (x_{k, n}, z_{k+1,0}))
+        &amp;  i \in \{n - b_{k,r} + 1, n\}
+\end{cases}\end{split}\]</div>
+<p>where <cite>linfit</cite> linearly fits value based on two other points; <cite>lin_exp_xy_fit</cite>
+gradually fits combination of linear
+function and exponential function scaled from (0, 1) range and mirrored over y=x
+line;
+<cite>exp_lin_fit</cite> gradually fits combination of exponential function scaled from (0,
+1) range and linear function.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#traffic_weaver.oversample.LinearFixedOversample" title="traffic_weaver.oversample.LinearFixedOversample"><code class="xref py py-func docutils literal notranslate"><span class="pre">LinearFixedOversample()</span></code></a>, <code class="xref py py-func docutils literal notranslate"><span class="pre">funfit.lin_fit()</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">funfit.lin_exp_xy_fit()</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">funfit.exp_lin_fit()</span></code></p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="traffic_weaver.oversample.ExpAdaptiveOversample.oversample">
+<span class="sig-name descname"><span class="pre">oversample</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.oversample.ExpAdaptiveOversample.oversample" title="Link to this definition"></a></dt>
+<dd><p>Perform oversample on <cite>x</cite> and <cite>y</cite> variables.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>xs</strong> (<em>ndarray</em>) – Oversampled independent variable <cite>x</cite>.</p></li>
+<li><p><strong>ys</strong> (<em>ndarray</em>) – Oversampled dependent variable <cite>y</cite>.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="traffic_weaver.interval.html" class="btn btn-neutral float-left" title="traffic_weaver.interval module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="traffic_weaver.oversample_fun.html" class="btn btn-neutral float-right" title="traffic_weaver.oversample_fun module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Piotr T. Lechowicz.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
