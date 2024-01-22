@@ -79,7 +79,7 @@ Minimum processing example
     plt.show()
 
     # process time series
-    wv.oversample(10).integral_match().smooth(s=0.2).repeat(4).trend(
+    wv.repeat(4).trend(
         lambda x: 0.5 * x).noise(snr=60)
 
     # plot modified time series

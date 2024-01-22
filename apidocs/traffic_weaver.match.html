@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>traffic_weaver.stretch module &mdash; traffic_weaver  documentation</title>
+  <title>traffic_weaver.match module &mdash; traffic_weaver  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -21,9 +21,7 @@
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="traffic_weaver.utils module" href="traffic_weaver.utils.html" />
-    <link rel="prev" title="traffic_weaver.oversample_fun module" href="traffic_weaver.oversample_fun.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -47,27 +45,8 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="traffic_weaver.html">traffic_weaver</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="traffic_weaver.html#modules">Modules</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.weaver.html">traffic_weaver.weaver module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.datasets.html">traffic_weaver.datasets module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.funfit.html">traffic_weaver.funfit module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.interval.html">traffic_weaver.interval module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.oversample.html">traffic_weaver.oversample module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.oversample_fun.html">traffic_weaver.oversample_fun module</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">traffic_weaver.stretch module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.stretch.integral_matching_reference_stretch"><code class="docutils literal notranslate"><span class="pre">integral_matching_reference_stretch()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.stretch.integral_matching_stretch"><code class="docutils literal notranslate"><span class="pre">integral_matching_stretch()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.stretch.interval_integral_matching_stretch"><code class="docutils literal notranslate"><span class="pre">interval_integral_matching_stretch()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.stretch.left_piecewise_constant_integral_between_each_pair"><code class="docutils literal notranslate"><span class="pre">left_piecewise_constant_integral_between_each_pair()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.utils.html">traffic_weaver.utils module</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="traffic_weaver.html">traffic_weaver</a></li>
 </ul>
 
         </div>
@@ -84,10 +63,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="traffic_weaver.html">traffic weaver package</a></li>
-      <li class="breadcrumb-item active">traffic_weaver.stretch module</li>
+      <li class="breadcrumb-item active">traffic_weaver.match module</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/apidocs/traffic_weaver.stretch.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/apidocs/traffic_weaver.match.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -95,11 +73,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-traffic_weaver.stretch">
-<span id="traffic-weaver-stretch-module"></span><h1>traffic_weaver.stretch module<a class="headerlink" href="#module-traffic_weaver.stretch" title="Link to this heading"></a></h1>
+  <section id="module-traffic_weaver.match">
+<span id="traffic-weaver-match-module"></span><h1>traffic_weaver.match module<a class="headerlink" href="#module-traffic_weaver.match" title="Link to this heading"></a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="traffic_weaver.stretch.integral_matching_reference_stretch">
-<span class="sig-prename descclassname"><span class="pre">traffic_weaver.stretch.</span></span><span class="sig-name descname"><span class="pre">integral_matching_reference_stretch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.stretch.integral_matching_reference_stretch" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="traffic_weaver.match.integral_matching_reference_stretch">
+<span class="sig-prename descclassname"><span class="pre">traffic_weaver.match.</span></span><span class="sig-name descname"><span class="pre">integral_matching_reference_stretch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.match.integral_matching_reference_stretch" title="Link to this definition"></a></dt>
 <dd><p>Stretch function to match integrals in reference.</p>
 <p>Stretch function to match integrals piecewise constant function over the
 same domain.</p>
@@ -139,7 +117,7 @@ Stretched function matching integral value of reference function.</p>
 </dl>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver.stretch</span> <span class="kn">import</span> <span class="n">integral_matching_reference_stretch</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver.match</span> <span class="kn">import</span> <span class="n">integral_matching_reference_stretch</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y_ref</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">])</span>
@@ -151,8 +129,8 @@ Stretched function matching integral value of reference function.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="traffic_weaver.stretch.integral_matching_stretch">
-<span class="sig-prename descclassname"><span class="pre">traffic_weaver.stretch.</span></span><span class="sig-name descname"><span class="pre">integral_matching_stretch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">integral_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.stretch.integral_matching_stretch" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="traffic_weaver.match.integral_matching_stretch">
+<span class="sig-prename descclassname"><span class="pre">traffic_weaver.match.</span></span><span class="sig-name descname"><span class="pre">integral_matching_stretch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">integral_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.match.integral_matching_stretch" title="Link to this definition"></a></dt>
 <dd><p>Stretches function y=f(x) to match integral value.</p>
 <img alt="../_images/integral_matching.png" src="../_images/integral_matching.png" />
 <p>This method creates function <span class="math notranslate nohighlight">\(z=g(x)\)</span> from <span class="math notranslate nohighlight">\(y=f(x)\)</span> such that the
@@ -221,8 +199,8 @@ spline function <span class="math notranslate nohighlight">\(h(x)\)</span> which
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="traffic_weaver.stretch.interval_integral_matching_stretch">
-<span class="sig-prename descclassname"><span class="pre">traffic_weaver.stretch.</span></span><span class="sig-name descname"><span class="pre">interval_integral_matching_stretch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">integral_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval_point_indices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.stretch.interval_integral_matching_stretch" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="traffic_weaver.match.interval_integral_matching_stretch">
+<span class="sig-prename descclassname"><span class="pre">traffic_weaver.match.</span></span><span class="sig-name descname"><span class="pre">interval_integral_matching_stretch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">integral_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval_point_indices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.match.interval_integral_matching_stretch" title="Link to this definition"></a></dt>
 <dd><p>Stretches function y=f(x) to match integral value in given intervals.</p>
 <p>This method creates function <span class="math notranslate nohighlight">\(z=g(x)\)</span> from <span class="math notranslate nohighlight">\(y=f(x)\)</span> such that the
 integral of <span class="math notranslate nohighlight">\(g(x)\)</span> is equal to the provided corresponding <cite>integral_values</cite>
@@ -266,8 +244,8 @@ Stretched function matching integral value.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="traffic_weaver.stretch.left_piecewise_constant_integral_between_each_pair">
-<span class="sig-prename descclassname"><span class="pre">traffic_weaver.stretch.</span></span><span class="sig-name descname"><span class="pre">left_piecewise_constant_integral_between_each_pair</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.stretch.left_piecewise_constant_integral_between_each_pair" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="traffic_weaver.match.left_piecewise_constant_integral_between_each_pair">
+<span class="sig-prename descclassname"><span class="pre">traffic_weaver.match.</span></span><span class="sig-name descname"><span class="pre">left_piecewise_constant_integral_between_each_pair</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.match.left_piecewise_constant_integral_between_each_pair" title="Link to this definition"></a></dt>
 <dd><p>Integral values between each pair of points using piecewise constant approx.</p>
 <p>In particular, if function contains average values, then it corresponds to the
 exact value of the integral.</p>
@@ -292,10 +270,7 @@ exact value of the integral.</p>
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="traffic_weaver.oversample_fun.html" class="btn btn-neutral float-left" title="traffic_weaver.oversample_fun module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="traffic_weaver.utils.html" class="btn btn-neutral float-right" title="traffic_weaver.utils module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 

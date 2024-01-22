@@ -58,7 +58,6 @@
 <li class="toctree-l3"><a class="reference internal" href="traffic_weaver.interval.html">traffic_weaver.interval module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="traffic_weaver.oversample.html">traffic_weaver.oversample module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="traffic_weaver.oversample_fun.html">traffic_weaver.oversample_fun module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.stretch.html">traffic_weaver.stretch module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="traffic_weaver.utils.html">traffic_weaver.utils module</a></li>
 </ul>
 </li>
@@ -118,7 +117,7 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># at any moment get newly created and processed time series&#39; points</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">res_x</span><span class="p">,</span> <span class="n">res_y</span> <span class="o">=</span> <span class="n">wv</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># chain some other commands</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">wv</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span><span class="o">.</span><span class="n">trend</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">noise</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">wv</span><span class="o">.</span><span class="n">trend</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">noise</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># either get created points</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">res_x</span><span class="p">,</span> <span class="n">res_y</span> <span class="o">=</span> <span class="n">wv</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># or get them as spline to sample at any arbitrary point</span>

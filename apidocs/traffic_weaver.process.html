@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>traffic_weaver.process module &mdash; traffic_weaver  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            traffic_weaver
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="traffic_weaver.html">traffic_weaver</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">traffic_weaver</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">traffic_weaver.process module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/apidocs/traffic_weaver.process.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-traffic_weaver.process">
+<span id="traffic-weaver-process-module"></span><h1>traffic_weaver.process module<a class="headerlink" href="#module-traffic_weaver.process" title="Link to this heading"></a></h1>
+<p>Other time series processing.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.process.repeat">
+<span class="sig-prename descclassname"><span class="pre">traffic_weaver.process.</span></span><span class="sig-name descname"><span class="pre">repeat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repeats</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#traffic_weaver.process.repeat" title="Link to this definition"></a></dt>
+<dd><p>Extend time series.</p>
+<p>Independent variable is appended with the same spacing,
+dependent variable is copied.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>1-D array-like</em><em> of </em><em>size n</em>) – Independent variable in strictly increasing order.</p></li>
+<li><p><strong>y</strong> (<em>1-D array-like</em><em> of </em><em>size n</em>) – Dependent variable.</p></li>
+<li><p><strong>repeats</strong> (<em>int</em>) – How many times repeat time series.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>ndarray</em> – x, repeated independent variable.</p></li>
+<li><p><em>ndarray</em> – y, repeated dependent variable.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.process.trend">
+<span class="sig-prename descclassname"><span class="pre">traffic_weaver.process.</span></span><span class="sig-name descname"><span class="pre">trend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fun</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#traffic_weaver.process.trend" title="Link to this definition"></a></dt>
+<dd><p>Apply long-term trend to time series data using provided function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>1-D array-like</em><em> of </em><em>size n</em>) – Independent variable in strictly increasing order.</p></li>
+<li><p><strong>y</strong> (<em>1-D array-like</em><em> of </em><em>size n</em>) – Dependent variable.</p></li>
+<li><p><strong>fun</strong> (<em>Callable</em>) – Long term trend applied to the data in form of a function.
+Callable signature is <cite>(x) -&gt; y_shift</cite> where
+<cite>x</cite> independent variable axis normalized to (0, 1) range and
+<cite>y_shift</cite> is independent variable shift for that <cite>x</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>ndarray</em> – x, independent variable.</p></li>
+<li><p><em>ndarray</em> – y, shifted dependent variable.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.process.linear_trend">
+<span class="sig-prename descclassname"><span class="pre">traffic_weaver.process.</span></span><span class="sig-name descname"><span class="pre">linear_trend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.process.linear_trend" title="Link to this definition"></a></dt>
+<dd><p>Adding linear trend to time series.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>1-D array-like</em><em> of </em><em>size n</em>) – Independent variable in strictly increasing order.</p></li>
+<li><p><strong>y</strong> (<em>1-D array-like</em><em> of </em><em>size n</em>) – Dependent variable.</p></li>
+<li><p><strong>a</strong> (<em>float</em>) – Linear coefficient.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>ndarray</em> – x, independent variable.</p></li>
+<li><p><em>ndarray</em> – y, shifted dependent variable.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.process.spline_smooth">
+<span class="sig-prename descclassname"><span class="pre">traffic_weaver.process.</span></span><span class="sig-name descname"><span class="pre">spline_smooth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.process.spline_smooth" title="Link to this definition"></a></dt>
+<dd><p>Smooth a function y=x using smoothing splines</p>
+<p>Value of smoothing <cite>s</cite> needs to be set empirically by trial and error for
+specific data.</p>
+<p><a class="reference external" href="https://docs.scipy.org/doc/scipy/tutorial/interpolate/smoothing_splines.html">https://docs.scipy.org/doc/scipy/tutorial/interpolate/smoothing_splines.html</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>array_like</em>) – The data points defining a curve y = f(x)</p></li>
+<li><p><strong>y</strong> (<em>array_like</em>) – The data points defining a curve y = f(x)</p></li>
+<li><p><strong>s</strong> (<em>float</em><em>, </em><em>optional</em>) – A smoothing condition. <cite>s</cite> can be used to control the tradeoff between
+closeness and smoothness of fit. Larger <cite>s</cite> means more smoothing while smaller
+values of <cite>s</cite> indicate less smoothing. If <cite>s</cite> is None, it’s ‘good’ value is
+calculated based on number of samples and standard
+deviation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>BSpline</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>If <cite>s</cite> is not provided, it is calculated as:</p>
+<div class="math notranslate nohighlight">
+\[s = m \sigma^2\]</div>
+<p>where <span class="math notranslate nohighlight">\(m\)</span> is the number of samples and <span class="math notranslate nohighlight">\(\sigma\)</span> is the estimated
+standard deviation.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.process.noise_gauss">
+<span class="sig-prename descclassname"><span class="pre">traffic_weaver.process.</span></span><span class="sig-name descname"><span class="pre">noise_gauss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snr_in_db</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.process.noise_gauss" title="Link to this definition"></a></dt>
+<dd><p>Add gaussian noise to the signal.</p>
+<p>Add noise targeting provided <cite>snr</cite> value. If <cite>snr</cite> is not specified,
+standard deviation <cite>std</cite> value is used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>np.ndarray</em>) – Signal for which noise is inserted.</p></li>
+<li><p><strong>snr</strong> (<em>float</em><em> | </em><em>list</em><em>[</em><em>float</em><em>] </em><em>| </em><em>ndarray</em><em>[</em><em>float</em><em>]</em><em>, </em><em>optional</em>) – Signal-to-noise ratio; if <cite>snr_in_db</cite> is True, either is treated
+in decibels or linear values. It can be provided as scalar or list of floats.
+If list of floats provided, for each input element of <cite>a</cite>, corresponding
+value of <cite>snr</cite>
+is considered.</p></li>
+<li><p><strong>snr_in_db</strong> (<em>bool</em><em>, </em><em>default: True</em>) – Determines whether treat <cite>snr</cite> in decibels or linear.</p></li>
+<li><p><strong>std</strong> (<em>float</em><em>, </em><em>default=1.0</em>) – Standard deviation of the noise. Used if <cite>snr</cite> is not provided.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Noised signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Signal-to-noise ratio is defined as:</p>
+<div class="math notranslate nohighlight">
+\[SNR = 10*log_{10}(S/N)\]</div>
+<p>where <cite>S</cite> is signal power and <cite>N</cite> is noise power.</p>
+<p>Gaussian noise has flat power specturm</p>
+<div class="math notranslate nohighlight">
+\[N = var(n) = std(n) ^ 2\]</div>
+<p>Signal power is calculated as:</p>
+<div class="math notranslate nohighlight">
+\[E[S^2] = mean(s^2)\]</div>
+<p>If <cite>snr</cite> is in decibels:</p>
+<div class="math notranslate nohighlight">
+\[std(n) = sqrt(mean(s^2) / (10^{SNR_{db}/10}))\]</div>
+<p>Else if <cite>snr</cite> is in linear scale:</p>
+<div class="math notranslate nohighlight">
+\[std(n) = sqrt(mean(s^2) / SNR)\]</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">https</span></code></dt><dd><p>//en.wikipedia.org/wiki/Signal-to-noise_ratio</p>
+</dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.process.average">
+<span class="sig-prename descclassname"><span class="pre">traffic_weaver.process.</span></span><span class="sig-name descname"><span class="pre">average</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.process.average" title="Link to this definition"></a></dt>
+<dd><p>Average time series over n samples</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>1-D array-like</em><em> of </em><em>size n</em>) – Independent variable in strictly increasing order.</p></li>
+<li><p><strong>y</strong> (<em>1-D array-like</em><em> of </em><em>size n</em>) – Dependent variable.</p></li>
+<li><p><strong>interval</strong> (<em>int</em>) – Interval for which calculate the average value.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>ndarray</em> – x, independent variable.</p></li>
+<li><p><em>ndarray</em> – y, dependent variable.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Piotr T. Lechowicz.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
