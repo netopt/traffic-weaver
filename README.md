@@ -1,5 +1,8 @@
 # Traffic Weaver
 
+[![PyPI version](https://badge.fury.io/py/traffic-weaver.svg)](https://badge.fury.io/py/traffic-weaver)
+[![pages-build-deployment](https://github.com/netopt/traffic_weaver/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/netopt/traffic_weaver/actions/workflows/pages/pages-build-deployment)
+
 Create semi-synthetic time-series based on averaged data.
 
 [documentation](https://netopt.github.io/traffic_weaver/)
