@@ -1,6 +1,6 @@
 import numpy as np
 
-from .utils import spline_smooth
+from .process import spline_smooth
 
 
 def integral_matching_reference_stretch(x, y, x_ref, y_ref, alpha=1.0, s=None):
@@ -52,7 +52,7 @@ def integral_matching_reference_stretch(x, y, x_ref, y_ref, alpha=1.0, s=None):
     Examples
     --------
     >>> import numpy as np
-    >>> from traffic_weaver.stretch import integral_matching_reference_stretch
+    >>> from traffic_weaver.match import integral_matching_reference_stretch
     >>> y = np.array([1, 1.5, 2, 2.5, 3, 3.5, 4])
     >>> x = np.array([0, 0.5, 1, 1.5, 2, 2.5, 3])
     >>> y_ref = np.array([2.5, 2.5, 4, 3.5])

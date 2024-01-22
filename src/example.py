@@ -1,3 +1,6 @@
+import traffic_weaver.process
+
+
 def small_example():
     from traffic_weaver import Weaver
     from traffic_weaver.datasets import load_mobile_video
@@ -18,7 +21,7 @@ def small_example():
     plt.show()
 
     # process time series
-    wv.oversample(10).integral_match().smooth(s=0.2).repeat(4).trend(
+    wv.repeat(4).trend(
         lambda x: 0.5 * x).noise(snr=60)
 
     # plot modified time series

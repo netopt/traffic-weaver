@@ -1,7 +1,8 @@
 from . import datasets
-from . import interval
 from . import oversample
-from . import stretch
+from . import match
+from . import process
+from . import interval
 from . import utils
 from ._version import __version__
 from .oversample import (
@@ -18,9 +19,10 @@ __all__ = [
     Weaver,
     __version__,
     datasets,
-    interval,
     oversample,
-    stretch,
+    match,
+    process,
+    interval,
     utils,
     LinearFixedOversample,
     LinearAdaptiveOversample,

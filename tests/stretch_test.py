@@ -2,7 +2,10 @@ import numpy as np
 import pytest
 from pytest import approx
 
-from traffic_weaver.stretch import integral_matching_stretch, interval_integral_matching_stretch
+from traffic_weaver.match import (
+    integral_matching_stretch,
+    interval_integral_matching_stretch,
+)
 
 
 @pytest.fixture
@@ -56,18 +59,32 @@ def test_integral_matching_stretch_with_missing_expected_integral(x, y):
 
 
 def get_integrals_based_on_interval_points(x, y, interval_points):
-    return [np.trapz(y[interval_points[i]: interval_points[i + 1] + 1],
-        x[interval_points[i]: interval_points[i + 1] + 1], ) for i in
-        range(len(interval_points) - 1)]
+    return [
+        np.trapz(
+            y[interval_points[i] : interval_points[i + 1] + 1],
+            x[interval_points[i] : interval_points[i + 1] + 1],
+        )
+        for i in range(len(interval_points) - 1)
+    ]
 
 
-@pytest.mark.parametrize("expected_integrals, interval_points",
-    [([20.2, 12, 5], [0, 3, 5, 9]), ([23.25, 10, 20], [0, 3, 6, 9]),
-        ([30, 6, 2], None), ], )
-def test_interval_integral_with_matching_stretch(expected_integrals, interval_points, y,
-        x):
-    y2 = interval_integral_matching_stretch(x, y, integral_values=expected_integrals,
-        interval_point_indices=interval_points, )
+@pytest.mark.parametrize(
+    "expected_integrals, interval_points",
+    [
+        ([20.2, 12, 5], [0, 3, 5, 9]),
+        ([23.25, 10, 20], [0, 3, 6, 9]),
+        ([30, 6, 2], None),
+    ],
+)
+def test_interval_integral_with_matching_stretch(
+    expected_integrals, interval_points, y, x
+):
+    y2 = interval_integral_matching_stretch(
+        x,
+        y,
+        integral_values=expected_integrals,
+        interval_point_indices=interval_points,
+    )
 
     # if no interval points given, they are created evenly
     if interval_points is None:
@@ -92,8 +109,12 @@ def test_interval_integral_matching_stretch_with_missing_x(y):
     expected_integrals = [49.46, 25]
     interval_points = [0, 3, 8]
 
-    y2 = interval_integral_matching_stretch(None, y, integral_values=expected_integrals,
-        interval_point_indices=interval_points)
+    y2 = interval_integral_matching_stretch(
+        None,
+        y,
+        integral_values=expected_integrals,
+        interval_point_indices=interval_points,
+    )
     x = np.arange(len(y2))
 
     stretched_integrals = get_integrals_based_on_interval_points(x, y2, interval_points)
@@ -107,8 +128,9 @@ def test_interval_integral_matching_stretch_with_missing_x(y):
 def test_interval_integral_matching_stretch_with_missing_expected_integral(x, y):
     interval_points = [0, 3, 10]
 
-    y2 = interval_integral_matching_stretch(x, y,
-        interval_point_indices=interval_points)
+    y2 = interval_integral_matching_stretch(
+        x, y, interval_point_indices=interval_points
+    )
 
     stretched_integrals = get_integrals_based_on_interval_points(x, y2, interval_points)
     expected_integrals = [0] * (len(interval_points) - 1)
@@ -119,8 +141,9 @@ def test_interval_integral_matching_stretch_with_missing_expected_integral(x, y)
         assert y2[interval_points[i + 1]] == y[interval_points[i + 1]]
 
 
-def test_fail_integral_matching_stretch_with_missing_expected_integral_and_intervals(x,
-        y):
+def test_fail_integral_matching_stretch_with_missing_expected_integral_and_intervals(
+    x, y
+):
     with pytest.raises(ValueError) as exc_info:
         interval_integral_matching_stretch(x, y)
     assert exc_info.type is ValueError

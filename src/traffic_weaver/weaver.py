@@ -1,8 +1,8 @@
 import numpy as np
 
+from .match import integral_matching_reference_stretch
 from .oversample import AbstractOversample, ExpAdaptiveOversample
-from .stretch import integral_matching_reference_stretch
-from .utils import noise_gauss, repeat, trend, spline_smooth
+from .process import repeat, trend, spline_smooth, noise_gauss
 
 
 class Weaver:
@@ -28,7 +28,7 @@ class Weaver:
     >>> # at any moment get newly created and processed time series' points
     >>> res_x, res_y = wv.get()
     >>> # chain some other commands
-    >>> _ = wv.repeat(7).trend(lambda x: 0.5 * x).noise(40)
+    >>> _ = wv.trend(lambda x: 0.5 * x).noise(40)
     >>> # either get created points
     >>> res_x, res_y = wv.get()
     >>> # or get them as spline to sample at any arbitrary point

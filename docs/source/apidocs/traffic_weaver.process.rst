@@ -1,7 +1,7 @@
-traffic\_weaver.stretch module
+traffic\_weaver.process module
 ==============================
 
-.. automodule:: traffic_weaver.stretch
+.. automodule:: traffic_weaver.process
    :members:
    :undoc-members:
    :show-inheritance:

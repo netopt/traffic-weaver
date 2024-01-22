@@ -13,10 +13,10 @@ prepare:
 install: clean
 	pip-sync requirements.txt dev-requirements.txt
 
-create-release:
+tag-release:
 	commit-and-tag-version
 
-create-prerelease:
+tag-prerelease:
 	commit-and-tag-version --prerelease alpha
 
 upload:
@@ -30,5 +30,5 @@ test:
 	pytest
 
 test-coverage:
-	pytest --cov
+	pytest --cov=traffic_weaver
 
