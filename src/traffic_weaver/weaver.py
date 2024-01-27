@@ -6,7 +6,7 @@ from .process import repeat, trend, spline_smooth, noise_gauss
 
 
 class Weaver:
-    r"""Interface for recreating timeseries.
+    r"""Interface for recreating time series.
 
     Parameters
     ----------

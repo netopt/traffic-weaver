@@ -9,8 +9,8 @@ Create semi-synthetic time-series based on averaged data.
 
 ## Description
 
-General scope of Traffic Weaver is to read averaged time series averaged and
-to create semi-synthetic signal with finner granularity that after averaging
+General scope of Traffic Weaver is to read averaged time series and
+to create semi-synthetic signal with finer granularity that after averaging
 matches the original signal provided.
 Following tools are applied to recreate the signal.
 
