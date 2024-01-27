@@ -19,7 +19,7 @@ tag-release:
 tag-prerelease:
 	commit-and-tag-version --prerelease alpha
 
-upload:
+upload: clean
 	python -m build
 	twine upload dist/*
 
