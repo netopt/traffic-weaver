@@ -54,10 +54,7 @@
 <li class="toctree-l3"><a class="reference internal" href="traffic_weaver.interval.html">traffic_weaver.interval module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="traffic_weaver.oversample.html">traffic_weaver.oversample module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="traffic_weaver.oversample_fun.html">traffic_weaver.oversample_fun module</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">traffic_weaver.utils module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.utils.add_one_sample"><code class="docutils literal notranslate"><span class="pre">add_one_sample()</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">traffic_weaver.utils module</a></li>
 </ul>
 </li>
 </ul>
@@ -89,37 +86,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-traffic_weaver.utils">
-<span id="traffic-weaver-utils-module"></span><h1>traffic_weaver.utils module<a class="headerlink" href="#module-traffic_weaver.utils" title="Link to this heading"></a></h1>
-<p>Other time series utilities</p>
-<dl class="py function">
-<dt class="sig sig-object py" id="traffic_weaver.utils.add_one_sample">
-<span class="sig-prename descclassname"><span class="pre">traffic_weaver.utils.</span></span><span class="sig-name descname"><span class="pre">add_one_sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">make_periodic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.utils.add_one_sample" title="Link to this definition"></a></dt>
-<dd><p>Add one sample to the end of time series.</p>
-<p>Add one sample to <cite>x</cite> and <cite>y</cite> array. Newly added point <cite>x_i</cite> point is distant from
-the last point of <cite>x</cite> same as the last from the one before last point.
-If <cite>make_periodic</cite> is False, newly added <cite>y_i</cite> point is the same as the last  point
-of <cite>y</cite>. If <cite>make_periodic</cite> is True, newly added point is the same as the first point
-of <cite>y</cite>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<em>1-D array-like</em><em> of </em><em>size n</em>) – Independent variable in strictly increasing order.</p></li>
-<li><p><strong>y</strong> (<em>1-D array-like</em><em> of </em><em>size n</em>) – Dependent variable.</p></li>
-<li><p><strong>make_periodic</strong> (<em>bool</em><em>, </em><em>default: False</em>) – If false, append the last <cite>y</cite> point to <cite>y</cite> array.
-If true, append the first <cite>y</cite> point to <cite>y</cite> array.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><em>ndarray</em> – x, independent variable.</p></li>
-<li><p><em>ndarray</em> – y, dependent variable.</p></li>
-</ul>
-</p>
-</dd>
-</dl>
-</dd></dl>
-
+  <section id="traffic-weaver-utils-module">
+<h1>traffic_weaver.utils module<a class="headerlink" href="#traffic-weaver-utils-module" title="Link to this heading"></a></h1>
 </section>
 
 
