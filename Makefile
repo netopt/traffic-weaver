@@ -30,5 +30,4 @@ test:
 	pytest
 
 test-coverage:
-	pytest --cov=traffic_weaver
-
+	pytest --cov=traffic_weaver --cov-report term-missing --cov-report html --cov-report xml

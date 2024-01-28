@@ -6,7 +6,9 @@ import numpy as np
 
 
 def __open_datasets_dict():
-    filename = os.path.join(os.path.dirname(__file__), './datasets/example_datasets.json')
+    filename = os.path.join(
+        os.path.dirname(__file__), "./datasets/example_datasets.json"
+    )
     with open(filename) as f:
         dataset_dict = json.load(f)
         return dataset_dict
@@ -14,7 +16,7 @@ def __open_datasets_dict():
 
 def __example_dataset(fun):
     def wrapper():
-        dataset_name = fun.__name__[fun.__name__.find('_') + 1 :]
+        dataset_name = fun.__name__[fun.__name__.find("_") + 1 :]
         y = np.array(eval(__open_datasets_dict()[dataset_name]))
         x = np.arange(0, len(y))
         return x, y

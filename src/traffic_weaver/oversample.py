@@ -9,7 +9,7 @@ from scipy.interpolate import CubicSpline
 
 from .funfit import lin_fit, lin_exp_xy_fit, exp_lin_fit
 from .interval import IntervalArray
-from .oversample_fun import (
+from .array_utils import (
     oversample_linspace,
     oversample_piecewise_constant,
 )
@@ -291,7 +291,7 @@ class LinearFixedOversample(AbstractOversample):
         z.extend_constant(direction='both')
 
         # move through each interval
-        for k in range(1, x.nr_of_intervals() - 1):
+        for k in range(1, x.nr_of_full_intervals() - 1):
             # calculate transition points
             y_0 = y[k, 0]
             z_0 = lin_fit(
@@ -462,7 +462,7 @@ class LinearAdaptiveOversample(AbstractOversample):
         gammas = [None]
         a_ls = [1]
         a_rs = [1]
-        for k in range(1, x.nr_of_intervals() - 1):
+        for k in range(1, x.nr_of_full_intervals() - 1):
             nom = abs(y[k + 1, 0] - y[k, 0])
             denom = abs(y[k, 0] - y[k - 1, 0])
             if nom == 0 and denom == 0:
@@ -514,7 +514,7 @@ class LinearAdaptiveOversample(AbstractOversample):
             x, y, self.a, self.adaptive_smooth
         )
 
-        for k in range(1, x.nr_of_intervals() - 1):
+        for k in range(1, x.nr_of_full_intervals() - 1):
             y_0 = y[k, 0]
 
             # find transition points
@@ -687,7 +687,7 @@ class ExpFixedOversample(AbstractOversample):
         z.extend_constant(direction='both')
 
         # move through each interval
-        for k in range(1, x.nr_of_intervals() - 1):
+        for k in range(1, x.nr_of_full_intervals() - 1):
             # calculate transition points
             y_0 = y[k, 0]
             z_0 = lin_fit(x[k, 0], (x[k, -a_r], y[k - 1, 0]), (x[k, a_l], y[k, 0]))
@@ -872,7 +872,7 @@ class ExpAdaptiveOversample(AbstractOversample):
         b_rs = [int(beta * r) for r in a_rs]
 
         # move through each interval
-        for k in range(1, x.nr_of_intervals() - 1):
+        for k in range(1, x.nr_of_full_intervals() - 1):
             # calculate transition points
             y_0 = y[k, 0]
 

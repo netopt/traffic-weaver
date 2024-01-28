@@ -1,5 +1,5 @@
 r"""Other time series processing."""
-from typing import Callable, Tuple
+from typing import Callable, Tuple, Union, List
 
 import numpy as np
 from scipy.interpolate import BSpline, splrep
@@ -40,7 +40,7 @@ def repeat(x, y, repeats: int) -> tuple[np.ndarray, np.ndarray]:
     return x, y
 
 
-def trend(x, y, fun: Callable[[float], float]) -> Tuple[np.ndarray, np.ndarray]:
+def trend(x, y, fun: Callable[[np.ndarray], np.ndarray]) -> Tuple[np.ndarray, np.ndarray]:
     r"""Apply long-term trend to time series data using provided function.
 
     Parameters
@@ -62,6 +62,8 @@ def trend(x, y, fun: Callable[[float], float]) -> Tuple[np.ndarray, np.ndarray]:
     ndarray
         y, shifted dependent variable.
     """
+    x = np.asarray(x, dtype=np.float64)
+    y = np.asarray(y, dtype=np.float64)
     range_x = x[-1] - x[0]
     for i in range(len(x)):
         y[i] += fun(x[i] / range_x)
@@ -124,12 +126,11 @@ def spline_smooth(x: np.ndarray, y: np.ndarray, s=None):
     standard deviation.
     """
     if s is None:
-        print("here")
         s = len(y) * np.std(y) ** 2
     return BSpline(*splrep(x, y, s=s))
 
 
-def noise_gauss(a: np.ndarray, snr=None, snr_in_db=True, std=1.0):
+def noise_gauss(a: Union[np.ndarray, List], snr=None, snr_in_db=True, std=1.0):
     r"""Add gaussian noise to the signal.
 
     Add noise targeting provided `snr` value. If `snr` is not specified,
@@ -189,7 +190,10 @@ def noise_gauss(a: np.ndarray, snr=None, snr_in_db=True, std=1.0):
     https://en.wikipedia.org/wiki/Signal-to-noise_ratio
 
     """
+    a = np.asarray(a)
     if snr is not None:
+        if not np.isscalar(snr):
+            snr = np.asarray(snr)
         sp = np.mean(a**2)  # signal power
 
         if snr_in_db is True:
@@ -199,7 +203,7 @@ def noise_gauss(a: np.ndarray, snr=None, snr_in_db=True, std=1.0):
     else:
         std_n = std
 
-    a = np.asarray(a)
+
     noise = np.random.normal(loc=0, scale=std_n, size=a.shape)
     return a + noise
 

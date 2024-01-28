@@ -3,7 +3,7 @@ from . import oversample
 from . import match
 from . import process
 from . import interval
-from . import utils
+from . import array_utils
 from ._version import __version__
 from .oversample import (
     LinearFixedOversample,
@@ -23,7 +23,7 @@ __all__ = [
     match,
     process,
     interval,
-    utils,
+    array_utils,
     LinearFixedOversample,
     LinearAdaptiveOversample,
     ExpFixedOversample,

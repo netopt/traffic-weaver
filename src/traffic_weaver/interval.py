@@ -3,16 +3,16 @@ r"""Wrapping array into intervals.
 Contains IntervalArray structure wrapping array and allowing to access it by providing
 interval value.
 """
-from typing import Callable, Union
+from typing import Callable, Union, List
 
 import numpy as np
 
-from .oversample_fun import (oversample_linspace, oversample_piecewise_constant,
-                             extend_linspace, extend_constant, )
+from .array_utils import (oversample_linspace, oversample_piecewise_constant,
+                          extend_linspace, extend_constant, )
 
 
 class IntervalArray:
-    def __init__(self, a: np.ndarray, n: int = 1):
+    def __init__(self, a: Union[np.ndarray, List], n: int = 1):
         r"""Wrap 1-D array into 2-D interval structure of length n
 
         Reshapes array `a` of size `n` into 2-D array of shape `(len(a)/n, n)`.
@@ -115,7 +115,7 @@ class IntervalArray:
         """
         self.a = extend_constant(self.a, self.n, direction=direction)
 
-    def nr_of_intervals(self):
+    def nr_of_full_intervals(self):
         return len(self.a) // self.n
 
     def __len__(self):
@@ -138,11 +138,12 @@ class IntervalArray:
                              axis=1)
         return res if not drop_last else res[:-1]
 
-    def oversample(self, num: int,
-                   method: Callable[[Union[list[float], np.ndarray], int], np.ndarray], ):
+    def oversample(self, num: int, method: Callable[
+        [Union[list[float], np.ndarray], int], np.ndarray], ):
         prev_n = self.n
         a = method(self.a, num)
         return IntervalArray(a, prev_n * num)
+
     def oversample_linspace(self, num: int):
         return self.oversample(num, method=oversample_linspace)
 

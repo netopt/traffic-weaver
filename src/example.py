@@ -4,14 +4,14 @@ import traffic_weaver.process
 def small_example():
     from traffic_weaver import Weaver
     from traffic_weaver.datasets import load_mobile_video
-    from traffic_weaver.utils import add_one_sample
+    from traffic_weaver.array_utils import append_one_sample
     import matplotlib.pyplot as plt
 
     # load exemplary dataset
     x, y = load_mobile_video()
 
     # add one sample to the end as file contains averaged values for time intervals
-    x, y = add_one_sample(x, y, make_periodic=True)
+    x, y = append_one_sample(x, y, make_periodic=True)
 
     wv = Weaver(x, y)
 
@@ -45,7 +45,7 @@ def larger_example():
 
     from traffic_weaver import Weaver
     from traffic_weaver.datasets import load_mobile_video
-    from traffic_weaver.utils import add_one_sample
+    from traffic_weaver.array_utils import append_one_sample
 
     font = {'family': 'serif', 'serif': 'Palatino', 'size': 12}
     matplotlib.rc('font', **font)
@@ -57,7 +57,7 @@ def larger_example():
 
     x, y = load_mobile_video()
     # add one point to the end of data
-    x, y = add_one_sample(x, y, make_periodic=True)
+    x, y = append_one_sample(x, y, make_periodic=True)
 
     wv = Weaver(x, y)
 

@@ -10,3 +10,4 @@
 .coverage
 .husky
 __pycache__/
+/htmlcov/

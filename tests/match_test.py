@@ -1,11 +1,12 @@
 import numpy as np
 import pytest
+from numpy.testing import assert_array_almost_equal
 from pytest import approx
 
-from traffic_weaver.match import (
-    integral_matching_stretch,
-    interval_integral_matching_stretch,
-)
+from traffic_weaver.match import (integral_matching_stretch,
+                                  interval_integral_matching_stretch,
+                                  integral_matching_reference_stretch,
+                                  left_piecewise_constant_integral_between_each_pair, )
 
 
 @pytest.fixture
@@ -147,3 +148,21 @@ def test_fail_integral_matching_stretch_with_missing_expected_integral_and_inter
     with pytest.raises(ValueError) as exc_info:
         interval_integral_matching_stretch(x, y)
     assert exc_info.type is ValueError
+
+
+def test_integral_matching_reference_stretch(x, y):
+    y_ref = [1, 2.1, 6, 2, 3, 6]
+    x_ref = x[::2]
+    expected_y = [1.0, 0.26, 2.1, 0.8, 6.0, 8.0, 2.0, 1.5, 3.0, 2.0, 6.0]
+
+    y2 = integral_matching_reference_stretch(x, y, x_ref, y_ref)
+
+    assert_array_almost_equal(y2, expected_y, decimal=2)
+
+    expected_integrals = left_piecewise_constant_integral_between_each_pair(
+        x_ref, y_ref
+    )
+    actual_integrals = get_integrals_based_on_interval_points(
+        x, y2, range(0, len(x), 2)
+    )
+    assert_array_almost_equal(actual_integrals, expected_integrals, decimal=2)

@@ -18,10 +18,10 @@ class Weaver:
     Examples
     --------
     >>> from traffic_weaver import Weaver
-    >>> from traffic_weaver.utils import add_one_sample
+    >>> from traffic_weaver.array_utils import append_one_sample
     >>> from traffic_weaver.datasets import load_mobile_video
     >>> x, y = load_mobile_video()
-    >>> x, y = add_one_sample(x, y, make_periodic=True)
+    >>> x, y = append_one_sample(x, y, make_periodic=True)
     >>> wv = Weaver(x, y)
     >>> # chain some command
     >>> _ = wv.oversample(10).integral_match().smooth(s=0.2)
@@ -52,7 +52,7 @@ class Weaver:
         r"""Return function x,y tuple after performed processing."""
         return self.x, self.y
 
-    def get_original_function(self):
+    def get_original(self):
         r"""Return the original function x,y tuple provided for the class."""
         return self.original_x, self.original_y
 
