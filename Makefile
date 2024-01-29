@@ -19,7 +19,7 @@ tag-release:
 tag-prerelease:
 	commit-and-tag-version --prerelease alpha
 
-upload: clean test test-coverage
+upload: clean test
 	python -m build
 	twine upload dist/*
 
@@ -29,4 +29,4 @@ docs: clean
 test: clean
 	pytest --cov=traffic_weaver --cov-report term-missing --cov-report html
 	mkdir -p _images
-	coverage-badge -o _images/coverage.svg
+	coverage-badge -f -o _images/coverage.svg
