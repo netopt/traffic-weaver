@@ -38,4 +38,3 @@ packages = ["traffic_weaver"]
 [tool.setuptools.dynamic]
 dependencies = { file = ["requirements.in"] }
 optional-dependencies.dev = { file = ["dev-requirements.in"] }
-
