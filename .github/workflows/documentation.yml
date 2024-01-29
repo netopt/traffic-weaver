@@ -1,4 +1,4 @@
-name: Deploy Sphinx documentation to Pages
+name: documentation
 
 on:
   push:
@@ -19,5 +19,3 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ${{ steps.deployment.outputs.artifact }}
-
- 
