@@ -2,6 +2,8 @@
 
 [![PyPI version](https://badge.fury.io/py/traffic-weaver.svg)](https://badge.fury.io/py/traffic-weaver)
 [![pages-build-deployment](https://github.com/netopt/traffic_weaver/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/netopt/traffic_weaver/actions/workflows/pages/pages-build-deployment)
+[![Deploy Sphinx documentation to Pages](https://github.com/netopt/traffic-weaver/actions/workflows/documentation.yml/badge.svg)](https://github.com/netopt/traffic-weaver/actions/workflows/documentation.yml)
+![coverage badge](./_images/coverage.svg)
 
 Create semi-synthetic time-series based on averaged data.
 
@@ -27,7 +29,7 @@ time series
 intermediate points (b). Next, it is stretched to match integral of the original
 function (c). Further, it can be smoothened with spline function (d).
 Signal can be repeated several times (e) to apply certain long-term trend (f).
-Finally, noise can be introduced to signal (g). (h) presents averaged two periods 
+Finally, noise can be introduced to signal (g). (h) presents averaged two periods
 of created signal to show that they match the original signal.
 
 <img src="docs/source/_static/images/signal_processing.png" alt="Signal processing" width="600px" />
