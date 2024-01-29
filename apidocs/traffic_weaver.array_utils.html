@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>traffic_weaver.array_utils module &mdash; traffic_weaver  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="traffic_weaver.match module" href="traffic_weaver.match.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            traffic_weaver
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="traffic_weaver.html">traffic_weaver</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="traffic_weaver.html#modules">Modules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.weaver.html">traffic_weaver.weaver module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.datasets.html">traffic_weaver.datasets module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.funfit.html">traffic_weaver.funfit module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.interval.html">traffic_weaver.interval module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.oversample.html">traffic_weaver.oversample module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html">traffic_weaver.process module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.match.html">traffic_weaver.match module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">traffic_weaver.array_utils module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.array_utils.append_one_sample"><code class="docutils literal notranslate"><span class="pre">append_one_sample()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.array_utils.oversample_linspace"><code class="docutils literal notranslate"><span class="pre">oversample_linspace()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.array_utils.oversample_piecewise_constant"><code class="docutils literal notranslate"><span class="pre">oversample_piecewise_constant()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.array_utils.extend_linspace"><code class="docutils literal notranslate"><span class="pre">extend_linspace()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.array_utils.extend_constant"><code class="docutils literal notranslate"><span class="pre">extend_constant()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">traffic_weaver</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="traffic_weaver.html">traffic weaver package</a></li>
+      <li class="breadcrumb-item active">traffic_weaver.array_utils module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/apidocs/traffic_weaver.array_utils.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="traffic-weaver-array-utils-module">
+<h1>traffic_weaver.array_utils module<a class="headerlink" href="#traffic-weaver-array-utils-module" title="Link to this heading"></a></h1>
+<p id="module-traffic_weaver.array_utils">Array utilities.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.array_utils.append_one_sample">
+<span class="sig-prename descclassname"><span class="pre">traffic_weaver.array_utils.</span></span><span class="sig-name descname"><span class="pre">append_one_sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">make_periodic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#traffic_weaver.array_utils.append_one_sample" title="Link to this definition"></a></dt>
+<dd><p>Add one sample to the end of time series.</p>
+<p>Add one sample to <cite>x</cite> and <cite>y</cite> array. Newly added point <cite>x_i</cite> point is distant from
+the last point of <cite>x</cite> same as the last from the one before last point.
+If <cite>make_periodic</cite> is False, newly added <cite>y_i</cite> point is the same as the last  point
+of <cite>y</cite>. If <cite>make_periodic</cite> is True, newly added point is the same as the first point
+of <cite>y</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>1-D array-like</em><em> of </em><em>size n</em>) – Independent variable in strictly increasing order.</p></li>
+<li><p><strong>y</strong> (<em>1-D array-like</em><em> of </em><em>size n</em>) – Dependent variable.</p></li>
+<li><p><strong>make_periodic</strong> (<em>bool</em><em>, </em><em>default: False</em>) – If false, append the last <cite>y</cite> point to <cite>y</cite> array.
+If true, append the first <cite>y</cite> point to <cite>y</cite> array.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>ndarray</em> – x, independent variable.</p></li>
+<li><p><em>ndarray</em> – y, dependent variable.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.array_utils.oversample_linspace">
+<span class="sig-prename descclassname"><span class="pre">traffic_weaver.array_utils.</span></span><span class="sig-name descname"><span class="pre">oversample_linspace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.array_utils.oversample_linspace" title="Link to this definition"></a></dt>
+<dd><p>Oversample array using linspace between each consecutive pair of array elements.</p>
+<p>E.g., Array [1, 2, 3] oversampled by 2 becomes [1, 1.5, 2, 2.5, 3].</p>
+<p>If input array is of size <cite>n</cite>, then resulting array is of size <cite>(n - 1) * num + 1</cite>.</p>
+<p>If <cite>n</cite> is lower than 2, the original array is returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>1-D array</em>) – Input array to oversample.</p></li>
+<li><p><strong>num</strong> (<em>int</em>) – Number of elements inserted between each pair of array elements. Larger or
+equal to 2.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>1-D array containing <cite>num</cite> linspaced elements between each array elements’ pair.
+Its length is equal to <cite>(len(a) - 1) * num + 1</cite></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver.array_utils</span> <span class="kn">import</span> <span class="n">oversample_linspace</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">oversample_linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]),</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[1.0, 1.25, 1.5, 1.75, 2.0, 2.25, 2.5, 2.75, 3.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.array_utils.oversample_piecewise_constant">
+<span class="sig-prename descclassname"><span class="pre">traffic_weaver.array_utils.</span></span><span class="sig-name descname"><span class="pre">oversample_piecewise_constant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.array_utils.oversample_piecewise_constant" title="Link to this definition"></a></dt>
+<dd><p>Oversample array using same left value between each consecutive pair of array
+elements.</p>
+<p>E.g., Array [1, 2, 3] oversampled by 2 becomes [1, 1, 2, 2, 3].</p>
+<p>If input array is of size <cite>n</cite>, then resulting array is of size <cite>(n - 1) * num + 1</cite>.</p>
+<p>If <cite>n</cite> is lower than 2, the original array is returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>1-D array</em>) – Input array to oversample.</p></li>
+<li><p><strong>num</strong> (<em>int</em>) – Number of elements inserted between each pair of array elements. Larger or
+equal to 2.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>1-D array containing <cite>num</cite> elements between each array elements’ pair.
+Its length is equal to <cite>(len(a) - 1) * num + 1</cite></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver.array_utils</span> <span class="kn">import</span> <span class="n">oversample_piecewise_constant</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">oversample_piecewise_constant</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">]),</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[1.0, 1.0, 1.0, 1.0, 2.0, 2.0, 2.0, 2.0, 3.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.array_utils.extend_linspace">
+<span class="sig-prename descclassname"><span class="pre">traffic_weaver.array_utils.</span></span><span class="sig-name descname"><span class="pre">extend_linspace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'both'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lstart</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rstop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.array_utils.extend_linspace" title="Link to this definition"></a></dt>
+<dd><p>Extends array using linspace with n elements.</p>
+<p>Extends array <cite>a</cite> from left and/or right with <cite>n</cite> elements each side.</p>
+<p>When extending to the left,
+the starting value is <cite>lstart</cite> (inclusive) and ending value as <cite>a[0]</cite> (exclusive).
+By default, <cite>lstart</cite> is <cite>a[0] - (a[n] - a[0])</cite>.</p>
+<p>When extending to the right,
+the starting value <cite>a[-1]</cite> (exclusive) and ending value is <cite>rstop</cite> (inclusive).
+By default, <cite>rstop</cite> is <cite>a[-1] + (a[-1] - a[-1 - n])</cite></p>
+<p><cite>direction</cite> determines whether to extend to <cite>both</cite>, <cite>left</cite> or <cite>right</cite>.
+By default, it is ‘both’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>1-D array</em>) – </p></li>
+<li><p><strong>n</strong> (<em>int</em>) – Number of elements to extend</p></li>
+<li><p><strong>direction</strong> (<em>'both'</em><em>, </em><em>'left'</em><em> or </em><em>'right'</em><em>, </em><em>default: 'both'</em>) – Direction in which array should be extended.</p></li>
+<li><p><strong>lstart</strong> (<em>float</em><em>, </em><em>optional</em>) – Starting value of the left extension.
+By default, it is <cite>a[0] - (a[n] - a[0])</cite>.</p></li>
+<li><p><strong>rstop</strong> (<em>float</em><em>, </em><em>optional</em>) – Ending value of the right extension.
+By default, it is <cite>a[-1] + (a[-1] - a[-1 - n])</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>1-D extended array.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver.array_utils</span> <span class="kn">import</span> <span class="n">extend_linspace</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">extend_linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[-1.0, 0.0, 1.0, 2.0, 3.0, 4.0, 5.0]</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">extend_linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">rstop</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[1.0, 2.0, 3.0, 3.25, 3.5, 3.75, 4.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.array_utils.extend_constant">
+<span class="sig-prename descclassname"><span class="pre">traffic_weaver.array_utils.</span></span><span class="sig-name descname"><span class="pre">extend_constant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'both'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.array_utils.extend_constant" title="Link to this definition"></a></dt>
+<dd><p>Extends array with first/last value with n elements.</p>
+<p>Extends array <cite>a</cite> from left and/or right with <cite>n</cite> elements each side.</p>
+<p>When extending to the left, value <cite>a[0]</cite> is repeated.
+When extending to the right, value <cite>a[-1]</cite> is repeated.</p>
+<p><cite>direction</cite> determines whether to extend to <cite>both</cite>, <cite>left</cite> or <cite>right</cite>.
+By default, it is ‘both’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>1-D array</em>) – </p></li>
+<li><p><strong>n</strong> (<em>int</em>) – Number of elements to extend</p></li>
+<li><p><strong>direction</strong> (<em>'both'</em><em>, </em><em>'left'</em><em> or </em><em>'right'</em><em>, </em><em>optional: 'both'</em>) – Direction in which array should be extended.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>1-D extended array.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver.array_utils</span> <span class="kn">import</span> <span class="n">extend_constant</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">extend_constant</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[1, 1, 1, 2, 3, 3, 3]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="traffic_weaver.match.html" class="btn btn-neutral float-left" title="traffic_weaver.match module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Piotr T. Lechowicz.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

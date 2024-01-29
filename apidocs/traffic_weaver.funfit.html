@@ -62,8 +62,9 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="traffic_weaver.interval.html">traffic_weaver.interval module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="traffic_weaver.oversample.html">traffic_weaver.oversample module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.oversample_fun.html">traffic_weaver.oversample_fun module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.utils.html">traffic_weaver.utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html">traffic_weaver.process module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.match.html">traffic_weaver.match module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.array_utils.html">traffic_weaver.array_utils module</a></li>
 </ul>
 </li>
 </ul>
@@ -181,7 +182,8 @@ on range <span class="math notranslate nohighlight">\((0, 1)\)</span> scaled to 
 <span class="math notranslate nohighlight">\(y = a ((1- b) \cdot x + b \cdot x^\alpha)\)</span>
 on range <span class="math notranslate nohighlight">\((0, 1)\)</span> scaled to <span class="math notranslate nohighlight">\((x_0, x_1)\)</span>
 where <span class="math notranslate nohighlight">\(b = (x - x_0)\)</span></p>
-<p>It is a linear combination of values returned be <a class="reference internal" href="#traffic_weaver.funfit.exp_fit" title="traffic_weaver.funfit.exp_fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">exp_fit()</span></code></a> and <a class="reference internal" href="#traffic_weaver.funfit.lin_fit" title="traffic_weaver.funfit.lin_fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">lin_fit()</span></code></a>.</p>
+<p>It is a linear combination of values returned be <a class="reference internal" href="#traffic_weaver.funfit.exp_fit" title="traffic_weaver.funfit.exp_fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">exp_fit()</span></code></a> and
+<a class="reference internal" href="#traffic_weaver.funfit.lin_fit" title="traffic_weaver.funfit.lin_fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">lin_fit()</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -203,11 +205,13 @@ where <span class="math notranslate nohighlight">\(b = (x - x_0)\)</span></p>
 <dl class="py function">
 <dt class="sig sig-object py" id="traffic_weaver.funfit.lin_exp_xy_fit">
 <span class="sig-prename descclassname"><span class="pre">traffic_weaver.funfit.</span></span><span class="sig-name descname"><span class="pre">lin_exp_xy_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xy_0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xy_1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.funfit.lin_exp_xy_fit" title="Link to this definition"></a></dt>
-<dd><p>Get value of point using combination of linear and exponential function mirrored over xy line</p>
+<dd><p>Get value of point using combination of linear and exponential function
+mirrored over xy line</p>
 <p>Get <span class="math notranslate nohighlight">\(y = f(x)\)</span> using linear and exp function line mirrored over xy of form
 <span class="math notranslate nohighlight">\(y = a (x + 1 - (1-x)^\alpha)\)</span>
 on range <span class="math notranslate nohighlight">\((0, 1)\)</span> scaled to <span class="math notranslate nohighlight">\((x_0, x_1)\)</span></p>
-<p>It is a linear combination of values returned be <a class="reference internal" href="#traffic_weaver.funfit.lin_fit" title="traffic_weaver.funfit.lin_fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">lin_fit()</span></code></a> and <a class="reference internal" href="#traffic_weaver.funfit.exp_xy_fit" title="traffic_weaver.funfit.exp_xy_fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">exp_xy_fit()</span></code></a>.</p>
+<p>It is a linear combination of values returned be <a class="reference internal" href="#traffic_weaver.funfit.lin_fit" title="traffic_weaver.funfit.lin_fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">lin_fit()</span></code></a> and
+<a class="reference internal" href="#traffic_weaver.funfit.exp_xy_fit" title="traffic_weaver.funfit.exp_xy_fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">exp_xy_fit()</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
