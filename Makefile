@@ -1,4 +1,4 @@
-.PHONY: all install clean
+.PHONY: all install clean test
 
 clean:
 	rm -rf docs/build
@@ -19,15 +19,14 @@ tag-release:
 tag-prerelease:
 	commit-and-tag-version --prerelease alpha
 
-upload: clean
+upload: clean test test-coverage
 	python -m build
 	twine upload dist/*
 
 docs: clean
 	cd docs && make html
 
-test:
-	pytest
-
-test-coverage:
-	pytest --cov=traffic_weaver --cov-report term-missing --cov-report html --cov-report xml
+test: clean
+	pytest --cov=traffic_weaver --cov-report term-missing --cov-report html
+	mkdir -p _images
+	coverage-badge -o _images/coverage.svg
