@@ -11,6 +11,7 @@ def small_example():
     x, y = append_one_sample(x, y, make_periodic=True)
 
     wv = Weaver(x, y)
+    wv.oversample(12).integral_match().smooth(s=1.0)
 
     # plot original time series
     fig, axes = plt.subplots()

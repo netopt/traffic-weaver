@@ -62,25 +62,25 @@ Minimum processing example
 
     from traffic_weaver import Weaver
     from traffic_weaver.datasets import load_mobile_video
-    from traffic_weaver.utils import add_one_sample
+    from traffic_weaver.array_utils import append_one_sample
     import matplotlib.pyplot as plt
 
     # load exemplary dataset
     x, y = load_mobile_video()
 
     # add one sample to the end as file contains averaged values for time intervals
-    x, y = add_one_sample(x, y, make_periodic=True)
+    x, y = append_one_sample(x, y, make_periodic=True)
 
     wv = Weaver(x, y)
+    wv.oversample(12).integral_match().smooth(s=1.0)
 
     # plot original time series
     fig, axes = plt.subplots()
-    axes.plot(*wv.get(), drawstyle='steps-post')
+    axes.plot(*wv.get(), drawstyle="steps-post")
     plt.show()
 
     # process time series
-    wv.repeat(4).trend(
-        lambda x: 0.5 * x).noise(snr=60)
+    wv.repeat(4).trend(lambda x: 0.5 * x).noise(snr=60)
 
     # plot modified time series
     fig, axes = plt.subplots()
@@ -93,7 +93,7 @@ Minimum processing example
     # or get them as a spline function to sample any arbitrary point
     f = wv.to_function()
     # get value at 0.5
-    yi = f(0.5)
+    f(0.5)
 
 Indices and tables
 ==================

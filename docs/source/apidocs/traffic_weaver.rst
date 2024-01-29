@@ -12,6 +12,6 @@ Modules
    traffic_weaver.funfit
    traffic_weaver.interval
    traffic_weaver.oversample
-   traffic_weaver.oversample_fun
-   traffic_weaver.stretch
-   traffic_weaver.utils
+   traffic_weaver.process
+   traffic_weaver.match
+   traffic_weaver.array_utils
