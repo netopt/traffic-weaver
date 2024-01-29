@@ -7,8 +7,12 @@ from typing import Callable, Union, List
 
 import numpy as np
 
-from .array_utils import (oversample_linspace, oversample_piecewise_constant,
-                          extend_linspace, extend_constant, )
+from .array_utils import (
+    oversample_linspace,
+    oversample_piecewise_constant,
+    extend_linspace,
+    extend_constant,
+)
 
 
 class IntervalArray:
@@ -129,17 +133,25 @@ class IntervalArray:
         m, n = self.a.size // self.n, self.n
         if self.a.size % self.n != 0:
             m = m + 1
-        return np.pad(self.a.astype(float), (0, m * n - self.a.size), mode="constant",
-                      constant_values=np.nan, ).reshape(m, n)
+        return np.pad(
+            self.a.astype(float),
+            (0, m * n - self.a.size),
+            mode="constant",
+            constant_values=np.nan,
+        ).reshape(m, n)
 
     def as_closed_intervals(self, drop_last=True):
         interv = self.as_intervals()
-        res = np.concatenate([interv, np.concatenate([interv[1:, :1], [[np.nan]]])],
-                             axis=1)
+        res = np.concatenate(
+            [interv, np.concatenate([interv[1:, :1], [[np.nan]]])], axis=1
+        )
         return res if not drop_last else res[:-1]
 
-    def oversample(self, num: int, method: Callable[
-        [Union[list[float], np.ndarray], int], np.ndarray], ):
+    def oversample(
+        self,
+        num: int,
+        method: Callable[[Union[list[float], np.ndarray], int], np.ndarray],
+    ):
         prev_n = self.n
         a = method(self.a, num)
         return IntervalArray(a, prev_n * num)

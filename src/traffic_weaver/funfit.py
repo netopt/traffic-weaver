@@ -94,7 +94,8 @@ def exp_lin_fit(x, xy_0: tuple, xy_1: tuple, alpha=2):
     on range :math:`(0, 1)` scaled to :math:`(x_0, x_1)`
     where :math:`b = (x - x_0)`
 
-    It is a linear combination of values returned be :func:`exp_fit` and :func:`lin_fit`.
+    It is a linear combination of values returned be :func:`exp_fit` and
+    :func:`lin_fit`.
 
     Parameters
     ----------
@@ -120,13 +121,15 @@ def exp_lin_fit(x, xy_0: tuple, xy_1: tuple, alpha=2):
 
 
 def lin_exp_xy_fit(x, xy_0: tuple, xy_1: tuple, alpha=2):
-    r"""Get value of point using combination of linear and exponential function mirrored over xy line
+    r"""Get value of point using combination of linear and exponential function
+    mirrored over xy line
 
     Get :math:`y = f(x)` using linear and exp function line mirrored over xy of form
     :math:`y = a (x + 1 - (1-x)^\alpha)`
     on range :math:`(0, 1)` scaled to :math:`(x_0, x_1)`
 
-    It is a linear combination of values returned be :func:`lin_fit` and :func:`exp_xy_fit`.
+    It is a linear combination of values returned be :func:`lin_fit` and
+    :func:`exp_xy_fit`.
 
     Parameters
     ----------

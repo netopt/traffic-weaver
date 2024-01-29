@@ -868,8 +868,8 @@ class ExpAdaptiveOversample(AbstractOversample):
         a_ls, a_rs, gammas = LinearAdaptiveOversample.get_adaptive_transition_points(
             x, y, self.a, self.adaptive_smooth
         )
-        b_ls = [int(beta * l) for l in a_ls]
-        b_rs = [int(beta * r) for r in a_rs]
+        b_ls = [int(beta * a_l) for a_l in a_ls]
+        b_rs = [int(beta * a_r) for a_r in a_rs]
 
         # move through each interval
         for k in range(1, x.nr_of_full_intervals() - 1):

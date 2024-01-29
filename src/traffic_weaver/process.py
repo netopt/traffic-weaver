@@ -40,7 +40,9 @@ def repeat(x, y, repeats: int) -> tuple[np.ndarray, np.ndarray]:
     return x, y
 
 
-def trend(x, y, fun: Callable[[np.ndarray], np.ndarray]) -> Tuple[np.ndarray, np.ndarray]:
+def trend(
+    x, y, fun: Callable[[np.ndarray], np.ndarray]
+) -> Tuple[np.ndarray, np.ndarray]:
     r"""Apply long-term trend to time series data using provided function.
 
     Parameters
@@ -202,7 +204,6 @@ def noise_gauss(a: Union[np.ndarray, List], snr=None, snr_in_db=True, std=1.0):
             std_n = (sp / snr) ** 0.5  # getting noise std from SNR definition
     else:
         std_n = std
-
 
     noise = np.random.normal(loc=0, scale=std_n, size=a.shape)
     return a + noise

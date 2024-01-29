@@ -2,9 +2,14 @@ import numpy as np
 import pytest
 from numpy.ma.testutils import assert_array_approx_equal
 
-from traffic_weaver import (PiecewiseConstantOversample, CubicSplineOversample,
-                            LinearFixedOversample, LinearAdaptiveOversample,
-                            ExpFixedOversample, ExpAdaptiveOversample, )
+from traffic_weaver import (
+    PiecewiseConstantOversample,
+    CubicSplineOversample,
+    LinearFixedOversample,
+    LinearAdaptiveOversample,
+    ExpFixedOversample,
+    ExpAdaptiveOversample,
+)
 
 
 @pytest.fixture
@@ -84,6 +89,6 @@ def test_setting_parameters(xy):
 def test_special_cases_in_oversample():
     # test 0 nominators and denominators
     x, y = np.arange(5), np.array([1, 1, 1, 3, 3])
-    ov = LinearAdaptiveOversample(x, y, 4).oversample()
-    ov = ExpAdaptiveOversample(x, y, 4, beta=0).oversample()
+    LinearAdaptiveOversample(x, y, 4).oversample()
+    ExpAdaptiveOversample(x, y, 4, beta=0).oversample()
     assert True

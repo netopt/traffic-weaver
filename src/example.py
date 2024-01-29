@@ -1,6 +1,3 @@
-import traffic_weaver.process
-
-
 def small_example():
     from traffic_weaver import Weaver
     from traffic_weaver.datasets import load_mobile_video
@@ -17,12 +14,11 @@ def small_example():
 
     # plot original time series
     fig, axes = plt.subplots()
-    axes.plot(*wv.get(), drawstyle='steps-post')
+    axes.plot(*wv.get(), drawstyle="steps-post")
     plt.show()
 
     # process time series
-    wv.repeat(4).trend(
-        lambda x: 0.5 * x).noise(snr=60)
+    wv.repeat(4).trend(lambda x: 0.5 * x).noise(snr=60)
 
     # plot modified time series
     fig, axes = plt.subplots()
@@ -35,7 +31,7 @@ def small_example():
     # or get them as a spline function to sample any arbitrary point
     f = wv.to_function()
     # get value at 0.5
-    yi = f(0.5)
+    f(0.5)
 
 
 def larger_example():
@@ -47,11 +43,11 @@ def larger_example():
     from traffic_weaver.datasets import load_mobile_video
     from traffic_weaver.array_utils import append_one_sample
 
-    font = {'family': 'serif', 'serif': 'Palatino', 'size': 12}
-    matplotlib.rc('font', **font)
+    font = {"family": "serif", "serif": "Palatino", "size": 12}
+    matplotlib.rc("font", **font)
 
-    kwargs = {'marker': 'o', 'markersize': 4, 'linewidth': 2, 'linestyle': 'dashed'}
-    kwargs2 = {'linewidth': 2}
+    kwargs = {"marker": "o", "markersize": 4, "linewidth": 2, "linestyle": "dashed"}
+    kwargs2 = {"linewidth": 2}
 
     n = 10
 
@@ -65,12 +61,12 @@ def larger_example():
     fig, axes = plt.subplots(nrows=4, ncols=2, figsize=(12, 20))
     axes = axes.flatten()
 
-    axes[0].plot(*wv.get(),  drawstyle='steps-post', **kwargs)
+    axes[0].plot(*wv.get(), drawstyle="steps-post", **kwargs)
     axes[1].plot(*(wv.oversample(n).get()), **kwargs)
     axes[2].plot(*(wv.integral_match().get()), **kwargs2)
     axes[3].plot(*(wv.smooth(s=0.2).get()), **kwargs2)
     axes[4].plot(*(wv.repeat(4).get()), **kwargs2)
-    axes[5].plot(*wv.trend(lambda x: 0.5*x).get(), **kwargs2)
+    axes[5].plot(*wv.trend(lambda x: 0.5 * x).get(), **kwargs2)
     snr = np.linspace(50, 20, len(wv.get()[1]))
     axes[6].plot(*(wv.noise(snr).get()), **kwargs2)
 
@@ -78,5 +74,5 @@ def larger_example():
     plt.show()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     small_example()
