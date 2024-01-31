@@ -36,7 +36,6 @@
           
           <a href="../index.html" class="icon icon-home">
             traffic_weaver
-              <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -231,7 +230,7 @@ and returning its corresponding value as an output.</p></li>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">traffic_weaver.oversample.</span></span><span class="sig-name descname"><span class="pre">LinearFixedOversample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.oversample.LinearFixedOversample" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#traffic_weaver.oversample.AbstractOversample" title="traffic_weaver.oversample.AbstractOversample"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractOversample</span></code></a></p>
 <p>Linearly moves between points in fixed transition intervals.</p>
-<img alt="../_images/linear_fixed_oversample.png" src="../_images/linear_fixed_oversample.png" />
+<img alt="_static/images/linear_fixed_oversample.png" src="_static/images/linear_fixed_oversample.png" />
 <p>Transition linearly between intervals in transition window (part of the interval).
 Transition window is defined in number of samples <cite>a</cite> and divided proportionally
 to the left and right side of the interval. If <cite>a</cite> is not specified, it is obtained
@@ -312,7 +311,7 @@ are calculated as a linear combination of transition point and previous value.</
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">traffic_weaver.oversample.</span></span><span class="sig-name descname"><span class="pre">LinearAdaptiveOversample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adaptive_smooth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.oversample.LinearAdaptiveOversample" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#traffic_weaver.oversample.AbstractOversample" title="traffic_weaver.oversample.AbstractOversample"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractOversample</span></code></a></p>
 <p>Linearly moves between points in adaptive transition intervals.</p>
-<img alt="../_images/linear_adaptive_oversample.png" src="../_images/linear_adaptive_oversample.png" />
+<img alt="_static/images/linear_adaptive_oversample.png" src="_static/images/linear_adaptive_oversample.png" />
 <p>Transition linearly between intervals in transition window (part of the interval).
 Transition window is defined in number of samples <cite>a</cite> and divided according to the
 <cite>adaptive_factor</cite>. <cite>adaptive_factor</cite> is inversely proportionally to the change of
@@ -443,7 +442,7 @@ in <a class="reference internal" href="#traffic_weaver.oversample.LinearFixedOve
 <dd><p>Bases: <a class="reference internal" href="#traffic_weaver.oversample.AbstractOversample" title="traffic_weaver.oversample.AbstractOversample"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractOversample</span></code></a></p>
 <p>Moves between points in fixed transition intervals by combining linear and
 exponential function.</p>
-<img alt="../_images/exp_fixed_oversample.png" src="../_images/exp_fixed_oversample.png" />
+<img alt="_static/images/exp_fixed_oversample.png" src="_static/images/exp_fixed_oversample.png" />
 <p>Transition combining linear and exponential function between intervals in
 transition window (part of the interval).
 Transition window is defined in number of samples <cite>a</cite> and divided proportionally
@@ -548,7 +547,7 @@ line;
 <dd><p>Bases: <a class="reference internal" href="#traffic_weaver.oversample.AbstractOversample" title="traffic_weaver.oversample.AbstractOversample"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractOversample</span></code></a></p>
 <p>Moves between points in adaptive transition intervals by combining linear and
 exponential function.</p>
-<img alt="../_images/exp_adaptive_oversample.png" src="../_images/exp_adaptive_oversample.png" />
+<img alt="_static/images/exp_adaptive_oversample.png" src="_static/images/exp_adaptive_oversample.png" />
 <p>Transition combining linear and exponential function between intervals in
 transition window (part of the interval).
 Transition window is defined in number of samples <cite>a</cite> and divided according to the
