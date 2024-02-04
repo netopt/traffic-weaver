@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.1.0](https://github.com/netopt/traffic-weaver/compare/v1.1.0-alpha.2...v1.1.0) (2024-02-04)
+
+
+### Features
+
+* **refactor:** rename methods ([ecef676](https://github.com/netopt/traffic-weaver/commit/ecef676f44066957bfedd40b09609108e88bcfcb))
+
 ## [1.1.0-alpha.2](https://github.com/netopt/traffic-weaver/compare/v1.1.0-alpha.1...v1.1.0-alpha.2) (2024-01-29)
 
 
