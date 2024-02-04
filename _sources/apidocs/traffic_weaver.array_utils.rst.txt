@@ -1,5 +1,5 @@
-traffic\_weaver.array_utils module
-============================
+array\_utils module
+===================
 
 .. automodule:: traffic_weaver.array_utils
    :members:

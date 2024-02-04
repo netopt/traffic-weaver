@@ -1,17 +1,16 @@
-traffic weaver package
-=======================
-
-Modules
-----------
+traffic_weaver package
+======================
 
 .. toctree::
    :maxdepth: 4
 
-   traffic_weaver.weaver
-   traffic_weaver.datasets
-   traffic_weaver.funfit
-   traffic_weaver.interval
-   traffic_weaver.oversample
-   traffic_weaver.process
-   traffic_weaver.match
-   traffic_weaver.array_utils
+   weaver <traffic_weaver.weaver>
+   array_utils <traffic_weaver.array_utils>
+   datasets <traffic_weaver.datasets>
+   funfit <traffic_weaver.funfit>
+   interval <traffic_weaver.interval>
+   match <traffic_weaver.match>
+   oversample <traffic_weaver.oversample>
+   process <traffic_weaver.process>
+
+

@@ -1,5 +1,5 @@
-traffic\_weaver.funfit module
-=============================
+funfit module
+=============
 
 .. automodule:: traffic_weaver.funfit
    :members:

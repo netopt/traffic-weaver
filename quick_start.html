@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Python Module Index &mdash; traffic_weaver  documentation</title>
+  <title>Quick start &mdash; traffic_weaver  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -20,9 +21,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
- 
-
-
+    <link rel="next" title="traffic_weaver package" href="apidocs/traffic_weaver.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -48,17 +48,17 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="introduction.html#scope">Scope</a></li>
 <li class="toctree-l2"><a class="reference internal" href="introduction.html#software-architecture">Software architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="introduction.html#functionalities-description">Functionalities description</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick start</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="quick_start.html#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quick_start.html#minimal-processing-example">Minimal processing example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quick_start.html#further-signal-processing">Further signal processing</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quick start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#minimal-processing-example">Minimal processing example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#further-signal-processing">Further signal processing</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="apidocs/traffic_weaver.html">API reference</a><ul>
@@ -200,8 +200,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Python Module Index</li>
+      <li class="breadcrumb-item active">Quick start</li>
       <li class="wy-breadcrumbs-aside">
+            <a href="_sources/quick_start.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -209,69 +210,150 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
+  <section id="quick-start">
+<h1>Quick start<a class="headerlink" href="#quick-start" title="Link to this heading"></a></h1>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<p>Install package with pip.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>traffic_weaver
+</pre></div>
+</div>
+</section>
+<section id="minimal-processing-example">
+<h2>Minimal processing example<a class="headerlink" href="#minimal-processing-example" title="Link to this heading"></a></h2>
+<p>Importing Traffic Weaver.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">traffic_weaver</span>
+</pre></div>
+</div>
+<p>To obtain the same results, set numpy seed to 0.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># setting random seed to 0</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">random</span>
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To load one of the exemplary datasets, use</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># load example dataset containing average measurements over 1 hour</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">traffic_weaver</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">load_tiktok</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>which outputs</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23]
+[0.45 0.4  0.45 0.2  0.3  0.9  0.9  1.3  1.65 1.15 1.6  1.6  1.5  2.1 1.45 1.6  1.45 2.55 1.4  2.45 1.6  1.   1.35 1.05]
+</pre></div>
+</div>
+<p>The <code class="code docutils literal notranslate"><span class="pre">traffic_weaver</span></code> provides <code class="code docutils literal notranslate"><span class="pre">Weaver</span></code> class that serves as an API to other processing
+capabilities. <code class="code docutils literal notranslate"><span class="pre">Weaver(x,</span> <span class="pre">y)</span></code> constructor takes time series independent and dependent
+variables as arguments, denoted as <cite>x</cite> and <cite>y</cite> respectively.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># create Weaver instance</span>
+<span class="n">wv</span> <span class="o">=</span> <span class="n">traffic_weaver</span><span class="o">.</span><span class="n">Weaver</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Further signal processing is applied through Weaver methods. Most of the methods return
+instance to the Weaver itself, allowing for processing commands chaining.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># process it creating samples every minute</span>
+<span class="n">wv</span><span class="o">.</span><span class="n">oversample</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span><span class="o">.</span><span class="n">integral_match</span><span class="p">()</span><span class="o">.</span><span class="n">smooth</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">noise</span><span class="p">(</span><span class="n">snr</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To obtain created new time series call either <code class="code docutils literal notranslate"><span class="pre">Weaver.get()</span></code> or
+<code class="code docutils literal notranslate"><span class="pre">Weaver.get_as_function()</span></code>. The former one returns list of created points, and
+the latter one spline function created based on those points and allow to sample any point.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">wv</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[0.000e+00 1.667e-02 3.333e-02 ... 2.297e+01 2.298e+01 2.300e+01]
+[0.504 0.447 0.477 ... 1.047 1.044 1.065]
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">wv</span><span class="o">.</span><span class="n">to_function</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mf">0.01</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>0.45616116907018994
+</pre></div>
+</div>
+<p>To visualize time series, matplotlib library is required.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-   <h1>Python Module Index</h1>
+<span class="c1"># plot original signal</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">*</span><span class="n">wv</span><span class="o">.</span><span class="n">get_original</span><span class="p">(),</span> <span class="n">drawstyle</span><span class="o">=</span><span class="s2">&quot;steps-post&quot;</span><span class="p">)</span>
 
-   <div class="modindex-jumpbox">
-   <a href="#cap-t"><strong>t</strong></a>
-   </div>
+<span class="c1"># plot modified signal</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">*</span><span class="n">wv</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
 
-   <table class="indextable modindextable">
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-t"><td></td><td>
-       <strong>t</strong></td><td></td></tr>
-     <tr>
-       <td><img src="_static/minus.png" class="toggler"
-              id="toggle-1" style="display: none" alt="-" /></td>
-       <td>
-       <code class="xref">traffic_weaver</code></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="apidocs/traffic_weaver.array_utils.html#module-traffic_weaver.array_utils"><code class="xref">traffic_weaver.array_utils</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="apidocs/traffic_weaver.datasets.html#module-traffic_weaver.datasets"><code class="xref">traffic_weaver.datasets</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="apidocs/traffic_weaver.funfit.html#module-traffic_weaver.funfit"><code class="xref">traffic_weaver.funfit</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="apidocs/traffic_weaver.interval.html#module-traffic_weaver.interval"><code class="xref">traffic_weaver.interval</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="apidocs/traffic_weaver.match.html#module-traffic_weaver.match"><code class="xref">traffic_weaver.match</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="apidocs/traffic_weaver.oversample.html#module-traffic_weaver.oversample"><code class="xref">traffic_weaver.oversample</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="apidocs/traffic_weaver.process.html#module-traffic_weaver.process"><code class="xref">traffic_weaver.process</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="apidocs/traffic_weaver.weaver.html#module-traffic_weaver.weaver"><code class="xref">traffic_weaver.weaver</code></a></td><td>
-       <em></em></td></tr>
-   </table>
+<span class="c1"># plot averaged signal</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">average</span><span class="p">(</span><span class="o">*</span><span class="n">wv</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="mi">60</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">drawstyle</span><span class="o">=</span><span class="s2">&quot;steps-post&quot;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;a) Original&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;b) Processed&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;c) Averaged&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Above code produces the following figures.</p>
+<a class="reference internal image-reference" href="_images/minimal_processing_example.pdf"><img alt="Minimal processing example" src="_images/minimal_processing_example.pdf" style="width: 800px;" /></a>
+<p>It is possible to check if integrals actually match between original and processed function.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># compare integrals of original and modified signal</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;original function integral=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="nb">sum</span><span class="p">(</span>
+            <span class="n">traffic_weaver</span><span class="o">.</span><span class="n">array_utils</span><span class="o">.</span><span class="n">left_piecewise_integral</span><span class="p">(</span>
+                <span class="o">*</span><span class="p">(</span><span class="n">wv</span><span class="o">.</span><span class="n">get_original</span><span class="p">())</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;modified function integral=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">wv</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">wv</span><span class="o">.</span><span class="n">x</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>Resulting in:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>original function integral=29.35
+modified function integral=29.327691841128036
+</pre></div>
+</div>
+<p>The small difference in integral value is a result of smoothing and adding noise.</p>
+</section>
+<section id="further-signal-processing">
+<h2>Further signal processing<a class="headerlink" href="#further-signal-processing" title="Link to this heading"></a></h2>
+<p>Traffic Weaver provides further methods to process time series.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">traffic_weaver</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">random</span>
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># load example dataset containing average measurements over 1 hour</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">traffic_weaver</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">load_tiktok</span><span class="p">()</span>
+<span class="c1"># add one sample to the end to make it first sample of next day</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">traffic_weaver</span><span class="o">.</span><span class="n">array_utils</span><span class="o">.</span><span class="n">append_one_sample</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">make_periodic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">wv</span> <span class="o">=</span> <span class="n">traffic_weaver</span><span class="o">.</span><span class="n">Weaver</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">wv</span><span class="o">.</span><span class="n">oversample</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span><span class="o">.</span><span class="n">integral_match</span><span class="p">()</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span><span class="o">.</span><span class="n">smooth</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">trend</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">7</span><span class="p">))</span><span class="o">.</span><span class="n">noise</span><span class="p">(</span><span class="n">snr</span><span class="o">=</span><span class="mi">35</span><span class="p">)</span>
+
+<span class="c1"># visualize</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">*</span><span class="n">wv</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="introduction.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="apidocs/traffic_weaver.html" class="btn btn-neutral float-right" title="traffic_weaver package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 
