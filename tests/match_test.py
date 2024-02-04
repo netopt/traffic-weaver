@@ -5,8 +5,9 @@ from pytest import approx
 
 from traffic_weaver.match import (integral_matching_stretch,
                                   interval_integral_matching_stretch,
-                                  integral_matching_reference_stretch,
-                                  left_piecewise_constant_integral_between_each_pair, )
+                                  integral_matching_reference_stretch, )
+from traffic_weaver.array_utils import \
+    left_piecewise_integral
 
 
 @pytest.fixture
@@ -159,7 +160,7 @@ def test_integral_matching_reference_stretch(x, y):
 
     assert_array_almost_equal(y2, expected_y, decimal=2)
 
-    expected_integrals = left_piecewise_constant_integral_between_each_pair(
+    expected_integrals = left_piecewise_integral(
         x_ref, y_ref
     )
     actual_integrals = get_integrals_based_on_interval_points(

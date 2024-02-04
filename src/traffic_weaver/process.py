@@ -189,7 +189,8 @@ def noise_gauss(a: Union[np.ndarray, List], snr=None, snr_in_db=True, std=1.0):
 
     See Also
     --------
-    https://en.wikipedia.org/wiki/Signal-to-noise_ratio
+    `https://en.wikipedia.org/wiki/Signal-to-noise_ratio
+    <https://en.wikipedia.org/wiki/Signal-to-noise_ratio>`_
 
     """
     a = np.asarray(a)
@@ -228,6 +229,6 @@ def average(x, y, interval):
     ndarray
         y, dependent variable.
     """
-    y = np.nanmean(IntervalArray(y, interval).as_intervals(), axis=1)
-    x = IntervalArray(x, interval).as_intervals()[:, 0]
+    y = np.nanmean(IntervalArray(y, interval).to_2d_array(), axis=1)
+    x = IntervalArray(x, interval).to_2d_array()[:, 0]
     return x, y

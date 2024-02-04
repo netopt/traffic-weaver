@@ -47,7 +47,7 @@ class AbstractOversample(ABC):
 
     See Also
     --------
-    :func:`interval.IntervalArray`
+    :func:`~traffic_weaver.interval.IntervalArray`
     """
 
     def __init__(self, x, y, n, **kwargs):
@@ -186,7 +186,7 @@ class IntervalOversample(AbstractOversample):
 class LinearFixedOversample(AbstractOversample):
     r"""Linearly moves between points in fixed transition intervals.
 
-    .. image:: ../_static/images/linear_fixed_oversample.png
+    .. image:: /_static/gfx/linear_fixed_oversample.pdf
 
     Transition linearly between intervals in transition window (part of the interval).
     Transition window is defined in number of samples `a` and divided proportionally
@@ -258,7 +258,7 @@ class LinearFixedOversample(AbstractOversample):
 
     See Also
     --------
-    :func:`funfit.lin_fit`
+    :func:`~traffic_weaver.funfit.lin_fit`
     """
 
     def __init__(self, x, y, n, alpha=1.0, a=None):
@@ -317,7 +317,7 @@ class LinearFixedOversample(AbstractOversample):
 class LinearAdaptiveOversample(AbstractOversample):
     r"""Linearly moves between points in adaptive transition intervals.
 
-    .. image:: ../_static/images/linear_adaptive_oversample.png
+    .. image:: /_static/gfx/linear_adaptive_oversample.pdf
 
     Transition linearly between intervals in transition window (part of the interval).
     Transition window is defined in number of samples `a` and divided according to the
@@ -546,7 +546,7 @@ class ExpFixedOversample(AbstractOversample):
     r"""Moves between points in fixed transition intervals by combining linear and
     exponential function.
 
-    .. image:: ../_static/images/exp_fixed_oversample.png
+    .. image:: /_static/gfx/exp_fixed_oversample.pdf
 
     Transition combining linear and exponential function between intervals in
     transition window (part of the interval).
@@ -648,9 +648,9 @@ class ExpFixedOversample(AbstractOversample):
     See Also
     --------
     :func:`LinearFixedOversample`
-    :func:`funfit.lin_fit`
-    :func:`funfit.lin_exp_xy_fit`
-    :func:`funfit.exp_lin_fit`
+    :func:`~traffic_weaver.funfit.lin_fit`
+    :func:`~traffic_weaver.funfit.lin_exp_xy_fit`
+    :func:`~traffic_weaver.funfit.exp_lin_fit`
     """
 
     def __init__(self, x, y, n, alpha=1.0, beta=0.5, a=None, exp=2.0):
@@ -727,7 +727,7 @@ class ExpAdaptiveOversample(AbstractOversample):
     r"""Moves between points in adaptive transition intervals by combining linear and
     exponential function.
 
-    .. image:: ../_static/images/exp_adaptive_oversample.png
+    .. image:: /_static/gfx/exp_adaptive_oversample.pdf
 
     Transition combining linear and exponential function between intervals in
     transition window (part of the interval).
@@ -826,9 +826,9 @@ class ExpAdaptiveOversample(AbstractOversample):
     See Also
     --------
     :func:`LinearFixedOversample`
-    :func:`funfit.lin_fit`
-    :func:`funfit.lin_exp_xy_fit`
-    :func:`funfit.exp_lin_fit`
+    :func:`~traffic_weaver.funfit.lin_fit`
+    :func:`~traffic_weaver.funfit.lin_exp_xy_fit`
+    :func:`~traffic_weaver.funfit.exp_lin_fit`
 
     """
 

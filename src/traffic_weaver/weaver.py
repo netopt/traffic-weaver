@@ -85,7 +85,7 @@ class Weaver:
 
         See Also
         --------
-        :func:`oversample.AbstractOversample`
+        :func:`~traffic_weaver.oversample.AbstractOversample`
         """
         self.x, self.y = oversample_class(self.x, self.y, n, **kwargs).oversample()
         return self
@@ -97,6 +97,7 @@ class Weaver:
         Parameters
         ----------
         **kwargs
+            Additional parameters passed to integral matching function.
 
         Returns
         -------
@@ -104,7 +105,7 @@ class Weaver:
 
         See Also
         --------
-        :func:`stretch.integral_matching_reference_stretch`
+        :func:`~traffic_weaver.match.integral_matching_reference_stretch`
         """
         self.y = integral_matching_reference_stretch(
             self.x, self.y, self.original_x, self.original_y, **kwargs
@@ -127,7 +128,7 @@ class Weaver:
 
         See Also
         --------
-        :func:`utils.noise_gauss`
+        :func:`~traffic_weaver.process.noise_gauss`
         """
 
         self.y = noise_gauss(self.y, snr=snr, **kwargs)
@@ -147,7 +148,7 @@ class Weaver:
 
         See Also
         --------
-        :func:`utils.repeat`
+        :func:`~traffic_weaver.process.repeat`
         """
         self.x, self.y = repeat(self.x, self.y, repeats=n)
         return self
@@ -158,7 +159,7 @@ class Weaver:
         Parameters
         ----------
         trend_func: Callable
-            shift value for dependent variable based on value of dependent variable
+            Shift value for dependent variable based on value of independent variable
             normalized to `(0, 1)` range.
 
         Returns
@@ -167,7 +168,7 @@ class Weaver:
 
         See Also
         --------
-        :func:`utils.trend`
+        :func:`~traffic_weaver.process.trend`
         """
         self.x, self.y = trend(self.x, self.y, fun=trend_func)
         return self
@@ -186,7 +187,7 @@ class Weaver:
 
         See Also
         --------
-        :func:`utils.spline_smooth`
+        :func:`~traffic_weaver.process.spline_smooth`
         """
         self.y = spline_smooth(self.x, self.y, s=s)(self.x)
         return self
@@ -208,6 +209,6 @@ class Weaver:
 
         See Also
         --------
-        :func:`utils.spline_smooth`
+        :func:`~traffic_weaver.process.spline_smooth`
         """
         return spline_smooth(self.x, self.y, s=s)

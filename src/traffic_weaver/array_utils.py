@@ -223,3 +223,29 @@ def extend_constant(a: np.ndarray, n: int, direction="both"):
     if direction == "both" or direction == "right":
         a = np.insert(a, len(a), [a[-1]] * n)
     return a
+
+
+def left_piecewise_integral(x, y):
+    r"""Integral values between each pair of points using piecewise constant approx.
+
+    In particular, if function contains average values, then it corresponds to the
+    exact value of the integral.
+
+    Parameters
+    ----------
+    x: 1-D array-like of size n
+        Independent variable in strictly increasing order.
+    y: 1-D array-like of size n
+        Dependent variable.
+
+    Returns
+    -------
+    1-D array-like of size n-1
+        Values of the integral.
+    """
+    d = np.diff(x)
+    return y[:-1] * d
+
+
+def trapezoidal_integral_between_each_pair(x, y):
+    np.trapz(y, x)

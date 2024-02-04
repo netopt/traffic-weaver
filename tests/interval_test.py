@@ -109,7 +109,7 @@ def test_len(any_ia):
     ],
 )
 def test_as_intervals(ia, res):
-    assert_array_equal(ia.as_intervals(), res)
+    assert_array_equal(ia.to_2d_array(), res)
 
 
 @pytest.mark.parametrize(
@@ -126,7 +126,7 @@ def test_as_intervals(ia, res):
     ],
 )
 def test_as_closed_intervals(ia, res):
-    assert_array_equal(ia.as_closed_intervals(drop_last=True), res)
+    assert_array_equal(ia.to_2d_array_closed_intervals(drop_last=True), res)
 
 
 @pytest.mark.parametrize(

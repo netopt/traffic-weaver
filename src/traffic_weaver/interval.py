@@ -17,7 +17,7 @@ from .array_utils import (
 
 class IntervalArray:
     def __init__(self, a: Union[np.ndarray, List], n: int = 1):
-        r"""Wrap 1-D array into 2-D interval structure of length n
+        r"""Wrap 1-D array into 2-D interval structure of length n.
 
         Reshapes array `a` of size `n` into 2-D array of shape `(len(a)/n, n)`.
         Elements are accessed using __getitem__ and __setitem__ providing interval
@@ -100,7 +100,7 @@ class IntervalArray:
         return iter(self.a)
 
     def extend_linspace(self, direction="both"):
-        r"""Extend one period in given direction with linearly spaced values.
+        r"""Extend one interval in given direction with linearly spaced values.
 
         Parameters
         ----------
@@ -110,7 +110,7 @@ class IntervalArray:
         self.a = extend_linspace(self.a, self.n, direction=direction)
 
     def extend_constant(self, direction="both"):
-        r"""Extend one period in given direction with constant value.
+        r"""Extend one interval in given direction with constant value.
 
         Parameters
         ----------
@@ -120,16 +120,38 @@ class IntervalArray:
         self.a = extend_constant(self.a, self.n, direction=direction)
 
     def nr_of_full_intervals(self):
+        r"""Number of intervals that contain all n items."""
         return len(self.a) // self.n
 
     def __len__(self):
+        r"""Total number of elements in all intervals."""
         return len(self.a)
 
     @property
     def array(self):
+        r"""Array storing values of intervals."""
         return self.a
 
-    def as_intervals(self):
+    def to_2d_array(self):
+        r"""Convert intervals to 2D array.
+
+        Examples
+        --------
+        Let assume that the IntervalArray has the following representation:
+
+        .. code::
+
+            IntervalArray([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], n=4)
+
+        Converting it to 2D array results in creating the following ndarray:
+
+        .. code::
+
+            array([[ 0.,  1.,  2.,  3.],
+            [ 4.,  5.,  6.,  7.],
+            [ 8.,  9., nan, nan]])
+
+        """
         m, n = self.a.size // self.n, self.n
         if self.a.size % self.n != 0:
             m = m + 1
@@ -140,8 +162,33 @@ class IntervalArray:
             constant_values=np.nan,
         ).reshape(m, n)
 
-    def as_closed_intervals(self, drop_last=True):
-        interv = self.as_intervals()
+    def to_2d_array_closed_intervals(self, drop_last=True):
+        r"""Convert to 2D array, each row ends with the first value from the next one.
+
+        Parameters
+        ----------
+        drop_last: bool, default: True
+            Whether to drop the last row.
+            Usually last row contains the last value of an array and
+            is filled up with NaNs.
+
+        Examples
+        --------
+        Let assume that the IntervalArray has the following representation:
+
+        .. code::
+
+            IntervalArray([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], n=4)
+
+        Converting it to 2D array results in creating the following ndarray:
+
+        .. code::
+
+            array([[ 0.,  1.,  2.,  3., 4.],
+            [ 4.,  5.,  6.,  7., 8..]])
+
+        """
+        interv = self.to_2d_array()
         res = np.concatenate(
             [interv, np.concatenate([interv[1:, :1], [[np.nan]]])], axis=1
         )
@@ -152,14 +199,52 @@ class IntervalArray:
         num: int,
         method: Callable[[Union[list[float], np.ndarray], int], np.ndarray],
     ):
+        r"""Oversample array n times using provided method.
+
+        Parameters
+        ----------
+        num: int
+            Number of additional samples.
+        method: Callable
+            Method used to oversample the array.
+
+        Returns
+        -------
+        IntervalArray
+            Oversampled IntervalArray.
+        """
         prev_n = self.n
         a = method(self.a, num)
         return IntervalArray(a, prev_n * num)
 
     def oversample_linspace(self, num: int):
+        r"""Concrete implementation of oversample using linspace.
+
+        Parameters
+        ----------
+        num: int
+            Number of additional samples.
+
+        Returns
+        -------
+        IntervalArray
+            Oversampled IntervalArray.
+        """
         return self.oversample(num, method=oversample_linspace)
 
     def oversample_piecewise(self, num: int):
+        r"""Concrete implementation of oversample using piecewise constants.
+
+        Parameters
+        ----------
+        num: int
+            Number of additional samples.
+
+        Returns
+        -------
+        IntervalArray
+            Oversampled IntervalArray.
+        """
         return self.oversample(num, method=oversample_piecewise_constant)
 
     def __repr__(self):

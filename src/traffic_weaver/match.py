@@ -1,5 +1,6 @@
 import numpy as np
 
+from .array_utils import left_piecewise_integral
 from .process import spline_smooth
 
 
@@ -9,7 +10,7 @@ def integral_matching_reference_stretch(x, y, x_ref, y_ref, alpha=1.0, s=None):
     Stretch function to match integrals piecewise constant function over the
     same domain.
 
-    .. image:: ../_static/images/integral_matching_reference.png
+    .. image:: /_static/gfx/integral_matching_reference.pdf
 
     Reference function is piecewise linear function that can contain only a
     subset of points in original function `x`.
@@ -66,7 +67,7 @@ def integral_matching_reference_stretch(x, y, x_ref, y_ref, alpha=1.0, s=None):
     ]  # get indices of elements in x array that are in x_ref array
     if len(interval_point_indices) != len(x_ref):
         raise ValueError("`x_ref` contains some points that are not in the `x`")
-    integral_values = left_piecewise_constant_integral_between_each_pair(x_ref, y_ref)
+    integral_values = left_piecewise_integral(x_ref, y_ref)
     res_y = interval_integral_matching_stretch(
         x,
         y,
@@ -80,7 +81,7 @@ def integral_matching_reference_stretch(x, y, x_ref, y_ref, alpha=1.0, s=None):
 def integral_matching_stretch(x, y, integral_value=0, dx=1.0, alpha=1.0, s=None):
     r"""Stretches function y=f(x) to match integral value.
 
-    .. image:: ../_static/images/integral_matching.png
+    .. image:: /_static/gfx/integral_matching.pdf
 
     This method creates function :math:`z=g(x)` from :math:`y=f(x)` such that the
     integral of :math:`g(x)` is equal to the provided integral value, and points
@@ -257,25 +258,3 @@ def interval_integral_matching_stretch(
             x[start:end], y[start:end], integral_value=integral_value, alpha=alpha
         )
     return y if s is None else spline_smooth(x, y, s)(x)
-
-
-def left_piecewise_constant_integral_between_each_pair(x, y):
-    r"""Integral values between each pair of points using piecewise constant approx.
-
-    In particular, if function contains average values, then it corresponds to the
-    exact value of the integral.
-
-    Parameters
-    ----------
-    x: 1-D array-like of size n
-        Independent variable in strictly increasing order.
-    y: 1-D array-like of size n
-        Dependent variable.
-
-    Returns
-    -------
-    1-D array-like of size n-1
-        Values of the integral.
-    """
-    d = np.diff(x)
-    return y[:-1] * d
