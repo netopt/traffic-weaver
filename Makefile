@@ -29,4 +29,4 @@ docs: clean
 test: clean
 	pytest --cov=traffic_weaver --cov-report term-missing --cov-report html
 	mkdir -p _images
-	coverage-badge -f -o _images/coverage.svg
+	coverage-badge -f -o badges/coverage.svg

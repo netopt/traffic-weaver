@@ -3,7 +3,7 @@
 
 /docs/build/
 /dist
-/gfx
+/badges
 
 *.egg-info/
 /.idea
