@@ -1,5 +1,5 @@
-traffic\_weaver.oversample module
-=================================
+oversample module
+=================
 
 .. automodule:: traffic_weaver.oversample
    :members:

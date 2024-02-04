@@ -1,6 +1,7 @@
 matplotlib
 sphinx
 sphinx-rtd-theme
+sphinx-mdinclude
 pytest
 pytest-cov
 pytest-mock

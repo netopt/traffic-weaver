@@ -1,5 +1,5 @@
-traffic\_weaver.weaver module
-=============================
+weaver module
+=============
 
 .. automodule:: traffic_weaver.weaver
    :members:

@@ -1,5 +1,5 @@
-traffic\_weaver.process module
-==============================
+process module
+==============
 
 .. automodule:: traffic_weaver.process
    :members:
