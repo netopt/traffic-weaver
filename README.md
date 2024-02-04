@@ -45,11 +45,3 @@ increasing over time (g). To validate correctness of applied processing,
 match the original signal (except the applied trend).
 
 <img alt="Signal processing" width="800px" src="https://github.com/netopt/traffic-weaver/raw/main/docs/source/_static/gfx/signal_processing_overview.png"/>
-
-.. _fig-signal-processing:
-
-.. figure::
-   :width: 800
-   :alt: Signal processing
-
-   Signal processing.
