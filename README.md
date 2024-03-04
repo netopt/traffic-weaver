@@ -6,7 +6,7 @@ Semi-synthetic time-varrying traffic generator based on averaged time series.
 [![test](https://github.com/w4k2/traffic-weaver/actions/workflows/test.yml/badge.svg)](https://github.com/w4k2/traffic-weaver/actions/workflows/test.yml)
 [![coverage badge](https://github.com/w4k2/traffic-weaver/raw/main/badges/coverage.svg)](https://github.com/w4k2/traffic-weaver/raw/main/badges/coverage.svg)
 [![Deploy Sphinx documentation to Pages](https://github.com/w4k2/traffic-weaver/actions/workflows/documentation.yml/badge.svg)](https://github.com/w4k2/traffic-weaver/actions/workflows/documentation.yml)
-[![pages-build-deployment](https://github.com/w4k2/traffic_weaver/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/w4k2/traffic_weaver/actions/workflows/pages/pages-build-deployment)
+[![pages-build-deployment](https://github.com/w4k2/traffic-weaver/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/w4k2/traffic-weaver/actions/workflows/pages/pages-build-deployment)
 
 ## Acknowledgments and citation
 
