@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Introduction &mdash; traffic_weaver  documentation</title>
+  <title>Introduction &mdash; Traffic Weaver  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -34,7 +34,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            traffic_weaver
+            Traffic Weaver
               <img src="_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
@@ -51,10 +51,12 @@
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#scope">Scope</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#software-architecture">Software architecture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#functionalities-description">Functionalities description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#architecture">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#functionalities">Functionalities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#motivation-and-significance">Motivation and significance</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="#bibliography">Bibliography</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick start</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="quick_start.html#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quick_start.html#minimal-processing-example">Minimal processing example</a></li>
@@ -184,6 +186,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a></li>
 </ul>
 
         </div>
@@ -192,7 +195,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">traffic_weaver</a>
+          <a href="index.html">Traffic Weaver</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -214,37 +217,36 @@
 <h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h1>
 <section id="scope">
 <h2>Scope<a class="headerlink" href="#scope" title="Link to this heading"></a></h2>
-<p>Traffic Weaver reads averaged time series and creates
-semi-synthetic signal with finer granularity, that after averaging
-matches the original provided signal.
-Following tools are applied to create semi-synthetic signal.</p>
+<p>Traffic Weaver is a Python package developed to generate a semi-synthetic signal (time series) with finer granularity,
+based on averaged time series, in a manner that, upon averaging, closely matches the original signal provided. The key
+components utilized to recreate the signal encompass:</p>
 <ul class="simple">
-<li><p>Oversampling with a given strategy</p></li>
-<li><p>Stretching to match the integral of the original time series</p></li>
-<li><p>Smoothing</p></li>
-<li><p>Repeating</p></li>
-<li><p>Trending</p></li>
-<li><p>Noising</p></li>
+<li><p>oversampling with a given strategy,</p></li>
+<li><p>stretching to match the integral of the original time series,</p></li>
+<li><p>smoothing,</p></li>
+<li><p>repeating,</p></li>
+<li><p>applying trend,</p></li>
+<li><p>adding noise.</p></li>
 </ul>
-<p><a class="reference internal" href="#fig-signal-processing"><span class="std std-numref">Fig. 1</span></a> shows general usage example.
-Based on provided original averaged time series (a), signal is <em>n</em>-times oversampled
-with predefined strategy (b). Next, it is stretched to match integral of the input
-time series function (c). Further, it is smoothed with spline function (d).
-In order to create weekly semi-synthetic data, signal is repeated 7 times
-(e) applying long-term trend consisting of sinusoidal and linear function (f).
-Finally, the noise is introduced to the signal. starting from small values and
-increasing over time (g). To validate correctness of applied processing,
-(h) presents averaged two periods of created signal, showing that they closely
-match the original signal (except the applied trend).</p>
-<figure class="align-default" id="id1">
+<p>The primary motivation behind Traffic Weaver is to furnish semi-synthetic time-varying traffic in telecommunication
+networks, facilitating the development and validation of traffic prediction models, as well as aiding in the deployment
+of network optimization algorithms tailored for time-varying traffic.</p>
+<p><a class="reference internal" href="#fig-signal-processing"><span class="std std-numref">Fig. 1</span></a> shows a general usage example. Based on the provided original averaged time series (a),
+the signal is <cite>n</cite>-times oversampled with a predefined strategy (b). Next, it is stretched to match the integral of the
+input time series function (c). Further, it is smoothed with a spline function (d). In order to create weekly
+semi-synthetic data, the signal is repeated seven times (e), applying a long-term trend consisting of sinusoidal and
+linear functions (f). Finally, the noise is introduced to the signal, starting from small values and increasing over
+time (g). To validate the correctness of the applied processing, (h) presents the averaged two periods of the created
+signal, showing that they closely match the original signal (except the applied trend).</p>
+<figure class="align-default" id="id3">
 <span id="fig-signal-processing"></span><a class="reference internal image-reference" href="_images/signal_processing_overview.pdf"><img alt="Signal processing" src="_images/signal_processing_overview.pdf" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Signal processing.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Signal processing.</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
-<section id="software-architecture">
-<h2>Software architecture<a class="headerlink" href="#software-architecture" title="Link to this heading"></a></h2>
+<section id="architecture">
+<h2>Architecture<a class="headerlink" href="#architecture" title="Link to this heading"></a></h2>
 <p><a class="reference internal" href="#fig-software-architecture"><span class="std std-numref">Fig. 2</span></a> presents overview of software architecture.
 <cite>Weaver</cite>, located in <cite>weaver.py</cite> module, wraps supplied time series data and provides
 interface for processing functionalities. Time series can be either specified by the
@@ -254,123 +256,159 @@ e.g., oversampling functionality is located in <cite>oversample.py</cite> module
 it is possible to use individual functionalities from they corresponding modules
 regardless of wrapping time series into <cite>Weaver</cite>. <cite>Weaver</cite> allows to retrieve processed
 data either as sampled points or continues spline function.</p>
-<figure class="align-default" id="id2">
+<figure class="align-default" id="id4">
 <span id="fig-software-architecture"></span><a class="reference internal image-reference" href="_images/software_architecture.pdf"><img alt="Software architecture" src="_images/software_architecture.pdf" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Software architecture.</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Software architecture.</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
-<section id="functionalities-description">
-<h2>Functionalities description<a class="headerlink" href="#functionalities-description" title="Link to this heading"></a></h2>
-<p>This section describes main functionalities provided by the Traffic Weaver.
-In the below description term <cite>interval</cite> refers to the distance between two sampled
-points in input time series. The aim of the Weaver is to create output time series
-with inserted multiple points in each interval.</p>
+<section id="functionalities">
+<h2>Functionalities<a class="headerlink" href="#functionalities" title="Link to this heading"></a></h2>
+<p>This section describes the main functionalities provided by the Traffic Weaver. In the below description,
+the term <cite>interval</cite> refers to the distance between two sampled points in the input time series. The aim of the Weaver
+is to create an output time series with multiple points inserted in each interval.</p>
 <ul>
 <li><dl class="simple">
-<dt>Class <a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver" title="traffic_weaver.weaver.Weaver"><code class="xref py py-func docutils literal notranslate"><span class="pre">Weaver(x,</span> <span class="pre">y)</span></code></a></dt><dd><p><cite>Weaver</cite> is an interface for recreating time series.
+<dt>Class <a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver" title="traffic_weaver.weaver.Weaver"><code class="xref py py-func docutils literal notranslate"><span class="pre">Weaver(x,</span> <span class="pre">y)</span></code></a></dt><dd><p><cite>Weaver</cite> is an interface for recreating signal.
 It takes as an input time series provided as two lists containing values of
 independent and dependent variables. It delegates processing to other modules
-and allows to retrieve recreated time series either as lists of values of
-independent and dependent variables or as a spline, using,
-<a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.get" title="traffic_weaver.weaver.Weaver.get"><code class="xref py py-func docutils literal notranslate"><span class="pre">get()</span></code></a> and
-<a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.to_function" title="traffic_weaver.weaver.Weaver.to_function"><code class="xref py py-func docutils literal notranslate"><span class="pre">to_function()</span></code></a>
+and allows to retrieve the recreated signal either as lists of values of independent
+and dependent variables or as a spline,
+using <a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.get" title="traffic_weaver.weaver.Weaver.get"><code class="xref py py-func docutils literal notranslate"><span class="pre">get()</span></code></a>
+and <a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.to_function" title="traffic_weaver.weaver.Weaver.to_function"><code class="xref py py-func docutils literal notranslate"><span class="pre">to_function()</span></code></a>
 methods, respectively.</p>
 </dd>
 </dl>
 </li>
 <li><dl>
-<dt>Oversampling</dt><dd><p>Oversampling is recreation of time series with finer sampling granularity based on supplied strategy.
-Number of created points between each interval (pair of points in the original
-time series) is provided as a parameter. The strategy determines how created time
-series transit between points, i.e., how new points are located.
-Software provides several strategies, namely,
-<a class="reference internal" href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.ExpAdaptiveOversample" title="traffic_weaver.oversample.ExpAdaptiveOversample"><code class="xref py py-func docutils literal notranslate"><span class="pre">ExpAdaptiveOversample()</span></code></a>,
-<a class="reference internal" href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.ExpFixedOversample" title="traffic_weaver.oversample.ExpFixedOversample"><code class="xref py py-func docutils literal notranslate"><span class="pre">ExpFixedOversample()</span></code></a>,
-<a class="reference internal" href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.LinearAdaptiveOversample" title="traffic_weaver.oversample.LinearAdaptiveOversample"><code class="xref py py-func docutils literal notranslate"><span class="pre">LinearAdaptiveOversample()</span></code></a>,
-<a class="reference internal" href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.LinearFixedOversample" title="traffic_weaver.oversample.LinearFixedOversample"><code class="xref py py-func docutils literal notranslate"><span class="pre">LinearFixedOversample()</span></code></a>,
-<a class="reference internal" href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.PiecewiseConstantOversample" title="traffic_weaver.oversample.PiecewiseConstantOversample"><code class="xref py py-func docutils literal notranslate"><span class="pre">PiecewiseConstantOversample()</span></code></a>,
+<dt>Oversampling</dt><dd><blockquote>
+<div><p>Oversampling is a recreation of a signal with finer sampling granularity based on the supplied strategy. The number of created points between each interval (pair of points in the original time series) is provided</p>
+</div></blockquote>
+<p>as a parameter. The strategy determines how the created time series transits between points, i.e., how the new
+points are located. The software provides several strategies,
+namely, <a class="reference internal" href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.ExpAdaptiveOversample" title="traffic_weaver.oversample.ExpAdaptiveOversample"><code class="xref py py-func docutils literal notranslate"><span class="pre">ExpAdaptiveOversample()</span></code></a>,
+<a class="reference internal" href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.ExpFixedOversample" title="traffic_weaver.oversample.ExpFixedOversample"><code class="xref py py-func docutils literal notranslate"><span class="pre">ExpFixedOversample()</span></code></a>, <a class="reference internal" href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.LinearAdaptiveOversample" title="traffic_weaver.oversample.LinearAdaptiveOversample"><code class="xref py py-func docutils literal notranslate"><span class="pre">LinearAdaptiveOversample()</span></code></a>,
+<a class="reference internal" href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.LinearFixedOversample" title="traffic_weaver.oversample.LinearFixedOversample"><code class="xref py py-func docutils literal notranslate"><span class="pre">LinearFixedOversample()</span></code></a>, <a class="reference internal" href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.PiecewiseConstantOversample" title="traffic_weaver.oversample.PiecewiseConstantOversample"><code class="xref py py-func docutils literal notranslate"><span class="pre">PiecewiseConstantOversample()</span></code></a>,
 <a class="reference internal" href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.CubicSplineOversample" title="traffic_weaver.oversample.CubicSplineOversample"><code class="xref py py-func docutils literal notranslate"><span class="pre">CubicSplineOversample()</span></code></a>.
-E.g., <cite>ExpAdaptiveOversample</cite> creates adaptive transition window for each
-interval by combining linear and exponential function. The size of the window
-is inversely proportionally to the change of function value on both edges of
-the interval, i.e., if function value has higher change on the right side of
-the interval, than on the left side, the right side transition window is smaller
+E.g., <cite>ExpAdaptiveOversample</cite>  creates an adaptive transition window for each interval by combining
+linear and exponential functions. The size of the window is inversely proportional to the change
+of the function value on both edges of the interval, i.e., if the function value has a higher change
+on the right side than on the left side of the interval, the right side transition window is smaller
 than the left one.</p>
-<p><cite>Weaver</cite> class provides method
-<a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.oversample" title="traffic_weaver.weaver.Weaver.oversample"><code class="xref py py-func docutils literal notranslate"><span class="pre">oversample(n,</span> <span class="pre">oversample_class,</span> <span class="pre">**kwargs):</span></code></a>
-that delegates execution to oversample module and takes as an input numer of samples
-<cite>n</cite> in each interval after oversampling, <cite>oversample_class</cite> defining
-oversample strategy class inheriting
-<a class="reference internal" href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.AbstractOversample" title="traffic_weaver.oversample.AbstractOversample"><code class="xref py py-func docutils literal notranslate"><span class="pre">AbstractOversample()</span></code></a> class,
-and dictionary of parameters passed to selected strategy.</p>
+<p>The <cite>Weaver</cite> class provides the
+<a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.oversample" title="traffic_weaver.weaver.Weaver.oversample"><code class="xref py py-func docutils literal notranslate"><span class="pre">oversample(n,</span> <span class="pre">oversample_class,</span> <span class="pre">**kwargs):</span></code></a> method
+that delegates the execution to the oversample module and takes as an input number of samples
+<cite>n</cite> in each interval after oversampling, oversample strategy <cite>oversample_class</cite> inheriting
+<a class="reference internal" href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.AbstractOversample" title="traffic_weaver.oversample.AbstractOversample"><code class="xref py py-func docutils literal notranslate"><span class="pre">AbstractOversample()</span></code></a> class, and a dictionary of parameters
+passed to the selected strategy.</p>
 </dd>
 </dl>
 </li>
 <li><dl>
-<dt>Integral matching</dt><dd><p>It aims to reshape time series to match its integral to the integral of the
-reference piece wise constant function over the same domain
-(the original time series). It does that by stretching time series in intervals
-such that the integral in interval of current time series is equal to the
-integral of the same interval in the reference function.
-Points in each interval are transformed inversely proportionally to the
-exponential value of distance from the interval center.</p>
-<p><cite>Weaver</cite> class provides method <a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.integral_match" title="traffic_weaver.weaver.Weaver.integral_match"><code class="xref py py-func docutils literal notranslate"><span class="pre">integral_match(**kwargs)</span></code></a>
-that delegates execution to match module and takes as an input a dictionary of
-parameters passed to matching function. Currently stored time series in <cite>Weaver</cite> is
-matched with reference to originally passed function to the class.</p>
+<dt>Integral matching</dt><dd><p>It aims to reshape the time series to match its integral to the integral of the reference piecewise
+constant function over the same domain (the original time series). It does that by stretching the
+signal in intervals such that the integral in the interval of the current time series is equal
+to the integral of the same interval in the reference function. Points in each interval are
+transformed inversely proportionally to the exponential value of distance from the interval center.</p>
+<p>The <cite>Weaver</cite> class provides the
+<a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.integral_match" title="traffic_weaver.weaver.Weaver.integral_match"><code class="xref py py-func docutils literal notranslate"><span class="pre">integral_match(**kwargs)</span></code></a>
+method that delegates the execution to the match module and takes as an input a dictionary of
+parameters passed to the matching function. The time series currently stored in the <cite>Weaver</cite>
+is matched with a reference to the originally passed function to the class.</p>
 </dd>
 </dl>
 </li>
 <li><dl>
 <dt>Smoothing</dt><dd><p>It smooths a function using smoothing splines.</p>
-<p><cite>Weaver</cite> class provides method <a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.smooth" title="traffic_weaver.weaver.Weaver.smooth"><code class="xref py py-func docutils literal notranslate"><span class="pre">smooth(s)</span></code></a> to
-delegate the execution to smoothing function, and takes <cite>s</cite> as an argument.
-The argument <cite>s</cite> is a smoothing condition that controls the tradeoff
-between closeness and smoothness of fit. Larger <cite>s</cite> means more smoothing while
-smaller values of <cite>s</cite> indicate less smoothing. If <cite>s</cite> is None, it’s ‘good’ value
-is calculated based on number of samples and standard deviation.</p>
+<p>The <cite>Weaver</cite> class provides the
+<a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.smooth" title="traffic_weaver.weaver.Weaver.smooth"><code class="xref py py-func docutils literal notranslate"><span class="pre">smooth(s)</span></code></a>
+method to delegate the execution to the smoothing function and takes <cite>s</cite> as an argument.
+The argument <cite>s</cite> is a smoothing condition that controls the tradeoff between closeness and smoothness
+of the fit. Larger <cite>s</cite> means more smoothing, while smaller values of <cite>s</cite> indicate less smoothing.
+If  <cite>s</cite> is None, its ‘good’ value is calculated based on the number of samples and standard deviation.</p>
 </dd>
 </dl>
 </li>
 <li><dl>
-<dt>Repeating</dt><dd><p>It repeats time series a given number of times, resulting in long term time series
-containing periodic, e.g., daily or weakly, patterns.</p>
-<p><cite>Weaver</cite> class provides method <a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.repeat" title="traffic_weaver.weaver.Weaver.repeat"><code class="xref py py-func docutils literal notranslate"><span class="pre">repeat(n)</span></code></a> to
-repeat time series. <cite>n</cite> is an argument passed to the function, defining how many
-time repeat the time series.</p>
+<dt>Repeating</dt><dd><p>It repeats time series a given number of times, resulting in a long term time series containing
+periodic, e.g., daily or weakly, patterns.</p>
+<p>The <cite>Weaver</cite> class provides the
+<a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.repeat" title="traffic_weaver.weaver.Weaver.repeat"><code class="xref py py-func docutils literal notranslate"><span class="pre">repeat(n)</span></code></a>
+method to repeat the time series. <cite>n</cite> is an argument passed to the function, defining how many times
+to repeat the time series.</p>
 </dd>
 </dl>
 </li>
 <li><dl>
-<dt>Trending</dt><dd><p>It applies trend to time series according to specified function. It allows to
-add long term trend to time series, e.g., constant dependent variable increase over
-time.</p>
-<p><cite>Weaver</cite> class provides method
-<a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.trend" title="traffic_weaver.weaver.Weaver.trend"><code class="xref py py-func docutils literal notranslate"><span class="pre">trend(trend_func)</span></code></a> to apply trend to
-processed time series. Argument <cite>trend_function</cite> is a callable that shifts value
-for dependent variable based on value of independent variable normalized to
-<cite>(0, 1)</cite> range. The callable takes one argument being the normalized value of
-independent variable, and has to return shift value for the dependent variable.</p>
+<dt>Trending</dt><dd><p>It applies a trend to the time series according to the specified function. It allows adding a long-term
+trend to the time series, e.g., constant dependent variable increase over time.</p>
+<p>The <cite>Weaver</cite> class provides the
+<a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.trend" title="traffic_weaver.weaver.Weaver.trend"><code class="xref py py-func docutils literal notranslate"><span class="pre">trend(trend_func)</span></code></a>
+method to apply a trend to the processed time series. The argument <cite>trend_function</cite>
+is a callable that shifts the value for the dependent variable based on the value of the
+independent variable normalized to a <cite>(0, 1)</cite> range. The callable takes one argument – the normalized
+value of the independent variable – and has to return the shift value for the dependent variable.</p>
 </dd>
 </dl>
 </li>
 <li><dl>
-<dt>Noising</dt><dd><p>It applies constant or changing over time gaussian noise to time series
+<dt>Noising</dt><dd><p>It applies a constant or changing over time Gaussian noise to the time series,
 expressed as signal to noise ratio.</p>
-<p><cite>Weaver</cite> class provides method
-<a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.noise" title="traffic_weaver.weaver.Weaver.noise"><code class="xref py py-func docutils literal notranslate"><span class="pre">noise(snr,</span> <span class="pre">**kwargs)</span></code></a> to apply noise to
-a time series. Argument <cite>snr</cite> defines signal-to-noise ratio of a function either as
-a scalar value, or as a list of changing values over time which size matches size
-of independent variable. <cite>**kwargs</cite> is a set of parameters passed to noising
-function, allowing, e.g., to express noise as normal distribution standard
-deviation instead of signal to noise ration.</p>
+<p>The <cite>Weaver</cite> class provides the
+<a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.noise" title="traffic_weaver.weaver.Weaver.noise"><code class="xref py py-func docutils literal notranslate"><span class="pre">noise(snr,</span> <span class="pre">**kwargs)</span></code></a>
+method to apply noise to the signal. The argument <cite>snr</cite> defines the signal-to-noise ratio of a function
+either as a scalar value or as a list of changing values over time whose size matches the size
+of the independent variable. <cite>**kwargs</cite> is a set of parameters passed to the noising function,
+allowing, e.g., to express the noise as a normal distribution standard deviation instead of
+the signal-to-noise ratio.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Datasets</dt><dd><p>The <cite>Datasets</cite> module provides example datasets based on the Sandvine report
+<a class="footnote-reference brackets" href="#footcite-sandvine2021" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>. In more detail, report includes information about daily
+traffic patterns of various network-based applications, e.g., TikTok, YouTube, Zoom, etc.,
+averaged over multiple large networks.
+The report presents the data as bar plots of traffic averaged in each hour of the day.
+The <cite>Datasets</cite> module includes nineteen datasets containing information about these shapes denoted as lists,
+which can be used as a base for generating the semi-synthetic traffic.</p>
 </dd>
 </dl>
 </li>
 </ul>
 </section>
+<section id="motivation-and-significance">
+<h2>Motivation and significance<a class="headerlink" href="#motivation-and-significance" title="Link to this heading"></a></h2>
+<p>In telecommunication networks, such as backbone optical networks, many small end-to-end transmissions between
+individual users and devices  combine into time-varying traffic, representing aggregated traffic over time.
+Thus, daily and weekly patterns can be observed in network traffic due to increased user activity in certain periods.
+Driven by the paradigm of self-driving and self-healing networks, traffic prediction, and anomaly detection
+gained significant research community attention in recent years.
+However, the community faces the problem of lacking real data, allowing for thorough experiments.
+Network operators are often constrained by legal aspects and cannot share the details of traffic
+generated by their customers. In turn, many researchers can have access either to small exemplary data or to
+averaged data without sufficient quality.
+To this end, the community relies on artificially generated data with various distributions and patterns
+based on their domain knowledge. However, predicting and detecting changes in real data can bring significantly
+more challenges than artificially generated ones. Additionally, extensive experiments performed on a large
+pool of appropriately diverse datasets are necessary for the development and thorough evaluation of the
+designed algorithms.</p>
+<p>The purpose of Traffic Weaver is to generate new data based on an already available sample of data, i.e.,
+to create semi-synthetic data when the size of real data is either insufficient or the time points at which
+the data were measured are too rare.</p>
+</section>
+</section>
+<section id="bibliography">
+<h1>Bibliography<a class="headerlink" href="#bibliography" title="Link to this heading"></a></h1>
+<div class="docutils container" id="id2">
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="footcite-sandvine2021" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Sandvine. The mobile internet phenomena report. May 2021.</p>
+</aside>
+</aside>
+</div>
 </section>
 
 
