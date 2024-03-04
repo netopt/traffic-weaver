@@ -15,7 +15,7 @@ Table of content
    Introduction </introduction.rst>
    Quick start </quick_start.rst>
    API reference </apidocs/traffic_weaver.rst>
-
+   Development </development.rst>
 
 Indices and tables
 ==================

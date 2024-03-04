@@ -14,7 +14,7 @@ sys.path.insert(0, os.path.abspath(os.path.join('..', '..', 'src')))
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 from traffic_weaver import __version__
 
-project = 'traffic_weaver'
+project = 'Traffic Weaver'
 copyright = '2024, Piotr T. Lechowicz'
 author = 'Piotr T. Lechowicz'
 version = __version__
@@ -29,6 +29,7 @@ extensions = [
     'sphinx.ext.napoleon',
     'sphinx.ext.githubpages',
     'sphinx_mdinclude',
+    'sphinxcontrib.bibtex',
 ]
 
 # configuration ----
@@ -63,3 +64,5 @@ autoclass_content = 'both'  # Both the class’ and the __init__ method’s docs
 # unit titles (such as .. function::).
 add_module_names = False
 
+# configuration sphinxcontrib.bibtex
+bibtex_bibfiles = ['bibliography.bib']

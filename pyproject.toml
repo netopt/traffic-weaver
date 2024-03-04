@@ -13,7 +13,7 @@ authors = [
 maintainers = [
     { name = "Piotr T. Lechowicz", email = "piotr.lechowicz@pwr.edu.pl" },
 ]
-description = "Recreate time-series from averaged data"
+description = "Semi-synthetic time-varrying traffic generator based on averaged time series"
 readme = "README.md"
 license = { file = "LICENSE" }
 
@@ -25,8 +25,8 @@ classifiers = [
 ]
 
 [project.urls]
-homepage = "https://github.com/netopt/traffic-weaver"
-documentation = "https://netopt.github.io/traffic-weaver/"
+homepage = "https://github.com/w4k2/traffic-weaver"
+documentation = "https://w4k2.github.io/traffic-weaver/"
 
 [tool.setuptools]
 package-dir = { "" = "src" }
