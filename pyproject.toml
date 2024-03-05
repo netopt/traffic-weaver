@@ -30,7 +30,6 @@ documentation = "https://w4k2.github.io/traffic-weaver/"
 
 [tool.setuptools]
 package-dir = { "" = "src" }
-packages = ["traffic_weaver"]
 
 [tool.setuptools.package-data]
 "traffic_weaver.datasets" = ["*.json"]
