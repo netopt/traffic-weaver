@@ -177,6 +177,6 @@ to create semi-synthetic data when the size of real data is either insufficient 
 the data were measured are too rare.
 
 Bibliography
-============
+------------
 
 .. footbibliography::
