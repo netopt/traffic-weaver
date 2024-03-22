@@ -8,7 +8,7 @@ Install package with pip.
 
 .. code-block:: shell
 
-   pip install traffic_weaver
+   pip install traffic-weaver
 
 Minimal processing example
 --------------------------
@@ -53,7 +53,7 @@ variables as arguments, denoted as `x` and `y` respectively.
     wv = traffic_weaver.Weaver(x, y)
 
 Further signal processing is applied through Weaver methods. Most of the methods return
-instance to the Weaver itself, allowing for processing commands chaining.
+instance to the Weaver itself, allowing for chaining processing commands.
 
 .. code-block:: python
 
@@ -61,7 +61,7 @@ instance to the Weaver itself, allowing for processing commands chaining.
     wv.oversample(60).integral_match().smooth(1.0).noise(snr=30)
 
 To obtain created new time series call either :code:`Weaver.get()` or
-:code:`Weaver.get_as_function()`. The former one returns list of created points, and
+:code:`Weaver.to_function()`. The former one returns list of created points, and
 the latter one spline function created based on those points and allow to sample any point.
 
 .. code-block:: python
@@ -98,7 +98,7 @@ To visualize time series, matplotlib library is required.
     axes[1].plot(*wv.get())
 
     # plot averaged signal
-    x, y = average(*wv.get(), 60)
+    x, y = traffic_weaver.process.average(*wv.get(), 60)
     axes[2].plot(x, y, drawstyle="steps-post")
 
     axes[0].set_title("a) Original", loc="left")

@@ -218,7 +218,7 @@
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
 <p>Install package with pip.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>traffic_weaver
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>traffic-weaver
 </pre></div>
 </div>
 </section>
@@ -254,13 +254,13 @@ variables as arguments, denoted as <cite>x</cite> and <cite>y</cite> respectivel
 </pre></div>
 </div>
 <p>Further signal processing is applied through Weaver methods. Most of the methods return
-instance to the Weaver itself, allowing for processing commands chaining.</p>
+instance to the Weaver itself, allowing for chaining processing commands.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># process it creating samples every minute</span>
 <span class="n">wv</span><span class="o">.</span><span class="n">oversample</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span><span class="o">.</span><span class="n">integral_match</span><span class="p">()</span><span class="o">.</span><span class="n">smooth</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">noise</span><span class="p">(</span><span class="n">snr</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>To obtain created new time series call either <code class="code docutils literal notranslate"><span class="pre">Weaver.get()</span></code> or
-<code class="code docutils literal notranslate"><span class="pre">Weaver.get_as_function()</span></code>. The former one returns list of created points, and
+<code class="code docutils literal notranslate"><span class="pre">Weaver.to_function()</span></code>. The former one returns list of created points, and
 the latter one spline function created based on those points and allow to sample any point.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">wv</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -289,7 +289,7 @@ the latter one spline function created based on those points and allow to sample
 <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">*</span><span class="n">wv</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
 
 <span class="c1"># plot averaged signal</span>
-<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">average</span><span class="p">(</span><span class="o">*</span><span class="n">wv</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="mi">60</span><span class="p">)</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">traffic_weaver</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="o">*</span><span class="n">wv</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="mi">60</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">drawstyle</span><span class="o">=</span><span class="s2">&quot;steps-post&quot;</span><span class="p">)</span>
 
 <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;a) Original&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
