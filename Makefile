@@ -5,7 +5,7 @@ clean:
 	rm -rf dist
 	rm -f .coverage
 
-prepare:
+build-requirements:
 	pip install pip-tools
 	pip-compile -o requirements.txt pyproject.toml
 	pip-compile --extra dev -o dev-requirements.txt pyproject.toml

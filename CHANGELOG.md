@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.3.5](https://github.com/w4k2/traffic-weaver/compare/v1.3.4...v1.3.5) (2024-03-07)
+
+## [1.3.4](https://github.com/w4k2/traffic-weaver/compare/v1.3.3...v1.3.4) (2024-03-05)
+
+
+### Bug Fixes
+
+* **resources:** discover resources in pyproject.toml ([cc902f5](https://github.com/w4k2/traffic-weaver/commit/cc902f5b89b1f7f08bc172e7bbdddd25b110f82a))
+
+## [1.3.3](https://github.com/w4k2/traffic-weaver/compare/v1.3.2...v1.3.3) (2024-03-04)
+
+## [1.3.2](https://github.com/w4k2/traffic-weaver/compare/v1.3.1...v1.3.2) (2024-03-04)
+
 ## [1.3.1](https://github.com/netopt/traffic-weaver/compare/v1.3.0...v1.3.1) (2024-02-04)
 
 ## [1.3.0](https://github.com/netopt/traffic-weaver/compare/v1.2.0...v1.3.0) (2024-02-04)
