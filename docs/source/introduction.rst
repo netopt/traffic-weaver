@@ -94,8 +94,8 @@ with inserted multiple points in each interval.
 	than the left one.
 
 	`Weaver` class provides method
-	:func:`oversample(n, oversample_class, **kwargs):<traffic_weaver.weaver.Weaver.oversample>`
-	that delegates execution to oversample module and takes as an input numer of samples
+	:func:`oversample(n, oversample_class, **kwargs)<traffic_weaver.weaver.Weaver.oversample>`
+	that delegates execution to oversample module and takes as an input number of samples
 	`n` in each interval after oversampling, `oversample_class` defining
 	oversample strategy class inheriting
 	:func:`~traffic_weaver.oversample.AbstractOversample` class,
