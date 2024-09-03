@@ -17,6 +17,7 @@ repos:
     hooks:
     -   id: flake8
         stages: [pre-commit]
+        args: [--config=.flake8]
 - repo: local
   hooks:
     - id: conventional-commit

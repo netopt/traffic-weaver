@@ -11,7 +11,7 @@ def append_one_sample(
     r"""Add one sample to the end of time series.
 
     Add one sample to `x` and `y` array. Newly added point `x_i` point is distant from
-    the last point of `x` same as the last from the one before last point.
+    the last point of `x` same as the last from the one before the last point.
     If `make_periodic` is False, newly added `y_i` point is the same as the last  point
     of `y`. If `make_periodic` is True, newly added point is the same as the first point
     of `y`.

@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 
 from .match import integral_matching_reference_stretch
 from .oversample import AbstractOversample, ExpAdaptiveOversample
@@ -19,8 +20,9 @@ class Weaver:
     --------
     >>> from traffic_weaver import Weaver
     >>> from traffic_weaver.array_utils import append_one_sample
-    >>> from traffic_weaver.datasets import load_mobile_video
-    >>> x, y = load_mobile_video()
+    >>> from traffic_weaver.datasets import load_sandvine_mobile_video
+    >>> ar = load_sandvine_mobile_video()
+    >>> x, y = ar[:, 0], ar[:, 1]
     >>> x, y = append_one_sample(x, y, make_periodic=True)
     >>> wv = Weaver(x, y)
     >>> # chain some command
@@ -47,6 +49,9 @@ class Weaver:
 
         self.original_x = self.x
         self.original_y = self.y
+
+        self.x_scale = 1
+        self.y_scale = 1
 
     def get(self):
         r"""Return function x,y tuple after performed processing."""
@@ -108,7 +113,7 @@ class Weaver:
         :func:`~traffic_weaver.match.integral_matching_reference_stretch`
         """
         self.y = integral_matching_reference_stretch(
-            self.x, self.y, self.original_x, self.original_y, **kwargs
+            self.x, self.y, self.original_x * self.x_scale, self.original_y * self.y_scale, **kwargs
         )
         return self
 
@@ -212,3 +217,20 @@ class Weaver:
         :func:`~traffic_weaver.process.spline_smooth`
         """
         return spline_smooth(self.x, self.y, s=s)
+
+    def scale_x(self, scale):
+        r"""Scale x-axis."""
+        self.x_scale = self.x_scale * scale
+        self.x = self.x * scale
+        return self
+
+    def scale_y(self, scale):
+        r"""Scale y-axis."""
+        self.y_scale = self.y_scale * scale
+        self.y = self.y * scale
+        return self
+
+
+def read_csv(filepath, sep=','):
+    df = pd.read_csv(filepath, sep=sep, header=None)
+    return Weaver(df.values[:, 0], df.values[:, 1])

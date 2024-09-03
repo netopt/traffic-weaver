@@ -11,3 +11,6 @@
 .husky
 __pycache__/
 /htmlcov/
+/src/traffic_weaver/test_runners/
+
+.venv/
