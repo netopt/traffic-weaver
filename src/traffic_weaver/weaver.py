@@ -1,6 +1,6 @@
 import numpy as np
-import pandas as pd
 
+from .array_utils import append_one_sample
 from .match import integral_matching_reference_stretch
 from .oversample import AbstractOversample, ExpAdaptiveOversample
 from .process import repeat, trend, spline_smooth, noise_gauss
@@ -13,18 +13,24 @@ class Weaver:
     ----------
     x: 1-D array-like of size n, optional
         Independent variable in strictly increasing order.
+        If x is None, then x is a set of integers from 0 to `len(y) - 1`
     y: 1-D array-like of size n
         Dependent variable.
+
+    Raises:
+    -------
+    ValueError
+        If `x` and `y` are not of the same length.
 
     Examples
     --------
     >>> from traffic_weaver import Weaver
     >>> from traffic_weaver.array_utils import append_one_sample
     >>> from traffic_weaver.datasets import load_sandvine_mobile_video
-    >>> ar = load_sandvine_mobile_video()
-    >>> x, y = ar[:, 0], ar[:, 1]
-    >>> x, y = append_one_sample(x, y, make_periodic=True)
+    >>> data = load_sandvine_mobile_video()
+    >>> x, y = data.T
     >>> wv = Weaver(x, y)
+    >>> _ = wv.append_one_sample(make_periodic=True)
     >>> # chain some command
     >>> _ = wv.oversample(10).integral_match().smooth(s=0.2)
     >>> # at any moment get newly created and processed time series' points
@@ -41,6 +47,8 @@ class Weaver:
     """
 
     def __init__(self, x, y):
+        if x is not None and len(x) != len(y):
+            raise ValueError("x and y should be of the same length")
         if x is None:
             self.x = np.arange(stop=len(y))
         else:
@@ -52,6 +60,72 @@ class Weaver:
 
         self.x_scale = 1
         self.y_scale = 1
+
+    @staticmethod
+    def from_2d_array(xy: np.ndarray):
+        """Create Weaver object from 2D array.
+
+        Parameters
+        ----------
+        xy: np.ndarray of shape (nr_of_samples, 2)
+            2D array with each row representing one point in time series.
+            The first column is the x-variable and the second column is the y-variable.
+
+        Returns
+        -------
+        Weaver
+            Weaver object with x and y values from 2D array.
+
+        Raises
+        ------
+        ValueError
+            If `xy` is not a 2D array or does not have 2 columns
+
+        """
+        shape = xy.shape
+        if len(shape) != 2 or shape[1] != 2:
+            raise ValueError("xy should be 2D array with 2 columns")
+        return Weaver(xy[:, 0], xy[:, 1])
+
+    @staticmethod
+    def from_dataframe(df, x_col=0, y_col=1):
+        """Create Weaver object from DataFrame.
+
+        Parameters
+        ----------
+        df: pandas DataFrame
+            DataFrame with data.
+        x_col: int or str, default=0
+            Name of column with x values.
+        y_col: int or str, default=1
+            Name of column with y values.
+
+        Returns
+        -------
+        Weaver
+            Weaver object with x and y values from DataFrame.
+
+        """
+        return Weaver(df[x_col].values, df[y_col].values)
+
+    @staticmethod
+    def from_csv(file_name: str):
+        """Create Weaver object from CSV file.
+
+        CSV has to contain two columns without headers.
+        The first column contains 'x' values,
+        the second column contains 'y' values.
+
+        Parameters
+        ----------
+        file_name: str
+            Path to CSV file.
+        Returns
+        -------
+        Weaver
+            Weaver object from CSV file.
+        """
+        return Weaver.from_2d_array(np.loadtxt(file_name, delimiter=',', dtype=np.float64))
 
     def get(self):
         r"""Return function x,y tuple after performed processing."""
@@ -67,11 +141,37 @@ class Weaver:
         self.y = self.original_y
         return self
 
+    def append_one_sample(self, make_periodic=False):
+        """Add one sample to the end of time series.
+
+        Add one sample to `x` and `y` array. Newly added point `x_i` point is distant from
+        the last point of `x` same as the last from the one before the last point.
+        If `make_periodic` is False, newly added `y_i` point is the same as the last  point
+        of `y`. If `make_periodic` is True, newly added point is the same as the first point
+        of `y`.
+
+        Parameters
+        ----------
+        make_periodic: bool, default: False
+            If false, append the last `y` point to `y` array.
+            If true, append the first `y` point to `y` array.
+
+        Returns
+        -------
+        self
+
+        See Also
+        --------
+        :func:`~traffic_weaver.array_utils.append_one_sample`
+        """
+        self.x, self.y = append_one_sample(self.x, self.y, make_periodic=make_periodic)
+        return self
+
     def oversample(
-        self,
-        n: int,
-        oversample_class: type[AbstractOversample] = ExpAdaptiveOversample,
-        **kwargs,
+            self,
+            n: int,
+            oversample_class: type[AbstractOversample] = ExpAdaptiveOversample,
+            **kwargs,
     ):
         r"""Oversample function using provided strategy.
 
@@ -229,8 +329,3 @@ class Weaver:
         self.y_scale = self.y_scale * scale
         self.y = self.y * scale
         return self
-
-
-def read_csv(filepath, sep=','):
-    df = pd.read_csv(filepath, sep=sep, header=None)
-    return Weaver(df.values[:, 0], df.values[:, 1])

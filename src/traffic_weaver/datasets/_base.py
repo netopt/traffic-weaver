@@ -67,16 +67,17 @@ def clear_data_home(data_home: str = None):
     shutil.rmtree(data_home)
 
 
-def load_from_resources_csv(file_name, resources_module=RESOURCES_DATASETS):
+def load_csv_dataset_from_resources(file_name, resources_module=RESOURCES_DATASETS, unpack_dataset_columns=False):
     """Load dataset from resources.
 
     Parameters
     ----------
     file_name: str
         name of the file to load.
-
     resources_module: str, default='traffic_weaver.datasets.data'
         The package name where the resources are located.
+    unpack_dataset_columns: bool, default=False
+        If True, the dataset is unpacked to two separate arrays x and y.
 
     Returns
     -------
@@ -87,7 +88,10 @@ def load_from_resources_csv(file_name, resources_module=RESOURCES_DATASETS):
     """
     data_path = resources.files(resources_module) / file_name
     data_file = np.loadtxt(data_path, delimiter=',', dtype=np.float64)
-    return data_file
+    if unpack_dataset_columns:
+        return data_file[:, 0], data_file[:, 1]
+    else:
+        return data_file
 
 
 def _fetch_remote(remote: RemoteFileMetadata, dirname=None, n_retries=3, delay=1.0, validate_checksum=True):
@@ -154,6 +158,7 @@ def load_csv_dataset_from_remote(
         n_retries=3,
         delay=1.0,
         gzip=False,
+        unpack_dataset_columns=False,
 ):
     """
     Load a dataset from a remote location in csv.gz format.
@@ -182,6 +187,8 @@ def load_csv_dataset_from_remote(
         Number of seconds between retries.
     gzip: bool, default=False
         If True, the file is assumed to be compressed in gzip format in the remote.
+    unpack_dataset_columns: bool, default=False
+        If True, the dataset is unpacked to two separate arrays x and y.
 
     Returns
     -------
@@ -217,7 +224,10 @@ def load_csv_dataset_from_remote(
         raise OSError("Data not found and `download_if_missing` is False")
     if dataset is None:
         dataset = pickle.load(open(dataset_file_path, "rb"))
-    return dataset
+    if unpack_dataset_columns:
+        dataset = dataset[:, 0], dataset[:, 1]
+    else:
+        return dataset
 
 
 def load_dataset_description(datasetsource_filename, resources_module=RESOURCES_DATASETS_DESCRIPTION):
