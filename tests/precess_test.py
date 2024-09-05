@@ -2,7 +2,10 @@ import numpy as np
 import pytest
 from numpy.ma.testutils import assert_array_equal, assert_array_almost_equal
 
-from traffic_weaver.process import repeat, trend, linear_trend, noise_gauss, average
+from traffic_weaver.process import (
+    repeat, trend, linear_trend, noise_gauss, average,
+    piecewise_constant_interpolate,
+)
 
 
 @pytest.fixture
@@ -18,7 +21,7 @@ def test_repeat(xy):
 
 def test_trend(xy):
     shift = [0, 1 / 16, 1 / 4, 9 / 16, 1]
-    nx, ny = trend(xy[0], xy[1], lambda x: x**2)
+    nx, ny = trend(xy[0], xy[1], lambda x: x ** 2)
     assert_array_equal(nx, xy[0])
     assert_array_equal(ny, xy[1] + shift)
 
@@ -73,3 +76,15 @@ def test_average(xy):
     expected_y = [2, 2.5, 2]
     assert_array_equal(ax, expected_x)
     assert_array_equal(ay, expected_y)
+
+
+@pytest.mark.parametrize(
+    "x, y, new_x, expected",
+    [
+        ([0, 1, 2], [2, 3, 4], [0.5, 1.0, 1.5, 2.0, 2.5], [2, 3, 3, 4, 4]),
+        ([2, 3, 4], [5, 4, 3], [0, 1, 2, 5, 8], [5, 5, 5, 3, 3]),
+    ],
+)
+def test_piecewise_constant_interpolate(x, y, new_x, expected):
+    new_y = piecewise_constant_interpolate(x, y, new_x)
+    assert_array_equal(new_y, expected)

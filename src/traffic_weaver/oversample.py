@@ -9,7 +9,7 @@ from scipy.interpolate import CubicSpline
 
 from .funfit import lin_fit, lin_exp_xy_fit, exp_lin_fit
 from .interval import IntervalArray
-from .array_utils import (
+from .sorted_array_utils import (
     oversample_linspace,
     oversample_piecewise_constant,
 )

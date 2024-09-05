@@ -1,12 +1,13 @@
 import pytest
 from numpy.testing import assert_array_equal
 
-from traffic_weaver.array_utils import (
+from traffic_weaver.sorted_array_utils import (
     oversample_linspace,
     oversample_piecewise_constant,
     extend_linspace,
     extend_constant,
     append_one_sample,
+    find_closest_lower_equal_element_indices_to_values, find_closest_higher_equal_element_indices_to_values,
 )
 
 
@@ -76,3 +77,34 @@ def test_extend_linspace(x, num, direction, lstart, rstop, expected):
 def test_extend_constant(x, num, direction, expected):
     xs = extend_constant(x, num, direction)
     assert_array_equal(xs, expected)
+
+
+@pytest.mark.parametrize(
+    "a, values, expected",
+    [
+        ([1, 2, 3], [1.1], [0]),
+        ([1, 2, 3], [0.2, 0.9, 1.4], [0, 0, 0]),
+        ([1, 2, 3], [1, 2, 3], [0, 1, 2]),
+        ([1, 2, 3], [2.9, 3.0], [1, 2]),
+        ([1, 2, 3], [2.8, 3.5, 4.0], [1, 2, 2]),
+    ],
+)
+def test_find_closest_lower_equal_element_indices_to_values(a, values, expected):
+    indices = find_closest_lower_equal_element_indices_to_values(a, values)
+    assert_array_equal(indices, expected)
+
+
+@pytest.mark.parametrize(
+    "a, values, expected",
+    [
+        ([1, 2, 3], [1.1], [1]),
+        ([1, 2, 3], [0.2, 0.9, 1.4], [0, 0, 1]),
+        ([1, 2, 3], [1, 2, 3], [0, 1, 2]),
+        ([1, 2, 3], [1.9, 3.0], [1, 2]),
+        ([1, 2, 3], [2.8, 3.5, 4.0], [2, 2, 2]),
+    ],
+)
+def test_find_closest_higher_equal_element_indices_to_values(a, values, expected):
+    indices = find_closest_higher_equal_element_indices_to_values(a, values)
+    print(indices)
+    assert_array_equal(indices, expected)

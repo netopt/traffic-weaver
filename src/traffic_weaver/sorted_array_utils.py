@@ -6,7 +6,7 @@ import numpy as np
 
 
 def append_one_sample(
-    x: Union[np.ndarray, List], y: Union[np.ndarray, List], make_periodic=False
+        x: Union[np.ndarray, List], y: Union[np.ndarray, List], make_periodic=False
 ) -> Tuple[np.ndarray, np.ndarray]:
     r"""Add one sample to the end of time series.
 
@@ -70,7 +70,7 @@ def oversample_linspace(a: np.ndarray, num: int):
     Examples
     --------
     >>> import numpy as np
-    >>> from traffic_weaver.array_utils import oversample_linspace
+    >>> from traffic_weaver.sorted_array_utils import oversample_linspace
     >>> oversample_linspace(np.asarray([1, 2, 3]), 4).tolist()
     [1.0, 1.25, 1.5, 1.75, 2.0, 2.25, 2.5, 2.75, 3.0]
 
@@ -108,7 +108,7 @@ def oversample_piecewise_constant(a: np.ndarray, num: int):
     Examples
     --------
     >>> import numpy as np
-    >>> from traffic_weaver.array_utils import oversample_piecewise_constant
+    >>> from traffic_weaver.sorted_array_utils import oversample_piecewise_constant
     >>> oversample_piecewise_constant(np.asarray([1.0, 2.0, 3.0]), 4).tolist()
     [1.0, 1.0, 1.0, 1.0, 2.0, 2.0, 2.0, 2.0, 3.0]
 
@@ -120,7 +120,7 @@ def oversample_piecewise_constant(a: np.ndarray, num: int):
 
 
 def extend_linspace(
-    a: np.ndarray, n: int, direction="both", lstart: float = None, rstop: float = None
+        a: np.ndarray, n: int, direction="both", lstart: float = None, rstop: float = None
 ):
     """Extends array using linspace with n elements.
 
@@ -159,7 +159,7 @@ def extend_linspace(
     Examples
     --------
     >>> import numpy as np
-    >>> from traffic_weaver.array_utils import extend_linspace
+    >>> from traffic_weaver.sorted_array_utils import extend_linspace
     >>> a = np.array([1, 2, 3])
     >>> extend_linspace(a, 2, direction='both').tolist()
     [-1.0, 0.0, 1.0, 2.0, 3.0, 4.0, 5.0]
@@ -211,7 +211,7 @@ def extend_constant(a: np.ndarray, n: int, direction="both"):
     Examples
     --------
     >>> import numpy as np
-    >>> from traffic_weaver.array_utils import extend_constant
+    >>> from traffic_weaver.sorted_array_utils import extend_constant
     >>> a = np.array([1, 2, 3])
     >>> extend_constant(a, 2, direction='both').tolist()
     [1, 1, 1, 2, 3, 3, 3]
@@ -247,5 +247,126 @@ def left_piecewise_integral(x, y):
     return y[:-1] * d
 
 
-def trapezoidal_integral_between_each_pair(x, y):
-    np.trapz(y, x)
+def trapezoidal_integral(x, y):
+    """Calculates integral between each pair of points using trapezoidal rule.
+
+    Parameters
+    ----------
+    x: 1-D array-like of size n
+        Independent variable in strictly increasing order.
+    y: 1-D array-like of size n
+        Dependent variable.
+
+    Returns
+    -------
+    1-D array-like of size n-1
+        Values of the integral.
+
+    """
+    return (y[:-1] + y[1:]) / 2 * np.diff(x)
+
+
+def find_closest_lower_equal_element_indices_to_values(x: Union[np.ndarray, list], lookup: Union[np.ndarray, list],
+                                                       fill_not_valid_with_first_element: bool = True):
+    """Find indices of closest lower or equal element in x to each element in lookup.
+
+    Parameters
+    ----------
+    x: np.ndarray
+        Array of values to search in.
+    lookup: np.ndarray
+        Values to search for.
+    fill_not_valid_with_first_element: bool, default: True
+        If True, fill indices of lookup values that are lower than the first element in 'x' with 0.
+    Returns
+    -------
+    np.ndarray
+        Array of indices of closest lower or equal element in x to each element in lookup.
+    """
+    indices = np.zeros(len(lookup), dtype=np.int64)
+
+    x_it = iter(x)
+    x_val = next(x_it)
+    x_next_val = next(x_it, None)
+    x_idx = 0
+
+    lookup_it = iter(lookup)
+    lookup_val = next(lookup_it)
+    lookup_idx = 0
+
+    # lookup value lower than x
+    # shift lookup until it is higher equal than the first element in x
+    while lookup_val is not None and lookup_val < x_val:
+        indices[lookup_idx] = x_idx if fill_not_valid_with_first_element else -1
+        lookup_val = next(lookup_it, None)
+        lookup_idx += 1
+
+    # lookup value is higher than the first element in x
+    while lookup_val is not None:
+        # if lookup is higher than the next x
+        # move x to the right
+        while x_next_val is not None and x_next_val <= lookup_val:
+            x_next_val = next(x_it, None)
+            x_idx += 1
+            if x_next_val is None:
+                break
+        # lookup value is higher than the current x and lower than the next x
+        indices[lookup_idx] = x_idx
+        lookup_val = next(lookup_it, None)
+        lookup_idx += 1
+    return indices
+
+
+def find_closest_higher_equal_element_indices_to_values(x: Union[np.ndarray, list], lookup: Union[np.ndarray, list],
+                                                        fill_not_valid_with_last_element: bool = True):
+    """Find indices of closest higher or equal element in x to each element in lookup.
+
+    Parameters
+    ----------
+    x: np.ndarray
+        Array of values to search in.
+    lookup: np.ndarray
+        Values to search for.
+    fill_not_valid_with_last_element: bool, default: True
+        If True, fill indices of lookup values that are higher than the last element in 'x' with 'len(x) - 1'.
+
+    Returns
+    -------
+    np.ndarray
+        Array of indices of closest higher or equal element in x to each element in lookup.
+    """
+    indices = np.zeros(len(lookup), dtype=np.int64)
+
+    x_it = iter(x)
+    x_val = next(x_it)
+    x_next_val = next(x_it, None)
+    x_idx = 0
+
+    lookup_it = iter(lookup)
+    lookup_val = next(lookup_it)
+    lookup_idx = 0
+
+    # lookup value lower than x
+    # shift lookup until it is higher than the first element in x
+    while lookup_val is not None and lookup_val <= x_val:
+        indices[lookup_idx] = x_idx
+        lookup_val = next(lookup_it, None)
+        lookup_idx += 1
+
+    # lookup value is higher than the first element in x
+    while lookup_val is not None:
+        # if lookup is higher than the next x
+        # move x to the right
+        while x_next_val is not None and x_next_val < lookup_val:
+            x_next_val = next(x_it, None)
+            x_idx += 1
+            if x_next_val is None:
+                break
+            # lookup value is higher than the current x and lower than the next x
+        if x_next_val is None:
+            indices[lookup_idx] = x_idx if fill_not_valid_with_last_element else len(x)
+        else:
+            indices[lookup_idx] = x_idx + 1
+        lookup_val = next(lookup_it, None)
+        lookup_idx += 1
+    return indices

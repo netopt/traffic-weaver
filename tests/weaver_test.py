@@ -65,7 +65,7 @@ def test_weaver_chain(mock_weaver_delegates, xy, expected_xy):
 def test_weaver_factories(xy):
     weaver = Weaver(xy[0], xy[1])
 
-    weaver2 = Weaver.from_dataframe(pd.DataFrame({"x": xy[0], "y": xy[1]}))
+    weaver2 = Weaver.from_dataframe(pd.DataFrame({"x": xy[0], "y": xy[1]}), x_col='x', y_col='y')
     weaver3 = Weaver.from_2d_array(np.column_stack(xy))
     weaver4 = Weaver(x=None, y=xy[1])
 

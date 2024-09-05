@@ -1,6 +1,6 @@
 import numpy as np
 
-from .array_utils import append_one_sample
+from .sorted_array_utils import append_one_sample
 from .match import integral_matching_reference_stretch
 from .oversample import AbstractOversample, ExpAdaptiveOversample
 from .process import repeat, trend, spline_smooth, noise_gauss
@@ -25,7 +25,7 @@ class Weaver:
     Examples
     --------
     >>> from traffic_weaver import Weaver
-    >>> from traffic_weaver.array_utils import append_one_sample
+    >>> from traffic_weaver.sorted_array_utils import append_one_sample
     >>> from traffic_weaver.datasets import load_sandvine_mobile_video
     >>> data = load_sandvine_mobile_video()
     >>> x, y = data.T

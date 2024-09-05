@@ -1,6 +1,6 @@
 import numpy as np
 
-from .array_utils import left_piecewise_integral
+from .sorted_array_utils import left_piecewise_integral
 from .process import spline_smooth
 
 

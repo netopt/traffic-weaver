@@ -7,7 +7,7 @@ from typing import Callable, Union, List
 
 import numpy as np
 
-from .array_utils import (
+from .sorted_array_utils import (
     oversample_linspace,
     oversample_piecewise_constant,
     extend_linspace,

@@ -6,8 +6,7 @@ from pytest import approx
 from traffic_weaver.match import (integral_matching_stretch,
                                   interval_integral_matching_stretch,
                                   integral_matching_reference_stretch, )
-from traffic_weaver.array_utils import \
-    left_piecewise_integral
+from traffic_weaver.sorted_array_utils import left_piecewise_integral
 
 
 @pytest.fixture
