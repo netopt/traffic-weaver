@@ -1,9 +1,9 @@
 import numpy as np
 
-from .sorted_array_utils import append_one_sample
 from .match import integral_matching_reference_stretch
-from .oversample import AbstractOversample, ExpAdaptiveOversample
-from .process import repeat, trend, spline_smooth, noise_gauss
+from .rfa import AbstractRFA, ExpAdaptiveRFA
+from .process import repeat, trend, spline_smooth, noise_gauss, interpolate
+from .sorted_array_utils import append_one_sample
 
 
 class Weaver:
@@ -32,7 +32,7 @@ class Weaver:
     >>> wv = Weaver(x, y)
     >>> _ = wv.append_one_sample(make_periodic=True)
     >>> # chain some command
-    >>> _ = wv.oversample(10).integral_match().smooth(s=0.2)
+    >>> _ = wv.recreate_from_average(10).integral_match().smooth(s=0.2)
     >>> # at any moment get newly created and processed time series' points
     >>> res_x, res_y = wv.get()
     >>> # chain some other commands
@@ -60,6 +60,20 @@ class Weaver:
 
         self.x_scale = 1
         self.y_scale = 1
+
+    def copy(self):
+        """Create a copy of the Weaver object.
+
+        Returns
+        -------
+        Weaver
+        """
+        wv = Weaver(self.original_x.copy(), self.original_y.copy())
+        wv.x = self.x.copy()
+        wv.y = self.y.copy()
+        wv.x_scale = self.x_scale
+        wv.y_scale = self.y_scale
+        return wv
 
     @staticmethod
     def from_2d_array(xy: np.ndarray):
@@ -144,10 +158,13 @@ class Weaver:
     def append_one_sample(self, make_periodic=False):
         """Add one sample to the end of time series.
 
-        Add one sample to `x` and `y` array. Newly added point `x_i` point is distant from
+        Add one sample to `x` and `y` array. Newly added point `x_i` point is distant
+        from
         the last point of `x` same as the last from the one before the last point.
-        If `make_periodic` is False, newly added `y_i` point is the same as the last  point
-        of `y`. If `make_periodic` is True, newly added point is the same as the first point
+        If `make_periodic` is False, newly added `y_i` point is the same as the last
+        point
+        of `y`. If `make_periodic` is True, newly added point is the same as the
+        first point
         of `y`.
 
         Parameters
@@ -167,22 +184,55 @@ class Weaver:
         self.x, self.y = append_one_sample(self.x, self.y, make_periodic=make_periodic)
         return self
 
-    def oversample(
-            self,
-            n: int,
-            oversample_class: type[AbstractOversample] = ExpAdaptiveOversample,
-            **kwargs,
-    ):
-        r"""Oversample function using provided strategy.
+    def slice_by_index(self, start=0, stop=None, step=1):
+        if stop is None:
+            stop = len(self.x)
+        if start < 0:
+            raise ValueError("Start index should be non-negative")
+        if stop > len(self.x):
+            raise ValueError("Stop index should be less than length of x")
+        self.x = self.x[start:stop:step]
+        self.y = self.y[start:stop:step]
+        return self
+
+    def slice_by_value(self, start=None, stop=None, step=1):
+        if start is None:
+            start_idx = 0
+        else:
+            start_idx = np.where(self.x == start)[0][0]
+        if stop is None:
+            stop_idx = len(self.x)
+        else:
+            stop_idx = np.where(self.x == stop)[0][0]
+        if not start_idx:
+            raise ValueError("Start value not found in x")
+        if not stop_idx:
+            raise ValueError("Stop value not found in x")
+        return self.slice_by_index(start_idx, stop_idx, step)
+
+    def interpolate(self, n: int = None, new_x=None, method='linear', **kwargs):
+        """ Interpolate function.
+
+        For original time varying function sampled at different points use one of the
+        'linear', 'cubic' or 'spline' interpolation methods.
+
+        For time varying function that is an averaged function over periods of time,
+        use 'constant' interpolation method.
 
         Parameters
         ----------
         n: int
-            Number of samples between each point.
-        oversample_class: subclass of AbstractOversample
-            Oversample strategy.
-        **kwargs
-            Additional parameters passed to `oversample_class`.
+            Number of fixed space samples in new function.
+            Ignored if `new_x` specified.
+        new_x: array-like
+            Points to where to evaluate interpolated function.
+            It overrides 'n' parameter. Range should be the same as original x.
+        method: str, default='linear'
+            Interpolation strategy. Supported strategies are 'linear',
+            'constant', 'cubic' and 'spline'.
+        kwargs:
+            Additional parameters passed to interpolation function.
+            For more details see
 
         Returns
         -------
@@ -190,14 +240,44 @@ class Weaver:
 
         See Also
         --------
-        :func:`~traffic_weaver.oversample.AbstractOversample`
+        :func:`~traffic_weaver.process.interpolate`
         """
-        self.x, self.y = oversample_class(self.x, self.y, n, **kwargs).oversample()
+        if new_x is None and n is None:
+            raise ValueError("Either n or new_x should be provided")
+        if new_x is None:
+            new_x = np.linspace(self.x[0], self.x[-1], n)
+        else:
+            if new_x[0] != self.x[0] or new_x[-1] != self.x[-1]:
+                raise ValueError("new_x should have the same range as x")
+        self.y = interpolate(self.x, self.y, new_x, method=method, **kwargs)
+        self.x = new_x
+        return self
+
+    def recreate_from_average(self, n: int, rfa_class: type[AbstractRFA] = ExpAdaptiveRFA, **kwargs, ):
+        r"""Recreate function from average function using provided strategy.
+
+        Parameters
+        ----------
+        n: int
+            Number of samples between each point.
+        rfa_class: subclass of AbstractRFA
+            Recreate from average strategy.
+        **kwargs
+            Additional parameters passed to `rfa_class`.
+
+        Returns
+        -------
+        self
+
+        See Also
+        --------
+        :func:`~traffic_weaver.oversample.AbstractRFA`
+        """
+        self.x, self.y = rfa_class(self.x, self.y, n, **kwargs).rfa()
         return self
 
     def integral_match(self, **kwargs):
-        r"""Match function integral to piecewise constant approximated integral of the
-        original function.
+        r"""Match function integral to approximated integral of the original function.
 
         Parameters
         ----------
@@ -212,9 +292,8 @@ class Weaver:
         --------
         :func:`~traffic_weaver.match.integral_matching_reference_stretch`
         """
-        self.y = integral_matching_reference_stretch(
-            self.x, self.y, self.original_x * self.x_scale, self.original_y * self.y_scale, **kwargs
-        )
+        self.y = integral_matching_reference_stretch(self.x, self.y, self.original_x * self.x_scale,
+                                                     self.original_y * self.y_scale, **kwargs)
         return self
 
     def noise(self, snr, **kwargs):

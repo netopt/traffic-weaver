@@ -1,17 +1,17 @@
 from . import datasets
-from . import oversample
+from . import rfa
 from . import match
 from . import process
 from . import interval
 from . import sorted_array_utils
 from ._version import __version__
-from .oversample import (
-    LinearFixedOversample,
-    LinearAdaptiveOversample,
-    ExpFixedOversample,
-    ExpAdaptiveOversample,
-    CubicSplineOversample,
-    PiecewiseConstantOversample,
+from .rfa import (
+    LinearFixedRFA,
+    LinearAdaptiveRFA,
+    ExpFixedRFA,
+    ExpAdaptiveRFA,
+    CubicSplineRFA,
+    PiecewiseConstantRFA,
 )
 from .weaver import Weaver
 
@@ -19,15 +19,15 @@ __all__ = [
     Weaver,
     __version__,
     datasets,
-    oversample,
+    rfa,
     match,
     process,
     interval,
     sorted_array_utils,
-    LinearFixedOversample,
-    LinearAdaptiveOversample,
-    ExpFixedOversample,
-    ExpAdaptiveOversample,
-    CubicSplineOversample,
-    PiecewiseConstantOversample,
+    LinearFixedRFA,
+    LinearAdaptiveRFA,
+    ExpFixedRFA,
+    ExpAdaptiveRFA,
+    CubicSplineRFA,
+    PiecewiseConstantRFA,
 ]

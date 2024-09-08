@@ -46,7 +46,7 @@ class IntervalArray:
         >>> print(a[1])
         1
         >>> a[1, 2] = 15
-        >>> a[1, 2]
+        >>> a[1, 2].item()
         15
 
         """

@@ -3,10 +3,10 @@ import pytest
 from numpy.testing import assert_array_almost_equal
 from pytest import approx
 
-from traffic_weaver.match import (integral_matching_stretch,
-                                  interval_integral_matching_stretch,
+from traffic_weaver.match import (_integral_matching_stretch,
+                                  _interval_integral_matching_stretch,
                                   integral_matching_reference_stretch, )
-from traffic_weaver.sorted_array_utils import left_piecewise_integral
+from traffic_weaver.sorted_array_utils import rectangle_integral
 
 
 @pytest.fixture
@@ -21,7 +21,7 @@ def x():
 
 @pytest.mark.parametrize("expected_integral", [10, 23.25, 30])
 def test_integral_matching_stretch(expected_integral, x, y):
-    y2 = integral_matching_stretch(x, y, expected_integral)
+    y2 = _integral_matching_stretch(x, y, expected_integral)
     stretched_integral = np.trapz(y2, x)
 
     # import matplotlib.pyplot as plt
@@ -38,7 +38,7 @@ def test_integral_matching_stretch(expected_integral, x, y):
 def test_integral_matching_stretch_with_missing_x(y):
     expected_integral = 10
 
-    y2 = integral_matching_stretch(None, y, integral_value=expected_integral)
+    y2 = _integral_matching_stretch(None, y, integral_value=expected_integral)
     x = np.arange(len(y2))
     stretched_integral = np.trapz(y2, x)
 
@@ -48,7 +48,7 @@ def test_integral_matching_stretch_with_missing_x(y):
 
 
 def test_integral_matching_stretch_with_missing_expected_integral(x, y):
-    y2 = integral_matching_stretch(x, y)
+    y2 = _integral_matching_stretch(x, y)
 
     expected_integral = 0
 
@@ -80,11 +80,11 @@ def get_integrals_based_on_interval_points(x, y, interval_points):
 def test_interval_integral_with_matching_stretch(
     expected_integrals, interval_points, y, x
 ):
-    y2 = interval_integral_matching_stretch(
+    y2 = _interval_integral_matching_stretch(
         x,
         y,
         integral_values=expected_integrals,
-        interval_point_indices=interval_points,
+        fixed_points_indices_in_x=interval_points,
     )
 
     # if no interval points given, they are created evenly
@@ -110,11 +110,11 @@ def test_interval_integral_matching_stretch_with_missing_x(y):
     expected_integrals = [49.46, 25]
     interval_points = [0, 3, 8]
 
-    y2 = interval_integral_matching_stretch(
+    y2 = _interval_integral_matching_stretch(
         None,
         y,
         integral_values=expected_integrals,
-        interval_point_indices=interval_points,
+        fixed_points_indices_in_x=interval_points,
     )
     x = np.arange(len(y2))
 
@@ -129,8 +129,8 @@ def test_interval_integral_matching_stretch_with_missing_x(y):
 def test_interval_integral_matching_stretch_with_missing_expected_integral(x, y):
     interval_points = [0, 3, 10]
 
-    y2 = interval_integral_matching_stretch(
-        x, y, interval_point_indices=interval_points
+    y2 = _interval_integral_matching_stretch(
+        x, y, fixed_points_indices_in_x=interval_points
     )
 
     stretched_integrals = get_integrals_based_on_interval_points(x, y2, interval_points)
@@ -146,7 +146,7 @@ def test_fail_integral_matching_stretch_with_missing_expected_integral_and_inter
     x, y
 ):
     with pytest.raises(ValueError) as exc_info:
-        interval_integral_matching_stretch(x, y)
+        _interval_integral_matching_stretch(x, y)
     assert exc_info.type is ValueError
 
 
@@ -155,11 +155,11 @@ def test_integral_matching_reference_stretch(x, y):
     x_ref = x[::2]
     expected_y = [1.0, 0.26, 2.1, 0.8, 6.0, 8.0, 2.0, 1.5, 3.0, 2.0, 6.0]
 
-    y2 = integral_matching_reference_stretch(x, y, x_ref, y_ref)
+    y2 = integral_matching_reference_stretch(x, y, x_ref, y_ref, reference_function_integral_method='rectangle')
 
     assert_array_almost_equal(y2, expected_y, decimal=2)
 
-    expected_integrals = left_piecewise_integral(
+    expected_integrals = rectangle_integral(
         x_ref, y_ref
     )
     actual_integrals = get_integrals_based_on_interval_points(

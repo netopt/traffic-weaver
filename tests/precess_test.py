@@ -4,7 +4,7 @@ from numpy.ma.testutils import assert_array_equal, assert_array_almost_equal
 
 from traffic_weaver.process import (
     repeat, trend, linear_trend, noise_gauss, average,
-    piecewise_constant_interpolate,
+    _piecewise_constant_interpolate,
 )
 
 
@@ -86,5 +86,5 @@ def test_average(xy):
     ],
 )
 def test_piecewise_constant_interpolate(x, y, new_x, expected):
-    new_y = piecewise_constant_interpolate(x, y, new_x)
+    new_y = _piecewise_constant_interpolate(x, y, new_x)
     assert_array_equal(new_y, expected)

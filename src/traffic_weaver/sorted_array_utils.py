@@ -1,13 +1,11 @@
 r"""Array utilities.
 """
-from typing import Tuple, List, Union
+from typing import List, Union
 
 import numpy as np
 
 
-def append_one_sample(
-        x: Union[np.ndarray, List], y: Union[np.ndarray, List], make_periodic=False
-) -> Tuple[np.ndarray, np.ndarray]:
+def append_one_sample(x: Union[np.ndarray, List], y: Union[np.ndarray, List], make_periodic=False):
     r"""Add one sample to the end of time series.
 
     Add one sample to `x` and `y` array. Newly added point `x_i` point is distant from
@@ -119,9 +117,7 @@ def oversample_piecewise_constant(a: np.ndarray, num: int):
     return a.repeat(num)[: -num + 1]
 
 
-def extend_linspace(
-        a: np.ndarray, n: int, direction="both", lstart: float = None, rstop: float = None
-):
+def extend_linspace(a: np.ndarray, n: int, direction="both", lstart: float = None, rstop: float = None):
     """Extends array using linspace with n elements.
 
     Extends array `a` from left and/or right with `n` elements each side.
@@ -225,8 +221,8 @@ def extend_constant(a: np.ndarray, n: int, direction="both"):
     return a
 
 
-def left_piecewise_integral(x, y):
-    r"""Integral values between each pair of points using piecewise constant approx.
+def rectangle_integral(x, y):
+    r"""Integral values between each pair of points using rectangle approx.
 
     In particular, if function contains average values, then it corresponds to the
     exact value of the integral.
@@ -247,7 +243,7 @@ def left_piecewise_integral(x, y):
     return y[:-1] * d
 
 
-def trapezoidal_integral(x, y):
+def trapezoid_integral(x, y):
     """Calculates integral between each pair of points using trapezoidal rule.
 
     Parameters
@@ -266,8 +262,32 @@ def trapezoidal_integral(x, y):
     return (y[:-1] + y[1:]) / 2 * np.diff(x)
 
 
+def integral(x, y, method: str = 'trapezoid'):
+    """Calculate integral y over range x according to provided method.
+
+    Parameters
+    ----------
+    1-D array-like of size n
+        Independent variable in strictly increasing order.
+    y: 1-D array-like of size n
+        Dependent variable.
+    method: str, default: 'trapezoid'
+        Method to calculate integral of target function.
+        Available options: 'trapezoid', 'rectangle'
+    Returns
+    -------
+    1-D array-like of size n-1
+        Values of the integral.
+    """
+    if method == 'trapezoid':
+        return trapezoid_integral(x, y)
+    elif method == 'rectangle':
+        return rectangle_integral(x, y)
+    raise ValueError("Unknown integral method")
+
+
 def find_closest_lower_equal_element_indices_to_values(x: Union[np.ndarray, list], lookup: Union[np.ndarray, list],
-                                                       fill_not_valid_with_first_element: bool = True):
+                                                       fill_not_valid: bool = True):
     """Find indices of closest lower or equal element in x to each element in lookup.
 
     Parameters
@@ -276,12 +296,14 @@ def find_closest_lower_equal_element_indices_to_values(x: Union[np.ndarray, list
         Array of values to search in.
     lookup: np.ndarray
         Values to search for.
-    fill_not_valid_with_first_element: bool, default: True
-        If True, fill indices of lookup values that are lower than the first element in 'x' with 0.
+    fill_not_valid: bool, default: True
+        If True, fill indices of lookup values that are lower than the first element
+        in 'x' with 0.
     Returns
     -------
     np.ndarray
-        Array of indices of closest lower or equal element in x to each element in lookup.
+        Array of indices of closest lower or equal element in x to each element in
+        lookup.
     """
     indices = np.zeros(len(lookup), dtype=np.int64)
 
@@ -297,7 +319,7 @@ def find_closest_lower_equal_element_indices_to_values(x: Union[np.ndarray, list
     # lookup value lower than x
     # shift lookup until it is higher equal than the first element in x
     while lookup_val is not None and lookup_val < x_val:
-        indices[lookup_idx] = x_idx if fill_not_valid_with_first_element else -1
+        indices[lookup_idx] = x_idx if fill_not_valid else -1
         lookup_val = next(lookup_it, None)
         lookup_idx += 1
 
@@ -318,7 +340,7 @@ def find_closest_lower_equal_element_indices_to_values(x: Union[np.ndarray, list
 
 
 def find_closest_higher_equal_element_indices_to_values(x: Union[np.ndarray, list], lookup: Union[np.ndarray, list],
-                                                        fill_not_valid_with_last_element: bool = True):
+                                                        fill_not_valid: bool = True):
     """Find indices of closest higher or equal element in x to each element in lookup.
 
     Parameters
@@ -327,13 +349,15 @@ def find_closest_higher_equal_element_indices_to_values(x: Union[np.ndarray, lis
         Array of values to search in.
     lookup: np.ndarray
         Values to search for.
-    fill_not_valid_with_last_element: bool, default: True
-        If True, fill indices of lookup values that are higher than the last element in 'x' with 'len(x) - 1'.
+    fill_not_valid: bool, default: True
+        If True, fill indices of lookup values that are higher than the last element
+        in 'x' with 'len(x) - 1'.
 
     Returns
     -------
     np.ndarray
-        Array of indices of closest higher or equal element in x to each element in lookup.
+        Array of indices of closest higher or equal element in x to each element in
+        lookup.
     """
     indices = np.zeros(len(lookup), dtype=np.int64)
 
@@ -362,11 +386,125 @@ def find_closest_higher_equal_element_indices_to_values(x: Union[np.ndarray, lis
             x_idx += 1
             if x_next_val is None:
                 break
-            # lookup value is higher than the current x and lower than the next x
+        # lookup value is higher than the current x and lower than the next x
         if x_next_val is None:
-            indices[lookup_idx] = x_idx if fill_not_valid_with_last_element else len(x)
+            indices[lookup_idx] = x_idx if fill_not_valid else len(x)
         else:
             indices[lookup_idx] = x_idx + 1
         lookup_val = next(lookup_it, None)
         lookup_idx += 1
     return indices
+
+
+def find_closest_lower_or_higher_element_indices_to_values(x: Union[np.ndarray, list], lookup: Union[np.ndarray, list]):
+    """Find indices of closest element in x to each element in lookup.
+
+    Parameters
+    ----------
+    x: np.ndarray
+        Array of values to search in.
+    lookup: np.ndarray
+        Values to search for.
+
+    Returns
+    -------
+    np.ndarray
+        Array of indices of closest element in x to each element in lookup.
+    """
+    indices = np.zeros(len(lookup), dtype=np.int64)
+
+    x_it = iter(x)
+    x_val = next(x_it)
+    x_next_val = next(x_it, None)
+    x_idx = 0
+
+    lookup_it = iter(lookup)
+    lookup_val = next(lookup_it)
+    lookup_idx = 0
+
+    # lookup value lower than x
+    # shift lookup until it is higher than the first element in x
+    while lookup_val is not None and lookup_val <= x_val:
+        indices[lookup_idx] = x_idx
+        lookup_val = next(lookup_it, None)
+        lookup_idx += 1
+
+    # lookup value is higher than the first element in x
+    while lookup_val is not None:
+        # if lookup is higher than the next x
+        # move x to the right
+        while x_next_val is not None and x_next_val < lookup_val:
+            x_val = x_next_val
+            x_next_val = next(x_it, None)
+            x_idx += 1
+            if x_next_val is None:
+                break
+        # lookup value is higher than the last element in x
+        if x_next_val is None:
+            indices[lookup_idx] = x_idx
+        else:
+            # lookup value is higher than the current x and lower than the next x
+            # check which one is closer
+            if lookup_val - x_val <= x_next_val - lookup_val:
+                indices[lookup_idx] = x_idx
+            else:
+                indices[lookup_idx] = x_idx + 1
+        lookup_val = next(lookup_it, None)
+        lookup_idx += 1
+    return indices
+
+
+def find_closest_element_indices_to_values(x: Union[np.ndarray, list], lookup: Union[np.ndarray, list],
+                                           strategy: str = 'closest', fill_not_valid: bool = True):
+    """Find indices of closest element in x to each element in lookup according
+    to the strategy.
+
+    Parameters
+    ----------
+    x: np.ndarray
+        Array of values to search in.
+    lookup: np.ndarray
+        Values to search for.
+    strategy: str, default: 'closest'
+        Strategy to find the closest element.
+        'closest': closest element (lower or higher)
+        'lower': closest lower or equal element
+        'higher': closest higher or equal element
+    fill_not_valid: bool, default: True
+        Used in case of 'lower' and 'higher' strategy.
+        If True, fill indices of lookup valules that are lower than the first element
+        in 'x' with 'x[0]',
+        fill indices of lookup values that are higher than the last element
+        in 'x' with 'len(x) - 1'.
+
+    Returns
+    -------
+    np.ndarray
+        Array of indices of closest element in x to each element inlookup.
+
+    """
+    if strategy == 'closest':
+        return find_closest_lower_or_higher_element_indices_to_values(x, lookup)
+    elif strategy == 'lower':
+        return find_closest_lower_equal_element_indices_to_values(x, lookup, fill_not_valid)
+    elif strategy == 'higher':
+        return find_closest_higher_equal_element_indices_to_values(x, lookup, fill_not_valid)
+    raise ValueError("Unknown strategy")
+
+
+def sum_over_indices(a, indices):
+    """Sum values of array `a` over ranges defined by `indices`.
+
+    Parameters
+    ----------
+    a: array-like
+        Array of values.
+    indices: array-like of int
+        Array of indices defining ranges over which to sum values.
+    Returns
+    -------
+    Array of sums of values over ranges defined by `indices`.
+    """
+    a = np.asarray(a)
+    indices = np.asarray(indices)
+    return np.array([a[start:stop].sum() for start, stop in zip(indices[:-1], indices[1:])])

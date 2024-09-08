@@ -8,7 +8,7 @@ from traffic_weaver.interval import IntervalArray
 from traffic_weaver.sorted_array_utils import find_closest_lower_equal_element_indices_to_values
 
 
-def piecewise_constant_interpolate(x, y, new_x, left=None):
+def _piecewise_constant_interpolate(x, y, new_x, left=None):
     """Piecewise constant filling for monotonically increasing sample points.
 
     Returns the one-dimensional piecewise constant array with given discrete data points (x, y), evaluated at new_x.
@@ -46,22 +46,41 @@ def piecewise_constant_interpolate(x, y, new_x, left=None):
 
 
 def interpolate(x, y, new_x, method='linear', **kwargs):
-    """
+    """Interpolate function over new set of points.
+
+    Supports linear, cubic and spline interpolation.
 
     Parameters
     ----------
-    x
-    y
-    new_x
-    method
-    kwargs
+    x: array-like
+        The x-coordinates of the data points, must be increasing.
+    y: array-like
+        The y-coordinates of the data points, same length as x.
+    new_x: array-like
+        New x-coordinates at which to evaluate the interpolated values.
+    method: str, default='linear'
+        Interpolation method. Supported methods are 'linear', 'constant', 'cubic' and
+        'spline'.
+    kwargs: dict
+        Additional keyword arguments passed to the interpolation function.
+        For more details, see kwargs of numpy and scipy interpolation functions.
 
     Returns
     -------
 
+    See Also
+    --------
+    `https://numpy.org/doc/stable/reference/generated/numpy.interp.html
+    <https://numpy.org/doc/stable/reference/generated/numpy.interp.html>`_
+    `https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.CubicSpline.html
+    <https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.CubicSpline.html>`_
+    `https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.splrep.html#scipy.interpolate.splrep
+    <https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.splrep.html#scipy.interpolate.splrep>`_
     """
     if method == 'linear':
         return np.interp(new_x, x, y, **kwargs)
+    if method == 'constant':
+        return _piecewise_constant_interpolate(x, y, new_x, **kwargs)
     elif method == 'cubic':
         return CubicSpline(x, y, **kwargs)(new_x)
     elif method == 'spline':

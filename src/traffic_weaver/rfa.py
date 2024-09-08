@@ -1,4 +1,4 @@
-r"""Oversample average function with given recreation strategy.
+r"""Recreate from average function with given strategy.
 
 """
 
@@ -9,16 +9,13 @@ from scipy.interpolate import CubicSpline
 
 from .funfit import lin_fit, lin_exp_xy_fit, exp_lin_fit
 from .interval import IntervalArray
-from .sorted_array_utils import (
-    oversample_linspace,
-    oversample_piecewise_constant,
-)
+from .sorted_array_utils import (oversample_linspace, oversample_piecewise_constant, )
 
 
-class AbstractOversample(ABC):
-    r"""Abstract class for oversampling `n` times. a function `y` measured in `x`.
+class AbstractRFA(ABC):
+    r"""Abstract class for recreating from average (RFA) a function `y` measured in `x`.
 
-    To perform oversampling, call `oversample()` method, which returns newly created
+    To perform recreate from average, call `rfa()` method, which returns newly created
     points.
 
     By default, `x` axis is oversampled with `n` linearly space values between each
@@ -27,7 +24,7 @@ class AbstractOversample(ABC):
     By default, `y` axis is oversampled with `n` piecewise constant values between each
     point. To change this behaviour, override `_initial_y_oversample` method.
 
-    The `oversample()` method returns oversampled values for x and y.
+    The `rfa()` method returns recreated function values for x and y.
 
     In the following derived classes, term 'interval' refers to the distance
     between two consecutive observations (values in `y` based on `x`).
@@ -58,8 +55,8 @@ class AbstractOversample(ABC):
             raise ValueError("n cannot be lower than 2.")
 
     @abstractmethod
-    def oversample(self):
-        """Perform oversample on `x` and `y` variables.
+    def rfa(self):
+        """Recreate function from average on `x` and `y` variables.
 
         Returns
         -------
@@ -72,10 +69,7 @@ class AbstractOversample(ABC):
 
     def _initial_oversample(self):
         r"""Returns initially oversampled tuple"""
-        return (
-            self._initial_x_oversample(),
-            self._initial_y_oversample(),
-        )
+        return (self._initial_x_oversample(), self._initial_y_oversample(),)
 
     def _initial_x_oversample(self):
         r"""Initial oversample of `x` axis with linearly spaced function.
@@ -96,15 +90,15 @@ class AbstractOversample(ABC):
         return oversample_piecewise_constant(self.y, num=self.n)
 
 
-class PiecewiseConstantOversample(AbstractOversample):
-    r"""Oversample function using piecewise constant values."""
+class PiecewiseConstantRFA(AbstractRFA):
+    r"""Recreate function using piecewise constant values."""
 
-    def oversample(self):
+    def rfa(self):
         return self._initial_oversample()
 
 
-class FunctionOversample(AbstractOversample):
-    r"""Oversample using created sampling function.
+class FunctionRFA(AbstractRFA):
+    r"""Recreate function using created sampling function.
 
     Created sampling function should take `x` as an argument and return corresponding
     `y` value.
@@ -129,23 +123,13 @@ class FunctionOversample(AbstractOversample):
         Kwargs passed to `sampling_function_supplier`.
     """
 
-    def __init__(
-        self,
-        x,
-        y,
-        n,
-        sampling_function_supplier=None,
-        sampling_function_supplier_kwargs=None,
-    ):
+    def __init__(self, x, y, n, sampling_function_supplier=None, sampling_function_supplier_kwargs=None, ):
         super().__init__(x, y, n)
         self.sampling_function_supplier = sampling_function_supplier
         self.sampling_function_supplier_kwargs = (
-            sampling_function_supplier_kwargs
-            if sampling_function_supplier_kwargs is not None
-            else {}
-        )
+            sampling_function_supplier_kwargs if sampling_function_supplier_kwargs is not None else {})
 
-    def oversample(self):
+    def rfa(self):
         function = self._get_sampling_function()
         xs, ys = self._initial_oversample()
         ys = [function(x) for x in xs]
@@ -158,32 +142,24 @@ class FunctionOversample(AbstractOversample):
         its corresponding dependent value f(x).
         """
         if self.sampling_function_supplier:
-            return self.sampling_function_supplier(
-                self.x, self.y, **self.sampling_function_supplier_kwargs
-            )
+            return self.sampling_function_supplier(self.x, self.y, **self.sampling_function_supplier_kwargs)
         else:
             raise ValueError("Sampling function not specified")
 
 
-class CubicSplineOversample(FunctionOversample):
-    r"""Oversample function using cubic spline between given points."""
+class CubicSplineRFA(FunctionRFA):
+    r"""Recreate function using cubic spline between given points."""
 
-    def __init__(
-        self,
-        x,
-        y,
-        n,
-        sampling_function_supplier=lambda x, y: CubicSpline(x, y),
-    ):
+    def __init__(self, x, y, n, sampling_function_supplier=lambda x, y: CubicSpline(x, y), ):
         super().__init__(x, y, n, sampling_function_supplier)
 
 
-class IntervalOversample(AbstractOversample):
-    r"""Abstraction for interval based oversampling classes."""
+class IntervalRFA(AbstractRFA):
+    r"""Abstraction for interval based function recreate from average classes."""
     pass
 
 
-class LinearFixedOversample(AbstractOversample):
+class LinearFixedRFA(AbstractRFA):
     r"""Linearly moves between points in fixed transition intervals.
 
     .. image:: /_static/gfx/linear_fixed_oversample.pdf
@@ -271,7 +247,7 @@ class LinearFixedOversample(AbstractOversample):
         self.a_l = int(self.a / 2)
         self.a_r = self.a_l
 
-    def oversample(self):
+    def rfa(self):
         x, y = self._initial_oversample()
         n = self.n
         a_r = self.a_r
@@ -294,27 +270,17 @@ class LinearFixedOversample(AbstractOversample):
         for k in range(1, x.nr_of_full_intervals() - 1):
             # calculate transition points
             y_0 = y[k, 0]
-            z_0 = lin_fit(
-                x[k, 0],
-                (x[k, -a_r], y[k - 1, 0]),
-                (x[k, a_l], y[k, 0]),
-            )
-            z_1 = lin_fit(
-                x[k + 1, 0],
-                (x[k, n - a_r], y_0),
-                (x[k + 1, a_l], y[k + 1, 0]),
-            )
+            z_0 = lin_fit(x[k, 0], (x[k, -a_r], y[k - 1, 0]), (x[k, a_l], y[k, 0]), )
+            z_1 = lin_fit(x[k + 1, 0], (x[k, n - a_r], y_0), (x[k + 1, a_l], y[k + 1, 0]), )
 
             for i in range(0, self.a_l):
                 z[k, i] = lin_fit(x[k, i], (x[k, 0], z_0), (x[k, self.a_l], y_0))
             for i in range(n - self.a_r + 1, n + 1):
-                z[k, i] = lin_fit(
-                    x[k, i], (x[k, self.n - self.a_r], y_0), (x[k, self.n], z_1)
-                )
+                z[k, i] = lin_fit(x[k, i], (x[k, self.n - self.a_r], y_0), (x[k, self.n], z_1))
         return x.array[n:-n], z.array[n:-n]
 
 
-class LinearAdaptiveOversample(AbstractOversample):
+class LinearAdaptiveRFA(AbstractRFA):
     r"""Linearly moves between points in adaptive transition intervals.
 
     .. image:: /_static/gfx/linear_adaptive_oversample.pdf
@@ -478,7 +444,7 @@ class LinearAdaptiveOversample(AbstractOversample):
                 gammas.append(None)
             else:
                 gamma = nom / denom
-                gamma = gamma**adaptive_smooth
+                gamma = gamma ** adaptive_smooth
                 a_l = gamma * a / (1 + gamma)
                 a_r = a / (1 + gamma)
                 a_l = int(min(max(a_l, 1), a))
@@ -493,7 +459,7 @@ class LinearAdaptiveOversample(AbstractOversample):
         gammas.extend([None])
         return a_ls, a_rs, gammas
 
-    def oversample(self):
+    def rfa(self):
         x, y = self._initial_oversample()
         n = self.n
 
@@ -510,9 +476,7 @@ class LinearAdaptiveOversample(AbstractOversample):
         y.extend_constant(direction='both')
         z.extend_constant(direction='both')
 
-        a_ls, a_rs, gammas = self.get_adaptive_transition_points(
-            x, y, self.a, self.adaptive_smooth
-        )
+        a_ls, a_rs, gammas = self.get_adaptive_transition_points(x, y, self.a, self.adaptive_smooth)
 
         for k in range(1, x.nr_of_full_intervals() - 1):
             y_0 = y[k, 0]
@@ -521,17 +485,11 @@ class LinearAdaptiveOversample(AbstractOversample):
             if a_rs[k - 1] == 0 and a_ls[k] == 0:  # no left transition window
                 z_0 = y[k - 1, 0]
             else:
-                z_0 = lin_fit(
-                    x[k, 0], (x[k, -a_rs[k - 1]], y[k - 1, 0]), (x[k, a_ls[k]], y[k, 0])
-                )
+                z_0 = lin_fit(x[k, 0], (x[k, -a_rs[k - 1]], y[k - 1, 0]), (x[k, a_ls[k]], y[k, 0]))
             if a_rs[k] == 0 and a_ls[k + 1] == 0:  # no right transition window
                 z_1 = y[k + 1]
             else:
-                z_1 = lin_fit(
-                    x[k + 1, 0],
-                    (x[k, n - a_rs[k]], y_0),
-                    (x[k + 1, a_ls[k + 1]], y[k + 1, 0]),
-                )
+                z_1 = lin_fit(x[k + 1, 0], (x[k, n - a_rs[k]], y_0), (x[k + 1, a_ls[k + 1]], y[k + 1, 0]), )
 
             # fit remaining points
             for i in range(0, a_ls[k]):
@@ -542,7 +500,7 @@ class LinearAdaptiveOversample(AbstractOversample):
         return x.array[n:-n], z.array[n:-n]
 
 
-class ExpFixedOversample(AbstractOversample):
+class ExpFixedRFA(AbstractRFA):
     r"""Moves between points in fixed transition intervals by combining linear and
     exponential function.
 
@@ -665,7 +623,7 @@ class ExpFixedOversample(AbstractOversample):
         self.b = int(beta * self.a_l)
         self.exp = exp
 
-    def oversample(self):
+    def rfa(self):
         x, y = self._initial_oversample()
         n = self.n
         a_r = self.a_r
@@ -691,9 +649,7 @@ class ExpFixedOversample(AbstractOversample):
             # calculate transition points
             y_0 = y[k, 0]
             z_0 = lin_fit(x[k, 0], (x[k, -a_r], y[k - 1, 0]), (x[k, a_l], y[k, 0]))
-            z_1 = lin_fit(
-                x[k + 1, 0], (x[k, n - a_r], y_0), (x[k + 1, a_l], y[k + 1, 0])
-            )
+            z_1 = lin_fit(x[k + 1, 0], (x[k, n - a_r], y_0), (x[k + 1, a_l], y[k + 1, 0]))
 
             z_0_lb = lin_fit(x[k, 0 + b], (x[k, 0], z_0), (x[k, a_l], y[k, 0]))
 
@@ -703,27 +659,17 @@ class ExpFixedOversample(AbstractOversample):
             for i in range(0, b):
                 z[k, i] = lin_fit(x[k, i], (x[k, 0], z_0), (x[k, b], z_0_lb))
             for i in range(b, a_l):
-                z[k, i] = lin_exp_xy_fit(
-                    x[k, i],
-                    (x[k, b], z_0_lb),
-                    (x[k, a_l], y_0),
-                    alpha=exp,
-                )
+                z[k, i] = lin_exp_xy_fit(x[k, i], (x[k, b], z_0_lb), (x[k, a_l], y_0), alpha=exp, )
 
             for i in range(n - a_r, n - b):
-                z[k, i] = exp_lin_fit(
-                    x[k, i],
-                    (x[k, n - a_r], y_0),
-                    (x[k, n - b], z_0_rb),
-                    alpha=exp,
-                )
+                z[k, i] = exp_lin_fit(x[k, i], (x[k, n - a_r], y_0), (x[k, n - b], z_0_rb), alpha=exp, )
             for i in range(n - b, n):
                 z[k, i] = lin_fit(x[k, i], (x[k, n - b], z_0_rb), (x[k, n], z_1))
 
         return x.array[n:-n], z.array[n:-n]
 
 
-class ExpAdaptiveOversample(AbstractOversample):
+class ExpAdaptiveRFA(AbstractRFA):
     r"""Moves between points in adaptive transition intervals by combining linear and
     exponential function.
 
@@ -832,9 +778,7 @@ class ExpAdaptiveOversample(AbstractOversample):
 
     """
 
-    def __init__(
-        self, x, y, n, alpha=1.0, beta=0.5, a=None, adaptive_smooth=1.0, exp=2.0
-    ):
+    def __init__(self, x, y, n, alpha=1.0, beta=0.5, a=None, adaptive_smooth=1.0, exp=2.0):
         super().__init__(x, y, n)
         if a is None:
             a = alpha * self.n
@@ -845,7 +789,7 @@ class ExpAdaptiveOversample(AbstractOversample):
         self.adaptive_smooth = adaptive_smooth
         self.exp = exp
 
-    def oversample(self):
+    def rfa(self):
         x, y = self._initial_oversample()
         n = self.n
         beta = self.beta
@@ -865,9 +809,7 @@ class ExpAdaptiveOversample(AbstractOversample):
         z.extend_constant(direction='both')
 
         # get adaptive factors
-        a_ls, a_rs, gammas = LinearAdaptiveOversample.get_adaptive_transition_points(
-            x, y, self.a, self.adaptive_smooth
-        )
+        a_ls, a_rs, gammas = LinearAdaptiveRFA.get_adaptive_transition_points(x, y, self.a, self.adaptive_smooth)
         b_ls = [int(beta * a_l) for a_l in a_ls]
         b_rs = [int(beta * a_r) for a_r in a_rs]
 
@@ -879,50 +821,30 @@ class ExpAdaptiveOversample(AbstractOversample):
             if a_rs[k - 1] == 0 and a_ls[k] == 0:  # no left transition window
                 z_0 = y[k - 1, 0]
             else:
-                z_0 = lin_fit(
-                    x[k, 0], (x[k, -a_rs[k - 1]], y[k - 1, 0]), (x[k, a_ls[k]], y[k, 0])
-                )
+                z_0 = lin_fit(x[k, 0], (x[k, -a_rs[k - 1]], y[k - 1, 0]), (x[k, a_ls[k]], y[k, 0]))
             if a_rs[k] == 0 and a_ls[k + 1] == 0:  # no right transition window
                 z_1 = y[k + 1]
             else:
-                z_1 = lin_fit(
-                    x[k + 1, 0],
-                    (x[k, n - a_rs[k]], y_0),
-                    (x[k + 1, a_ls[k + 1]], y[k + 1, 0]),
-                )
+                z_1 = lin_fit(x[k + 1, 0], (x[k, n - a_rs[k]], y_0), (x[k + 1, a_ls[k + 1]], y[k + 1, 0]), )
 
             if b_ls[k] == 0:  # no left linear transition window
                 z_0_bl = z_0
             else:
-                z_0_bl = lin_fit(
-                    x[k, 0 + b_ls[k]], (x[k, 0], z_0), (x[k, a_ls[k]], y[k, 0])
-                )
+                z_0_bl = lin_fit(x[k, 0 + b_ls[k]], (x[k, 0], z_0), (x[k, a_ls[k]], y[k, 0]))
 
             if b_rs[k] == 0:  # no right linear transition window
                 z_0_br = z_1
             else:
-                z_0_br = lin_fit(
-                    x[k, n - b_rs[k]], (x[k, n - a_rs[k]], y[k, 0]), (x[k + 1, 0], z_1)
-                )
+                z_0_br = lin_fit(x[k, n - b_rs[k]], (x[k, n - a_rs[k]], y[k, 0]), (x[k + 1, 0], z_1))
 
             # remaining points
             for i in range(0, b_ls[k]):
                 z[k, i] = lin_fit(x[k, i], (x[k, 0], z_0), (x[k, b_ls[k]], z_0_bl))
             for i in range(b_ls[k], a_ls[k]):
-                z[k, i] = lin_exp_xy_fit(
-                    x[k, i],
-                    (x[k, b_ls[k]], z_0_bl),
-                    (x[k, a_ls[k]], y_0),
-                    alpha=exp,
-                )
+                z[k, i] = lin_exp_xy_fit(x[k, i], (x[k, b_ls[k]], z_0_bl), (x[k, a_ls[k]], y_0), alpha=exp, )
 
             for i in range(n - a_rs[k], n - b_rs[k]):
-                z[k, i] = exp_lin_fit(
-                    x[k, i],
-                    (x[k, n - a_rs[k]], y_0),
-                    (x[k, n - b_rs[k]], z_0_br),
-                    alpha=exp,
-                )
+                z[k, i] = exp_lin_fit(x[k, i], (x[k, n - a_rs[k]], y_0), (x[k, n - b_rs[k]], z_0_br), alpha=exp, )
             for i in range(n - b_rs[k], n):
                 z[k, i] = lin_fit(x[k, i], (x[k, n - b_rs[k]], z_0_br), (x[k, n], z_1))
 

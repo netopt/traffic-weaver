@@ -3,7 +3,7 @@ import pandas as pd
 import pytest
 from numpy.testing import assert_array_equal
 
-from traffic_weaver import Weaver, PiecewiseConstantOversample
+from traffic_weaver import Weaver, PiecewiseConstantRFA
 
 
 @pytest.fixture
@@ -38,7 +38,7 @@ def mock_weaver_delegates(mocker, xy):
 
 def test_weaver_chain(mock_weaver_delegates, xy, expected_xy):
     weaver = Weaver(xy[0], xy[1])
-    weaver.oversample(2, oversample_class=PiecewiseConstantOversample)
+    weaver.recreate_from_average(2, rfa_class=PiecewiseConstantRFA)
     weaver.scale_x(1)
     weaver.scale_y(2)
     weaver.integral_match()
@@ -85,3 +85,39 @@ def test_raise_exception_on_wrong_input_dimension():
 
     with pytest.raises(ValueError):
         Weaver.from_2d_array(np.zeros((3, 2, 2)))
+
+
+def test_slice_by_index(xy):
+    weaver = Weaver(xy[0], xy[1])
+    weaver.slice_by_index(1, 4)
+    assert_array_equal(weaver.get()[0], np.array([1, 2, 3]))
+    assert_array_equal(weaver.get()[1], np.array([3, 4, 1]))
+
+    weaver = Weaver(xy[0], xy[1])
+    weaver.slice_by_index(step=2)
+    assert_array_equal(weaver.get()[0], np.array([0, 2, 4]))
+    assert_array_equal(weaver.get()[1], np.array([1, 4, 2]))
+
+
+def test_slice_by_value(xy):
+    weaver = Weaver(xy[0], xy[1])
+    weaver.slice_by_value(1, 4)
+    assert_array_equal(weaver.get()[0], np.array([1, 2, 3]))
+    assert_array_equal(weaver.get()[1], np.array([3, 4, 1]))
+
+
+def test_slice_by_index_out_of_bounds(xy):
+    weaver = Weaver(xy[0], xy[1])
+    with pytest.raises(ValueError):
+        weaver.slice_by_index(1, 10)
+    with pytest.raises(ValueError):
+        weaver.slice_by_index(-1, 4)
+
+
+def test_copy(xy):
+    weaver = Weaver(xy[0], xy[1])
+    weaver2 = weaver.copy()
+    assert_array_equal(weaver.get()[0], weaver2.get()[0])
+    assert_array_equal(weaver.get()[1], weaver2.get()[1])
+    weaver2.get()[0][0] = 100
+    assert weaver.get()[0][0] != weaver2.get()[0][0]
