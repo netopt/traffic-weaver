@@ -3,7 +3,8 @@ import pandas as pd
 import pytest
 from numpy.testing import assert_array_equal
 
-from traffic_weaver import Weaver, PiecewiseConstantRFA
+from traffic_weaver import Weaver
+from traffic_weaver.rfa import PiecewiseConstantRFA
 
 
 @pytest.fixture

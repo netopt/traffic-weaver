@@ -3,7 +3,7 @@ from os import path
 from ._base import load_csv_dataset_from_resources, load_dataset_description
 
 
-def _sandvine_dataset_description():
+def sandvine_dataset_description():
     """Get description of this dataset.
     """
     return load_dataset_description("sandvine.txt")

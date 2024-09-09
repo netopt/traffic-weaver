@@ -27,6 +27,6 @@ docs: clean
 	cd docs && make html
 
 test: clean
-	pytest --cov=traffic_weaver --cov-report term-missing --cov-report html
+	pytest --cov=traffic_weaver --cov-report term-missing --cov-report html --cov-config .coveragerc
 	mkdir -p _images
 	coverage-badge -f -o badges/coverage.svg

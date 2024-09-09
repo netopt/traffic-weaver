@@ -1,12 +1,78 @@
-from ._base import (
-    get_data_home
+from ._base import (get_data_home)
+
+# @formatter:off
+from ._sandvine import (
+    sandvine_dataset_description,
+    load_sandvine_audio,
+    load_sandvine_cloud,
+    load_sandvine_file_sharing,
+    load_sandvine_fixed_social_media,
+    load_sandvine_gaming,
+    load_sandvine_marketplace,
+    load_sandvine_measurements,
+    load_sandvine_messaging,
+    load_sandvine_mobile_messaging,
+    load_sandvine_mobile_social_media,
+    load_sandvine_mobile_video,
+    load_sandvine_mobile_youtube,
+    load_sandvine_mobile_zoom,
+    load_sandvine_snapchat,
+    load_sandvine_social_networking,
+    load_sandvine_tiktok,
+    load_sandvine_video_streaming,
+    load_sandvine_vpn_and_security,
+    load_sandvine_web,
 )
 
-from ._sandvine import (
-    load_sandvine_mobile_video
+from ._mix import (
+    mix_dataset_description,
+    fetch_mix_bologna_daily,
+    fetch_mix_bologna_monthly,
+    fetch_mix_bologna_weekly,
+    fetch_mix_bologna_yearly,
+    fetch_mix_milan_daily,
+    fetch_mix_milan_weekly,
+    fetch_mix_milan_monthly,
+    fetch_mix_milan_yearly,
+    fetch_mix_palermo_daily,
+    fetch_mix_palermo_weekly,
+    fetch_mix_palermo_monthly,
+    fetch_mix_palermo_yearly,
 )
 
 __all__ = [
     get_data_home,
+    sandvine_dataset_description,
+    load_sandvine_audio,
+    load_sandvine_cloud,
+    load_sandvine_file_sharing,
+    load_sandvine_fixed_social_media,
+    load_sandvine_gaming,
+    load_sandvine_marketplace,
+    load_sandvine_measurements,
+    load_sandvine_messaging,
+    load_sandvine_mobile_messaging,
+    load_sandvine_mobile_social_media,
     load_sandvine_mobile_video,
+    load_sandvine_mobile_youtube,
+    load_sandvine_mobile_zoom,
+    load_sandvine_snapchat,
+    load_sandvine_social_networking,
+    load_sandvine_tiktok,
+    load_sandvine_video_streaming,
+    load_sandvine_vpn_and_security,
+    load_sandvine_web,
+    mix_dataset_description,
+    fetch_mix_bologna_daily,
+    fetch_mix_bologna_monthly,
+    fetch_mix_bologna_weekly,
+    fetch_mix_bologna_yearly,
+    fetch_mix_milan_daily,
+    fetch_mix_milan_weekly,
+    fetch_mix_milan_monthly,
+    fetch_mix_milan_yearly,
+    fetch_mix_palermo_daily,
+    fetch_mix_palermo_weekly,
+    fetch_mix_palermo_monthly,
+    fetch_mix_palermo_yearly,
 ]

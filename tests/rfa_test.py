@@ -2,7 +2,7 @@ import numpy as np
 import pytest
 from numpy.ma.testutils import assert_array_approx_equal
 
-from traffic_weaver import (
+from traffic_weaver.rfa import (
     PiecewiseConstantRFA,
     CubicSplineRFA,
     LinearFixedRFA,

@@ -1,3 +1,4 @@
+import hashlib
 import logging
 import os
 import pickle
@@ -12,7 +13,6 @@ from tempfile import TemporaryDirectory
 from urllib.error import URLError
 from urllib.request import urlretrieve
 
-import _sha256
 import numpy as np
 
 RESOURCES_DATASETS = 'traffic_weaver.datasets.data'
@@ -94,6 +94,19 @@ def load_csv_dataset_from_resources(file_name, resources_module=RESOURCES_DATASE
         return data_file
 
 
+def _sha256(path):
+    """Calculate the sha256 hash of the file at path."""
+    sha256hash = hashlib.sha256()
+    chunk_size = 8192
+    with open(path, "rb") as f:
+        while True:
+            buffer = f.read(chunk_size)
+            if not buffer:
+                break
+            sha256hash.update(buffer)
+    return sha256hash.hexdigest()
+
+
 def _fetch_remote(remote: RemoteFileMetadata, dirname=None, n_retries=3, delay=1.0, validate_checksum=True):
     """Download remote dataset into path.
 
@@ -139,27 +152,16 @@ def _fetch_remote(remote: RemoteFileMetadata, dirname=None, n_retries=3, delay=1
     if validate_checksum:
         checksum = _sha256(file_path)
         if remote.checksum != checksum:
-            raise OSError(
-                "{} has an SHA256 checksum ({}) "
-                "differing from expected ({}), "
-                "file may be corrupted.".format(file_path, checksum, remote.checksum)
-            )
+            raise OSError("{} has an SHA256 checksum ({}) "
+                          "differing from expected ({}), "
+                          "file may be corrupted.".format(file_path, checksum, remote.checksum))
     return file_path
 
 
-def load_csv_dataset_from_remote(
-        remote: RemoteFileMetadata,
-        dataset_filename,
-        dataset_subfolder,
-        data_home=None,
-        download_if_missing: bool = True,
-        download_even_if_available: bool = False,
-        validate_checksum: bool = True,
-        n_retries=3,
-        delay=1.0,
-        gzip=False,
-        unpack_dataset_columns=False,
-):
+def load_csv_dataset_from_remote(remote: RemoteFileMetadata, dataset_filename, dataset_folder, data_home=None,
+                                 download_if_missing: bool = True, download_even_if_available: bool = False,
+                                 validate_checksum: bool = True, n_retries=3, delay=1.0, gzip=False,
+                                 unpack_dataset_columns=False, ):
     """
     Load a dataset from a remote location in csv.gz format.
     After downloading the dataset it is stored in the cache folder for further use in pickle format.
@@ -169,9 +171,10 @@ def load_csv_dataset_from_remote(
     remote: RemoteFileMetadata
         Named tuple containing remote dataset meta information: url, filename, checksum.
     dataset_filename: str
+
         Name for the dataset file.
-    dataset_subfolder: str
-        Subfolder in `data_home` where the dataset is stored.
+    dataset_folder: str
+        Folder in `data_home` where the dataset is stored.
     data_home: str, default=None
         Download cache folder fot the dataset. By default data is stored in `~/.traffic-weaver-data`.
     download_if_missing: bool, default=True
@@ -198,7 +201,7 @@ def load_csv_dataset_from_remote(
     """
     data_home = get_data_home(data_home)
 
-    dataset_dir = path.join(data_home, dataset_subfolder)
+    dataset_dir = path.join(data_home, dataset_folder)
     dataset_file_path = path.join(dataset_dir, dataset_filename)
 
     available = path.exists(dataset_file_path)
@@ -208,14 +211,11 @@ def load_csv_dataset_from_remote(
         os.makedirs(dataset_dir, exist_ok=True)
         with TemporaryDirectory(dir=dataset_dir) as tmp_dir:
             logger.info(f"Downloading {remote.url}")
-            archive_path = _fetch_remote(
-                remote, dirname=tmp_dir, n_retries=n_retries, delay=delay,
-                validate_checksum=validate_checksum
-            )
+            archive_path = _fetch_remote(remote, dirname=tmp_dir, n_retries=n_retries, delay=delay,
+                                         validate_checksum=validate_checksum)
             if gzip:
                 dataset = np.loadtxt(GzipFile(filename=archive_path), delimiter=',', dtype=np.float64)
             else:
-                print(gzip)
                 dataset = np.loadtxt(archive_path, delimiter=',', dtype=np.float64)
             dataset_tmp_file_path = path.join(tmp_dir, dataset_filename)
             pickle.dump(dataset, open(dataset_tmp_file_path, "wb"))
@@ -225,7 +225,7 @@ def load_csv_dataset_from_remote(
     if dataset is None:
         dataset = pickle.load(open(dataset_file_path, "rb"))
     if unpack_dataset_columns:
-        dataset = dataset[:, 0], dataset[:, 1]
+        return dataset[:, 0], dataset[:, 1]
     else:
         return dataset
 
