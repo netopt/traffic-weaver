@@ -15,7 +15,7 @@
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="#" />
@@ -63,52 +63,32 @@
 <li class="toctree-l1"><a class="reference internal" href="apidocs/traffic_weaver.html">API reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html">weaver</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver"><code class="docutils literal notranslate"><span class="pre">Weaver</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.copy"><code class="docutils literal notranslate"><span class="pre">Weaver.copy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.from_2d_array"><code class="docutils literal notranslate"><span class="pre">Weaver.from_2d_array()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.from_dataframe"><code class="docutils literal notranslate"><span class="pre">Weaver.from_dataframe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.from_csv"><code class="docutils literal notranslate"><span class="pre">Weaver.from_csv()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.get"><code class="docutils literal notranslate"><span class="pre">Weaver.get()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.get_original"><code class="docutils literal notranslate"><span class="pre">Weaver.get_original()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.restore_original"><code class="docutils literal notranslate"><span class="pre">Weaver.restore_original()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.oversample"><code class="docutils literal notranslate"><span class="pre">Weaver.oversample()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.append_one_sample"><code class="docutils literal notranslate"><span class="pre">Weaver.append_one_sample()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.slice_by_index"><code class="docutils literal notranslate"><span class="pre">Weaver.slice_by_index()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.slice_by_value"><code class="docutils literal notranslate"><span class="pre">Weaver.slice_by_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.interpolate"><code class="docutils literal notranslate"><span class="pre">Weaver.interpolate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.recreate_from_average"><code class="docutils literal notranslate"><span class="pre">Weaver.recreate_from_average()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.integral_match"><code class="docutils literal notranslate"><span class="pre">Weaver.integral_match()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.noise"><code class="docutils literal notranslate"><span class="pre">Weaver.noise()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.repeat"><code class="docutils literal notranslate"><span class="pre">Weaver.repeat()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.trend"><code class="docutils literal notranslate"><span class="pre">Weaver.trend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.smooth"><code class="docutils literal notranslate"><span class="pre">Weaver.smooth()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.to_function"><code class="docutils literal notranslate"><span class="pre">Weaver.to_function()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.scale_x"><code class="docutils literal notranslate"><span class="pre">Weaver.scale_x()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.scale_y"><code class="docutils literal notranslate"><span class="pre">Weaver.scale_y()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.array_utils.html">array_utils</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.array_utils.html#traffic_weaver.array_utils.append_one_sample"><code class="docutils literal notranslate"><span class="pre">append_one_sample()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.array_utils.html#traffic_weaver.array_utils.oversample_linspace"><code class="docutils literal notranslate"><span class="pre">oversample_linspace()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.array_utils.html#traffic_weaver.array_utils.oversample_piecewise_constant"><code class="docutils literal notranslate"><span class="pre">oversample_piecewise_constant()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.array_utils.html#traffic_weaver.array_utils.extend_linspace"><code class="docutils literal notranslate"><span class="pre">extend_linspace()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.array_utils.html#traffic_weaver.array_utils.extend_constant"><code class="docutils literal notranslate"><span class="pre">extend_constant()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.array_utils.html#traffic_weaver.array_utils.left_piecewise_integral"><code class="docutils literal notranslate"><span class="pre">left_piecewise_integral()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.array_utils.html#traffic_weaver.array_utils.trapezoidal_integral_between_each_pair"><code class="docutils literal notranslate"><span class="pre">trapezoidal_integral_between_each_pair()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.datasets.html">datasets</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_mobile_video"><code class="docutils literal notranslate"><span class="pre">load_mobile_video()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_mobile_youtube"><code class="docutils literal notranslate"><span class="pre">load_mobile_youtube()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_mobile_social_media"><code class="docutils literal notranslate"><span class="pre">load_mobile_social_media()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_fixed_social_media"><code class="docutils literal notranslate"><span class="pre">load_fixed_social_media()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_tiktok"><code class="docutils literal notranslate"><span class="pre">load_tiktok()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_snapchat"><code class="docutils literal notranslate"><span class="pre">load_snapchat()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_mobile_messaging"><code class="docutils literal notranslate"><span class="pre">load_mobile_messaging()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_mobile_zoom"><code class="docutils literal notranslate"><span class="pre">load_mobile_zoom()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_measurements"><code class="docutils literal notranslate"><span class="pre">load_measurements()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_social_networking"><code class="docutils literal notranslate"><span class="pre">load_social_networking()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_web"><code class="docutils literal notranslate"><span class="pre">load_web()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_video_streaming"><code class="docutils literal notranslate"><span class="pre">load_video_streaming()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_cloud"><code class="docutils literal notranslate"><span class="pre">load_cloud()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_messaging"><code class="docutils literal notranslate"><span class="pre">load_messaging()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_audio"><code class="docutils literal notranslate"><span class="pre">load_audio()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_vpn_and_security"><code class="docutils literal notranslate"><span class="pre">load_vpn_and_security()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_marketplace"><code class="docutils literal notranslate"><span class="pre">load_marketplace()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_file_sharing"><code class="docutils literal notranslate"><span class="pre">load_file_sharing()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_gaming"><code class="docutils literal notranslate"><span class="pre">load_gaming()</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.array_utils.html">array_utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.datasets.html">datasets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.funfit.html">funfit</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.funfit.html#traffic_weaver.funfit.lin_fit"><code class="docutils literal notranslate"><span class="pre">lin_fit()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.funfit.html#traffic_weaver.funfit.exp_fit"><code class="docutils literal notranslate"><span class="pre">exp_fit()</span></code></a></li>
@@ -134,45 +114,11 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.match.html">match</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.match.html#traffic_weaver.match.integral_matching_reference_stretch"><code class="docutils literal notranslate"><span class="pre">integral_matching_reference_stretch()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.match.html#traffic_weaver.match.integral_matching_stretch"><code class="docutils literal notranslate"><span class="pre">integral_matching_stretch()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.match.html#traffic_weaver.match.interval_integral_matching_stretch"><code class="docutils literal notranslate"><span class="pre">interval_integral_matching_stretch()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.oversample.html">oversample</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.AbstractOversample"><code class="docutils literal notranslate"><span class="pre">AbstractOversample</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.AbstractOversample.oversample"><code class="docutils literal notranslate"><span class="pre">AbstractOversample.oversample()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.PiecewiseConstantOversample"><code class="docutils literal notranslate"><span class="pre">PiecewiseConstantOversample</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.PiecewiseConstantOversample.oversample"><code class="docutils literal notranslate"><span class="pre">PiecewiseConstantOversample.oversample()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.FunctionOversample"><code class="docutils literal notranslate"><span class="pre">FunctionOversample</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.FunctionOversample.oversample"><code class="docutils literal notranslate"><span class="pre">FunctionOversample.oversample()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.CubicSplineOversample"><code class="docutils literal notranslate"><span class="pre">CubicSplineOversample</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.IntervalOversample"><code class="docutils literal notranslate"><span class="pre">IntervalOversample</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.LinearFixedOversample"><code class="docutils literal notranslate"><span class="pre">LinearFixedOversample</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.LinearFixedOversample.oversample"><code class="docutils literal notranslate"><span class="pre">LinearFixedOversample.oversample()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.LinearAdaptiveOversample"><code class="docutils literal notranslate"><span class="pre">LinearAdaptiveOversample</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.LinearAdaptiveOversample.get_adaptive_transition_points"><code class="docutils literal notranslate"><span class="pre">LinearAdaptiveOversample.get_adaptive_transition_points()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.LinearAdaptiveOversample.oversample"><code class="docutils literal notranslate"><span class="pre">LinearAdaptiveOversample.oversample()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.ExpFixedOversample"><code class="docutils literal notranslate"><span class="pre">ExpFixedOversample</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.ExpFixedOversample.oversample"><code class="docutils literal notranslate"><span class="pre">ExpFixedOversample.oversample()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.ExpAdaptiveOversample"><code class="docutils literal notranslate"><span class="pre">ExpAdaptiveOversample</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.ExpAdaptiveOversample.oversample"><code class="docutils literal notranslate"><span class="pre">ExpAdaptiveOversample.oversample()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.oversample.html">oversample</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.process.html">process</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.process.html#traffic_weaver.process.interpolate"><code class="docutils literal notranslate"><span class="pre">interpolate()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.process.html#traffic_weaver.process.repeat"><code class="docutils literal notranslate"><span class="pre">repeat()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.process.html#traffic_weaver.process.trend"><code class="docutils literal notranslate"><span class="pre">trend()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.process.html#traffic_weaver.process.linear_trend"><code class="docutils literal notranslate"><span class="pre">linear_trend()</span></code></a></li>
@@ -223,7 +169,6 @@
  | <a href="#M"><strong>M</strong></a>
  | <a href="#N"><strong>N</strong></a>
  | <a href="#O"><strong>O</strong></a>
- | <a href="#P"><strong>P</strong></a>
  | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
  | <a href="#T"><strong>T</strong></a>
@@ -233,9 +178,7 @@
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.AbstractOversample">AbstractOversample (class in traffic_weaver.oversample)</a>
-</li>
-      <li><a href="apidocs/traffic_weaver.array_utils.html#traffic_weaver.array_utils.append_one_sample">append_one_sample() (in module traffic_weaver.array_utils)</a>
+      <li><a href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.append_one_sample">append_one_sample() (Weaver method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -249,7 +192,7 @@
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.CubicSplineOversample">CubicSplineOversample (class in traffic_weaver.oversample)</a>
+      <li><a href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.copy">copy() (Weaver method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -261,33 +204,27 @@
 </li>
       <li><a href="apidocs/traffic_weaver.funfit.html#traffic_weaver.funfit.exp_lin_fit">exp_lin_fit() (in module traffic_weaver.funfit)</a>
 </li>
-      <li><a href="apidocs/traffic_weaver.funfit.html#traffic_weaver.funfit.exp_xy_fit">exp_xy_fit() (in module traffic_weaver.funfit)</a>
-</li>
-      <li><a href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.ExpAdaptiveOversample">ExpAdaptiveOversample (class in traffic_weaver.oversample)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.ExpFixedOversample">ExpFixedOversample (class in traffic_weaver.oversample)</a>
+      <li><a href="apidocs/traffic_weaver.funfit.html#traffic_weaver.funfit.exp_xy_fit">exp_xy_fit() (in module traffic_weaver.funfit)</a>
 </li>
-      <li><a href="apidocs/traffic_weaver.array_utils.html#traffic_weaver.array_utils.extend_constant">extend_constant() (in module traffic_weaver.array_utils)</a>
-
-      <ul>
-        <li><a href="apidocs/traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.extend_constant">(IntervalArray method)</a>
+      <li><a href="apidocs/traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.extend_constant">extend_constant() (IntervalArray method)</a>
 </li>
-      </ul></li>
-      <li><a href="apidocs/traffic_weaver.array_utils.html#traffic_weaver.array_utils.extend_linspace">extend_linspace() (in module traffic_weaver.array_utils)</a>
-
-      <ul>
-        <li><a href="apidocs/traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.extend_linspace">(IntervalArray method)</a>
+      <li><a href="apidocs/traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.extend_linspace">extend_linspace() (IntervalArray method)</a>
 </li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="F">F</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.FunctionOversample">FunctionOversample (class in traffic_weaver.oversample)</a>
+      <li><a href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.from_2d_array">from_2d_array() (Weaver static method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.from_csv">from_csv() (Weaver static method)</a>
+</li>
+      <li><a href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.from_dataframe">from_dataframe() (Weaver static method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -299,8 +236,6 @@
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.LinearAdaptiveOversample.get_adaptive_transition_points">get_adaptive_transition_points() (LinearAdaptiveOversample static method)</a>
-</li>
       <li><a href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.get_original">get_original() (Weaver method)</a>
 </li>
   </ul></td>
@@ -313,15 +248,15 @@
 </li>
       <li><a href="apidocs/traffic_weaver.match.html#traffic_weaver.match.integral_matching_reference_stretch">integral_matching_reference_stretch() (in module traffic_weaver.match)</a>
 </li>
-      <li><a href="apidocs/traffic_weaver.match.html#traffic_weaver.match.integral_matching_stretch">integral_matching_stretch() (in module traffic_weaver.match)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="apidocs/traffic_weaver.match.html#traffic_weaver.match.interval_integral_matching_stretch">interval_integral_matching_stretch() (in module traffic_weaver.match)</a>
+      <li><a href="apidocs/traffic_weaver.process.html#traffic_weaver.process.interpolate">interpolate() (in module traffic_weaver.process)</a>
+
+      <ul>
+        <li><a href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.interpolate">(Weaver method)</a>
 </li>
+      </ul></li>
       <li><a href="apidocs/traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray">IntervalArray (class in traffic_weaver.interval)</a>
-</li>
-      <li><a href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.IntervalOversample">IntervalOversample (class in traffic_weaver.oversample)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -329,57 +264,13 @@
 <h2 id="L">L</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="apidocs/traffic_weaver.array_utils.html#traffic_weaver.array_utils.left_piecewise_integral">left_piecewise_integral() (in module traffic_weaver.array_utils)</a>
-</li>
       <li><a href="apidocs/traffic_weaver.funfit.html#traffic_weaver.funfit.lin_exp_xy_fit">lin_exp_xy_fit() (in module traffic_weaver.funfit)</a>
-</li>
-      <li><a href="apidocs/traffic_weaver.funfit.html#traffic_weaver.funfit.lin_fit">lin_fit() (in module traffic_weaver.funfit)</a>
-</li>
-      <li><a href="apidocs/traffic_weaver.process.html#traffic_weaver.process.linear_trend">linear_trend() (in module traffic_weaver.process)</a>
-</li>
-      <li><a href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.LinearAdaptiveOversample">LinearAdaptiveOversample (class in traffic_weaver.oversample)</a>
-</li>
-      <li><a href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.LinearFixedOversample">LinearFixedOversample (class in traffic_weaver.oversample)</a>
-</li>
-      <li><a href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_audio">load_audio() (in module traffic_weaver.datasets)</a>
-</li>
-      <li><a href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_cloud">load_cloud() (in module traffic_weaver.datasets)</a>
-</li>
-      <li><a href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_file_sharing">load_file_sharing() (in module traffic_weaver.datasets)</a>
-</li>
-      <li><a href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_fixed_social_media">load_fixed_social_media() (in module traffic_weaver.datasets)</a>
-</li>
-      <li><a href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_gaming">load_gaming() (in module traffic_weaver.datasets)</a>
-</li>
-      <li><a href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_marketplace">load_marketplace() (in module traffic_weaver.datasets)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_measurements">load_measurements() (in module traffic_weaver.datasets)</a>
+      <li><a href="apidocs/traffic_weaver.funfit.html#traffic_weaver.funfit.lin_fit">lin_fit() (in module traffic_weaver.funfit)</a>
 </li>
-      <li><a href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_messaging">load_messaging() (in module traffic_weaver.datasets)</a>
-</li>
-      <li><a href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_mobile_messaging">load_mobile_messaging() (in module traffic_weaver.datasets)</a>
-</li>
-      <li><a href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_mobile_social_media">load_mobile_social_media() (in module traffic_weaver.datasets)</a>
-</li>
-      <li><a href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_mobile_video">load_mobile_video() (in module traffic_weaver.datasets)</a>
-</li>
-      <li><a href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_mobile_youtube">load_mobile_youtube() (in module traffic_weaver.datasets)</a>
-</li>
-      <li><a href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_mobile_zoom">load_mobile_zoom() (in module traffic_weaver.datasets)</a>
-</li>
-      <li><a href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_snapchat">load_snapchat() (in module traffic_weaver.datasets)</a>
-</li>
-      <li><a href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_social_networking">load_social_networking() (in module traffic_weaver.datasets)</a>
-</li>
-      <li><a href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_tiktok">load_tiktok() (in module traffic_weaver.datasets)</a>
-</li>
-      <li><a href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_video_streaming">load_video_streaming() (in module traffic_weaver.datasets)</a>
-</li>
-      <li><a href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_vpn_and_security">load_vpn_and_security() (in module traffic_weaver.datasets)</a>
-</li>
-      <li><a href="apidocs/traffic_weaver.datasets.html#traffic_weaver.datasets.load_web">load_web() (in module traffic_weaver.datasets)</a>
+      <li><a href="apidocs/traffic_weaver.process.html#traffic_weaver.process.linear_trend">linear_trend() (in module traffic_weaver.process)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -391,8 +282,6 @@
     module
 
       <ul>
-        <li><a href="apidocs/traffic_weaver.array_utils.html#module-traffic_weaver.array_utils">traffic_weaver.array_utils</a>
-</li>
         <li><a href="apidocs/traffic_weaver.datasets.html#module-traffic_weaver.datasets">traffic_weaver.datasets</a>
 </li>
         <li><a href="apidocs/traffic_weaver.funfit.html#module-traffic_weaver.funfit">traffic_weaver.funfit</a>
@@ -400,8 +289,6 @@
         <li><a href="apidocs/traffic_weaver.interval.html#module-traffic_weaver.interval">traffic_weaver.interval</a>
 </li>
         <li><a href="apidocs/traffic_weaver.match.html#module-traffic_weaver.match">traffic_weaver.match</a>
-</li>
-        <li><a href="apidocs/traffic_weaver.oversample.html#module-traffic_weaver.oversample">traffic_weaver.oversample</a>
 </li>
         <li><a href="apidocs/traffic_weaver.process.html#module-traffic_weaver.process">traffic_weaver.process</a>
 </li>
@@ -428,45 +315,13 @@
 <h2 id="O">O</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.AbstractOversample.oversample">oversample() (AbstractOversample method)</a>
-
-      <ul>
-        <li><a href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.ExpAdaptiveOversample.oversample">(ExpAdaptiveOversample method)</a>
+      <li><a href="apidocs/traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.oversample">oversample() (IntervalArray method)</a>
 </li>
-        <li><a href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.ExpFixedOversample.oversample">(ExpFixedOversample method)</a>
-</li>
-        <li><a href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.FunctionOversample.oversample">(FunctionOversample method)</a>
-</li>
-        <li><a href="apidocs/traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.oversample">(IntervalArray method)</a>
-</li>
-        <li><a href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.LinearAdaptiveOversample.oversample">(LinearAdaptiveOversample method)</a>
-</li>
-        <li><a href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.LinearFixedOversample.oversample">(LinearFixedOversample method)</a>
-</li>
-        <li><a href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.PiecewiseConstantOversample.oversample">(PiecewiseConstantOversample method)</a>
-</li>
-        <li><a href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.oversample">(Weaver method)</a>
-</li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="apidocs/traffic_weaver.array_utils.html#traffic_weaver.array_utils.oversample_linspace">oversample_linspace() (in module traffic_weaver.array_utils)</a>
-
-      <ul>
-        <li><a href="apidocs/traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.oversample_linspace">(IntervalArray method)</a>
+      <li><a href="apidocs/traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.oversample_linspace">oversample_linspace() (IntervalArray method)</a>
 </li>
-      </ul></li>
       <li><a href="apidocs/traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.oversample_piecewise">oversample_piecewise() (IntervalArray method)</a>
-</li>
-      <li><a href="apidocs/traffic_weaver.array_utils.html#traffic_weaver.array_utils.oversample_piecewise_constant">oversample_piecewise_constant() (in module traffic_weaver.array_utils)</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="P">P</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="apidocs/traffic_weaver.oversample.html#traffic_weaver.oversample.PiecewiseConstantOversample">PiecewiseConstantOversample (class in traffic_weaver.oversample)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -474,6 +329,8 @@
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.recreate_from_average">recreate_from_average() (Weaver method)</a>
+</li>
       <li><a href="apidocs/traffic_weaver.process.html#traffic_weaver.process.repeat">repeat() (in module traffic_weaver.process)</a>
 
       <ul>
@@ -490,10 +347,18 @@
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.smooth">smooth() (Weaver method)</a>
+      <li><a href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.scale_x">scale_x() (Weaver method)</a>
+</li>
+      <li><a href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.scale_y">scale_y() (Weaver method)</a>
+</li>
+      <li><a href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.slice_by_index">slice_by_index() (Weaver method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.slice_by_value">slice_by_value() (Weaver method)</a>
+</li>
+      <li><a href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.smooth">smooth() (Weaver method)</a>
+</li>
       <li><a href="apidocs/traffic_weaver.process.html#traffic_weaver.process.spline_smooth">spline_smooth() (in module traffic_weaver.process)</a>
 </li>
   </ul></td>
@@ -508,13 +373,6 @@
 </li>
       <li><a href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.to_function">to_function() (Weaver method)</a>
 </li>
-      <li>
-    traffic_weaver.array_utils
-
-      <ul>
-        <li><a href="apidocs/traffic_weaver.array_utils.html#module-traffic_weaver.array_utils">module</a>
-</li>
-      </ul></li>
       <li>
     traffic_weaver.datasets
 
@@ -546,13 +404,6 @@
 </li>
       </ul></li>
       <li>
-    traffic_weaver.oversample
-
-      <ul>
-        <li><a href="apidocs/traffic_weaver.oversample.html#module-traffic_weaver.oversample">module</a>
-</li>
-      </ul></li>
-      <li>
     traffic_weaver.process
 
       <ul>
@@ -566,8 +417,6 @@
         <li><a href="apidocs/traffic_weaver.weaver.html#module-traffic_weaver.weaver">module</a>
 </li>
       </ul></li>
-      <li><a href="apidocs/traffic_weaver.array_utils.html#traffic_weaver.array_utils.trapezoidal_integral_between_each_pair">trapezoidal_integral_between_each_pair() (in module traffic_weaver.array_utils)</a>
-</li>
       <li><a href="apidocs/traffic_weaver.process.html#traffic_weaver.process.trend">trend() (in module traffic_weaver.process)</a>
 
       <ul>
