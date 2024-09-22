@@ -7,7 +7,7 @@ from typing import Callable, Union, List
 
 import numpy as np
 
-from .array_utils import (
+from .sorted_array_utils import (
     oversample_linspace,
     oversample_piecewise_constant,
     extend_linspace,
@@ -46,7 +46,7 @@ class IntervalArray:
         >>> print(a[1])
         1
         >>> a[1, 2] = 15
-        >>> a[1, 2]
+        >>> a[1, 2].item()
         15
 
         """

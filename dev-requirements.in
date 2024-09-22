@@ -3,6 +3,7 @@ sphinx
 sphinx-rtd-theme
 sphinx-mdinclude
 sphinxcontrib-bibtex
+pandas
 pytest
 pytest-cov
 pytest-mock

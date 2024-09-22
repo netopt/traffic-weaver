@@ -2,9 +2,89 @@ r"""Other time series processing."""
 from typing import Callable, Tuple, Union, List
 
 import numpy as np
-from scipy.interpolate import BSpline, splrep
+from scipy.interpolate import BSpline, splrep, CubicSpline
 
 from traffic_weaver.interval import IntervalArray
+from traffic_weaver.sorted_array_utils import find_closest_lower_equal_element_indices_to_values
+
+
+def _piecewise_constant_interpolate(x, y, new_x, left=None):
+    """Piecewise constant filling for monotonically increasing sample points.
+
+    Returns the one-dimensional piecewise constant array with given discrete data points (x, y), evaluated at new_x.
+
+    Parameters
+    ----------
+    x: np.ndarray
+        The x-coordinates of the data points, must be increasing.
+    y: np.ndarray
+        The y-coordinates of the data points, same length as x.
+    new_x
+        The x-coordinates at which to evaluate the interpolated values.
+    left: float, optional
+        Value to return for new_x < x[0], default is y[0].
+
+
+    Returns
+    -------
+        The interpolated values, same shape as new_x.
+    """
+    x = np.asarray(x)
+    y = np.asarray(y)
+    new_x = np.asarray(new_x)
+
+    new_y = np.zeros(len(new_x))
+
+    indices = find_closest_lower_equal_element_indices_to_values(x, new_x)
+
+    greater_equal_than_first_value_mask = new_x >= x[0]
+    lower_than_first_value_mask = new_x < x[0]
+
+    new_y[greater_equal_than_first_value_mask] = y[indices[greater_equal_than_first_value_mask]]
+    new_y[lower_than_first_value_mask] = left if left is not None else y[0]
+    return new_y
+
+
+def interpolate(x, y, new_x, method='linear', **kwargs):
+    """Interpolate function over new set of points.
+
+    Supports linear, cubic and spline interpolation.
+
+    Parameters
+    ----------
+    x: array-like
+        The x-coordinates of the data points, must be increasing.
+    y: array-like
+        The y-coordinates of the data points, same length as x.
+    new_x: array-like
+        New x-coordinates at which to evaluate the interpolated values.
+    method: str, default='linear'
+        Interpolation method. Supported methods are 'linear', 'constant', 'cubic' and
+        'spline'.
+    kwargs: dict
+        Additional keyword arguments passed to the interpolation function.
+        For more details, see kwargs of numpy and scipy interpolation functions.
+
+    Returns
+    -------
+
+    See Also
+    --------
+    `https://numpy.org/doc/stable/reference/generated/numpy.interp.html
+    <https://numpy.org/doc/stable/reference/generated/numpy.interp.html>`_
+    `https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.CubicSpline.html
+    <https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.CubicSpline.html>`_
+    `https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.splrep.html#scipy.interpolate.splrep
+    <https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.splrep.html#scipy.interpolate.splrep>`_
+    """
+    if method == 'linear':
+        return np.interp(new_x, x, y, **kwargs)
+    if method == 'constant':
+        return _piecewise_constant_interpolate(x, y, new_x, **kwargs)
+    elif method == 'cubic':
+        return CubicSpline(x, y, **kwargs)(new_x)
+    elif method == 'spline':
+        return BSpline(*splrep(x, y, **kwargs))(new_x)
 
 
 def repeat(x, y, repeats: int) -> tuple[np.ndarray, np.ndarray]:

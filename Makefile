@@ -10,8 +10,8 @@ build-requirements:
 	pip-compile -o requirements.txt pyproject.toml
 	pip-compile --extra dev -o dev-requirements.txt pyproject.toml
 
-install: clean
-	pip-sync requirements.txt dev-requirements.txt
+build: clean
+	pip-sync requirements.txt dev-requirements.txt\
 
 tag-release:
 	commit-and-tag-version
@@ -27,6 +27,6 @@ docs: clean
 	cd docs && make html
 
 test: clean
-	pytest --cov=traffic_weaver --cov-report term-missing --cov-report html
+	pytest --cov=traffic_weaver --cov-report term-missing --cov-report html --cov-config .coveragerc
 	mkdir -p _images
 	coverage-badge -f -o badges/coverage.svg
