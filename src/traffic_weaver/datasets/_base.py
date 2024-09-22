@@ -16,7 +16,7 @@ from urllib.request import urlretrieve
 import numpy as np
 
 RESOURCES_DATASETS = 'traffic_weaver.datasets.data'
-RESOURCES_DATASETS_DESCRIPTION = 'traffic_weaver.datasets.datadescription'
+RESOURCES_DATASETS_DESCRIPTION = 'traffic_weaver.datasets.data_description'
 
 RemoteFileMetadata = namedtuple("RemoteFileMetadata", ["filename", "url", "checksum"])
 
@@ -171,7 +171,6 @@ def load_csv_dataset_from_remote(remote: RemoteFileMetadata, dataset_filename, d
     remote: RemoteFileMetadata
         Named tuple containing remote dataset meta information: url, filename, checksum.
     dataset_filename: str
-
         Name for the dataset file.
     dataset_folder: str
         Folder in `data_home` where the dataset is stored.

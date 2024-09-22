@@ -1,6 +1,0 @@
-mix-it.net. https://www.mix-it.net/en/stats/ (accessed Sep. 4, 2024)
-
-y-axis units:
-Milan: Tbps
-Bologna: Gbps
-Palermo: Gbps
