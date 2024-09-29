@@ -237,6 +237,22 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.sorted_array_utils.html">sorted_array_utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.sorted_array_utils.html#traffic_weaver.sorted_array_utils.append_one_sample"><code class="docutils literal notranslate"><span class="pre">append_one_sample()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.sorted_array_utils.html#traffic_weaver.sorted_array_utils.oversample_linspace"><code class="docutils literal notranslate"><span class="pre">oversample_linspace()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.sorted_array_utils.html#traffic_weaver.sorted_array_utils.oversample_piecewise_constant"><code class="docutils literal notranslate"><span class="pre">oversample_piecewise_constant()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.sorted_array_utils.html#traffic_weaver.sorted_array_utils.extend_linspace"><code class="docutils literal notranslate"><span class="pre">extend_linspace()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.sorted_array_utils.html#traffic_weaver.sorted_array_utils.extend_constant"><code class="docutils literal notranslate"><span class="pre">extend_constant()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.sorted_array_utils.html#traffic_weaver.sorted_array_utils.rectangle_integral"><code class="docutils literal notranslate"><span class="pre">rectangle_integral()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.sorted_array_utils.html#traffic_weaver.sorted_array_utils.trapezoid_integral"><code class="docutils literal notranslate"><span class="pre">trapezoid_integral()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.sorted_array_utils.html#traffic_weaver.sorted_array_utils.integral"><code class="docutils literal notranslate"><span class="pre">integral()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.sorted_array_utils.html#traffic_weaver.sorted_array_utils.find_closest_lower_equal_element_indices_to_values"><code class="docutils literal notranslate"><span class="pre">find_closest_lower_equal_element_indices_to_values()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.sorted_array_utils.html#traffic_weaver.sorted_array_utils.find_closest_higher_equal_element_indices_to_values"><code class="docutils literal notranslate"><span class="pre">find_closest_higher_equal_element_indices_to_values()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.sorted_array_utils.html#traffic_weaver.sorted_array_utils.find_closest_lower_or_higher_element_indices_to_values"><code class="docutils literal notranslate"><span class="pre">find_closest_lower_or_higher_element_indices_to_values()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.sorted_array_utils.html#traffic_weaver.sorted_array_utils.find_closest_element_indices_to_values"><code class="docutils literal notranslate"><span class="pre">find_closest_element_indices_to_values()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.sorted_array_utils.html#traffic_weaver.sorted_array_utils.sum_over_indices"><code class="docutils literal notranslate"><span class="pre">sum_over_indices()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="development.html">Development</a></li>
@@ -351,7 +367,7 @@ the latter one spline function created based on those points and allow to sample
 </pre></div>
 </div>
 <p>Above code produces the following figures.</p>
-<a class="reference internal image-reference" href="_static/gfx/quick_start/minimal_processing_example.png"><img alt="Minimal processing example" src="_static/gfx/quick_start/minimal_processing_example.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="_images/minimal_processing_example.png"><img alt="Minimal processing example" src="_images/minimal_processing_example.png" style="width: 800px;" /></a>
 <p>It is possible to check if integrals actually match between original and processed function.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># compare integrals of original and modified signal</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;original function integral=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">traffic_weaver</span><span class="o">.</span><span class="n">sorted_array_utils</span><span class="o">.</span><span class="n">integral</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">wv</span><span class="o">.</span><span class="n">get_original</span><span class="p">()),</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;rectangle&#39;</span><span class="p">))))</span>
