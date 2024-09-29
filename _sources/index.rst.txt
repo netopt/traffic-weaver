@@ -5,7 +5,7 @@
 
 .. mdinclude:: ../../README.md
    :start-line: 0
-   :end-line: 14
+   :end-line: 17
 
 Table of content
 ----------------
@@ -14,6 +14,8 @@ Table of content
 
    Introduction </introduction.rst>
    Quick start </quick_start.rst>
+   Datasets </datasets.rst>
+   Using the API </using_the_api.rst>
    API reference </apidocs/traffic_weaver.rst>
    Development </development.rst>
 
@@ -22,4 +24,3 @@ Indices and tables
 
 * :ref:`genindex`
 * :ref:`modindex`
-* :ref:`search`

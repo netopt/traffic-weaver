@@ -6,7 +6,7 @@ Install dependencies.
 .. code-block:: shell
 
     make build-requirements
-    make install
+    make build
 
 Enable commit hooks.
 

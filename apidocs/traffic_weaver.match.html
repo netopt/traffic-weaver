@@ -18,10 +18,11 @@
         <script src="../_static/documentation_options.js?v=5929fcd5"></script>
         <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="oversample module" href="traffic_weaver.oversample.html" />
+    <link rel="next" title="process module" href="traffic_weaver.process.html" />
     <link rel="prev" title="interval module" href="traffic_weaver.interval.html" /> 
 </head>
 
@@ -54,24 +55,42 @@
 <li class="toctree-l2"><a class="reference internal" href="../introduction.html#architecture">Architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction.html#functionalities">Functionalities</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction.html#motivation-and-significance">Motivation and significance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../introduction.html#bibliography">Bibliography</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick start</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../quick_start.html#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../quick_start.html#minimal-processing-example">Minimal processing example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../quick_start.html#further-signal-processing">Further signal processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_start.html#further-processing-examples">Further processing examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../datasets.html#list-of-datasets">List of datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../datasets.html#collecting-new-datasets">Collecting new datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../datasets.html#bibliography">Bibliography</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../using_the_api.html">Using the API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#reading-data">Reading data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#preprocessing-data">Preprocessing data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#getting-processed-signal">Getting processed signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#interpolation">Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#repeating">Repeating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#trending">Trending</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#recreate-from-average">Recreate from average</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#integral-match">Integral match</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#noising">Noising</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#smoothing">Smoothing</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="traffic_weaver.html">API reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="traffic_weaver.weaver.html">weaver</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver"><code class="docutils literal notranslate"><span class="pre">Weaver</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.copy"><code class="docutils literal notranslate"><span class="pre">Weaver.copy()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.from_2d_array"><code class="docutils literal notranslate"><span class="pre">Weaver.from_2d_array()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.from_dataframe"><code class="docutils literal notranslate"><span class="pre">Weaver.from_dataframe()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.from_csv"><code class="docutils literal notranslate"><span class="pre">Weaver.from_csv()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.get"><code class="docutils literal notranslate"><span class="pre">Weaver.get()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.get_original"><code class="docutils literal notranslate"><span class="pre">Weaver.get_original()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.get_reference"><code class="docutils literal notranslate"><span class="pre">Weaver.get_reference()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.restore_original"><code class="docutils literal notranslate"><span class="pre">Weaver.restore_original()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.append_one_sample"><code class="docutils literal notranslate"><span class="pre">Weaver.append_one_sample()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.slice_by_index"><code class="docutils literal notranslate"><span class="pre">Weaver.slice_by_index()</span></code></a></li>
@@ -84,14 +103,66 @@
 <li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.trend"><code class="docutils literal notranslate"><span class="pre">Weaver.trend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.smooth"><code class="docutils literal notranslate"><span class="pre">Weaver.smooth()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.to_function"><code class="docutils literal notranslate"><span class="pre">Weaver.to_function()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.to_2d_array"><code class="docutils literal notranslate"><span class="pre">Weaver.to_2d_array()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.scale_x"><code class="docutils literal notranslate"><span class="pre">Weaver.scale_x()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.scale_y"><code class="docutils literal notranslate"><span class="pre">Weaver.scale_y()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.shift_x"><code class="docutils literal notranslate"><span class="pre">Weaver.shift_x()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.shift_y"><code class="docutils literal notranslate"><span class="pre">Weaver.shift_y()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.normalize_x"><code class="docutils literal notranslate"><span class="pre">Weaver.normalize_x()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.normalize_y"><code class="docutils literal notranslate"><span class="pre">Weaver.normalize_y()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.truncate_by_value"><code class="docutils literal notranslate"><span class="pre">Weaver.truncate_by_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.truncate_by_index"><code class="docutils literal notranslate"><span class="pre">Weaver.truncate_by_index()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="traffic_weaver.array_utils.html">array_utils</a></li>
-<li class="toctree-l2"><a class="reference internal" href="traffic_weaver.datasets.html">datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_weaver.datasets.html">datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.datasets._base.html">base</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.load_dataset"><code class="docutils literal notranslate"><span class="pre">load_dataset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.get_data_home"><code class="docutils literal notranslate"><span class="pre">get_data_home()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.clear_data_home"><code class="docutils literal notranslate"><span class="pre">clear_data_home()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.load_csv_dataset_from_resources"><code class="docutils literal notranslate"><span class="pre">load_csv_dataset_from_resources()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.load_csv_dataset_from_remote"><code class="docutils literal notranslate"><span class="pre">load_csv_dataset_from_remote()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.load_dataset_description"><code class="docutils literal notranslate"><span class="pre">load_dataset_description()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.datasets._ams_ix.html">ams_ix</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._ams_ix.html#list-of-datasets">List of datasets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._ams_ix.html#datasets-description">Datasets description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._ams_ix.html#units">Units</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.datasets._mix_it.html">mix_it</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._mix_it.html#list-of-datasets">List of datasets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._mix_it.html#datasets-description">Datasets description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._mix_it.html#units">Units</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html">sandvine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.sandvine_dataset_description"><code class="docutils literal notranslate"><span class="pre">sandvine_dataset_description()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_audio"><code class="docutils literal notranslate"><span class="pre">load_sandvine_audio()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_cloud"><code class="docutils literal notranslate"><span class="pre">load_sandvine_cloud()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_file_sharing"><code class="docutils literal notranslate"><span class="pre">load_sandvine_file_sharing()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_fixed_social_media"><code class="docutils literal notranslate"><span class="pre">load_sandvine_fixed_social_media()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_gaming"><code class="docutils literal notranslate"><span class="pre">load_sandvine_gaming()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_marketplace"><code class="docutils literal notranslate"><span class="pre">load_sandvine_marketplace()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_measurements"><code class="docutils literal notranslate"><span class="pre">load_sandvine_measurements()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_messaging"><code class="docutils literal notranslate"><span class="pre">load_sandvine_messaging()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_mobile_messaging"><code class="docutils literal notranslate"><span class="pre">load_sandvine_mobile_messaging()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_mobile_social_media"><code class="docutils literal notranslate"><span class="pre">load_sandvine_mobile_social_media()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_mobile_video"><code class="docutils literal notranslate"><span class="pre">load_sandvine_mobile_video()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_mobile_youtube"><code class="docutils literal notranslate"><span class="pre">load_sandvine_mobile_youtube()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_mobile_zoom"><code class="docutils literal notranslate"><span class="pre">load_sandvine_mobile_zoom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_snapchat"><code class="docutils literal notranslate"><span class="pre">load_sandvine_snapchat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_social_networking"><code class="docutils literal notranslate"><span class="pre">load_sandvine_social_networking()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_tiktok"><code class="docutils literal notranslate"><span class="pre">load_sandvine_tiktok()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_video_streaming"><code class="docutils literal notranslate"><span class="pre">load_sandvine_video_streaming()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_vpn_and_security"><code class="docutils literal notranslate"><span class="pre">load_sandvine_vpn_and_security()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_web"><code class="docutils literal notranslate"><span class="pre">load_sandvine_web()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_weaver.funfit.html">funfit</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="traffic_weaver.funfit.html#traffic_weaver.funfit.lin_fit"><code class="docutils literal notranslate"><span class="pre">lin_fit()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="traffic_weaver.funfit.html#traffic_weaver.funfit.exp_fit"><code class="docutils literal notranslate"><span class="pre">exp_fit()</span></code></a></li>
@@ -117,9 +188,10 @@
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">match</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#traffic_weaver.match.integral_matching_reference_stretch"><code class="docutils literal notranslate"><span class="pre">integral_matching_reference_stretch()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#traffic_weaver.match._integral_matching_stretch"><code class="docutils literal notranslate"><span class="pre">_integral_matching_stretch()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#traffic_weaver.match._interval_integral_matching_stretch"><code class="docutils literal notranslate"><span class="pre">_interval_integral_matching_stretch()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="traffic_weaver.oversample.html">oversample</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_weaver.process.html">process</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.interpolate"><code class="docutils literal notranslate"><span class="pre">interpolate()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.repeat"><code class="docutils literal notranslate"><span class="pre">repeat()</span></code></a></li>
@@ -128,6 +200,42 @@
 <li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.spline_smooth"><code class="docutils literal notranslate"><span class="pre">spline_smooth()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.noise_gauss"><code class="docutils literal notranslate"><span class="pre">noise_gauss()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.average"><code class="docutils literal notranslate"><span class="pre">average()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.truncate"><code class="docutils literal notranslate"><span class="pre">truncate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.normalize"><code class="docutils literal notranslate"><span class="pre">normalize()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_weaver.rfa.html">rfa</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.AbstractRFA"><code class="docutils literal notranslate"><span class="pre">AbstractRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.AbstractRFA.rfa"><code class="docutils literal notranslate"><span class="pre">AbstractRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.PiecewiseConstantRFA"><code class="docutils literal notranslate"><span class="pre">PiecewiseConstantRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.PiecewiseConstantRFA.rfa"><code class="docutils literal notranslate"><span class="pre">PiecewiseConstantRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.FunctionRFA"><code class="docutils literal notranslate"><span class="pre">FunctionRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.FunctionRFA.rfa"><code class="docutils literal notranslate"><span class="pre">FunctionRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.CubicSplineRFA"><code class="docutils literal notranslate"><span class="pre">CubicSplineRFA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.IntervalRFA"><code class="docutils literal notranslate"><span class="pre">IntervalRFA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.LinearFixedRFA"><code class="docutils literal notranslate"><span class="pre">LinearFixedRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.LinearFixedRFA.rfa"><code class="docutils literal notranslate"><span class="pre">LinearFixedRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.LinearAdaptiveRFA"><code class="docutils literal notranslate"><span class="pre">LinearAdaptiveRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.LinearAdaptiveRFA.get_adaptive_transition_points"><code class="docutils literal notranslate"><span class="pre">LinearAdaptiveRFA.get_adaptive_transition_points()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.LinearAdaptiveRFA.rfa"><code class="docutils literal notranslate"><span class="pre">LinearAdaptiveRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.ExpFixedRFA"><code class="docutils literal notranslate"><span class="pre">ExpFixedRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.ExpFixedRFA.rfa"><code class="docutils literal notranslate"><span class="pre">ExpFixedRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.ExpAdaptiveRFA"><code class="docutils literal notranslate"><span class="pre">ExpAdaptiveRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.ExpAdaptiveRFA.rfa"><code class="docutils literal notranslate"><span class="pre">ExpAdaptiveRFA.rfa()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -164,7 +272,7 @@
 <span id="match-module"></span><h1>match module<a class="headerlink" href="#module-traffic_weaver.match" title="Link to this heading"></a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="traffic_weaver.match.integral_matching_reference_stretch">
-<span class="sig-name descname"><span class="pre">integral_matching_reference_stretch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fixed_points_in_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fixed_points_indices_in_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fixed_points_finding_strategy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'closest'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_function_integral_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'trapezoid'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference_function_integral_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'trapezoid'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.match.integral_matching_reference_stretch" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">integral_matching_reference_stretch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fixed_points_in_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fixed_points_indices_in_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fixed_points_finding_strategy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'closest'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_function_integral_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'trapezoid'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference_function_integral_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'rectangle'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.match.integral_matching_reference_stretch" title="Link to this definition"></a></dt>
 <dd><p>Stretch function to match integrals in reference.</p>
 <p>Stretch function evaluated in ‘(x, y)’ to match integral
 of reference function ‘(x_ref, y_ref)’ over the same range.
@@ -179,7 +287,7 @@ in order to allow the method to work correctly.</p>
 <p>Use ‘rectangle’ integral calculation if target/reference functions are representing averaged value over the
 interval.
 Use ‘trapezoidal’ integral calculation if target/reference functions are representing sampled values over time.</p>
-<img alt="../_images/integral_matching_reference.pdf" src="../_images/integral_matching_reference.pdf" />
+<img alt="../_images/integral_matching_reference.png" src="../_images/integral_matching_reference.png" />
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -200,7 +308,7 @@ Available options:
 ‘higher’: closest higher or equal element</p></li>
 <li><p><strong>target_function_integral_method</strong> (<em>str</em><em>, </em><em>default: 'trapezoid'</em>) – Method to calculate integral of target function.
 Available options: ‘trapezoid’, ‘rectangle’</p></li>
-<li><p><strong>reference_function_integral_method</strong> (<em>str</em><em>, </em><em>default: 'trapezoid'</em>) – Method to calculate integral of reference function.
+<li><p><strong>reference_function_integral_method</strong> (<em>str</em><em>, </em><em>default: 'rectangle'</em>) – Method to calculate integral of reference function.
 Available options: ‘trapezoid’, ‘rectangle’</p></li>
 <li><p><strong>alpha</strong> (<em>scalar</em><em>, </em><em>default: 1</em>) – Stretching exponent factor.
 Scales how points are stretched if they are closer to the center point.
@@ -226,10 +334,136 @@ Stretched function matching integral value of reference function.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y_ref</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x_ref</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">integral_matching_reference_stretch</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x_ref</span><span class="p">,</span> <span class="n">y_ref</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">integral_matching_reference_stretch</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x_ref</span><span class="p">,</span> <span class="n">y_ref</span><span class="p">,</span> <span class="n">reference_function_integral_method</span><span class="o">=</span><span class="s1">&#39;trapezoid&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
 <span class="go">array([1. , 3.5, 2. , 4. , 3. , 4. , 4. ])</span>
 </pre></div>
 </div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.match._integral_matching_stretch">
+<span class="sig-name descname"><span class="pre">_integral_matching_stretch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">integral_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">integral_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'trapezoid'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.match._integral_matching_stretch" title="Link to this definition"></a></dt>
+<dd><p>Stretches function y=f(x) to match integral value.</p>
+<img alt="../_images/integral_matching_stretch.png" src="../_images/integral_matching_stretch.png" />
+<p>This method creates function <span class="math notranslate nohighlight">\(z=g(x)\)</span> from <span class="math notranslate nohighlight">\(y=f(x)\)</span> such that the
+integral of <span class="math notranslate nohighlight">\(g(x)\)</span> is equal to the provided integral value, and points
+are transformed inversely proportionally to the distance from the
+function domain center. Function integral is numerically approximated on provided points
+according to the ‘integral_method’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>1-D array-like</em><em> of </em><em>size n</em><em>, </em><em>optional</em>) – Independent variable in strictly increasing order.
+If passed None, it is evenly spaced <cite>dx</cite> apart.</p></li>
+<li><p><strong>y</strong> (<em>1-D array-like</em><em> of </em><em>size n</em>) – Dependent variable.</p></li>
+<li><p><strong>integral_value</strong> (<em>float</em><em>, </em><em>default: 0</em>) – Target integral value.</p></li>
+<li><p><strong>integral_method</strong> (<em>str</em><em>, </em><em>default='trapezoid'</em>) – Method to calculate integral of target function.
+Available options: ‘trapezoid’, ‘rectangle’</p></li>
+<li><p><strong>dx</strong> (<em>scalar</em><em>, </em><em>optional</em>) – The spacing between sample points when <cite>x</cite> is None. By default, it is 1.</p></li>
+<li><p><strong>alpha</strong> (<em>scalar</em><em>, </em><em>default: 1</em>) – Stretching exponent factor.
+Scales how points are stretched if they are closer to the center point.
+If it is greater than 1, they are more stretched in the center, and less
+stretched in the boundaries.
+If it is lower than 1, they are more evenly stretched over whole function.</p></li>
+<li><p><strong>s</strong> (<em>float</em><em>, </em><em>optional</em>) – A smoothing condition for spine smoothing.
+If None, no smoothing is applied.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>of shape (n, ).
+Stretched function matching integral value.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Let assume that:</p>
+<ul class="simple">
+<li><p>function contains n+1 values</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta x = x_n - x_0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta x_{i} = x_i - x_{i-1}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x_{n/2}=(x_n + x_0) / 2\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta P\)</span> - difference between
+target integral value and current function integral</p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha\)</span> - is stretching exponent factor</p></li>
+</ul>
+<p>Beginning and end of function <span class="math notranslate nohighlight">\(g(x)\)</span> (i.e., <span class="math notranslate nohighlight">\(z_0 = y_0\)</span> and
+<span class="math notranslate nohighlight">\(z_n = y_n\)</span>) are fixed.
+All the remaining points are shifted inversely proportionally to the distance of
+<span class="math notranslate nohighlight">\(x_{n/2}\)</span>.</p>
+<p>The shifting factor <span class="math notranslate nohighlight">\(w_i\)</span> for each point <span class="math notranslate nohighlight">\(x_i\)</span> is calculated as:</p>
+<div class="math notranslate nohighlight">
+\[w_i = 1 - (2 * abs(x_{n/2} - x_{i})) / \Delta x) ^ \alpha\]</div>
+<p>where <span class="math notranslate nohighlight">\(\alpha\)</span> is shifting exponent factor (by default equal to 1).</p>
+<p>Each point is <span class="math notranslate nohighlight">\(z_i\)</span> is shifted by <span class="math notranslate nohighlight">\(\hat{y} \cdot w_i\)</span>
+where <span class="math notranslate nohighlight">\(\hat{y}\)</span> is a shift scaling factor to match desired integral value.</p>
+<p>In trapezoid integral, difference in integral between target function and current function
+is calculated as:</p>
+<div class="math notranslate nohighlight">
+\[\Delta P = \sum_{i=1}^N \left[\frac{w_{i-1} + w_i}{2} \hat{y}
+\cdot \Delta x_i \right]\]</div>
+<p>Shift scaling factor <span class="math notranslate nohighlight">\(\hat{y}\)</span> can be calculated as:</p>
+<div class="math notranslate nohighlight">
+\[\hat{y} = 2 \Delta P / \sum_{i=1}^N \left[(w_{i-1} + w_i) \Delta x_i \right]\]</div>
+<p>In rectangle integral, difference in integral between target function and current function
+is calculated as:</p>
+<div class="math notranslate nohighlight">
+\[\Delta P = \sum_{i=0}^{N-1} \left[w_i \hat{y} \cdot \Delta x_i\right]\]</div>
+<p>Shift scaling factor <span class="math notranslate nohighlight">\(\hat{y}\)</span> can be calculated as:</p>
+<div class="math notranslate nohighlight">
+\[\hat{y}  = \Delta P / \sum_{i=0}^{N-1} \left[w_i \Delta x_i\right]\]</div>
+<p>Next, if <span class="math notranslate nohighlight">\(s\)</span> is given, created function is estimated with
+spline function <span class="math notranslate nohighlight">\(h(x)\)</span> which satisfies:</p>
+<div class="math notranslate nohighlight">
+\[\sum_{i} [h(x_i) - g(x)]^2 \le s\]</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.match._interval_integral_matching_stretch">
+<span class="sig-name descname"><span class="pre">_interval_integral_matching_stretch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">integral_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fixed_points_indices_in_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">integral_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'trapezoid'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.match._interval_integral_matching_stretch" title="Link to this definition"></a></dt>
+<dd><p>Stretches function y=f(x) to match integral value in given intervals.</p>
+<p>This method creates function <span class="math notranslate nohighlight">\(z=g(x)\)</span> from <span class="math notranslate nohighlight">\(y=f(x)\)</span> such that the
+integral of <span class="math notranslate nohighlight">\(g(x)\)</span> is equal to the provided corresponding <cite>integral_values</cite>
+in intervals given by <cite>fixed_points_indices_in_x</cite>.
+In each interval, points are transformed inversely proportionally to the distance
+from the interval center. Function integral is numerically approximated on provided points
+according to the ‘integral_method’.</p>
+<p>Each period stretch is delegated to <cite>integral_matching_stretch</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>1-D array-like</em><em> of </em><em>size n</em><em>, </em><em>optional</em>) – Independent variable in strictly increasing order.
+If passed None, it is evenly spaced <cite>dx</cite> apart.</p></li>
+<li><p><strong>y</strong> (<em>1-D array-like</em><em> of </em><em>size n</em>) – Dependent variable.</p></li>
+<li><p><strong>dx</strong> (<em>scalar</em><em>, </em><em>optional</em>) – The spacing between sample points when <cite>x</cite> is None. By default, it is 1.</p></li>
+<li><p><strong>integral_values</strong> (<em>list</em><em>[</em><em>float</em><em>] </em><em>| </em><em>ndarray</em><em>, </em><em>optional</em>) – Target integral values.
+By default, it is <cite>[0] * (len(interval_points_indices) - 1)</cite>.
+If <cite>interval_point_indices</cite> are not specified, <cite>ValueError</cite> is raised.</p></li>
+<li><p><strong>fixed_points_indices_in_x</strong> (<em>list</em><em>[</em><em>int</em><em>] </em><em>| </em><em>ndarray</em><em>, </em><em>optional</em>) – Indices in <cite>x</cite> array specifying intervals over which function is
+stretched to match corresponding <cite>integral_values</cite>.
+By default, it is evenly spaced, i.e.,
+<cite>[0, len(y) / n, 2 len(y) / n, …, len(y)]</cite>.
+If <cite>integral_values</cite> are not specified` <cite>ValueError</cite> is raised.</p></li>
+<li><p><strong>integral_method</strong> (<em>str</em><em>, </em><em>default='trapezoid'</em>) – Method to calculate integral of target function.
+Available options: ‘trapezoid’, ‘rectangle’</p></li>
+<li><p><strong>alpha</strong> (<em>scalar</em><em>, </em><em>default: 1</em>) – Stretching exponent factor.
+Scales how points are stretched if they are closer to the center point.
+If it is greater than 1, they are more stretched in the interval center,
+and less stretched in the boundaries.
+If it is lower than 1, they are more evenly stretched over whole function.</p></li>
+<li><p><strong>s</strong> (<em>float</em><em>, </em><em>optional</em>) – A smoothing condition for spine smoothing.
+If None, no smoothing is applied.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>of shape (n, ).
+Stretched function matching integral value.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
@@ -239,7 +473,7 @@ Stretched function matching integral value of reference function.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="traffic_weaver.interval.html" class="btn btn-neutral float-left" title="interval module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="traffic_weaver.oversample.html" class="btn btn-neutral float-right" title="oversample module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="traffic_weaver.process.html" class="btn btn-neutral float-right" title="process module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

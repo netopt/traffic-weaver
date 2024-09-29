@@ -21,7 +21,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="array_utils module" href="traffic_weaver.array_utils.html" />
+    <link rel="next" title="datasets module" href="traffic_weaver.datasets.html" />
     <link rel="prev" title="traffic_weaver package" href="traffic_weaver.html" /> 
 </head>
 
@@ -54,24 +54,42 @@
 <li class="toctree-l2"><a class="reference internal" href="../introduction.html#architecture">Architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction.html#functionalities">Functionalities</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction.html#motivation-and-significance">Motivation and significance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../introduction.html#bibliography">Bibliography</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick start</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../quick_start.html#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../quick_start.html#minimal-processing-example">Minimal processing example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../quick_start.html#further-signal-processing">Further signal processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_start.html#further-processing-examples">Further processing examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../datasets.html#list-of-datasets">List of datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../datasets.html#collecting-new-datasets">Collecting new datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../datasets.html#bibliography">Bibliography</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../using_the_api.html">Using the API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#reading-data">Reading data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#preprocessing-data">Preprocessing data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#getting-processed-signal">Getting processed signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#interpolation">Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#repeating">Repeating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#trending">Trending</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#recreate-from-average">Recreate from average</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#integral-match">Integral match</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#noising">Noising</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#smoothing">Smoothing</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="traffic_weaver.html">API reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">weaver</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#traffic_weaver.weaver.Weaver"><code class="docutils literal notranslate"><span class="pre">Weaver</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.weaver.Weaver.copy"><code class="docutils literal notranslate"><span class="pre">Weaver.copy()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.weaver.Weaver.from_2d_array"><code class="docutils literal notranslate"><span class="pre">Weaver.from_2d_array()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.weaver.Weaver.from_dataframe"><code class="docutils literal notranslate"><span class="pre">Weaver.from_dataframe()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.weaver.Weaver.from_csv"><code class="docutils literal notranslate"><span class="pre">Weaver.from_csv()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.weaver.Weaver.get"><code class="docutils literal notranslate"><span class="pre">Weaver.get()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.weaver.Weaver.get_original"><code class="docutils literal notranslate"><span class="pre">Weaver.get_original()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.weaver.Weaver.get_reference"><code class="docutils literal notranslate"><span class="pre">Weaver.get_reference()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.weaver.Weaver.restore_original"><code class="docutils literal notranslate"><span class="pre">Weaver.restore_original()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.weaver.Weaver.append_one_sample"><code class="docutils literal notranslate"><span class="pre">Weaver.append_one_sample()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.weaver.Weaver.slice_by_index"><code class="docutils literal notranslate"><span class="pre">Weaver.slice_by_index()</span></code></a></li>
@@ -84,14 +102,66 @@
 <li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.weaver.Weaver.trend"><code class="docutils literal notranslate"><span class="pre">Weaver.trend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.weaver.Weaver.smooth"><code class="docutils literal notranslate"><span class="pre">Weaver.smooth()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.weaver.Weaver.to_function"><code class="docutils literal notranslate"><span class="pre">Weaver.to_function()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.weaver.Weaver.to_2d_array"><code class="docutils literal notranslate"><span class="pre">Weaver.to_2d_array()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.weaver.Weaver.scale_x"><code class="docutils literal notranslate"><span class="pre">Weaver.scale_x()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.weaver.Weaver.scale_y"><code class="docutils literal notranslate"><span class="pre">Weaver.scale_y()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.weaver.Weaver.shift_x"><code class="docutils literal notranslate"><span class="pre">Weaver.shift_x()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.weaver.Weaver.shift_y"><code class="docutils literal notranslate"><span class="pre">Weaver.shift_y()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.weaver.Weaver.normalize_x"><code class="docutils literal notranslate"><span class="pre">Weaver.normalize_x()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.weaver.Weaver.normalize_y"><code class="docutils literal notranslate"><span class="pre">Weaver.normalize_y()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.weaver.Weaver.truncate_by_value"><code class="docutils literal notranslate"><span class="pre">Weaver.truncate_by_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.weaver.Weaver.truncate_by_index"><code class="docutils literal notranslate"><span class="pre">Weaver.truncate_by_index()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="traffic_weaver.array_utils.html">array_utils</a></li>
-<li class="toctree-l2"><a class="reference internal" href="traffic_weaver.datasets.html">datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_weaver.datasets.html">datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.datasets._base.html">base</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.load_dataset"><code class="docutils literal notranslate"><span class="pre">load_dataset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.get_data_home"><code class="docutils literal notranslate"><span class="pre">get_data_home()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.clear_data_home"><code class="docutils literal notranslate"><span class="pre">clear_data_home()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.load_csv_dataset_from_resources"><code class="docutils literal notranslate"><span class="pre">load_csv_dataset_from_resources()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.load_csv_dataset_from_remote"><code class="docutils literal notranslate"><span class="pre">load_csv_dataset_from_remote()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.load_dataset_description"><code class="docutils literal notranslate"><span class="pre">load_dataset_description()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.datasets._ams_ix.html">ams_ix</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._ams_ix.html#list-of-datasets">List of datasets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._ams_ix.html#datasets-description">Datasets description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._ams_ix.html#units">Units</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.datasets._mix_it.html">mix_it</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._mix_it.html#list-of-datasets">List of datasets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._mix_it.html#datasets-description">Datasets description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._mix_it.html#units">Units</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html">sandvine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.sandvine_dataset_description"><code class="docutils literal notranslate"><span class="pre">sandvine_dataset_description()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_audio"><code class="docutils literal notranslate"><span class="pre">load_sandvine_audio()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_cloud"><code class="docutils literal notranslate"><span class="pre">load_sandvine_cloud()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_file_sharing"><code class="docutils literal notranslate"><span class="pre">load_sandvine_file_sharing()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_fixed_social_media"><code class="docutils literal notranslate"><span class="pre">load_sandvine_fixed_social_media()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_gaming"><code class="docutils literal notranslate"><span class="pre">load_sandvine_gaming()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_marketplace"><code class="docutils literal notranslate"><span class="pre">load_sandvine_marketplace()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_measurements"><code class="docutils literal notranslate"><span class="pre">load_sandvine_measurements()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_messaging"><code class="docutils literal notranslate"><span class="pre">load_sandvine_messaging()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_mobile_messaging"><code class="docutils literal notranslate"><span class="pre">load_sandvine_mobile_messaging()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_mobile_social_media"><code class="docutils literal notranslate"><span class="pre">load_sandvine_mobile_social_media()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_mobile_video"><code class="docutils literal notranslate"><span class="pre">load_sandvine_mobile_video()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_mobile_youtube"><code class="docutils literal notranslate"><span class="pre">load_sandvine_mobile_youtube()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_mobile_zoom"><code class="docutils literal notranslate"><span class="pre">load_sandvine_mobile_zoom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_snapchat"><code class="docutils literal notranslate"><span class="pre">load_sandvine_snapchat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_social_networking"><code class="docutils literal notranslate"><span class="pre">load_sandvine_social_networking()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_tiktok"><code class="docutils literal notranslate"><span class="pre">load_sandvine_tiktok()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_video_streaming"><code class="docutils literal notranslate"><span class="pre">load_sandvine_video_streaming()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_vpn_and_security"><code class="docutils literal notranslate"><span class="pre">load_sandvine_vpn_and_security()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_web"><code class="docutils literal notranslate"><span class="pre">load_sandvine_web()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_weaver.funfit.html">funfit</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="traffic_weaver.funfit.html#traffic_weaver.funfit.lin_fit"><code class="docutils literal notranslate"><span class="pre">lin_fit()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="traffic_weaver.funfit.html#traffic_weaver.funfit.exp_fit"><code class="docutils literal notranslate"><span class="pre">exp_fit()</span></code></a></li>
@@ -117,9 +187,10 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_weaver.match.html">match</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="traffic_weaver.match.html#traffic_weaver.match.integral_matching_reference_stretch"><code class="docutils literal notranslate"><span class="pre">integral_matching_reference_stretch()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.match.html#traffic_weaver.match._integral_matching_stretch"><code class="docutils literal notranslate"><span class="pre">_integral_matching_stretch()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.match.html#traffic_weaver.match._interval_integral_matching_stretch"><code class="docutils literal notranslate"><span class="pre">_interval_integral_matching_stretch()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="traffic_weaver.oversample.html">oversample</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_weaver.process.html">process</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.interpolate"><code class="docutils literal notranslate"><span class="pre">interpolate()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.repeat"><code class="docutils literal notranslate"><span class="pre">repeat()</span></code></a></li>
@@ -128,6 +199,42 @@
 <li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.spline_smooth"><code class="docutils literal notranslate"><span class="pre">spline_smooth()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.noise_gauss"><code class="docutils literal notranslate"><span class="pre">noise_gauss()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.average"><code class="docutils literal notranslate"><span class="pre">average()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.truncate"><code class="docutils literal notranslate"><span class="pre">truncate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.normalize"><code class="docutils literal notranslate"><span class="pre">normalize()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_weaver.rfa.html">rfa</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.AbstractRFA"><code class="docutils literal notranslate"><span class="pre">AbstractRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.AbstractRFA.rfa"><code class="docutils literal notranslate"><span class="pre">AbstractRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.PiecewiseConstantRFA"><code class="docutils literal notranslate"><span class="pre">PiecewiseConstantRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.PiecewiseConstantRFA.rfa"><code class="docutils literal notranslate"><span class="pre">PiecewiseConstantRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.FunctionRFA"><code class="docutils literal notranslate"><span class="pre">FunctionRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.FunctionRFA.rfa"><code class="docutils literal notranslate"><span class="pre">FunctionRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.CubicSplineRFA"><code class="docutils literal notranslate"><span class="pre">CubicSplineRFA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.IntervalRFA"><code class="docutils literal notranslate"><span class="pre">IntervalRFA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.LinearFixedRFA"><code class="docutils literal notranslate"><span class="pre">LinearFixedRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.LinearFixedRFA.rfa"><code class="docutils literal notranslate"><span class="pre">LinearFixedRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.LinearAdaptiveRFA"><code class="docutils literal notranslate"><span class="pre">LinearAdaptiveRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.LinearAdaptiveRFA.get_adaptive_transition_points"><code class="docutils literal notranslate"><span class="pre">LinearAdaptiveRFA.get_adaptive_transition_points()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.LinearAdaptiveRFA.rfa"><code class="docutils literal notranslate"><span class="pre">LinearAdaptiveRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.ExpFixedRFA"><code class="docutils literal notranslate"><span class="pre">ExpFixedRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.ExpFixedRFA.rfa"><code class="docutils literal notranslate"><span class="pre">ExpFixedRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.ExpAdaptiveRFA"><code class="docutils literal notranslate"><span class="pre">ExpAdaptiveRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.ExpAdaptiveRFA.rfa"><code class="docutils literal notranslate"><span class="pre">ExpAdaptiveRFA.rfa()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -173,17 +280,22 @@
 <li><p><strong>x</strong> (<em>1-D array-like</em><em> of </em><em>size n</em><em>, </em><em>optional</em>) – Independent variable in strictly increasing order.
 If x is None, then x is a set of integers from 0 to <cite>len(y) - 1</cite></p></li>
 <li><p><strong>y</strong> (<em>1-D array-like</em><em> of </em><em>size n</em>) – Dependent variable.</p></li>
-<li><p><strong>Raises</strong></p></li>
-<li><p><strong>-------</strong></p></li>
-<li><p><strong>ValueError</strong> – If <cite>x</cite> and <cite>y</cite> are not of the same length.</p></li>
 </ul>
 </dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <cite>x</cite> and <cite>y</cite> are not of the same length.</p>
+</dd>
 </dl>
+<p class="rubric">Notes</p>
+<p><cite>x</cite> and <cite>y</cite> fields corresponds to processed time series.
+<cite>original_x</cite> and <cite>original_y</cite> fields corresponds to originally passed values.
+<cite>reference_x</cite> and <cite>reference_y</cite> fields corresponds to processed fields used as a reference
+for integral matching.</p>
 <p class="rubric">Examples</p>
+<p>Minimal processing example:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver</span> <span class="kn">import</span> <span class="n">Weaver</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver.sorted_array_utils</span> <span class="kn">import</span> <span class="n">append_one_sample</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver.datasets</span> <span class="kn">import</span> <span class="n">load_sandvine_mobile_video</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">load_sandvine_mobile_video</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver.datasets</span> <span class="kn">import</span> <span class="n">load_dataset</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;sandvine_mobile_video&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">T</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">wv</span> <span class="o">=</span> <span class="n">Weaver</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">wv</span><span class="o">.</span><span class="n">append_one_sample</span><span class="p">(</span><span class="n">make_periodic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -201,17 +313,14 @@ If x is None, then x is a set of integers from 0 to <cite>len(y) - 1</cite></p><
 <span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
 </pre></div>
 </div>
-<dl class="py method">
-<dt class="sig sig-object py" id="traffic_weaver.weaver.Weaver.copy">
-<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.weaver.Weaver.copy" title="Link to this definition"></a></dt>
-<dd><p>Create a copy of the Weaver object.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#traffic_weaver.weaver.Weaver" title="traffic_weaver.weaver.Weaver">Weaver</a></p>
-</dd>
-</dl>
-</dd></dl>
-
+<p>Loading from user defined values</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver</span> <span class="kn">import</span> <span class="n">Weaver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wv</span> <span class="o">=</span> <span class="n">Weaver</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="traffic_weaver.weaver.Weaver.from_2d_array">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_2d_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.weaver.Weaver.from_2d_array" title="Link to this definition"></a></dt>
@@ -231,6 +340,16 @@ The first column is the x-variable and the second column is the y-variable.</p>
 <dd class="field-even"><p><strong>ValueError</strong> – If <cite>xy</cite> is not a 2D array or does not have 2 columns</p>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># loading from dataset</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver</span> <span class="kn">import</span> <span class="n">Weaver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver.datasets</span> <span class="kn">import</span> <span class="n">load_dataset</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wv</span> <span class="o">=</span> <span class="n">Weaver</span><span class="o">.</span><span class="n">from_2d_array</span><span class="p">(</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;sandvine_mobile_video&#39;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># loading from user specified 2D array</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wv</span> <span class="o">=</span> <span class="n">Weaver</span><span class="o">.</span><span class="n">from_2d_array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">14</span><span class="p">]]))</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -252,6 +371,14 @@ The first column is the x-variable and the second column is the y-variable.</p>
 <dd class="field-odd"><p><a class="reference internal" href="#traffic_weaver.weaver.Weaver" title="traffic_weaver.weaver.Weaver">Weaver</a></p>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># loading from Pandas dataframe</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver</span> <span class="kn">import</span> <span class="n">Weaver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wv</span> <span class="o">=</span> <span class="n">Weaver</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">x_col</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y_col</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -277,19 +404,67 @@ the second column contains ‘y’ values.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="traffic_weaver.weaver.Weaver.get">
 <span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.weaver.Weaver.get" title="Link to this definition"></a></dt>
-<dd><p>Return function x,y tuple after performed processing.</p>
+<dd><p>Return function x, y tuple after performed processing.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver.weaver</span> <span class="kn">import</span> <span class="n">Weaver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wv</span> <span class="o">=</span> <span class="n">Weaver</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_x</span><span class="p">,</span> <span class="n">res_y</span> <span class="o">=</span> <span class="n">wv</span><span class="o">.</span><span class="n">shift_x</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">shift_y</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_x</span>
+<span class="go">array([15., 16., 17., 18., 19., 20., 21., 22., 23., 24., 25.])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_y</span>
+<span class="go">array([20., 22., 24., 26., 28., 30., 32., 34., 36., 38., 40.])</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="traffic_weaver.weaver.Weaver.get_original">
 <span class="sig-name descname"><span class="pre">get_original</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.weaver.Weaver.get_original" title="Link to this definition"></a></dt>
-<dd><p>Return the original function x,y tuple provided for the class.</p>
+<dd><p>Return the original function x, y tuple provided for the class.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver.weaver</span> <span class="kn">import</span> <span class="n">Weaver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wv</span> <span class="o">=</span> <span class="n">Weaver</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_x</span><span class="p">,</span> <span class="n">res_y</span> <span class="o">=</span> <span class="n">wv</span><span class="o">.</span><span class="n">shift_x</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">shift_y</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">get_original</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_x</span>
+<span class="go">array([ 5.,  6.,  7.,  8.,  9., 10., 11., 12., 13., 14., 15.])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_y</span>
+<span class="go">array([10., 12., 14., 16., 18., 20., 22., 24., 26., 28., 30.])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="traffic_weaver.weaver.Weaver.get_reference">
+<span class="sig-name descname"><span class="pre">get_reference</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.weaver.Weaver.get_reference" title="Link to this definition"></a></dt>
+<dd><p>Return the reference function x,y tuple.</p>
+<p>Reference function is used to calculate integral match.
+Shifting, truncating, normalizing and scaling are operations that are tracked by the reference function
+while applying them to the target function.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="traffic_weaver.weaver.Weaver.restore_original">
 <span class="sig-name descname"><span class="pre">restore_original</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.weaver.Weaver.restore_original" title="Link to this definition"></a></dt>
 <dd><p>Restore original function passed before processing.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver.weaver</span> <span class="kn">import</span> <span class="n">Weaver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wv</span> <span class="o">=</span> <span class="n">Weaver</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_x</span><span class="p">,</span> <span class="n">res_y</span> <span class="o">=</span> <span class="n">wv</span><span class="o">.</span><span class="n">shift_x</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">shift_y</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">restore_original</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">res_x</span> <span class="o">==</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">res_y</span> <span class="o">==</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+<span class="go">True</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -317,17 +492,89 @@ If true, append the first <cite>y</cite> point to <cite>y</cite> array.</p>
 <p class="admonition-title">See also</p>
 <p><code class="xref py py-func docutils literal notranslate"><span class="pre">append_one_sample()</span></code></p>
 </div>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver.weaver</span> <span class="kn">import</span> <span class="n">Weaver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wv</span> <span class="o">=</span> <span class="n">Weaver</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wv</span> <span class="o">=</span> <span class="n">wv</span><span class="o">.</span><span class="n">append_one_sample</span><span class="p">(</span><span class="n">make_periodic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_x</span><span class="p">,</span> <span class="n">res_y</span> <span class="o">=</span> <span class="n">wv</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="o">==</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="o">==</span> <span class="n">res_y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+<span class="go">True</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="traffic_weaver.weaver.Weaver.slice_by_index">
 <span class="sig-name descname"><span class="pre">slice_by_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.weaver.Weaver.slice_by_index" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Get view of function sliced by index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start</strong> (<em>int</em><em>, </em><em>default: 0</em>) – Start index of the slice.</p></li>
+<li><p><strong>stop</strong> (<em>int</em><em>, </em><em>default: None</em>) – Stop index of the slice, exclusive. If None, then it is equal to the length of the time series.</p></li>
+<li><p><strong>step</strong> (<em>int</em><em>, </em><em>default: 1</em>) – Step of the slice.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Sliced view of x, y variables.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray, ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver.weaver</span> <span class="kn">import</span> <span class="n">Weaver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wv</span> <span class="o">=</span> <span class="n">Weaver</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x_res</span><span class="p">,</span> <span class="n">y_res</span> <span class="o">=</span> <span class="n">wv</span><span class="o">.</span><span class="n">slice_by_index</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x_res</span>
+<span class="go">array([6., 7., 8., 9.])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y_res</span>
+<span class="go">array([12., 14., 16., 18.])</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="traffic_weaver.weaver.Weaver.slice_by_value">
 <span class="sig-name descname"><span class="pre">slice_by_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.weaver.Weaver.slice_by_value" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Get view of function sliced by its value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start</strong> (<em>float</em><em>, </em><em>default: None</em>) – Start value of the slice. If None, then it is equal to the first element of the time series.</p></li>
+<li><p><strong>stop</strong> (<em>float</em><em>, </em><em>default: None</em>) – Stop value of the slice, inclusive. If None, then it is equal to the last element of the time series.</p></li>
+<li><p><strong>step</strong> (<em>int</em><em>, </em><em>default: 1</em>) – Step of the slice.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Sliced view of x, y variables.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray, ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver.weaver</span> <span class="kn">import</span> <span class="n">Weaver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wv</span> <span class="o">=</span> <span class="n">Weaver</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x_res</span><span class="p">,</span> <span class="n">y_res</span> <span class="o">=</span> <span class="n">wv</span><span class="o">.</span><span class="n">slice_by_value</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x_res</span>
+<span class="go">array([7., 8.])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y_res</span>
+<span class="go">array([14., 16.])</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="traffic_weaver.weaver.Weaver.interpolate">
@@ -358,6 +605,23 @@ For more details see</p></li>
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.interpolate" title="traffic_weaver.process.interpolate"><code class="xref py py-func docutils literal notranslate"><span class="pre">interpolate()</span></code></a></p>
 </div>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver.weaver</span> <span class="kn">import</span> <span class="n">Weaver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wv</span> <span class="o">=</span> <span class="n">Weaver</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_x</span><span class="p">,</span> <span class="n">res_y</span> <span class="o">=</span> <span class="n">wv</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">new_x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">26</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_x</span>
+<span class="go">array([ 5. ,  5.4,  5.8,  6.2,  6.6,  7. ,  7.4,  7.8,  8.2,  8.6,  9. ,</span>
+<span class="go">        9.4,  9.8, 10.2, 10.6, 11. , 11.4, 11.8, 12.2, 12.6, 13. , 13.4,</span>
+<span class="go">       13.8, 14.2, 14.6, 15. ])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_y</span>
+<span class="go">array([10. , 10.8, 11.6, 12.4, 13.2, 14. , 14.8, 15.6, 16.4, 17.2, 18. ,</span>
+<span class="go">       18.8, 19.6, 20.4, 21.2, 22. , 22.8, 23.6, 24.4, 25.2, 26. , 26.8,</span>
+<span class="go">       27.6, 28.4, 29.2, 30. ])</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -368,7 +632,7 @@ For more details see</p></li>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>n</strong> (<em>int</em>) – Number of samples between each point.</p></li>
-<li><p><strong>rfa_class</strong> (<em>subclass</em><em> of </em><em>AbstractRFA</em>) – Recreate from average strategy.</p></li>
+<li><p><strong>rfa_class</strong> (<em>subclass</em><em> of </em><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.AbstractRFA" title="traffic_weaver.rfa.AbstractRFA"><em>AbstractRFA</em></a>) – Recreate from average strategy.</p></li>
 <li><p><strong>**kwargs</strong> – Additional parameters passed to <cite>rfa_class</cite>.</p></li>
 </ul>
 </dd>
@@ -378,17 +642,49 @@ For more details see</p></li>
 </dl>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><code class="xref py py-func docutils literal notranslate"><span class="pre">AbstractRFA()</span></code></p>
+<p><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.AbstractRFA" title="traffic_weaver.rfa.AbstractRFA"><code class="xref py py-func docutils literal notranslate"><span class="pre">AbstractRFA()</span></code></a></p>
+</div>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver.rfa</span> <span class="kn">import</span> <span class="n">LinearFixedRFA</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver.weaver</span> <span class="kn">import</span> <span class="n">Weaver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wv</span> <span class="o">=</span> <span class="n">Weaver</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_x</span><span class="p">,</span> <span class="n">res_y</span> <span class="o">=</span> <span class="n">wv</span><span class="o">.</span><span class="n">recreate_from_average</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">rfa_class</span><span class="o">=</span><span class="n">LinearFixedRFA</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_x</span>
+<span class="go">array([ 5. ,  5.2,  5.4,  5.6,  5.8,  6. ,  6.2,  6.4,  6.6,  6.8,  7. ,</span>
+<span class="go">        7.2,  7.4,  7.6,  7.8,  8. ,  8.2,  8.4,  8.6,  8.8,  9. ,  9.2,</span>
+<span class="go">        9.4,  9.6,  9.8, 10. , 10.2, 10.4, 10.6, 10.8, 11. , 11.2, 11.4,</span>
+<span class="go">       11.6, 11.8, 12. , 12.2, 12.4, 12.6, 12.8, 13. , 13.2, 13.4, 13.6,</span>
+<span class="go">       13.8, 14. , 14.2, 14.4, 14.6, 14.8, 15. ])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_y</span>
+<span class="go">array([10. , 10. , 10. , 10. , 10.5, 11. , 11.5, 12. , 12. , 12.5, 13. ,</span>
+<span class="go">       13.5, 14. , 14. , 14.5, 15. , 15.5, 16. , 16. , 16.5, 17. , 17.5,</span>
+<span class="go">       18. , 18. , 18.5, 19. , 19.5, 20. , 20. , 20.5, 21. , 21.5, 22. ,</span>
+<span class="go">       22. , 22.5, 23. , 23.5, 24. , 24. , 24.5, 25. , 25.5, 26. , 26. ,</span>
+<span class="go">       26.5, 27. , 27.5, 28. , 28. , 28.5, 29. ])</span>
+</pre></div>
 </div>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="traffic_weaver.weaver.Weaver.integral_match">
-<span class="sig-name descname"><span class="pre">integral_match</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.weaver.Weaver.integral_match" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">integral_match</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_function_integral_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'trapezoid'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference_function_integral_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rectangle'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.weaver.Weaver.integral_match" title="Link to this definition"></a></dt>
 <dd><p>Match function integral to approximated integral of the original function.</p>
+<p>For original time varying function sampled at different points use
+<cite>reference_function_integral_method=’trapezoid’</cite>.</p>
+<p>For original time varying function that is an averaged function over periods of time
+use <cite>reference_function_integral_method=’rectangular’</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>**kwargs</strong> – Additional parameters passed to integral matching function.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target_function_integral_method</strong> (<em>str</em><em>, </em><em>default: 'trapezoid'</em>) – Method to calculate integral of recreated function.
+Available options: ‘trapezoid’, ‘rectangle’</p></li>
+<li><p><strong>reference_function_integral_method</strong> (<em>str</em><em>, </em><em>default: 'rectangle'</em>) – Method to calculate integral of origianl function.
+Available options: ‘trapezoid’, ‘rectangle’</p></li>
+<li><p><strong>**kwargs</strong> – Additional parameters passed to integral matching function.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>self</p>
@@ -397,6 +693,15 @@ For more details see</p></li>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="traffic_weaver.match.html#traffic_weaver.match.integral_matching_reference_stretch" title="traffic_weaver.match.integral_matching_reference_stretch"><code class="xref py py-func docutils literal notranslate"><span class="pre">integral_matching_reference_stretch()</span></code></a></p>
+</div>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver.weaver</span> <span class="kn">import</span> <span class="n">Weaver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wv</span> <span class="o">=</span> <span class="n">Weaver</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_x</span><span class="p">,</span> <span class="n">res_y</span> <span class="o">=</span> <span class="n">wv</span><span class="o">.</span><span class="n">recreate_from_average</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">integral_match</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+</pre></div>
 </div>
 </dd></dl>
 
@@ -419,6 +724,15 @@ For more details see</p></li>
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.noise_gauss" title="traffic_weaver.process.noise_gauss"><code class="xref py py-func docutils literal notranslate"><span class="pre">noise_gauss()</span></code></a></p>
 </div>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver.weaver</span> <span class="kn">import</span> <span class="n">Weaver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wv</span> <span class="o">=</span> <span class="n">Weaver</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_x</span><span class="p">,</span> <span class="n">res_y</span> <span class="o">=</span> <span class="n">wv</span><span class="o">.</span><span class="n">noise</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -437,16 +751,36 @@ For more details see</p></li>
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.repeat" title="traffic_weaver.process.repeat"><code class="xref py py-func docutils literal notranslate"><span class="pre">repeat()</span></code></a></p>
 </div>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver.weaver</span> <span class="kn">import</span> <span class="n">Weaver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wv</span> <span class="o">=</span> <span class="n">Weaver</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_x</span><span class="p">,</span> <span class="n">res_y</span> <span class="o">=</span> <span class="n">wv</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_x</span>
+<span class="go">array([ 5.,  6.,  7.,  8.,  9., 10., 11., 12., 13., 14., 15., 16., 17.,</span>
+<span class="go">       18., 19., 20., 21., 22., 23., 24., 25., 26.])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_y</span>
+<span class="go">array([10., 12., 14., 16., 18., 20., 22., 24., 26., 28., 30., 10., 12.,</span>
+<span class="go">       14., 16., 18., 20., 22., 24., 26., 28., 30.])</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="traffic_weaver.weaver.Weaver.trend">
-<span class="sig-name descname"><span class="pre">trend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trend_func:</span> <span class="pre">~traffic_weaver.weaver.Weaver.&lt;lambda&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.weaver.Weaver.trend" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">trend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trend_func:</span> <span class="pre">~traffic_weaver.weaver.Weaver.&lt;lambda&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalized=False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.weaver.Weaver.trend" title="Link to this definition"></a></dt>
 <dd><p>Apply trend to function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>trend_func</strong> (<em>Callable</em>) – Shift value for dependent variable based on value of independent variable
-normalized to <cite>(0, 1)</cite> range.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>trend_func</strong> (<em>Callable</em>) – Long term trend applied to the data in form of a function.
+Callable signature is <cite>(x) -&gt; y_shift</cite> where
+<cite>x</cite> independent variable axis and
+<cite>y_shift</cite> is independent variable shift for that <cite>x</cite>.</p></li>
+<li><p><strong>normalized</strong> (<em>bool</em><em>, </em><em>default: False</em>) – If true, <cite>x</cite> variable in <cite>fun</cite> is normalized to the range of [0, 1].</p></li>
+</ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>self</p>
@@ -455,6 +789,23 @@ normalized to <cite>(0, 1)</cite> range.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.trend" title="traffic_weaver.process.trend"><code class="xref py py-func docutils literal notranslate"><span class="pre">trend()</span></code></a></p>
+</div>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver.weaver</span> <span class="kn">import</span> <span class="n">Weaver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wv</span> <span class="o">=</span> <span class="n">Weaver</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># apply trend f(y) = 1/5 x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_x</span><span class="p">,</span> <span class="n">res_y</span> <span class="o">=</span> <span class="n">wv</span><span class="o">.</span><span class="n">trend</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_y</span>
+<span class="go">array([11. , 13.2, 15.4, 17.6, 19.8, 22. , 24.2, 26.4, 28.6, 30.8, 33. ])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># apply same trend with normalization to [0, 1] range</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">wv</span><span class="o">.</span><span class="n">restore_original</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_x</span><span class="p">,</span> <span class="n">res_y</span> <span class="o">=</span> <span class="n">wv</span><span class="o">.</span><span class="n">trend</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="n">normalized</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_y</span>
+<span class="go">array([11. , 13.2, 15.4, 17.6, 19.8, 22. , 24.2, 26.4, 28.6, 30.8, 33. ])</span>
+</pre></div>
 </div>
 </dd></dl>
 
@@ -473,6 +824,19 @@ normalized to <cite>(0, 1)</cite> range.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.spline_smooth" title="traffic_weaver.process.spline_smooth"><code class="xref py py-func docutils literal notranslate"><span class="pre">spline_smooth()</span></code></a></p>
+</div>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver.weaver</span> <span class="kn">import</span> <span class="n">Weaver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wv</span> <span class="o">=</span> <span class="n">Weaver</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_x</span><span class="p">,</span> <span class="n">res_y</span> <span class="o">=</span> <span class="n">wv</span><span class="o">.</span><span class="n">smooth</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_y</span>
+<span class="go">array([4.80997905, 6.07830526, 7.27209891, 8.27226261, 8.95969893,</span>
+<span class="go">       9.21531047, 8.95969893, 8.27226261, 7.27209891, 6.07830526,</span>
+<span class="go">       4.80997905])</span>
+</pre></div>
 </div>
 </dd></dl>
 
@@ -496,18 +860,278 @@ normalized to <cite>(0, 1)</cite> range.</p>
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.spline_smooth" title="traffic_weaver.process.spline_smooth"><code class="xref py py-func docutils literal notranslate"><span class="pre">spline_smooth()</span></code></a></p>
 </div>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver.weaver</span> <span class="kn">import</span> <span class="n">Weaver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wv</span> <span class="o">=</span> <span class="n">Weaver</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">wv</span><span class="o">.</span><span class="n">to_function</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">([</span><span class="mf">6.12</span><span class="p">,</span> <span class="mf">7.44</span><span class="p">])</span>
+<span class="go">array([12.24, 14.88])</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wv</span> <span class="o">=</span> <span class="n">Weaver</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">wv</span><span class="o">.</span><span class="n">to_function</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">(</span><span class="mf">7.0</span><span class="p">)</span>
+<span class="go">array(7.27209891)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="traffic_weaver.weaver.Weaver.to_2d_array">
+<span class="sig-name descname"><span class="pre">to_2d_array</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.weaver.Weaver.to_2d_array" title="Link to this definition"></a></dt>
+<dd><p>Return time series as 2D array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>xy</strong> – 2D array with each row representing one point in time series.
+The first column is the x-variable and the second column is the y-variable.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>np.ndarray of shape (nr_of_samples, 2)</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver.weaver</span> <span class="kn">import</span> <span class="n">Weaver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wv</span> <span class="o">=</span> <span class="n">Weaver</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wv</span><span class="o">.</span><span class="n">to_2d_array</span><span class="p">()</span>
+<span class="go">array([[ 5., 10.],</span>
+<span class="go">       [ 6., 12.],</span>
+<span class="go">       [ 7., 14.],</span>
+<span class="go">       [ 8., 16.],</span>
+<span class="go">       [ 9., 18.],</span>
+<span class="go">       [10., 20.],</span>
+<span class="go">       [11., 22.],</span>
+<span class="go">       [12., 24.],</span>
+<span class="go">       [13., 26.],</span>
+<span class="go">       [14., 28.],</span>
+<span class="go">       [15., 30.]])</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="traffic_weaver.weaver.Weaver.scale_x">
 <span class="sig-name descname"><span class="pre">scale_x</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.weaver.Weaver.scale_x" title="Link to this definition"></a></dt>
 <dd><p>Scale x-axis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>scale</strong> (<em>float</em>) – Value by which scale x-axis.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>self</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver.weaver</span> <span class="kn">import</span> <span class="n">Weaver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wv</span> <span class="o">=</span> <span class="n">Weaver</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_x</span><span class="p">,</span> <span class="n">res_y</span> <span class="o">=</span> <span class="n">wv</span><span class="o">.</span><span class="n">scale_x</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_x</span>
+<span class="go">array([10., 12., 14., 16., 18., 20., 22., 24., 26., 28., 30.])</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="traffic_weaver.weaver.Weaver.scale_y">
 <span class="sig-name descname"><span class="pre">scale_y</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.weaver.Weaver.scale_y" title="Link to this definition"></a></dt>
 <dd><p>Scale y-axis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>scale</strong> (<em>float</em>) – Value by which scale y-axis.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver.weaver</span> <span class="kn">import</span> <span class="n">Weaver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wv</span> <span class="o">=</span> <span class="n">Weaver</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_x</span><span class="p">,</span> <span class="n">res_y</span> <span class="o">=</span> <span class="n">wv</span><span class="o">.</span><span class="n">scale_y</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_y</span>
+<span class="go">array([20., 24., 28., 32., 36., 40., 44., 48., 52., 56., 60.])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="traffic_weaver.weaver.Weaver.shift_x">
+<span class="sig-name descname"><span class="pre">shift_x</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shift</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.weaver.Weaver.shift_x" title="Link to this definition"></a></dt>
+<dd><p>Shift x-axis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>shift</strong> (<em>float</em>) – Value by which shift x-axis.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>self</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver.weaver</span> <span class="kn">import</span> <span class="n">Weaver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wv</span> <span class="o">=</span> <span class="n">Weaver</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_x</span><span class="p">,</span> <span class="n">res_y</span> <span class="o">=</span> <span class="n">wv</span><span class="o">.</span><span class="n">shift_x</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_x</span>
+<span class="go">array([ 6.,  7.,  8.,  9., 10., 11., 12., 13., 14., 15., 16.])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="traffic_weaver.weaver.Weaver.shift_y">
+<span class="sig-name descname"><span class="pre">shift_y</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shift</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.weaver.Weaver.shift_y" title="Link to this definition"></a></dt>
+<dd><p>Shift y-axis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>shift</strong> (<em>float</em>) – Value by which shift y-axis.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>self</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver.weaver</span> <span class="kn">import</span> <span class="n">Weaver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wv</span> <span class="o">=</span> <span class="n">Weaver</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_x</span><span class="p">,</span> <span class="n">res_y</span> <span class="o">=</span> <span class="n">wv</span><span class="o">.</span><span class="n">shift_y</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_y</span>
+<span class="go">array([11., 13., 15., 17., 19., 21., 23., 25., 27., 29., 31.])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="traffic_weaver.weaver.Weaver.normalize_x">
+<span class="sig-name descname"><span class="pre">normalize_x</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.weaver.Weaver.normalize_x" title="Link to this definition"></a></dt>
+<dd><p>Normalize x values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min_val</strong> (<em>float</em>) – Minimum value for normalization.</p></li>
+<li><p><strong>max_val</strong> (<em>float</em>) – Minimum value for normalization.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>self</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver.weaver</span> <span class="kn">import</span> <span class="n">Weaver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wv</span> <span class="o">=</span> <span class="n">Weaver</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_x</span><span class="p">,</span> <span class="n">res_y</span> <span class="o">=</span> <span class="n">wv</span><span class="o">.</span><span class="n">normalize_x</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_x</span>
+<span class="go">array([ 0.,  1.,  2.,  3.,  4.,  5.,  6.,  7.,  8.,  9., 10.])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="traffic_weaver.weaver.Weaver.normalize_y">
+<span class="sig-name descname"><span class="pre">normalize_y</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.weaver.Weaver.normalize_y" title="Link to this definition"></a></dt>
+<dd><p>Normalize y values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min_val</strong> (<em>float</em>) – Minimum value for normalization.</p></li>
+<li><p><strong>max_val</strong> (<em>float</em>) – Minimum value for normalization.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>self</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver.weaver</span> <span class="kn">import</span> <span class="n">Weaver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wv</span> <span class="o">=</span> <span class="n">Weaver</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_x</span><span class="p">,</span> <span class="n">res_y</span> <span class="o">=</span> <span class="n">wv</span><span class="o">.</span><span class="n">normalize_y</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_y</span>
+<span class="go">array([ 0.,  1.,  2.,  3.,  4.,  5.,  6.,  7.,  8.,  9., 10.])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="traffic_weaver.weaver.Weaver.truncate_by_value">
+<span class="sig-name descname"><span class="pre">truncate_by_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_left</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_right</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_left_as_ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_right_as_ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.weaver.Weaver.truncate_by_value" title="Link to this definition"></a></dt>
+<dd><p>Truncate to specific value range or ratio of the range.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_left</strong> (<em>float</em>) – Value in x array to which truncate arrays from the left.
+If value is not present in x array, closest lower value is selected.</p></li>
+<li><p><strong>x_right</strong> (<em>float</em>) – Value in x array to which truncate arrays from the right.
+If value is not present in x array, closest higher value is selected.</p></li>
+<li><p><strong>x_left_as_ratio</strong> (<em>bool</em><em>, </em><em>default: False</em>) – If true, <cite>x_left</cite> is treated as ratio of the x array to truncate from the left,
+where 0.0 is the start and 1.0 is the end of the array.</p></li>
+<li><p><strong>x_right_as_ratio</strong> (<em>bool</em><em>, </em><em>default: False</em>) – If true, <cite>x_right</cite> is treated as ratio of the x array to truncate from the right,
+where 0.0 is the start and 1.0 is the end of the array.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>self</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver.weaver</span> <span class="kn">import</span> <span class="n">Weaver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wv</span> <span class="o">=</span> <span class="n">Weaver</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_x</span><span class="p">,</span> <span class="n">res_y</span> <span class="o">=</span> <span class="n">wv</span><span class="o">.</span><span class="n">truncate_by_value</span><span class="p">(</span><span class="mf">6.5</span><span class="p">,</span> <span class="mf">11.5</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_x</span>
+<span class="go">array([ 6.,  7.,  8.,  9., 10., 11., 12.])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_y</span>
+<span class="go">array([12., 14., 16., 18., 20., 22., 24.])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="traffic_weaver.weaver.Weaver.truncate_by_index">
+<span class="sig-name descname"><span class="pre">truncate_by_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.weaver.Weaver.truncate_by_index" title="Link to this definition"></a></dt>
+<dd><p>Truncate to specific index of the range.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start</strong> (<em>int</em><em>, </em><em>default: 0</em>) – Start index of the array to truncate.</p></li>
+<li><p><strong>stop</strong> (<em>int</em><em>, </em><em>default: None</em>) – Stop index of the array to truncate. If None, then it is equal to the length of the time series.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>self</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver.weaver</span> <span class="kn">import</span> <span class="n">Weaver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wv</span> <span class="o">=</span> <span class="n">Weaver</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_x</span><span class="p">,</span> <span class="n">res_y</span> <span class="o">=</span> <span class="n">wv</span><span class="o">.</span><span class="n">truncate_by_index</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_x</span>
+<span class="go">array([ 7.,  8.,  9., 10.])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res_y</span>
+<span class="go">array([14., 16., 18., 20.])</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </dd></dl>
@@ -519,7 +1143,7 @@ normalized to <cite>(0, 1)</cite> range.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="traffic_weaver.html" class="btn btn-neutral float-left" title="traffic_weaver package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="traffic_weaver.array_utils.html" class="btn btn-neutral float-right" title="array_utils module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="traffic_weaver.datasets.html" class="btn btn-neutral float-right" title="datasets module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

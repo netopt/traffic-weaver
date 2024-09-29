@@ -54,24 +54,42 @@
 <li class="toctree-l2"><a class="reference internal" href="introduction.html#architecture">Architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="introduction.html#functionalities">Functionalities</a></li>
 <li class="toctree-l2"><a class="reference internal" href="introduction.html#motivation-and-significance">Motivation and significance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="introduction.html#bibliography">Bibliography</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick start</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="quick_start.html#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quick_start.html#minimal-processing-example">Minimal processing example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quick_start.html#further-signal-processing">Further signal processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick_start.html#further-processing-examples">Further processing examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">Datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="datasets.html#list-of-datasets">List of datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datasets.html#collecting-new-datasets">Collecting new datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datasets.html#bibliography">Bibliography</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="using_the_api.html">Using the API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="using_the_api.html#reading-data">Reading data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_the_api.html#preprocessing-data">Preprocessing data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_the_api.html#getting-processed-signal">Getting processed signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_the_api.html#interpolation">Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_the_api.html#repeating">Repeating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_the_api.html#trending">Trending</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_the_api.html#recreate-from-average">Recreate from average</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_the_api.html#integral-match">Integral match</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_the_api.html#noising">Noising</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_the_api.html#smoothing">Smoothing</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="apidocs/traffic_weaver.html">API reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html">weaver</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver"><code class="docutils literal notranslate"><span class="pre">Weaver</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.copy"><code class="docutils literal notranslate"><span class="pre">Weaver.copy()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.from_2d_array"><code class="docutils literal notranslate"><span class="pre">Weaver.from_2d_array()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.from_dataframe"><code class="docutils literal notranslate"><span class="pre">Weaver.from_dataframe()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.from_csv"><code class="docutils literal notranslate"><span class="pre">Weaver.from_csv()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.get"><code class="docutils literal notranslate"><span class="pre">Weaver.get()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.get_original"><code class="docutils literal notranslate"><span class="pre">Weaver.get_original()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.get_reference"><code class="docutils literal notranslate"><span class="pre">Weaver.get_reference()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.restore_original"><code class="docutils literal notranslate"><span class="pre">Weaver.restore_original()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.append_one_sample"><code class="docutils literal notranslate"><span class="pre">Weaver.append_one_sample()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.slice_by_index"><code class="docutils literal notranslate"><span class="pre">Weaver.slice_by_index()</span></code></a></li>
@@ -84,14 +102,66 @@
 <li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.trend"><code class="docutils literal notranslate"><span class="pre">Weaver.trend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.smooth"><code class="docutils literal notranslate"><span class="pre">Weaver.smooth()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.to_function"><code class="docutils literal notranslate"><span class="pre">Weaver.to_function()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.to_2d_array"><code class="docutils literal notranslate"><span class="pre">Weaver.to_2d_array()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.scale_x"><code class="docutils literal notranslate"><span class="pre">Weaver.scale_x()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.scale_y"><code class="docutils literal notranslate"><span class="pre">Weaver.scale_y()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.shift_x"><code class="docutils literal notranslate"><span class="pre">Weaver.shift_x()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.shift_y"><code class="docutils literal notranslate"><span class="pre">Weaver.shift_y()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.normalize_x"><code class="docutils literal notranslate"><span class="pre">Weaver.normalize_x()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.normalize_y"><code class="docutils literal notranslate"><span class="pre">Weaver.normalize_y()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.truncate_by_value"><code class="docutils literal notranslate"><span class="pre">Weaver.truncate_by_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.truncate_by_index"><code class="docutils literal notranslate"><span class="pre">Weaver.truncate_by_index()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.array_utils.html">array_utils</a></li>
-<li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.datasets.html">datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.datasets.html">datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.datasets._base.html">base</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.load_dataset"><code class="docutils literal notranslate"><span class="pre">load_dataset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.get_data_home"><code class="docutils literal notranslate"><span class="pre">get_data_home()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.clear_data_home"><code class="docutils literal notranslate"><span class="pre">clear_data_home()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.load_csv_dataset_from_resources"><code class="docutils literal notranslate"><span class="pre">load_csv_dataset_from_resources()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.load_csv_dataset_from_remote"><code class="docutils literal notranslate"><span class="pre">load_csv_dataset_from_remote()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.load_dataset_description"><code class="docutils literal notranslate"><span class="pre">load_dataset_description()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.datasets._ams_ix.html">ams_ix</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._ams_ix.html#list-of-datasets">List of datasets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._ams_ix.html#datasets-description">Datasets description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._ams_ix.html#units">Units</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.datasets._mix_it.html">mix_it</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._mix_it.html#list-of-datasets">List of datasets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._mix_it.html#datasets-description">Datasets description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._mix_it.html#units">Units</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html">sandvine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.sandvine_dataset_description"><code class="docutils literal notranslate"><span class="pre">sandvine_dataset_description()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_audio"><code class="docutils literal notranslate"><span class="pre">load_sandvine_audio()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_cloud"><code class="docutils literal notranslate"><span class="pre">load_sandvine_cloud()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_file_sharing"><code class="docutils literal notranslate"><span class="pre">load_sandvine_file_sharing()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_fixed_social_media"><code class="docutils literal notranslate"><span class="pre">load_sandvine_fixed_social_media()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_gaming"><code class="docutils literal notranslate"><span class="pre">load_sandvine_gaming()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_marketplace"><code class="docutils literal notranslate"><span class="pre">load_sandvine_marketplace()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_measurements"><code class="docutils literal notranslate"><span class="pre">load_sandvine_measurements()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_messaging"><code class="docutils literal notranslate"><span class="pre">load_sandvine_messaging()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_mobile_messaging"><code class="docutils literal notranslate"><span class="pre">load_sandvine_mobile_messaging()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_mobile_social_media"><code class="docutils literal notranslate"><span class="pre">load_sandvine_mobile_social_media()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_mobile_video"><code class="docutils literal notranslate"><span class="pre">load_sandvine_mobile_video()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_mobile_youtube"><code class="docutils literal notranslate"><span class="pre">load_sandvine_mobile_youtube()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_mobile_zoom"><code class="docutils literal notranslate"><span class="pre">load_sandvine_mobile_zoom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_snapchat"><code class="docutils literal notranslate"><span class="pre">load_sandvine_snapchat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_social_networking"><code class="docutils literal notranslate"><span class="pre">load_sandvine_social_networking()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_tiktok"><code class="docutils literal notranslate"><span class="pre">load_sandvine_tiktok()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_video_streaming"><code class="docutils literal notranslate"><span class="pre">load_sandvine_video_streaming()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_vpn_and_security"><code class="docutils literal notranslate"><span class="pre">load_sandvine_vpn_and_security()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_web"><code class="docutils literal notranslate"><span class="pre">load_sandvine_web()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.funfit.html">funfit</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.funfit.html#traffic_weaver.funfit.lin_fit"><code class="docutils literal notranslate"><span class="pre">lin_fit()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.funfit.html#traffic_weaver.funfit.exp_fit"><code class="docutils literal notranslate"><span class="pre">exp_fit()</span></code></a></li>
@@ -117,9 +187,10 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.match.html">match</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.match.html#traffic_weaver.match.integral_matching_reference_stretch"><code class="docutils literal notranslate"><span class="pre">integral_matching_reference_stretch()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.match.html#traffic_weaver.match._integral_matching_stretch"><code class="docutils literal notranslate"><span class="pre">_integral_matching_stretch()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.match.html#traffic_weaver.match._interval_integral_matching_stretch"><code class="docutils literal notranslate"><span class="pre">_interval_integral_matching_stretch()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.oversample.html">oversample</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.process.html">process</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.process.html#traffic_weaver.process.interpolate"><code class="docutils literal notranslate"><span class="pre">interpolate()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.process.html#traffic_weaver.process.repeat"><code class="docutils literal notranslate"><span class="pre">repeat()</span></code></a></li>
@@ -128,6 +199,42 @@
 <li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.process.html#traffic_weaver.process.spline_smooth"><code class="docutils literal notranslate"><span class="pre">spline_smooth()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.process.html#traffic_weaver.process.noise_gauss"><code class="docutils literal notranslate"><span class="pre">noise_gauss()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.process.html#traffic_weaver.process.average"><code class="docutils literal notranslate"><span class="pre">average()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.process.html#traffic_weaver.process.truncate"><code class="docutils literal notranslate"><span class="pre">truncate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.process.html#traffic_weaver.process.normalize"><code class="docutils literal notranslate"><span class="pre">normalize()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html">rfa</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.AbstractRFA"><code class="docutils literal notranslate"><span class="pre">AbstractRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.AbstractRFA.rfa"><code class="docutils literal notranslate"><span class="pre">AbstractRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.PiecewiseConstantRFA"><code class="docutils literal notranslate"><span class="pre">PiecewiseConstantRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.PiecewiseConstantRFA.rfa"><code class="docutils literal notranslate"><span class="pre">PiecewiseConstantRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.FunctionRFA"><code class="docutils literal notranslate"><span class="pre">FunctionRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.FunctionRFA.rfa"><code class="docutils literal notranslate"><span class="pre">FunctionRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.CubicSplineRFA"><code class="docutils literal notranslate"><span class="pre">CubicSplineRFA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.IntervalRFA"><code class="docutils literal notranslate"><span class="pre">IntervalRFA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.LinearFixedRFA"><code class="docutils literal notranslate"><span class="pre">LinearFixedRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.LinearFixedRFA.rfa"><code class="docutils literal notranslate"><span class="pre">LinearFixedRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.LinearAdaptiveRFA"><code class="docutils literal notranslate"><span class="pre">LinearAdaptiveRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.LinearAdaptiveRFA.get_adaptive_transition_points"><code class="docutils literal notranslate"><span class="pre">LinearAdaptiveRFA.get_adaptive_transition_points()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.LinearAdaptiveRFA.rfa"><code class="docutils literal notranslate"><span class="pre">LinearAdaptiveRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.ExpFixedRFA"><code class="docutils literal notranslate"><span class="pre">ExpFixedRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.ExpFixedRFA.rfa"><code class="docutils literal notranslate"><span class="pre">ExpFixedRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.ExpAdaptiveRFA"><code class="docutils literal notranslate"><span class="pre">ExpAdaptiveRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.ExpAdaptiveRFA.rfa"><code class="docutils literal notranslate"><span class="pre">ExpAdaptiveRFA.rfa()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -169,7 +276,12 @@
 <a class="reference external image-reference" href="https://github.com/w4k2/traffic-weaver/actions/workflows/pages/pages-build-deployment"><img alt="pages-build-deployment" src="https://github.com/w4k2/traffic-weaver/actions/workflows/pages/pages-build-deployment/badge.svg" /></a>
 <section id="acknowledgments-and-citation">
 <h2>Acknowledgments and citation<a class="headerlink" href="#acknowledgments-and-citation" title="Link to this heading"></a></h2>
-<p>TBD</p>
+<p>Please cite this paper when you use this simulator in your publications/lectures/presentations:</p>
+<blockquote>
+<div><p>Piotr Lechowicz, Aleksandra Knapińska, Adam Włodarczyk, Krzysztof Walkowiak,
+“Traffic Weaver: semi-synthetic time-varying traffic generator based on averaged time series,”
+arXiv preprint arXiv:2403.11388, 2024.</p>
+</div></blockquote>
 </section>
 <section id="table-of-content">
 <h2>Table of content<a class="headerlink" href="#table-of-content" title="Link to this heading"></a></h2>
@@ -180,24 +292,41 @@
 <li class="toctree-l2"><a class="reference internal" href="introduction.html#architecture">Architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="introduction.html#functionalities">Functionalities</a></li>
 <li class="toctree-l2"><a class="reference internal" href="introduction.html#motivation-and-significance">Motivation and significance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="introduction.html#bibliography">Bibliography</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick start</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="quick_start.html#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quick_start.html#minimal-processing-example">Minimal processing example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quick_start.html#further-signal-processing">Further signal processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick_start.html#further-processing-examples">Further processing examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">Datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="datasets.html#list-of-datasets">List of datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datasets.html#collecting-new-datasets">Collecting new datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datasets.html#bibliography">Bibliography</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="using_the_api.html">Using the API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="using_the_api.html#reading-data">Reading data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_the_api.html#preprocessing-data">Preprocessing data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_the_api.html#getting-processed-signal">Getting processed signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_the_api.html#interpolation">Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_the_api.html#repeating">Repeating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_the_api.html#trending">Trending</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_the_api.html#recreate-from-average">Recreate from average</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_the_api.html#integral-match">Integral match</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_the_api.html#noising">Noising</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_the_api.html#smoothing">Smoothing</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="apidocs/traffic_weaver.html">API reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html">weaver</a></li>
-<li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.array_utils.html">array_utils</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.datasets.html">datasets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.funfit.html">funfit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.interval.html">interval</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.match.html">match</a></li>
-<li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.oversample.html">oversample</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.process.html">process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html">rfa</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="development.html">Development</a></li>
@@ -210,7 +339,6 @@
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
-<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
 </section>
 

@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ams_ix datasets &mdash; Traffic Weaver  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="mix_it datasets" href="traffic_weaver.datasets._mix_it.html" />
+    <link rel="prev" title="base datasets" href="traffic_weaver.datasets._base.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Traffic Weaver
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.3.6
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#scope">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#architecture">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#functionalities">Functionalities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#motivation-and-significance">Motivation and significance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quick_start.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_start.html#minimal-processing-example">Minimal processing example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_start.html#further-processing-examples">Further processing examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../datasets.html#list-of-datasets">List of datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../datasets.html#collecting-new-datasets">Collecting new datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../datasets.html#bibliography">Bibliography</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../using_the_api.html">Using the API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#reading-data">Reading data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#preprocessing-data">Preprocessing data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#getting-processed-signal">Getting processed signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#interpolation">Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#repeating">Repeating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#trending">Trending</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#recreate-from-average">Recreate from average</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#integral-match">Integral match</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#noising">Noising</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#smoothing">Smoothing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="traffic_weaver.html">API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="traffic_weaver.weaver.html">weaver</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver"><code class="docutils literal notranslate"><span class="pre">Weaver</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.from_2d_array"><code class="docutils literal notranslate"><span class="pre">Weaver.from_2d_array()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.from_dataframe"><code class="docutils literal notranslate"><span class="pre">Weaver.from_dataframe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.from_csv"><code class="docutils literal notranslate"><span class="pre">Weaver.from_csv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.get"><code class="docutils literal notranslate"><span class="pre">Weaver.get()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.get_original"><code class="docutils literal notranslate"><span class="pre">Weaver.get_original()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.get_reference"><code class="docutils literal notranslate"><span class="pre">Weaver.get_reference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.restore_original"><code class="docutils literal notranslate"><span class="pre">Weaver.restore_original()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.append_one_sample"><code class="docutils literal notranslate"><span class="pre">Weaver.append_one_sample()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.slice_by_index"><code class="docutils literal notranslate"><span class="pre">Weaver.slice_by_index()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.slice_by_value"><code class="docutils literal notranslate"><span class="pre">Weaver.slice_by_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.interpolate"><code class="docutils literal notranslate"><span class="pre">Weaver.interpolate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.recreate_from_average"><code class="docutils literal notranslate"><span class="pre">Weaver.recreate_from_average()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.integral_match"><code class="docutils literal notranslate"><span class="pre">Weaver.integral_match()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.noise"><code class="docutils literal notranslate"><span class="pre">Weaver.noise()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.repeat"><code class="docutils literal notranslate"><span class="pre">Weaver.repeat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.trend"><code class="docutils literal notranslate"><span class="pre">Weaver.trend()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.smooth"><code class="docutils literal notranslate"><span class="pre">Weaver.smooth()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.to_function"><code class="docutils literal notranslate"><span class="pre">Weaver.to_function()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.to_2d_array"><code class="docutils literal notranslate"><span class="pre">Weaver.to_2d_array()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.scale_x"><code class="docutils literal notranslate"><span class="pre">Weaver.scale_x()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.scale_y"><code class="docutils literal notranslate"><span class="pre">Weaver.scale_y()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.shift_x"><code class="docutils literal notranslate"><span class="pre">Weaver.shift_x()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.shift_y"><code class="docutils literal notranslate"><span class="pre">Weaver.shift_y()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.normalize_x"><code class="docutils literal notranslate"><span class="pre">Weaver.normalize_x()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.normalize_y"><code class="docutils literal notranslate"><span class="pre">Weaver.normalize_y()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.truncate_by_value"><code class="docutils literal notranslate"><span class="pre">Weaver.truncate_by_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.truncate_by_index"><code class="docutils literal notranslate"><span class="pre">Weaver.truncate_by_index()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="traffic_weaver.datasets.html">datasets</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.datasets._base.html">base</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.load_dataset"><code class="docutils literal notranslate"><span class="pre">load_dataset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.get_data_home"><code class="docutils literal notranslate"><span class="pre">get_data_home()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.clear_data_home"><code class="docutils literal notranslate"><span class="pre">clear_data_home()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.load_csv_dataset_from_resources"><code class="docutils literal notranslate"><span class="pre">load_csv_dataset_from_resources()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.load_csv_dataset_from_remote"><code class="docutils literal notranslate"><span class="pre">load_csv_dataset_from_remote()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.load_dataset_description"><code class="docutils literal notranslate"><span class="pre">load_dataset_description()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ams_ix</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#list-of-datasets">List of datasets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#datasets-description">Datasets description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#units">Units</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.datasets._mix_it.html">mix_it</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._mix_it.html#list-of-datasets">List of datasets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._mix_it.html#datasets-description">Datasets description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._mix_it.html#units">Units</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html">sandvine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.sandvine_dataset_description"><code class="docutils literal notranslate"><span class="pre">sandvine_dataset_description()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_audio"><code class="docutils literal notranslate"><span class="pre">load_sandvine_audio()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_cloud"><code class="docutils literal notranslate"><span class="pre">load_sandvine_cloud()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_file_sharing"><code class="docutils literal notranslate"><span class="pre">load_sandvine_file_sharing()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_fixed_social_media"><code class="docutils literal notranslate"><span class="pre">load_sandvine_fixed_social_media()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_gaming"><code class="docutils literal notranslate"><span class="pre">load_sandvine_gaming()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_marketplace"><code class="docutils literal notranslate"><span class="pre">load_sandvine_marketplace()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_measurements"><code class="docutils literal notranslate"><span class="pre">load_sandvine_measurements()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_messaging"><code class="docutils literal notranslate"><span class="pre">load_sandvine_messaging()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_mobile_messaging"><code class="docutils literal notranslate"><span class="pre">load_sandvine_mobile_messaging()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_mobile_social_media"><code class="docutils literal notranslate"><span class="pre">load_sandvine_mobile_social_media()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_mobile_video"><code class="docutils literal notranslate"><span class="pre">load_sandvine_mobile_video()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_mobile_youtube"><code class="docutils literal notranslate"><span class="pre">load_sandvine_mobile_youtube()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_mobile_zoom"><code class="docutils literal notranslate"><span class="pre">load_sandvine_mobile_zoom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_snapchat"><code class="docutils literal notranslate"><span class="pre">load_sandvine_snapchat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_social_networking"><code class="docutils literal notranslate"><span class="pre">load_sandvine_social_networking()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_tiktok"><code class="docutils literal notranslate"><span class="pre">load_sandvine_tiktok()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_video_streaming"><code class="docutils literal notranslate"><span class="pre">load_sandvine_video_streaming()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_vpn_and_security"><code class="docutils literal notranslate"><span class="pre">load_sandvine_vpn_and_security()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_web"><code class="docutils literal notranslate"><span class="pre">load_sandvine_web()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_weaver.funfit.html">funfit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.funfit.html#traffic_weaver.funfit.lin_fit"><code class="docutils literal notranslate"><span class="pre">lin_fit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.funfit.html#traffic_weaver.funfit.exp_fit"><code class="docutils literal notranslate"><span class="pre">exp_fit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.funfit.html#traffic_weaver.funfit.exp_xy_fit"><code class="docutils literal notranslate"><span class="pre">exp_xy_fit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.funfit.html#traffic_weaver.funfit.exp_lin_fit"><code class="docutils literal notranslate"><span class="pre">exp_lin_fit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.funfit.html#traffic_weaver.funfit.lin_exp_xy_fit"><code class="docutils literal notranslate"><span class="pre">lin_exp_xy_fit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_weaver.interval.html">interval</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray"><code class="docutils literal notranslate"><span class="pre">IntervalArray</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.extend_linspace"><code class="docutils literal notranslate"><span class="pre">IntervalArray.extend_linspace()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.extend_constant"><code class="docutils literal notranslate"><span class="pre">IntervalArray.extend_constant()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.nr_of_full_intervals"><code class="docutils literal notranslate"><span class="pre">IntervalArray.nr_of_full_intervals()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.array"><code class="docutils literal notranslate"><span class="pre">IntervalArray.array</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.to_2d_array"><code class="docutils literal notranslate"><span class="pre">IntervalArray.to_2d_array()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.to_2d_array_closed_intervals"><code class="docutils literal notranslate"><span class="pre">IntervalArray.to_2d_array_closed_intervals()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.oversample"><code class="docutils literal notranslate"><span class="pre">IntervalArray.oversample()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.oversample_linspace"><code class="docutils literal notranslate"><span class="pre">IntervalArray.oversample_linspace()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.oversample_piecewise"><code class="docutils literal notranslate"><span class="pre">IntervalArray.oversample_piecewise()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_weaver.match.html">match</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.match.html#traffic_weaver.match.integral_matching_reference_stretch"><code class="docutils literal notranslate"><span class="pre">integral_matching_reference_stretch()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.match.html#traffic_weaver.match._integral_matching_stretch"><code class="docutils literal notranslate"><span class="pre">_integral_matching_stretch()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.match.html#traffic_weaver.match._interval_integral_matching_stretch"><code class="docutils literal notranslate"><span class="pre">_interval_integral_matching_stretch()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_weaver.process.html">process</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.interpolate"><code class="docutils literal notranslate"><span class="pre">interpolate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.repeat"><code class="docutils literal notranslate"><span class="pre">repeat()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.trend"><code class="docutils literal notranslate"><span class="pre">trend()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.linear_trend"><code class="docutils literal notranslate"><span class="pre">linear_trend()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.spline_smooth"><code class="docutils literal notranslate"><span class="pre">spline_smooth()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.noise_gauss"><code class="docutils literal notranslate"><span class="pre">noise_gauss()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.average"><code class="docutils literal notranslate"><span class="pre">average()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.truncate"><code class="docutils literal notranslate"><span class="pre">truncate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.normalize"><code class="docutils literal notranslate"><span class="pre">normalize()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_weaver.rfa.html">rfa</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.AbstractRFA"><code class="docutils literal notranslate"><span class="pre">AbstractRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.AbstractRFA.rfa"><code class="docutils literal notranslate"><span class="pre">AbstractRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.PiecewiseConstantRFA"><code class="docutils literal notranslate"><span class="pre">PiecewiseConstantRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.PiecewiseConstantRFA.rfa"><code class="docutils literal notranslate"><span class="pre">PiecewiseConstantRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.FunctionRFA"><code class="docutils literal notranslate"><span class="pre">FunctionRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.FunctionRFA.rfa"><code class="docutils literal notranslate"><span class="pre">FunctionRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.CubicSplineRFA"><code class="docutils literal notranslate"><span class="pre">CubicSplineRFA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.IntervalRFA"><code class="docutils literal notranslate"><span class="pre">IntervalRFA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.LinearFixedRFA"><code class="docutils literal notranslate"><span class="pre">LinearFixedRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.LinearFixedRFA.rfa"><code class="docutils literal notranslate"><span class="pre">LinearFixedRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.LinearAdaptiveRFA"><code class="docutils literal notranslate"><span class="pre">LinearAdaptiveRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.LinearAdaptiveRFA.get_adaptive_transition_points"><code class="docutils literal notranslate"><span class="pre">LinearAdaptiveRFA.get_adaptive_transition_points()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.LinearAdaptiveRFA.rfa"><code class="docutils literal notranslate"><span class="pre">LinearAdaptiveRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.ExpFixedRFA"><code class="docutils literal notranslate"><span class="pre">ExpFixedRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.ExpFixedRFA.rfa"><code class="docutils literal notranslate"><span class="pre">ExpFixedRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.ExpAdaptiveRFA"><code class="docutils literal notranslate"><span class="pre">ExpAdaptiveRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.ExpAdaptiveRFA.rfa"><code class="docutils literal notranslate"><span class="pre">ExpAdaptiveRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../development.html">Development</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Traffic Weaver</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="traffic_weaver.html">traffic_weaver package</a></li>
+          <li class="breadcrumb-item"><a href="traffic_weaver.datasets.html">datasets module</a></li>
+      <li class="breadcrumb-item active">ams_ix datasets</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/apidocs/traffic_weaver.datasets._ams_ix.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ams-ix-datasets">
+<h1>ams_ix datasets<a class="headerlink" href="#ams-ix-datasets" title="Link to this heading"></a></h1>
+<p>ams-ix.net. <a class="reference external" href="https://stats.ams-ix.net/index.html">https://stats.ams-ix.net/index.html</a> (accessed Sep. 21, 2024)</p>
+<p>Package contains 34 datasets.</p>
+<section id="list-of-datasets">
+<h2>List of datasets<a class="headerlink" href="#list-of-datasets" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>ams-ix-yearly-by-day</p></li>
+<li><p>ams-ix_daily</p></li>
+<li><p>ams-ix_monthly</p></li>
+<li><p>ams-ix_weekly</p></li>
+<li><p>ams-ix_yearly_input</p></li>
+<li><p>ams-ix_yearly_output</p></li>
+<li><p>ams-ix-isp-yearly-by-day</p></li>
+<li><p>ams-ix-isp_daily</p></li>
+<li><p>ams-ix-isp_monthly</p></li>
+<li><p>ams-ix-isp_weekly</p></li>
+<li><p>ams-ix-isp_yearly_input</p></li>
+<li><p>ams-ix-isp_yearly_output</p></li>
+<li><p>ams-ix-grx-yearly-by-day</p></li>
+<li><p>ams-ix-grx_daily</p></li>
+<li><p>ams-ix-grx_monthly</p></li>
+<li><p>ams-ix-grx_weakly</p></li>
+<li><p>ams-ix-grx_yearly_input</p></li>
+<li><p>ams-ix-grx_yearly_output</p></li>
+<li><p>ams-ix-i-ipx-yearly-by-day</p></li>
+<li><p>ams-ix-i-ipx_daily</p></li>
+<li><p>ams-ix-i-ipx_monthly</p></li>
+<li><p>ams-ix-i-ipx_weekly</p></li>
+<li><p>ams-ix-i-ipx_yearly_input</p></li>
+<li><p>ams-ix-i-ipx_yearly_output</p></li>
+<li><p>ams-ix-i-ipx-diameter_daily</p></li>
+<li><p>ams-ix-i-ipx-diameter_monthly</p></li>
+<li><p>ams-ix-i-ipx-diameter_weekly</p></li>
+<li><p>ams-ix-i-ipx-diameter_yearly_input</p></li>
+<li><p>ams-ix-i-ipx-diameter_yearly_output</p></li>
+<li><p>ams-ix-nawas-anti-ddos_daily</p></li>
+<li><p>ams-ix-nawas-anti-ddos_monthly</p></li>
+<li><p>ams-ix-nawas-anti-ddos_weekly</p></li>
+<li><p>ams-ix-nawas-anti-ddos_yearly_2input</p></li>
+<li><p>ams-ix-nawas-anti-ddos_yearly_2output</p></li>
+</ul>
+</section>
+<section id="datasets-description">
+<h2>Datasets description<a class="headerlink" href="#datasets-description" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>ams-ix - statistics showing total aggregate volume of all parties connected to AMS-IX.</p></li>
+<li><p>ams-ix-isp - statistics showing total aggregate volume of all parties connected to the Public Peering (ISP) LAN at AMS-IX.</p></li>
+<li><p>ams-ix-grx - statistics showing total aggregate volume of all parties connected to the GRX LAN at AMS-IX.</p></li>
+<li><p>ams-ix-i-ipx, ams-ix-i-ipx-diameter - statistics showing total aggregate volume of all parties connected to the AMS-IX I-IPX and I-IPX Diameter LANs.</p></li>
+<li><p>ams-ix-nawas-anti-ddos - statistics showing aggregate volume of clean, scrubbed traffic for all parties connected to the NaWas DDoS Scrubbing service at AMS-IX.</p></li>
+<li><p>daily traffic contains 2 days of traffic</p></li>
+<li><p>weekly traffic contains 8 days of traffic</p></li>
+<li><p>monthly traffic contains 35 days of traffic</p></li>
+<li><p>yearly traffic contains 16 months of traffic</p></li>
+<li><p>yearly-by-day traffic contains 364 days (52 weeks) of traffic</p></li>
+</ul>
+</section>
+<section id="units">
+<h2>Units<a class="headerlink" href="#units" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>name</p></th>
+<th class="head"><p>y-axis</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ams-ix-yearly-by-day_2024-09-21</p></td>
+<td><p>PByte per day</p></td>
+</tr>
+<tr class="row-odd"><td><p>ams-ix_daily_2024-09-21</p></td>
+<td><p>Tbps</p></td>
+</tr>
+<tr class="row-even"><td><p>ams-ix_monthly_2024-09-21</p></td>
+<td><p>Tbps</p></td>
+</tr>
+<tr class="row-odd"><td><p>ams-ix_weekly_2024-09-21</p></td>
+<td><p>Tbps</p></td>
+</tr>
+<tr class="row-even"><td><p>ams-ix_yearly_2024-09-21-input</p></td>
+<td><p>Tbps</p></td>
+</tr>
+<tr class="row-odd"><td><p>ams-ix_yearly_2024-09-21-output</p></td>
+<td><p>Tbps</p></td>
+</tr>
+<tr class="row-even"><td><p>ams-ix-isp-yearly-by-day_2024-09-21</p></td>
+<td><p>PByte per day</p></td>
+</tr>
+<tr class="row-odd"><td><p>ams-ix-isp_daily_2024-09-21</p></td>
+<td><p>Tbps</p></td>
+</tr>
+<tr class="row-even"><td><p>ams-ix-isp_monthly_2024-09-21</p></td>
+<td><p>Tbps</p></td>
+</tr>
+<tr class="row-odd"><td><p>ams-ix-isp_weekly_2024-09-21</p></td>
+<td><p>Tbps</p></td>
+</tr>
+<tr class="row-even"><td><p>ams-ix-isp_yearly_2024-09-21-input</p></td>
+<td><p>Tbps</p></td>
+</tr>
+<tr class="row-odd"><td><p>ams-ix-isp_yearly_2024-09-21-output</p></td>
+<td><p>Tbps</p></td>
+</tr>
+<tr class="row-even"><td><p>ams-ix-grx-yearly-by-day_2024-09-21</p></td>
+<td><p>PByte per day</p></td>
+</tr>
+<tr class="row-odd"><td><p>ams-ix-grx_daily_2024-09-21</p></td>
+<td><p>Gbps</p></td>
+</tr>
+<tr class="row-even"><td><p>ams-ix-grx_monthly_2024-09-21</p></td>
+<td><p>Gbps</p></td>
+</tr>
+<tr class="row-odd"><td><p>ams-ix-grx_weakly_2024-09-21</p></td>
+<td><p>Tbps</p></td>
+</tr>
+<tr class="row-even"><td><p>ams-ix-grx_yearly_2024-09-21-input</p></td>
+<td><p>Gbps</p></td>
+</tr>
+<tr class="row-odd"><td><p>ams-ix-grx_yearly_2024-09-21-output</p></td>
+<td><p>Gbps</p></td>
+</tr>
+<tr class="row-even"><td><p>ams-ix-i-ipx-yearly-by-day_2024-09-21</p></td>
+<td><p>TByte per day</p></td>
+</tr>
+<tr class="row-odd"><td><p>ams-ix-i-ipx_daily_2024-09-22</p></td>
+<td><p>Gbps</p></td>
+</tr>
+<tr class="row-even"><td><p>ams-ix-i-ipx_monthly_2024-09-22</p></td>
+<td><p>Gbps</p></td>
+</tr>
+<tr class="row-odd"><td><p>ams-ix-i-ipx_weekly_2024-09-22</p></td>
+<td><p>Gbps</p></td>
+</tr>
+<tr class="row-even"><td><p>ams-ix-i-ipx_yearly_2024-09-22-input</p></td>
+<td><p>Gbps</p></td>
+</tr>
+<tr class="row-odd"><td><p>ams-ix-i-ipx_yearly_2024-09-22-output</p></td>
+<td><p>Gbps</p></td>
+</tr>
+<tr class="row-even"><td><p>ams-ix-i-ipx-diameter_daily_2024-09-22</p></td>
+<td><p>Mbps</p></td>
+</tr>
+<tr class="row-odd"><td><p>ams-ix-i-ipx-diameter_monthly_2024-09-22</p></td>
+<td><p>Mbps</p></td>
+</tr>
+<tr class="row-even"><td><p>ams-ix-i-ipx-diameter_weekly_2024-09-22</p></td>
+<td><p>Mbps</p></td>
+</tr>
+<tr class="row-odd"><td><p>ams-ix-i-ipx-diameter_yearly_2024-09-22-input</p></td>
+<td><p>Mbps</p></td>
+</tr>
+<tr class="row-even"><td><p>ams-ix-i-ipx-diameter_yearly_2024-09-22-output</p></td>
+<td><p>Mbps</p></td>
+</tr>
+<tr class="row-odd"><td><p>ams-ix-nawas-anti-ddos_daily_2024-09-22</p></td>
+<td><p>Gbps</p></td>
+</tr>
+<tr class="row-even"><td><p>ams-ix-nawas-anti-ddos_monthly_2024-09-22</p></td>
+<td><p>Gbps</p></td>
+</tr>
+<tr class="row-odd"><td><p>ams-ix-nawas-anti-ddos_weekly_2024-09-22</p></td>
+<td><p>Gbps</p></td>
+</tr>
+<tr class="row-even"><td><p>ams-ix-nawas-anti-ddos_yearly_2024-09-22-input</p></td>
+<td><p>Gbps</p></td>
+</tr>
+<tr class="row-odd"><td><p>ams-ix-nawas-anti-ddos_yearly_2024-09-22-output</p></td>
+<td><p>Gbps</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function" id="module-traffic_weaver.datasets._ams_ix">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._ams_ix.ams_ix_dataset_description">
+<span class="sig-name descname"><span class="pre">ams_ix_dataset_description</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._ams_ix.ams_ix_dataset_description" title="Link to this definition"></a></dt>
+<dd><p>Get description of this dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._ams_ix.fetch_ams_ix_yearly_by_day">
+<span class="sig-name descname"><span class="pre">fetch_ams_ix_yearly_by_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._ams_ix.fetch_ams_ix_yearly_by_day" title="Link to this definition"></a></dt>
+<dd><p>Load and return AMS-IX yearly by day dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._ams_ix.fetch_ams_ix_daily">
+<span class="sig-name descname"><span class="pre">fetch_ams_ix_daily</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._ams_ix.fetch_ams_ix_daily" title="Link to this definition"></a></dt>
+<dd><p>Load and return AMS-IX daily dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._ams_ix.fetch_ams_ix_monthly">
+<span class="sig-name descname"><span class="pre">fetch_ams_ix_monthly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._ams_ix.fetch_ams_ix_monthly" title="Link to this definition"></a></dt>
+<dd><p>Load and return AMS-IX monthly dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._ams_ix.fetch_ams_ix_weekly">
+<span class="sig-name descname"><span class="pre">fetch_ams_ix_weekly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._ams_ix.fetch_ams_ix_weekly" title="Link to this definition"></a></dt>
+<dd><p>Load and return AMS-IX weekly dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._ams_ix.fetch_ams_ix_yearly_input">
+<span class="sig-name descname"><span class="pre">fetch_ams_ix_yearly_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._ams_ix.fetch_ams_ix_yearly_input" title="Link to this definition"></a></dt>
+<dd><p>Load and return AMS-IX yearly input dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._ams_ix.fetch_ams_ix_yearly_output">
+<span class="sig-name descname"><span class="pre">fetch_ams_ix_yearly_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._ams_ix.fetch_ams_ix_yearly_output" title="Link to this definition"></a></dt>
+<dd><p>Load and return AMS-IX yearly output dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._ams_ix.fetch_ams_ix_grx_yearly_by_day">
+<span class="sig-name descname"><span class="pre">fetch_ams_ix_grx_yearly_by_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._ams_ix.fetch_ams_ix_grx_yearly_by_day" title="Link to this definition"></a></dt>
+<dd><p>Load and return AMS-IX GRX yearly by day dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._ams_ix.fetch_ams_ix_grx_daily">
+<span class="sig-name descname"><span class="pre">fetch_ams_ix_grx_daily</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._ams_ix.fetch_ams_ix_grx_daily" title="Link to this definition"></a></dt>
+<dd><p>Load and return AMS-IX GRX daily dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._ams_ix.fetch_ams_ix_grx_monthly">
+<span class="sig-name descname"><span class="pre">fetch_ams_ix_grx_monthly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._ams_ix.fetch_ams_ix_grx_monthly" title="Link to this definition"></a></dt>
+<dd><p>Load and return AMS-IX GRX monthly dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._ams_ix.fetch_ams_ix_grx_yearly_input">
+<span class="sig-name descname"><span class="pre">fetch_ams_ix_grx_yearly_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._ams_ix.fetch_ams_ix_grx_yearly_input" title="Link to this definition"></a></dt>
+<dd><p>Load and return AMS-IX GRX yearly input dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._ams_ix.fetch_ams_ix_grx_yearly_output">
+<span class="sig-name descname"><span class="pre">fetch_ams_ix_grx_yearly_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._ams_ix.fetch_ams_ix_grx_yearly_output" title="Link to this definition"></a></dt>
+<dd><p>Load and return AMS-IX GRX yearly output dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._ams_ix.fetch_ams_ix_i_ipx_diameter_daily">
+<span class="sig-name descname"><span class="pre">fetch_ams_ix_i_ipx_diameter_daily</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._ams_ix.fetch_ams_ix_i_ipx_diameter_daily" title="Link to this definition"></a></dt>
+<dd><p>Load and return AMS-IX I-IPX diameter daily dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._ams_ix.fetch_ams_ix_i_ipx_diameter_monthly">
+<span class="sig-name descname"><span class="pre">fetch_ams_ix_i_ipx_diameter_monthly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._ams_ix.fetch_ams_ix_i_ipx_diameter_monthly" title="Link to this definition"></a></dt>
+<dd><p>Load and return AMS-IX I-IPX diameter monthly dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._ams_ix.fetch_ams_ix_i_ipx_diameter_weekly">
+<span class="sig-name descname"><span class="pre">fetch_ams_ix_i_ipx_diameter_weekly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._ams_ix.fetch_ams_ix_i_ipx_diameter_weekly" title="Link to this definition"></a></dt>
+<dd><p>Load and return AMS-IX I-IPX diameter weekly dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._ams_ix.fetch_ams_ix_i_ipx_diameter_yearly_input">
+<span class="sig-name descname"><span class="pre">fetch_ams_ix_i_ipx_diameter_yearly_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._ams_ix.fetch_ams_ix_i_ipx_diameter_yearly_input" title="Link to this definition"></a></dt>
+<dd><p>Load and return AMS-IX I-IPX diameter yearly input dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._ams_ix.fetch_ams_ix_i_ipx_diameter_yearly_output">
+<span class="sig-name descname"><span class="pre">fetch_ams_ix_i_ipx_diameter_yearly_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._ams_ix.fetch_ams_ix_i_ipx_diameter_yearly_output" title="Link to this definition"></a></dt>
+<dd><p>Load and return AMS-IX I-IPX diameter yearly output dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._ams_ix.fetch_ams_ix_i_ipx_yearly_by_day">
+<span class="sig-name descname"><span class="pre">fetch_ams_ix_i_ipx_yearly_by_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._ams_ix.fetch_ams_ix_i_ipx_yearly_by_day" title="Link to this definition"></a></dt>
+<dd><p>Load and return AMS-IX I-IPX yearly by day dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._ams_ix.fetch_ams_ix_i_ipx_daily">
+<span class="sig-name descname"><span class="pre">fetch_ams_ix_i_ipx_daily</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._ams_ix.fetch_ams_ix_i_ipx_daily" title="Link to this definition"></a></dt>
+<dd><p>Load and return AMS-IX I-IPX daily dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._ams_ix.fetch_ams_ix_i_ipx_monthly">
+<span class="sig-name descname"><span class="pre">fetch_ams_ix_i_ipx_monthly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._ams_ix.fetch_ams_ix_i_ipx_monthly" title="Link to this definition"></a></dt>
+<dd><p>Load and return AMS-IX I-IPX monthly dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._ams_ix.fetch_ams_ix_i_ipx_weekly">
+<span class="sig-name descname"><span class="pre">fetch_ams_ix_i_ipx_weekly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._ams_ix.fetch_ams_ix_i_ipx_weekly" title="Link to this definition"></a></dt>
+<dd><p>Load and return AMS-IX I-IPX weekly dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._ams_ix.fetch_ams_ix_i_ipx_yearly_input">
+<span class="sig-name descname"><span class="pre">fetch_ams_ix_i_ipx_yearly_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._ams_ix.fetch_ams_ix_i_ipx_yearly_input" title="Link to this definition"></a></dt>
+<dd><p>Load and return AMS-IX I-IPX yearly input dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._ams_ix.fetch_ams_ix_i_ipx_yearly_output">
+<span class="sig-name descname"><span class="pre">fetch_ams_ix_i_ipx_yearly_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._ams_ix.fetch_ams_ix_i_ipx_yearly_output" title="Link to this definition"></a></dt>
+<dd><p>Load and return AMS-IX I-IPX yearly output dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._ams_ix.fetch_ams_ix_isp_yearly_by_day">
+<span class="sig-name descname"><span class="pre">fetch_ams_ix_isp_yearly_by_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._ams_ix.fetch_ams_ix_isp_yearly_by_day" title="Link to this definition"></a></dt>
+<dd><p>Load and return AMS-IX ISP yearly by day dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._ams_ix.fetch_ams_ix_isp_daily">
+<span class="sig-name descname"><span class="pre">fetch_ams_ix_isp_daily</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._ams_ix.fetch_ams_ix_isp_daily" title="Link to this definition"></a></dt>
+<dd><p>Load and return AMS-IX ISP daily dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._ams_ix.fetch_ams_ix_isp_monthly">
+<span class="sig-name descname"><span class="pre">fetch_ams_ix_isp_monthly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._ams_ix.fetch_ams_ix_isp_monthly" title="Link to this definition"></a></dt>
+<dd><p>Load and return AMS-IX ISP monthly dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._ams_ix.fetch_ams_ix_isp_weekly">
+<span class="sig-name descname"><span class="pre">fetch_ams_ix_isp_weekly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._ams_ix.fetch_ams_ix_isp_weekly" title="Link to this definition"></a></dt>
+<dd><p>Load and return AMS-IX ISP weekly dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._ams_ix.fetch_ams_ix_isp_yearly_input">
+<span class="sig-name descname"><span class="pre">fetch_ams_ix_isp_yearly_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._ams_ix.fetch_ams_ix_isp_yearly_input" title="Link to this definition"></a></dt>
+<dd><p>Load and return AMS-IX ISP yearly input dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._ams_ix.fetch_ams_ix_isp_yearly_output">
+<span class="sig-name descname"><span class="pre">fetch_ams_ix_isp_yearly_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._ams_ix.fetch_ams_ix_isp_yearly_output" title="Link to this definition"></a></dt>
+<dd><p>Load and return AMS-IX ISP yearly output dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._ams_ix.fetch_ams_ix_nawas_anti_ddos_daily">
+<span class="sig-name descname"><span class="pre">fetch_ams_ix_nawas_anti_ddos_daily</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._ams_ix.fetch_ams_ix_nawas_anti_ddos_daily" title="Link to this definition"></a></dt>
+<dd><p>Load and return AMS-IX NAWAS anti-DDoS daily dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._ams_ix.fetch_ams_ix_nawas_anti_ddos_monthly">
+<span class="sig-name descname"><span class="pre">fetch_ams_ix_nawas_anti_ddos_monthly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._ams_ix.fetch_ams_ix_nawas_anti_ddos_monthly" title="Link to this definition"></a></dt>
+<dd><p>Load and return AMS-IX NAWAS anti-DDoS monthly dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._ams_ix.fetch_ams_ix_nawas_anti_ddos_weekly">
+<span class="sig-name descname"><span class="pre">fetch_ams_ix_nawas_anti_ddos_weekly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._ams_ix.fetch_ams_ix_nawas_anti_ddos_weekly" title="Link to this definition"></a></dt>
+<dd><p>Load and return AMS-IX NAWAS anti-DDoS weekly dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._ams_ix.fetch_ams_ix_nawas_anti_ddos_yearly_input">
+<span class="sig-name descname"><span class="pre">fetch_ams_ix_nawas_anti_ddos_yearly_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._ams_ix.fetch_ams_ix_nawas_anti_ddos_yearly_input" title="Link to this definition"></a></dt>
+<dd><p>Load and return AMS-IX NAWAS anti-DDoS yearly input dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._ams_ix.fetch_ams_ix_nawas_anti_ddos_yearly_output">
+<span class="sig-name descname"><span class="pre">fetch_ams_ix_nawas_anti_ddos_yearly_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._ams_ix.fetch_ams_ix_nawas_anti_ddos_yearly_output" title="Link to this definition"></a></dt>
+<dd><p>Load and return AMS-IX NAWAS anti-DDoS yearly output dataset.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="traffic_weaver.datasets._base.html" class="btn btn-neutral float-left" title="base datasets" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="traffic_weaver.datasets._mix_it.html" class="btn btn-neutral float-right" title="mix_it datasets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Piotr T. Lechowicz.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sandvine datasets &mdash; Traffic Weaver  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="funfit module" href="traffic_weaver.funfit.html" />
+    <link rel="prev" title="mix_it datasets" href="traffic_weaver.datasets._mix_it.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Traffic Weaver
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.3.6
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#scope">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#architecture">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#functionalities">Functionalities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#motivation-and-significance">Motivation and significance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quick_start.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_start.html#minimal-processing-example">Minimal processing example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_start.html#further-processing-examples">Further processing examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../datasets.html#list-of-datasets">List of datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../datasets.html#collecting-new-datasets">Collecting new datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../datasets.html#bibliography">Bibliography</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../using_the_api.html">Using the API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#reading-data">Reading data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#preprocessing-data">Preprocessing data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#getting-processed-signal">Getting processed signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#interpolation">Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#repeating">Repeating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#trending">Trending</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#recreate-from-average">Recreate from average</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#integral-match">Integral match</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#noising">Noising</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#smoothing">Smoothing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="traffic_weaver.html">API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="traffic_weaver.weaver.html">weaver</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver"><code class="docutils literal notranslate"><span class="pre">Weaver</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.from_2d_array"><code class="docutils literal notranslate"><span class="pre">Weaver.from_2d_array()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.from_dataframe"><code class="docutils literal notranslate"><span class="pre">Weaver.from_dataframe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.from_csv"><code class="docutils literal notranslate"><span class="pre">Weaver.from_csv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.get"><code class="docutils literal notranslate"><span class="pre">Weaver.get()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.get_original"><code class="docutils literal notranslate"><span class="pre">Weaver.get_original()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.get_reference"><code class="docutils literal notranslate"><span class="pre">Weaver.get_reference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.restore_original"><code class="docutils literal notranslate"><span class="pre">Weaver.restore_original()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.append_one_sample"><code class="docutils literal notranslate"><span class="pre">Weaver.append_one_sample()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.slice_by_index"><code class="docutils literal notranslate"><span class="pre">Weaver.slice_by_index()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.slice_by_value"><code class="docutils literal notranslate"><span class="pre">Weaver.slice_by_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.interpolate"><code class="docutils literal notranslate"><span class="pre">Weaver.interpolate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.recreate_from_average"><code class="docutils literal notranslate"><span class="pre">Weaver.recreate_from_average()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.integral_match"><code class="docutils literal notranslate"><span class="pre">Weaver.integral_match()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.noise"><code class="docutils literal notranslate"><span class="pre">Weaver.noise()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.repeat"><code class="docutils literal notranslate"><span class="pre">Weaver.repeat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.trend"><code class="docutils literal notranslate"><span class="pre">Weaver.trend()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.smooth"><code class="docutils literal notranslate"><span class="pre">Weaver.smooth()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.to_function"><code class="docutils literal notranslate"><span class="pre">Weaver.to_function()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.to_2d_array"><code class="docutils literal notranslate"><span class="pre">Weaver.to_2d_array()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.scale_x"><code class="docutils literal notranslate"><span class="pre">Weaver.scale_x()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.scale_y"><code class="docutils literal notranslate"><span class="pre">Weaver.scale_y()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.shift_x"><code class="docutils literal notranslate"><span class="pre">Weaver.shift_x()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.shift_y"><code class="docutils literal notranslate"><span class="pre">Weaver.shift_y()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.normalize_x"><code class="docutils literal notranslate"><span class="pre">Weaver.normalize_x()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.normalize_y"><code class="docutils literal notranslate"><span class="pre">Weaver.normalize_y()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.truncate_by_value"><code class="docutils literal notranslate"><span class="pre">Weaver.truncate_by_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.truncate_by_index"><code class="docutils literal notranslate"><span class="pre">Weaver.truncate_by_index()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="traffic_weaver.datasets.html">datasets</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.datasets._base.html">base</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.load_dataset"><code class="docutils literal notranslate"><span class="pre">load_dataset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.get_data_home"><code class="docutils literal notranslate"><span class="pre">get_data_home()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.clear_data_home"><code class="docutils literal notranslate"><span class="pre">clear_data_home()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.load_csv_dataset_from_resources"><code class="docutils literal notranslate"><span class="pre">load_csv_dataset_from_resources()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.load_csv_dataset_from_remote"><code class="docutils literal notranslate"><span class="pre">load_csv_dataset_from_remote()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.load_dataset_description"><code class="docutils literal notranslate"><span class="pre">load_dataset_description()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.datasets._ams_ix.html">ams_ix</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._ams_ix.html#list-of-datasets">List of datasets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._ams_ix.html#datasets-description">Datasets description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._ams_ix.html#units">Units</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.datasets._mix_it.html">mix_it</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._mix_it.html#list-of-datasets">List of datasets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._mix_it.html#datasets-description">Datasets description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._mix_it.html#units">Units</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">sandvine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.datasets._sandvine.sandvine_dataset_description"><code class="docutils literal notranslate"><span class="pre">sandvine_dataset_description()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.datasets._sandvine.load_sandvine_audio"><code class="docutils literal notranslate"><span class="pre">load_sandvine_audio()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.datasets._sandvine.load_sandvine_cloud"><code class="docutils literal notranslate"><span class="pre">load_sandvine_cloud()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.datasets._sandvine.load_sandvine_file_sharing"><code class="docutils literal notranslate"><span class="pre">load_sandvine_file_sharing()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.datasets._sandvine.load_sandvine_fixed_social_media"><code class="docutils literal notranslate"><span class="pre">load_sandvine_fixed_social_media()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.datasets._sandvine.load_sandvine_gaming"><code class="docutils literal notranslate"><span class="pre">load_sandvine_gaming()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.datasets._sandvine.load_sandvine_marketplace"><code class="docutils literal notranslate"><span class="pre">load_sandvine_marketplace()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.datasets._sandvine.load_sandvine_measurements"><code class="docutils literal notranslate"><span class="pre">load_sandvine_measurements()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.datasets._sandvine.load_sandvine_messaging"><code class="docutils literal notranslate"><span class="pre">load_sandvine_messaging()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.datasets._sandvine.load_sandvine_mobile_messaging"><code class="docutils literal notranslate"><span class="pre">load_sandvine_mobile_messaging()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.datasets._sandvine.load_sandvine_mobile_social_media"><code class="docutils literal notranslate"><span class="pre">load_sandvine_mobile_social_media()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.datasets._sandvine.load_sandvine_mobile_video"><code class="docutils literal notranslate"><span class="pre">load_sandvine_mobile_video()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.datasets._sandvine.load_sandvine_mobile_youtube"><code class="docutils literal notranslate"><span class="pre">load_sandvine_mobile_youtube()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.datasets._sandvine.load_sandvine_mobile_zoom"><code class="docutils literal notranslate"><span class="pre">load_sandvine_mobile_zoom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.datasets._sandvine.load_sandvine_snapchat"><code class="docutils literal notranslate"><span class="pre">load_sandvine_snapchat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.datasets._sandvine.load_sandvine_social_networking"><code class="docutils literal notranslate"><span class="pre">load_sandvine_social_networking()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.datasets._sandvine.load_sandvine_tiktok"><code class="docutils literal notranslate"><span class="pre">load_sandvine_tiktok()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.datasets._sandvine.load_sandvine_video_streaming"><code class="docutils literal notranslate"><span class="pre">load_sandvine_video_streaming()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.datasets._sandvine.load_sandvine_vpn_and_security"><code class="docutils literal notranslate"><span class="pre">load_sandvine_vpn_and_security()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.datasets._sandvine.load_sandvine_web"><code class="docutils literal notranslate"><span class="pre">load_sandvine_web()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_weaver.funfit.html">funfit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.funfit.html#traffic_weaver.funfit.lin_fit"><code class="docutils literal notranslate"><span class="pre">lin_fit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.funfit.html#traffic_weaver.funfit.exp_fit"><code class="docutils literal notranslate"><span class="pre">exp_fit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.funfit.html#traffic_weaver.funfit.exp_xy_fit"><code class="docutils literal notranslate"><span class="pre">exp_xy_fit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.funfit.html#traffic_weaver.funfit.exp_lin_fit"><code class="docutils literal notranslate"><span class="pre">exp_lin_fit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.funfit.html#traffic_weaver.funfit.lin_exp_xy_fit"><code class="docutils literal notranslate"><span class="pre">lin_exp_xy_fit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_weaver.interval.html">interval</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray"><code class="docutils literal notranslate"><span class="pre">IntervalArray</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.extend_linspace"><code class="docutils literal notranslate"><span class="pre">IntervalArray.extend_linspace()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.extend_constant"><code class="docutils literal notranslate"><span class="pre">IntervalArray.extend_constant()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.nr_of_full_intervals"><code class="docutils literal notranslate"><span class="pre">IntervalArray.nr_of_full_intervals()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.array"><code class="docutils literal notranslate"><span class="pre">IntervalArray.array</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.to_2d_array"><code class="docutils literal notranslate"><span class="pre">IntervalArray.to_2d_array()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.to_2d_array_closed_intervals"><code class="docutils literal notranslate"><span class="pre">IntervalArray.to_2d_array_closed_intervals()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.oversample"><code class="docutils literal notranslate"><span class="pre">IntervalArray.oversample()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.oversample_linspace"><code class="docutils literal notranslate"><span class="pre">IntervalArray.oversample_linspace()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.oversample_piecewise"><code class="docutils literal notranslate"><span class="pre">IntervalArray.oversample_piecewise()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_weaver.match.html">match</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.match.html#traffic_weaver.match.integral_matching_reference_stretch"><code class="docutils literal notranslate"><span class="pre">integral_matching_reference_stretch()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.match.html#traffic_weaver.match._integral_matching_stretch"><code class="docutils literal notranslate"><span class="pre">_integral_matching_stretch()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.match.html#traffic_weaver.match._interval_integral_matching_stretch"><code class="docutils literal notranslate"><span class="pre">_interval_integral_matching_stretch()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_weaver.process.html">process</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.interpolate"><code class="docutils literal notranslate"><span class="pre">interpolate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.repeat"><code class="docutils literal notranslate"><span class="pre">repeat()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.trend"><code class="docutils literal notranslate"><span class="pre">trend()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.linear_trend"><code class="docutils literal notranslate"><span class="pre">linear_trend()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.spline_smooth"><code class="docutils literal notranslate"><span class="pre">spline_smooth()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.noise_gauss"><code class="docutils literal notranslate"><span class="pre">noise_gauss()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.average"><code class="docutils literal notranslate"><span class="pre">average()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.truncate"><code class="docutils literal notranslate"><span class="pre">truncate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.normalize"><code class="docutils literal notranslate"><span class="pre">normalize()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_weaver.rfa.html">rfa</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.AbstractRFA"><code class="docutils literal notranslate"><span class="pre">AbstractRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.AbstractRFA.rfa"><code class="docutils literal notranslate"><span class="pre">AbstractRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.PiecewiseConstantRFA"><code class="docutils literal notranslate"><span class="pre">PiecewiseConstantRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.PiecewiseConstantRFA.rfa"><code class="docutils literal notranslate"><span class="pre">PiecewiseConstantRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.FunctionRFA"><code class="docutils literal notranslate"><span class="pre">FunctionRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.FunctionRFA.rfa"><code class="docutils literal notranslate"><span class="pre">FunctionRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.CubicSplineRFA"><code class="docutils literal notranslate"><span class="pre">CubicSplineRFA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.IntervalRFA"><code class="docutils literal notranslate"><span class="pre">IntervalRFA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.LinearFixedRFA"><code class="docutils literal notranslate"><span class="pre">LinearFixedRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.LinearFixedRFA.rfa"><code class="docutils literal notranslate"><span class="pre">LinearFixedRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.LinearAdaptiveRFA"><code class="docutils literal notranslate"><span class="pre">LinearAdaptiveRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.LinearAdaptiveRFA.get_adaptive_transition_points"><code class="docutils literal notranslate"><span class="pre">LinearAdaptiveRFA.get_adaptive_transition_points()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.LinearAdaptiveRFA.rfa"><code class="docutils literal notranslate"><span class="pre">LinearAdaptiveRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.ExpFixedRFA"><code class="docutils literal notranslate"><span class="pre">ExpFixedRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.ExpFixedRFA.rfa"><code class="docutils literal notranslate"><span class="pre">ExpFixedRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.ExpAdaptiveRFA"><code class="docutils literal notranslate"><span class="pre">ExpAdaptiveRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.ExpAdaptiveRFA.rfa"><code class="docutils literal notranslate"><span class="pre">ExpAdaptiveRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../development.html">Development</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Traffic Weaver</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="traffic_weaver.html">traffic_weaver package</a></li>
+          <li class="breadcrumb-item"><a href="traffic_weaver.datasets.html">datasets module</a></li>
+      <li class="breadcrumb-item active">sandvine datasets</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/apidocs/traffic_weaver.datasets._sandvine.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sandvine-datasets">
+<h1>sandvine datasets<a class="headerlink" href="#sandvine-datasets" title="Link to this heading"></a></h1>
+<p>Sandvine, “The Mobile Internet Phenomena Report”, Sandvine, 2021 (accessed Sep. 21, 2024)
+<a class="reference external" href="https://www.sandvine.com/download-mobile-internet-phenomena-report-2021">https://www.sandvine.com/download-mobile-internet-phenomena-report-2021</a></p>
+<p>The report includes information about daily traffic patterns of various network-based applications,
+e.g., TikTok, YouTube, Zoom, etc., averaged over multiple large networks.
+The report presents the data as bar plots of traffic averaged in each hour of the day.</p>
+<p>Package contains 19 datasets, each corresponding to a different application:</p>
+<ul class="simple">
+<li><p>sandvine_audio</p></li>
+<li><p>sandvine_cloud</p></li>
+<li><p>sandvine_file_sharing</p></li>
+<li><p>sandvine_fixed_social_media</p></li>
+<li><p>sandvine_gaming</p></li>
+<li><p>sandvine_marketplace</p></li>
+<li><p>sandvine_measurements</p></li>
+<li><p>sandvine_messaging</p></li>
+<li><p>sandvine_mobile_messaging</p></li>
+<li><p>sandvine_mobile_social media</p></li>
+<li><p>sandvine_mobile_video</p></li>
+<li><p>sandvine_mobile_youtube</p></li>
+<li><p>sandvine_mobile_zoom</p></li>
+<li><p>sandvine_snapchat</p></li>
+<li><p>sandvine_social_networking</p></li>
+<li><p>sandvine_tiktok</p></li>
+<li><p>sandvine_video_streaming</p></li>
+<li><p>sandvine_vpn_and_security</p></li>
+<li><p>sandvine_web</p></li>
+</ul>
+<p id="module-traffic_weaver.datasets._sandvine">Sandvine dataset.</p>
+<p>Load methods return dataset as np.ndarray of shape (nr_of_samples, 2).
+It is 2D array with each row representing one point in time series.
+The first column is the x-variable and the second column is the y-variable.</p>
+<p>If <cite>unpack_dataset_columns=True</cite> is specified as kwargs, the dataset is unpacked to two separate arrays x and y.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._sandvine.sandvine_dataset_description">
+<span class="sig-name descname"><span class="pre">sandvine_dataset_description</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._sandvine.sandvine_dataset_description" title="Link to this definition"></a></dt>
+<dd><p>Get description of this dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._sandvine.load_sandvine_audio">
+<span class="sig-name descname"><span class="pre">load_sandvine_audio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._sandvine.load_sandvine_audio" title="Link to this definition"></a></dt>
+<dd><p>Load and return sandvine audio dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._sandvine.load_sandvine_cloud">
+<span class="sig-name descname"><span class="pre">load_sandvine_cloud</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._sandvine.load_sandvine_cloud" title="Link to this definition"></a></dt>
+<dd><p>Load and return sandvine cloud dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._sandvine.load_sandvine_file_sharing">
+<span class="sig-name descname"><span class="pre">load_sandvine_file_sharing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._sandvine.load_sandvine_file_sharing" title="Link to this definition"></a></dt>
+<dd><p>Load and return sandvine file sharing dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._sandvine.load_sandvine_fixed_social_media">
+<span class="sig-name descname"><span class="pre">load_sandvine_fixed_social_media</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._sandvine.load_sandvine_fixed_social_media" title="Link to this definition"></a></dt>
+<dd><p>Load and return sandvine fixed social media dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._sandvine.load_sandvine_gaming">
+<span class="sig-name descname"><span class="pre">load_sandvine_gaming</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._sandvine.load_sandvine_gaming" title="Link to this definition"></a></dt>
+<dd><p>Load and return sandvine gaming dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._sandvine.load_sandvine_marketplace">
+<span class="sig-name descname"><span class="pre">load_sandvine_marketplace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._sandvine.load_sandvine_marketplace" title="Link to this definition"></a></dt>
+<dd><p>Load and return sandvine marketplace dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._sandvine.load_sandvine_measurements">
+<span class="sig-name descname"><span class="pre">load_sandvine_measurements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._sandvine.load_sandvine_measurements" title="Link to this definition"></a></dt>
+<dd><p>Load and return sandvine measurements dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._sandvine.load_sandvine_messaging">
+<span class="sig-name descname"><span class="pre">load_sandvine_messaging</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._sandvine.load_sandvine_messaging" title="Link to this definition"></a></dt>
+<dd><p>Load and return sandvine messaging dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._sandvine.load_sandvine_mobile_messaging">
+<span class="sig-name descname"><span class="pre">load_sandvine_mobile_messaging</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._sandvine.load_sandvine_mobile_messaging" title="Link to this definition"></a></dt>
+<dd><p>Load and return sandvine mobile messaging dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._sandvine.load_sandvine_mobile_social_media">
+<span class="sig-name descname"><span class="pre">load_sandvine_mobile_social_media</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._sandvine.load_sandvine_mobile_social_media" title="Link to this definition"></a></dt>
+<dd><p>Load and return sandvine mobile social media dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._sandvine.load_sandvine_mobile_video">
+<span class="sig-name descname"><span class="pre">load_sandvine_mobile_video</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._sandvine.load_sandvine_mobile_video" title="Link to this definition"></a></dt>
+<dd><p>Load and return sandvine mobile video dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._sandvine.load_sandvine_mobile_youtube">
+<span class="sig-name descname"><span class="pre">load_sandvine_mobile_youtube</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._sandvine.load_sandvine_mobile_youtube" title="Link to this definition"></a></dt>
+<dd><p>Load and return sandvine mobile youtube dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._sandvine.load_sandvine_mobile_zoom">
+<span class="sig-name descname"><span class="pre">load_sandvine_mobile_zoom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._sandvine.load_sandvine_mobile_zoom" title="Link to this definition"></a></dt>
+<dd><p>Load and return sandvine mobile zoom dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._sandvine.load_sandvine_snapchat">
+<span class="sig-name descname"><span class="pre">load_sandvine_snapchat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._sandvine.load_sandvine_snapchat" title="Link to this definition"></a></dt>
+<dd><p>Load and return sandvine snapchat dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._sandvine.load_sandvine_social_networking">
+<span class="sig-name descname"><span class="pre">load_sandvine_social_networking</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._sandvine.load_sandvine_social_networking" title="Link to this definition"></a></dt>
+<dd><p>Load and return sandvine social networking dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._sandvine.load_sandvine_tiktok">
+<span class="sig-name descname"><span class="pre">load_sandvine_tiktok</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._sandvine.load_sandvine_tiktok" title="Link to this definition"></a></dt>
+<dd><p>Load and return sandvine tiktok dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._sandvine.load_sandvine_video_streaming">
+<span class="sig-name descname"><span class="pre">load_sandvine_video_streaming</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._sandvine.load_sandvine_video_streaming" title="Link to this definition"></a></dt>
+<dd><p>Load and return sandvine video streaming dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._sandvine.load_sandvine_vpn_and_security">
+<span class="sig-name descname"><span class="pre">load_sandvine_vpn_and_security</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._sandvine.load_sandvine_vpn_and_security" title="Link to this definition"></a></dt>
+<dd><p>Load and return sandvine vpn and security dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._sandvine.load_sandvine_web">
+<span class="sig-name descname"><span class="pre">load_sandvine_web</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._sandvine.load_sandvine_web" title="Link to this definition"></a></dt>
+<dd><p>Load and return sandvine web dataset.</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="traffic_weaver.datasets._mix_it.html" class="btn btn-neutral float-left" title="mix_it datasets" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="traffic_weaver.funfit.html" class="btn btn-neutral float-right" title="funfit module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Piotr T. Lechowicz.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -2,15 +2,16 @@ traffic_weaver package
 ======================
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
 
    weaver <traffic_weaver.weaver>
-   array_utils <traffic_weaver.array_utils>
    datasets <traffic_weaver.datasets>
    funfit <traffic_weaver.funfit>
    interval <traffic_weaver.interval>
    match <traffic_weaver.match>
-   oversample <traffic_weaver.oversample>
    process <traffic_weaver.process>
+   rfa <traffic_weaver.rfa>
+   sorted_array_utils <traffic_weaver.sorted_array_utils>
+
 
 

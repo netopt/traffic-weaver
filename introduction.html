@@ -54,24 +54,42 @@
 <li class="toctree-l2"><a class="reference internal" href="#architecture">Architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#functionalities">Functionalities</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#motivation-and-significance">Motivation and significance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bibliography">Bibliography</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick start</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="quick_start.html#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quick_start.html#minimal-processing-example">Minimal processing example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quick_start.html#further-signal-processing">Further signal processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick_start.html#further-processing-examples">Further processing examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">Datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="datasets.html#list-of-datasets">List of datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datasets.html#collecting-new-datasets">Collecting new datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datasets.html#bibliography">Bibliography</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="using_the_api.html">Using the API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="using_the_api.html#reading-data">Reading data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_the_api.html#preprocessing-data">Preprocessing data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_the_api.html#getting-processed-signal">Getting processed signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_the_api.html#interpolation">Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_the_api.html#repeating">Repeating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_the_api.html#trending">Trending</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_the_api.html#recreate-from-average">Recreate from average</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_the_api.html#integral-match">Integral match</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_the_api.html#noising">Noising</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_the_api.html#smoothing">Smoothing</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="apidocs/traffic_weaver.html">API reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html">weaver</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver"><code class="docutils literal notranslate"><span class="pre">Weaver</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.copy"><code class="docutils literal notranslate"><span class="pre">Weaver.copy()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.from_2d_array"><code class="docutils literal notranslate"><span class="pre">Weaver.from_2d_array()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.from_dataframe"><code class="docutils literal notranslate"><span class="pre">Weaver.from_dataframe()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.from_csv"><code class="docutils literal notranslate"><span class="pre">Weaver.from_csv()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.get"><code class="docutils literal notranslate"><span class="pre">Weaver.get()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.get_original"><code class="docutils literal notranslate"><span class="pre">Weaver.get_original()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.get_reference"><code class="docutils literal notranslate"><span class="pre">Weaver.get_reference()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.restore_original"><code class="docutils literal notranslate"><span class="pre">Weaver.restore_original()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.append_one_sample"><code class="docutils literal notranslate"><span class="pre">Weaver.append_one_sample()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.slice_by_index"><code class="docutils literal notranslate"><span class="pre">Weaver.slice_by_index()</span></code></a></li>
@@ -84,14 +102,66 @@
 <li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.trend"><code class="docutils literal notranslate"><span class="pre">Weaver.trend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.smooth"><code class="docutils literal notranslate"><span class="pre">Weaver.smooth()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.to_function"><code class="docutils literal notranslate"><span class="pre">Weaver.to_function()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.to_2d_array"><code class="docutils literal notranslate"><span class="pre">Weaver.to_2d_array()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.scale_x"><code class="docutils literal notranslate"><span class="pre">Weaver.scale_x()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.scale_y"><code class="docutils literal notranslate"><span class="pre">Weaver.scale_y()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.shift_x"><code class="docutils literal notranslate"><span class="pre">Weaver.shift_x()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.shift_y"><code class="docutils literal notranslate"><span class="pre">Weaver.shift_y()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.normalize_x"><code class="docutils literal notranslate"><span class="pre">Weaver.normalize_x()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.normalize_y"><code class="docutils literal notranslate"><span class="pre">Weaver.normalize_y()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.truncate_by_value"><code class="docutils literal notranslate"><span class="pre">Weaver.truncate_by_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.truncate_by_index"><code class="docutils literal notranslate"><span class="pre">Weaver.truncate_by_index()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.array_utils.html">array_utils</a></li>
-<li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.datasets.html">datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.datasets.html">datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.datasets._base.html">base</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.load_dataset"><code class="docutils literal notranslate"><span class="pre">load_dataset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.get_data_home"><code class="docutils literal notranslate"><span class="pre">get_data_home()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.clear_data_home"><code class="docutils literal notranslate"><span class="pre">clear_data_home()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.load_csv_dataset_from_resources"><code class="docutils literal notranslate"><span class="pre">load_csv_dataset_from_resources()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.load_csv_dataset_from_remote"><code class="docutils literal notranslate"><span class="pre">load_csv_dataset_from_remote()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._base.html#traffic_weaver.datasets._base.load_dataset_description"><code class="docutils literal notranslate"><span class="pre">load_dataset_description()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.datasets._ams_ix.html">ams_ix</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._ams_ix.html#list-of-datasets">List of datasets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._ams_ix.html#datasets-description">Datasets description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._ams_ix.html#units">Units</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.datasets._mix_it.html">mix_it</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._mix_it.html#list-of-datasets">List of datasets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._mix_it.html#datasets-description">Datasets description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._mix_it.html#units">Units</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html">sandvine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.sandvine_dataset_description"><code class="docutils literal notranslate"><span class="pre">sandvine_dataset_description()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_audio"><code class="docutils literal notranslate"><span class="pre">load_sandvine_audio()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_cloud"><code class="docutils literal notranslate"><span class="pre">load_sandvine_cloud()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_file_sharing"><code class="docutils literal notranslate"><span class="pre">load_sandvine_file_sharing()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_fixed_social_media"><code class="docutils literal notranslate"><span class="pre">load_sandvine_fixed_social_media()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_gaming"><code class="docutils literal notranslate"><span class="pre">load_sandvine_gaming()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_marketplace"><code class="docutils literal notranslate"><span class="pre">load_sandvine_marketplace()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_measurements"><code class="docutils literal notranslate"><span class="pre">load_sandvine_measurements()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_messaging"><code class="docutils literal notranslate"><span class="pre">load_sandvine_messaging()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_mobile_messaging"><code class="docutils literal notranslate"><span class="pre">load_sandvine_mobile_messaging()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_mobile_social_media"><code class="docutils literal notranslate"><span class="pre">load_sandvine_mobile_social_media()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_mobile_video"><code class="docutils literal notranslate"><span class="pre">load_sandvine_mobile_video()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_mobile_youtube"><code class="docutils literal notranslate"><span class="pre">load_sandvine_mobile_youtube()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_mobile_zoom"><code class="docutils literal notranslate"><span class="pre">load_sandvine_mobile_zoom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_snapchat"><code class="docutils literal notranslate"><span class="pre">load_sandvine_snapchat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_social_networking"><code class="docutils literal notranslate"><span class="pre">load_sandvine_social_networking()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_tiktok"><code class="docutils literal notranslate"><span class="pre">load_sandvine_tiktok()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_video_streaming"><code class="docutils literal notranslate"><span class="pre">load_sandvine_video_streaming()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_vpn_and_security"><code class="docutils literal notranslate"><span class="pre">load_sandvine_vpn_and_security()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_web"><code class="docutils literal notranslate"><span class="pre">load_sandvine_web()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.funfit.html">funfit</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.funfit.html#traffic_weaver.funfit.lin_fit"><code class="docutils literal notranslate"><span class="pre">lin_fit()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.funfit.html#traffic_weaver.funfit.exp_fit"><code class="docutils literal notranslate"><span class="pre">exp_fit()</span></code></a></li>
@@ -117,9 +187,10 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.match.html">match</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.match.html#traffic_weaver.match.integral_matching_reference_stretch"><code class="docutils literal notranslate"><span class="pre">integral_matching_reference_stretch()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.match.html#traffic_weaver.match._integral_matching_stretch"><code class="docutils literal notranslate"><span class="pre">_integral_matching_stretch()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.match.html#traffic_weaver.match._interval_integral_matching_stretch"><code class="docutils literal notranslate"><span class="pre">_interval_integral_matching_stretch()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.oversample.html">oversample</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.process.html">process</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.process.html#traffic_weaver.process.interpolate"><code class="docutils literal notranslate"><span class="pre">interpolate()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.process.html#traffic_weaver.process.repeat"><code class="docutils literal notranslate"><span class="pre">repeat()</span></code></a></li>
@@ -128,6 +199,42 @@
 <li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.process.html#traffic_weaver.process.spline_smooth"><code class="docutils literal notranslate"><span class="pre">spline_smooth()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.process.html#traffic_weaver.process.noise_gauss"><code class="docutils literal notranslate"><span class="pre">noise_gauss()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.process.html#traffic_weaver.process.average"><code class="docutils literal notranslate"><span class="pre">average()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.process.html#traffic_weaver.process.truncate"><code class="docutils literal notranslate"><span class="pre">truncate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.process.html#traffic_weaver.process.normalize"><code class="docutils literal notranslate"><span class="pre">normalize()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html">rfa</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.AbstractRFA"><code class="docutils literal notranslate"><span class="pre">AbstractRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.AbstractRFA.rfa"><code class="docutils literal notranslate"><span class="pre">AbstractRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.PiecewiseConstantRFA"><code class="docutils literal notranslate"><span class="pre">PiecewiseConstantRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.PiecewiseConstantRFA.rfa"><code class="docutils literal notranslate"><span class="pre">PiecewiseConstantRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.FunctionRFA"><code class="docutils literal notranslate"><span class="pre">FunctionRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.FunctionRFA.rfa"><code class="docutils literal notranslate"><span class="pre">FunctionRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.CubicSplineRFA"><code class="docutils literal notranslate"><span class="pre">CubicSplineRFA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.IntervalRFA"><code class="docutils literal notranslate"><span class="pre">IntervalRFA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.LinearFixedRFA"><code class="docutils literal notranslate"><span class="pre">LinearFixedRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.LinearFixedRFA.rfa"><code class="docutils literal notranslate"><span class="pre">LinearFixedRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.LinearAdaptiveRFA"><code class="docutils literal notranslate"><span class="pre">LinearAdaptiveRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.LinearAdaptiveRFA.get_adaptive_transition_points"><code class="docutils literal notranslate"><span class="pre">LinearAdaptiveRFA.get_adaptive_transition_points()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.LinearAdaptiveRFA.rfa"><code class="docutils literal notranslate"><span class="pre">LinearAdaptiveRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.ExpFixedRFA"><code class="docutils literal notranslate"><span class="pre">ExpFixedRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.ExpFixedRFA.rfa"><code class="docutils literal notranslate"><span class="pre">ExpFixedRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.ExpAdaptiveRFA"><code class="docutils literal notranslate"><span class="pre">ExpAdaptiveRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.ExpAdaptiveRFA.rfa"><code class="docutils literal notranslate"><span class="pre">ExpAdaptiveRFA.rfa()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -164,11 +271,13 @@
 <section id="scope">
 <h2>Scope<a class="headerlink" href="#scope" title="Link to this heading"></a></h2>
 <p>Traffic Weaver is a Python package developed to generate a semi-synthetic signal (time series) with finer granularity,
-based on averaged time series, in a manner that, upon averaging, closely matches the original signal provided. The key
-components utilized to recreate the signal encompass:</p>
+based on averaged time series, in a manner that, upon averaging, closely matches the original signal provided.
+The key components utilized to recreate the signal encompass:</p>
 <ul class="simple">
-<li><p>oversampling with a given strategy,</p></li>
+<li><p>oversampling</p></li>
+<li><p>recreating from average with a given strategy,</p></li>
 <li><p>stretching to match the integral of the original time series,</p></li>
+<li><p>interpolating,</p></li>
 <li><p>smoothing,</p></li>
 <li><p>repeating,</p></li>
 <li><p>applying trend,</p></li>
@@ -177,35 +286,42 @@ components utilized to recreate the signal encompass:</p>
 <p>The primary motivation behind Traffic Weaver is to furnish semi-synthetic time-varying traffic in telecommunication
 networks, facilitating the development and validation of traffic prediction models, as well as aiding in the deployment
 of network optimization algorithms tailored for time-varying traffic.</p>
+<p>The purpose of Traffic Weaver is to generate new time-varying data based on an already available sample of data, i.e.,
+to create semi-synthetic data when the size of real data is either insufficient or the time points at which the data
+were measured are too rare.</p>
+<p>In consequence, it can generate larger and diverse datasets with similar traffic patterns based on the original traffic.</p>
 <p><a class="reference internal" href="#fig-signal-processing"><span class="std std-numref">Fig. 1</span></a> shows a general usage example. Based on the provided original averaged time series (a),
-the signal is <cite>n</cite>-times oversampled with a predefined strategy (b). Next, it is stretched to match the integral of the
-input time series function (c). Further, it is smoothed with a spline function (d). In order to create weekly
+the signal is <cite>n</cite>-times oversampled and recreated from average values with a predefined strategy (b).
+Next, it is stretched to match the integral of the input time series function (c).
+Further, it is smoothed with a spline function (d). In order to create weekly
 semi-synthetic data, the signal is repeated seven times (e), applying a long-term trend consisting of sinusoidal and
 linear functions (f). Finally, the noise is introduced to the signal, starting from small values and increasing over
 time (g). To validate the correctness of the applied processing, (h) presents the averaged two periods of the created
 signal, showing that they closely match the original signal (except the applied trend).</p>
-<figure class="align-default" id="id3">
-<span id="fig-signal-processing"></span><a class="reference internal image-reference" href="_images/signal_processing_overview.pdf"><img alt="Signal processing" src="_images/signal_processing_overview.pdf" style="width: 800px;" /></a>
+<figure class="align-default" id="id1">
+<span id="fig-signal-processing"></span><a class="reference internal image-reference" href="_images/signal_processing_overview.png"><img alt="Signal processing" src="_images/signal_processing_overview.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Signal processing.</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Regenerating time-varying traffic from the averaged traffic sample: original traffic (a);
+recreated from average (b); matched with the integral of the original signal (c);
+smoothed (d); repeated 7 times (e); trended with sinusoidal and linear function (f); noised (g); averaged (h).</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="architecture">
 <h2>Architecture<a class="headerlink" href="#architecture" title="Link to this heading"></a></h2>
 <p><a class="reference internal" href="#fig-software-architecture"><span class="std std-numref">Fig. 2</span></a> presents overview of software architecture.
-<cite>Weaver</cite>, located in <cite>weaver.py</cite> module, wraps supplied time series data and provides
+<cite>Weaver</cite>, located in <cite>weaver.py</cite> module, wraps supplied signal (time series) data and provides an
 interface for processing functionalities. Time series can be either specified by the
 user or obtained from embedded example datasets.
 Individual functionalities provided by the <cite>Weaver</cite> are delegated to other modules,
-e.g., oversampling functionality is located in <cite>oversample.py</cite> module. However,
+e.g., recreating from average functionality is located in <cite>rfa.py</cite> module. However,
 it is possible to use individual functionalities from they corresponding modules
 regardless of wrapping time series into <cite>Weaver</cite>. <cite>Weaver</cite> allows to retrieve processed
 data either as sampled points or continues spline function.</p>
-<figure class="align-default" id="id4">
-<span id="fig-software-architecture"></span><a class="reference internal image-reference" href="_images/software_architecture.pdf"><img alt="Software architecture" src="_images/software_architecture.pdf" style="width: 500px;" /></a>
+<figure class="align-default" id="id2">
+<span id="fig-software-architecture"></span><a class="reference internal image-reference" href="_images/software_architecture.png"><img alt="Software architecture" src="_images/software_architecture.png" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Software architecture.</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Software architecture.</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -216,7 +332,7 @@ the term <cite>interval</cite> refers to the distance between two sampled points
 is to create an output time series with multiple points inserted in each interval.</p>
 <ul>
 <li><dl class="simple">
-<dt>Class <a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver" title="traffic_weaver.weaver.Weaver"><code class="xref py py-func docutils literal notranslate"><span class="pre">Weaver(x,</span> <span class="pre">y)</span></code></a></dt><dd><p><cite>Weaver</cite> is an interface for recreating signal.
+<dt>Class <a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver" title="traffic_weaver.weaver.Weaver"><code class="xref py py-func docutils literal notranslate"><span class="pre">Weaver(x,</span> <span class="pre">y)</span></code></a></dt><dd><p><cite>Weaver</cite> is an interface for recreating and processing signal.
 It takes as an input time series provided as two lists containing values of
 independent and dependent variables. It delegates processing to other modules
 and allows to retrieve the recreated signal either as lists of values of independent
@@ -228,25 +344,23 @@ methods, respectively.</p>
 </dl>
 </li>
 <li><dl>
-<dt>Oversampling</dt><dd><blockquote>
-<div><p>Oversampling is a recreation of a signal with finer sampling granularity based on the supplied strategy. The number of created points between each interval (pair of points in the original time series) is provided</p>
-</div></blockquote>
-<p>as a parameter. The strategy determines how the created time series transits between points, i.e., how the new
+<dt>Recreating from average</dt><dd><p>Recreating from average is a recreation of a signal with finer sampling granularity based on the supplied strategy.
+The number of created points between each interval (pair of points in the original time series) is provided
+as a parameter. The strategy determines how the created time series transits between points, i.e., how the new
 points are located. The software provides several strategies,
-namely, <code class="xref py py-func docutils literal notranslate"><span class="pre">ExpAdaptiveOversample()</span></code>,
-<code class="xref py py-func docutils literal notranslate"><span class="pre">ExpFixedOversample()</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">LinearAdaptiveOversample()</span></code>,
-<code class="xref py py-func docutils literal notranslate"><span class="pre">LinearFixedOversample()</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">PiecewiseConstantOversample()</span></code>,
-<code class="xref py py-func docutils literal notranslate"><span class="pre">CubicSplineOversample()</span></code>.
-E.g., <cite>ExpAdaptiveOversample</cite>  creates an adaptive transition window for each interval by combining
+namely, <a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.ExpAdaptiveRFA" title="traffic_weaver.rfa.ExpAdaptiveRFA"><code class="xref py py-func docutils literal notranslate"><span class="pre">ExpAdaptiveRFA()</span></code></a>, <a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.ExpFixedRFA" title="traffic_weaver.rfa.ExpFixedRFA"><code class="xref py py-func docutils literal notranslate"><span class="pre">ExpFixedRFA()</span></code></a>, <a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.LinearAdaptiveRFA" title="traffic_weaver.rfa.LinearAdaptiveRFA"><code class="xref py py-func docutils literal notranslate"><span class="pre">LinearAdaptiveRFA()</span></code></a>,
+<a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.LinearFixedRFA" title="traffic_weaver.rfa.LinearFixedRFA"><code class="xref py py-func docutils literal notranslate"><span class="pre">LinearFixedRFA()</span></code></a>, <a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.PiecewiseConstantRFA" title="traffic_weaver.rfa.PiecewiseConstantRFA"><code class="xref py py-func docutils literal notranslate"><span class="pre">PiecewiseConstantRFA()</span></code></a>,
+<a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.CubicSplineRFA" title="traffic_weaver.rfa.CubicSplineRFA"><code class="xref py py-func docutils literal notranslate"><span class="pre">CubicSplineRFA()</span></code></a>.
+E.g., <cite>ExpAdaptiveRFA</cite>  creates an adaptive transition window for each interval by combining
 linear and exponential functions. The size of the window is inversely proportional to the change
 of the function value on both edges of the interval, i.e., if the function value has a higher change
 on the right side than on the left side of the interval, the right side transition window is smaller
 than the left one.</p>
 <p>The <cite>Weaver</cite> class provides the
-<code class="xref py py-func docutils literal notranslate"><span class="pre">oversample(n,</span> <span class="pre">oversample_class,</span> <span class="pre">**kwargs):</span></code> method
-that delegates the execution to the oversample module and takes as an input number of samples
-<cite>n</cite> in each interval after oversampling, oversample strategy <cite>oversample_class</cite> inheriting
-<code class="xref py py-func docutils literal notranslate"><span class="pre">AbstractOversample()</span></code> class, and a dictionary of parameters
+<a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.recreate_from_average" title="traffic_weaver.weaver.Weaver.recreate_from_average"><code class="xref py py-func docutils literal notranslate"><span class="pre">recreate_from_average(n,</span> <span class="pre">rfa_class,</span> <span class="pre">**kwargs):</span></code></a> method
+that delegates the execution to the rfa module and takes as an input number of samples
+<cite>n</cite> in each interval after oversampling, recreate from average strategy <cite>rfa_class</cite> inheriting
+<a class="reference internal" href="apidocs/traffic_weaver.rfa.html#traffic_weaver.rfa.AbstractRFA" title="traffic_weaver.rfa.AbstractRFA"><code class="xref py py-func docutils literal notranslate"><span class="pre">AbstractRFA()</span></code></a> class, and a dictionary of parameters
 passed to the selected strategy.</p>
 </dd>
 </dl>
@@ -256,12 +370,16 @@ passed to the selected strategy.</p>
 constant function over the same domain (the original time series). It does that by stretching the
 signal in intervals such that the integral in the interval of the current time series is equal
 to the integral of the same interval in the reference function. Points in each interval are
-transformed inversely proportionally to the exponential value of distance from the interval center.</p>
+transformed inversely proportionally to the exponential value of distance from the interval center.
+Integral for the recreated function and for the original function can be calculated either using trapezoidal
+or rectangular rule.</p>
 <p>The <cite>Weaver</cite> class provides the
-<a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.integral_match" title="traffic_weaver.weaver.Weaver.integral_match"><code class="xref py py-func docutils literal notranslate"><span class="pre">integral_match(**kwargs)</span></code></a>
+<a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.integral_match" title="traffic_weaver.weaver.Weaver.integral_match"><code class="xref py py-func docutils literal notranslate"><span class="pre">integral_match(target_function_integral_method,</span> <span class="pre">reference_function_integral_method,</span> <span class="pre">**kwargs)</span></code></a>
 method that delegates the execution to the match module and takes as an input a dictionary of
 parameters passed to the matching function. The time series currently stored in the <cite>Weaver</cite>
-is matched with a reference to the originally passed function to the class.</p>
+is matched with a reference to the originally passed function to the class. <cite>target_function_integral_method</cite>
+and <cite>reference_function_integral_method</cite> specifies how integral is calculated for target and reference function,
+respectively.</p>
 </dd>
 </dl>
 </li>
@@ -290,11 +408,13 @@ to repeat the time series.</p>
 <dt>Trending</dt><dd><p>It applies a trend to the time series according to the specified function. It allows adding a long-term
 trend to the time series, e.g., constant dependent variable increase over time.</p>
 <p>The <cite>Weaver</cite> class provides the
-<a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.trend" title="traffic_weaver.weaver.Weaver.trend"><code class="xref py py-func docutils literal notranslate"><span class="pre">trend(trend_func)</span></code></a>
+<a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.trend" title="traffic_weaver.weaver.Weaver.trend"><code class="xref py py-func docutils literal notranslate"><span class="pre">trend(trend_func,</span> <span class="pre">normalized)</span></code></a>
 method to apply a trend to the processed time series. The argument <cite>trend_function</cite>
 is a callable that shifts the value for the dependent variable based on the value of the
-independent variable normalized to a <cite>(0, 1)</cite> range. The callable takes one argument – the normalized
-value of the independent variable – and has to return the shift value for the dependent variable.</p>
+independent variable. The callable takes one argument – the
+value of the independent variable – and has to return the shift value for the dependent variable.
+Argument <cite>normalized</cite> is a boolean determining if the trend function is normalized to
+the range of <cite>[0, 1]</cite>.</p>
 </dd>
 </dl>
 </li>
@@ -305,20 +425,54 @@ expressed as signal to noise ratio.</p>
 <a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.noise" title="traffic_weaver.weaver.Weaver.noise"><code class="xref py py-func docutils literal notranslate"><span class="pre">noise(snr,</span> <span class="pre">**kwargs)</span></code></a>
 method to apply noise to the signal. The argument <cite>snr</cite> defines the signal-to-noise ratio of a function
 either as a scalar value or as a list of changing values over time whose size matches the size
-of the independent variable. <cite>**kwargs</cite> is a set of parameters passed to the noising function,
-allowing, e.g., to express the noise as a normal distribution standard deviation instead of
-the signal-to-noise ratio.</p>
+of the independent variable.</p>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt>Datasets</dt><dd><p>The <cite>Datasets</cite> module provides example datasets based on the Sandvine report
-<a class="footnote-reference brackets" href="#footcite-sandvine2021" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>. In more detail, report includes information about daily
-traffic patterns of various network-based applications, e.g., TikTok, YouTube, Zoom, etc.,
-averaged over multiple large networks.
-The report presents the data as bar plots of traffic averaged in each hour of the day.
-The <cite>Datasets</cite> module includes nineteen datasets containing information about these shapes denoted as lists,
-which can be used as a base for generating the semi-synthetic traffic.</p>
+<li><dl>
+<dt>Interpolating</dt><dd><p>It applies an interpolation of time series using specified points.</p>
+<p>The <cite>Weaver</cite> class provides the
+<a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.interpolate" title="traffic_weaver.weaver.Weaver.interpolate"><code class="xref py py-func docutils literal notranslate"><span class="pre">interpolate(self,</span> <span class="pre">n:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">new_x=None,</span> <span class="pre">method='linear',</span> <span class="pre">**kwargs)</span></code></a>
+method to interpolate the time series.
+The argument <cite>n</cite> is the Number of fixed space samples in new interpolated function.
+<cite>new_x</cite> is an list of points where to evaluate interpolated function. It overrides <cite>n</cite> parameter.
+Range should be the same as original function domain.
+Interpolation is done according to the <cite>method</cite> parameter.
+Supported strategies are ‘linear’, ‘constant’, ‘cubic’ and ‘spline’.</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Truncating</dt><dd><p>It truncates a time series to a specified range. If specified points are not present in the time series,
+the closest points are selected such that the specified range is included.</p>
+<p>The <cite>Weaver</cite> class provides the
+<code class="xref py py-func docutils literal notranslate"><span class="pre">truncate(x_left,</span> <span class="pre">x_right,</span> <span class="pre">x_left_as_ratio,</span> <span class="pre">x_right_as_ratio)</span></code> method
+to truncate time series.
+Arguments <cite>x_left</cite> and <cite>x_right</cite> are values in the independent variable array to which truncate its content
+from the left and right side, respectively. Arguments <cite>x_left_as_ratio</cite> and <cite>x_right_as_ratio</cite> are boolean
+that determine if <cite>x_left</cite> and <cite>x_right</cite> are treated as ratios of the independent variable range
+to truncate from the left and right,
+respectively.</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Normalizing</dt><dd><p>It normalizes the independent and dependent variable to the specified range.</p>
+<p>The <cite>Weaver</cite> class provides the
+<a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.normalize_x" title="traffic_weaver.weaver.Weaver.normalize_x"><code class="xref py py-func docutils literal notranslate"><span class="pre">normalize_x(min_val,</span> <span class="pre">max_val)</span></code></a> and
+<a class="reference internal" href="apidocs/traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.normalize_y" title="traffic_weaver.weaver.Weaver.normalize_y"><code class="xref py py-func docutils literal notranslate"><span class="pre">normalize_y(min_val,</span> <span class="pre">max_val)</span></code></a>
+method to normalize the independent and dependent variable, respectively.
+Arguments <cite>min_val</cite> and <cite>max_val</cite> are the minimum and maximum values for normalization.</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Datasets</dt><dd><p>The <cite>datasets</cite> module provides collected network traffic datasets.</p>
+<p>Network operators often collect data about traffic generated by their customers. However, due to legal aspects,
+exact values are not shared with the public. However, the community can access averaged or summary data presented
+in a form of a plots. This module provides a set of datasets recreated from graphical plots which can be further
+resampled and regenerated using Traffic Weaver.</p>
+<p>For more information about collecting datasets refer to <a class="reference internal" href="datasets.html"><span class="doc">datasets</span></a>.</p>
 </dd>
 </dl>
 </li>
@@ -342,18 +496,8 @@ pool of appropriately diverse datasets are necessary for the development and tho
 designed algorithms.</p>
 <p>The purpose of Traffic Weaver is to generate new data based on an already available sample of data, i.e.,
 to create semi-synthetic data when the size of real data is either insufficient or the time points at which
-the data were measured are too rare.</p>
-</section>
-<section id="bibliography">
-<h2>Bibliography<a class="headerlink" href="#bibliography" title="Link to this heading"></a></h2>
-<div class="docutils container" id="id2">
-<aside class="footnote-list brackets">
-<aside class="footnote brackets" id="footcite-sandvine2021" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
-<p>Sandvine. The mobile internet phenomena report. May 2021.</p>
-</aside>
-</aside>
-</div>
+the data were measured are too rare.
+In consequence, it can generate larger and diverse datasets with similar traffic patterns based on the original traffic.</p>
 </section>
 </section>
 

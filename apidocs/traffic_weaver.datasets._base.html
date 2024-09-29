@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>base datasets &mdash; Traffic Weaver  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ams_ix datasets" href="traffic_weaver.datasets._ams_ix.html" />
+    <link rel="prev" title="datasets module" href="traffic_weaver.datasets.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Traffic Weaver
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.3.6
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#scope">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#architecture">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#functionalities">Functionalities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#motivation-and-significance">Motivation and significance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quick_start.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_start.html#minimal-processing-example">Minimal processing example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_start.html#further-processing-examples">Further processing examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../datasets.html#list-of-datasets">List of datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../datasets.html#collecting-new-datasets">Collecting new datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../datasets.html#bibliography">Bibliography</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../using_the_api.html">Using the API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#reading-data">Reading data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#preprocessing-data">Preprocessing data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#getting-processed-signal">Getting processed signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#interpolation">Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#repeating">Repeating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#trending">Trending</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#recreate-from-average">Recreate from average</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#integral-match">Integral match</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#noising">Noising</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_the_api.html#smoothing">Smoothing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="traffic_weaver.html">API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="traffic_weaver.weaver.html">weaver</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver"><code class="docutils literal notranslate"><span class="pre">Weaver</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.from_2d_array"><code class="docutils literal notranslate"><span class="pre">Weaver.from_2d_array()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.from_dataframe"><code class="docutils literal notranslate"><span class="pre">Weaver.from_dataframe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.from_csv"><code class="docutils literal notranslate"><span class="pre">Weaver.from_csv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.get"><code class="docutils literal notranslate"><span class="pre">Weaver.get()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.get_original"><code class="docutils literal notranslate"><span class="pre">Weaver.get_original()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.get_reference"><code class="docutils literal notranslate"><span class="pre">Weaver.get_reference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.restore_original"><code class="docutils literal notranslate"><span class="pre">Weaver.restore_original()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.append_one_sample"><code class="docutils literal notranslate"><span class="pre">Weaver.append_one_sample()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.slice_by_index"><code class="docutils literal notranslate"><span class="pre">Weaver.slice_by_index()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.slice_by_value"><code class="docutils literal notranslate"><span class="pre">Weaver.slice_by_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.interpolate"><code class="docutils literal notranslate"><span class="pre">Weaver.interpolate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.recreate_from_average"><code class="docutils literal notranslate"><span class="pre">Weaver.recreate_from_average()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.integral_match"><code class="docutils literal notranslate"><span class="pre">Weaver.integral_match()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.noise"><code class="docutils literal notranslate"><span class="pre">Weaver.noise()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.repeat"><code class="docutils literal notranslate"><span class="pre">Weaver.repeat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.trend"><code class="docutils literal notranslate"><span class="pre">Weaver.trend()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.smooth"><code class="docutils literal notranslate"><span class="pre">Weaver.smooth()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.to_function"><code class="docutils literal notranslate"><span class="pre">Weaver.to_function()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.to_2d_array"><code class="docutils literal notranslate"><span class="pre">Weaver.to_2d_array()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.scale_x"><code class="docutils literal notranslate"><span class="pre">Weaver.scale_x()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.scale_y"><code class="docutils literal notranslate"><span class="pre">Weaver.scale_y()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.shift_x"><code class="docutils literal notranslate"><span class="pre">Weaver.shift_x()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.shift_y"><code class="docutils literal notranslate"><span class="pre">Weaver.shift_y()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.normalize_x"><code class="docutils literal notranslate"><span class="pre">Weaver.normalize_x()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.normalize_y"><code class="docutils literal notranslate"><span class="pre">Weaver.normalize_y()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.truncate_by_value"><code class="docutils literal notranslate"><span class="pre">Weaver.truncate_by_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.weaver.html#traffic_weaver.weaver.Weaver.truncate_by_index"><code class="docutils literal notranslate"><span class="pre">Weaver.truncate_by_index()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="traffic_weaver.datasets.html">datasets</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">base</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.datasets._base.load_dataset"><code class="docutils literal notranslate"><span class="pre">load_dataset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.datasets._base.get_data_home"><code class="docutils literal notranslate"><span class="pre">get_data_home()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.datasets._base.clear_data_home"><code class="docutils literal notranslate"><span class="pre">clear_data_home()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.datasets._base.load_csv_dataset_from_resources"><code class="docutils literal notranslate"><span class="pre">load_csv_dataset_from_resources()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.datasets._base.load_csv_dataset_from_remote"><code class="docutils literal notranslate"><span class="pre">load_csv_dataset_from_remote()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic_weaver.datasets._base.load_dataset_description"><code class="docutils literal notranslate"><span class="pre">load_dataset_description()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.datasets._ams_ix.html">ams_ix</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._ams_ix.html#list-of-datasets">List of datasets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._ams_ix.html#datasets-description">Datasets description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._ams_ix.html#units">Units</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.datasets._mix_it.html">mix_it</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._mix_it.html#list-of-datasets">List of datasets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._mix_it.html#datasets-description">Datasets description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._mix_it.html#units">Units</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html">sandvine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.sandvine_dataset_description"><code class="docutils literal notranslate"><span class="pre">sandvine_dataset_description()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_audio"><code class="docutils literal notranslate"><span class="pre">load_sandvine_audio()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_cloud"><code class="docutils literal notranslate"><span class="pre">load_sandvine_cloud()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_file_sharing"><code class="docutils literal notranslate"><span class="pre">load_sandvine_file_sharing()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_fixed_social_media"><code class="docutils literal notranslate"><span class="pre">load_sandvine_fixed_social_media()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_gaming"><code class="docutils literal notranslate"><span class="pre">load_sandvine_gaming()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_marketplace"><code class="docutils literal notranslate"><span class="pre">load_sandvine_marketplace()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_measurements"><code class="docutils literal notranslate"><span class="pre">load_sandvine_measurements()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_messaging"><code class="docutils literal notranslate"><span class="pre">load_sandvine_messaging()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_mobile_messaging"><code class="docutils literal notranslate"><span class="pre">load_sandvine_mobile_messaging()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_mobile_social_media"><code class="docutils literal notranslate"><span class="pre">load_sandvine_mobile_social_media()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_mobile_video"><code class="docutils literal notranslate"><span class="pre">load_sandvine_mobile_video()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_mobile_youtube"><code class="docutils literal notranslate"><span class="pre">load_sandvine_mobile_youtube()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_mobile_zoom"><code class="docutils literal notranslate"><span class="pre">load_sandvine_mobile_zoom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_snapchat"><code class="docutils literal notranslate"><span class="pre">load_sandvine_snapchat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_social_networking"><code class="docutils literal notranslate"><span class="pre">load_sandvine_social_networking()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_tiktok"><code class="docutils literal notranslate"><span class="pre">load_sandvine_tiktok()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_video_streaming"><code class="docutils literal notranslate"><span class="pre">load_sandvine_video_streaming()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_vpn_and_security"><code class="docutils literal notranslate"><span class="pre">load_sandvine_vpn_and_security()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.datasets._sandvine.html#traffic_weaver.datasets._sandvine.load_sandvine_web"><code class="docutils literal notranslate"><span class="pre">load_sandvine_web()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_weaver.funfit.html">funfit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.funfit.html#traffic_weaver.funfit.lin_fit"><code class="docutils literal notranslate"><span class="pre">lin_fit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.funfit.html#traffic_weaver.funfit.exp_fit"><code class="docutils literal notranslate"><span class="pre">exp_fit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.funfit.html#traffic_weaver.funfit.exp_xy_fit"><code class="docutils literal notranslate"><span class="pre">exp_xy_fit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.funfit.html#traffic_weaver.funfit.exp_lin_fit"><code class="docutils literal notranslate"><span class="pre">exp_lin_fit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.funfit.html#traffic_weaver.funfit.lin_exp_xy_fit"><code class="docutils literal notranslate"><span class="pre">lin_exp_xy_fit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_weaver.interval.html">interval</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray"><code class="docutils literal notranslate"><span class="pre">IntervalArray</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.extend_linspace"><code class="docutils literal notranslate"><span class="pre">IntervalArray.extend_linspace()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.extend_constant"><code class="docutils literal notranslate"><span class="pre">IntervalArray.extend_constant()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.nr_of_full_intervals"><code class="docutils literal notranslate"><span class="pre">IntervalArray.nr_of_full_intervals()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.array"><code class="docutils literal notranslate"><span class="pre">IntervalArray.array</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.to_2d_array"><code class="docutils literal notranslate"><span class="pre">IntervalArray.to_2d_array()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.to_2d_array_closed_intervals"><code class="docutils literal notranslate"><span class="pre">IntervalArray.to_2d_array_closed_intervals()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.oversample"><code class="docutils literal notranslate"><span class="pre">IntervalArray.oversample()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.oversample_linspace"><code class="docutils literal notranslate"><span class="pre">IntervalArray.oversample_linspace()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.interval.html#traffic_weaver.interval.IntervalArray.oversample_piecewise"><code class="docutils literal notranslate"><span class="pre">IntervalArray.oversample_piecewise()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_weaver.match.html">match</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.match.html#traffic_weaver.match.integral_matching_reference_stretch"><code class="docutils literal notranslate"><span class="pre">integral_matching_reference_stretch()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.match.html#traffic_weaver.match._integral_matching_stretch"><code class="docutils literal notranslate"><span class="pre">_integral_matching_stretch()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.match.html#traffic_weaver.match._interval_integral_matching_stretch"><code class="docutils literal notranslate"><span class="pre">_interval_integral_matching_stretch()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_weaver.process.html">process</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.interpolate"><code class="docutils literal notranslate"><span class="pre">interpolate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.repeat"><code class="docutils literal notranslate"><span class="pre">repeat()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.trend"><code class="docutils literal notranslate"><span class="pre">trend()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.linear_trend"><code class="docutils literal notranslate"><span class="pre">linear_trend()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.spline_smooth"><code class="docutils literal notranslate"><span class="pre">spline_smooth()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.noise_gauss"><code class="docutils literal notranslate"><span class="pre">noise_gauss()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.average"><code class="docutils literal notranslate"><span class="pre">average()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.truncate"><code class="docutils literal notranslate"><span class="pre">truncate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.process.html#traffic_weaver.process.normalize"><code class="docutils literal notranslate"><span class="pre">normalize()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_weaver.rfa.html">rfa</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.AbstractRFA"><code class="docutils literal notranslate"><span class="pre">AbstractRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.AbstractRFA.rfa"><code class="docutils literal notranslate"><span class="pre">AbstractRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.PiecewiseConstantRFA"><code class="docutils literal notranslate"><span class="pre">PiecewiseConstantRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.PiecewiseConstantRFA.rfa"><code class="docutils literal notranslate"><span class="pre">PiecewiseConstantRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.FunctionRFA"><code class="docutils literal notranslate"><span class="pre">FunctionRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.FunctionRFA.rfa"><code class="docutils literal notranslate"><span class="pre">FunctionRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.CubicSplineRFA"><code class="docutils literal notranslate"><span class="pre">CubicSplineRFA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.IntervalRFA"><code class="docutils literal notranslate"><span class="pre">IntervalRFA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.LinearFixedRFA"><code class="docutils literal notranslate"><span class="pre">LinearFixedRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.LinearFixedRFA.rfa"><code class="docutils literal notranslate"><span class="pre">LinearFixedRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.LinearAdaptiveRFA"><code class="docutils literal notranslate"><span class="pre">LinearAdaptiveRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.LinearAdaptiveRFA.get_adaptive_transition_points"><code class="docutils literal notranslate"><span class="pre">LinearAdaptiveRFA.get_adaptive_transition_points()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.LinearAdaptiveRFA.rfa"><code class="docutils literal notranslate"><span class="pre">LinearAdaptiveRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.ExpFixedRFA"><code class="docutils literal notranslate"><span class="pre">ExpFixedRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.ExpFixedRFA.rfa"><code class="docutils literal notranslate"><span class="pre">ExpFixedRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.ExpAdaptiveRFA"><code class="docutils literal notranslate"><span class="pre">ExpAdaptiveRFA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="traffic_weaver.rfa.html#traffic_weaver.rfa.ExpAdaptiveRFA.rfa"><code class="docutils literal notranslate"><span class="pre">ExpAdaptiveRFA.rfa()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../development.html">Development</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Traffic Weaver</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="traffic_weaver.html">traffic_weaver package</a></li>
+          <li class="breadcrumb-item"><a href="traffic_weaver.datasets.html">datasets module</a></li>
+      <li class="breadcrumb-item active">base datasets</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/apidocs/traffic_weaver.datasets._base.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-traffic_weaver.datasets._base">
+<span id="base-datasets"></span><h1>base datasets<a class="headerlink" href="#module-traffic_weaver.datasets._base" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._base.load_dataset">
+<span class="sig-name descname"><span class="pre">load_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unpack_dataset_columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._base.load_dataset" title="Link to this definition"></a></dt>
+<dd><p>Load dataset as np.ndarray of shape (nr_of_samples, 2).</p>
+<p>It is 2D array with each row representing one point in time series.
+The first column is the x-variable and the second column is the y-variable.</p>
+<p>If <cite>unpack_dataset_columns=True</cite> is specified as kwargs, the dataset is unpacked to two separate arrays x and y.</p>
+<p>The list of available datasets is in the <cite>traffic_weaver.datasets.data_description</cite> module.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>str</em>) – Name of the dataset to load.</p></li>
+<li><p><strong>unpack_dataset_columns</strong> (<em>bool</em><em>, </em><em>default=False</em>) – If True, the dataset is unpacked to two separate arrays x and y.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>dataset</strong> – 2D array with each row representing one point in time series.
+The first column is the x-variable and the second column is the y-variable.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray of shape (nr_of_samples, 2)</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;sandvine_audio&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._base.get_data_home">
+<span class="sig-name descname"><span class="pre">get_data_home</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_home</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#traffic_weaver.datasets._base.get_data_home" title="Link to this definition"></a></dt>
+<dd><p>Return the path of the data directory.</p>
+<p>Datasets are stored in ‘.traffic-weaver-data’ directory in the user directory.</p>
+<p>This directory can be changed by setting <cite>TRAFFIC_WEAVER_DATA</cite> environment variable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data_home</strong> (<em>str</em><em>, </em><em>default=None</em>) – The path to the data directory. If <cite>None</cite>, the default directory is <cite>.traffic-weaver-data</cite>.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>data_home</strong> – The path to the data directory.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">traffic_weaver.datasets</span> <span class="kn">import</span> <span class="n">get_data_home</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_home</span> <span class="o">=</span> <span class="n">get_data_home</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">data_home</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._base.clear_data_home">
+<span class="sig-name descname"><span class="pre">clear_data_home</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_home</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._base.clear_data_home" title="Link to this definition"></a></dt>
+<dd><p>Remove all files in the data directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data_home</strong> (<em>str</em><em>, </em><em>default=None</em>) – The path to the data directory. If <cite>None</cite>, the default directory is <cite>.traffic-weaver-data</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._base.load_csv_dataset_from_resources">
+<span class="sig-name descname"><span class="pre">load_csv_dataset_from_resources</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resources_module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'traffic_weaver.datasets.data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unpack_dataset_columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._base.load_csv_dataset_from_resources" title="Link to this definition"></a></dt>
+<dd><p>Load dataset from resources.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_name</strong> (<em>str</em>) – name of the file to load.</p></li>
+<li><p><strong>resources_module</strong> (<em>str</em><em>, </em><em>default='traffic_weaver.datasets.data'</em>) – The package name where the resources are located.</p></li>
+<li><p><strong>unpack_dataset_columns</strong> (<em>bool</em><em>, </em><em>default=False</em>) – If True, the dataset is unpacked to two separate arrays x and y.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>dataset</strong> – 2D array with each row representing one point in time series.
+The first column is the x-variable and the second column is the y-variable.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray of shape (nr_of_samples, 2)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._base.load_csv_dataset_from_remote">
+<span class="sig-name descname"><span class="pre">load_csv_dataset_from_remote</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">remote</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">RemoteFileMetadata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset_filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset_folder</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_home</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">download_if_missing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">download_even_if_available</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validate_checksum</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_retries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gzip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unpack_dataset_columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._base.load_csv_dataset_from_remote" title="Link to this definition"></a></dt>
+<dd><p>Load a dataset from a remote location in csv.gz format.
+After downloading the dataset it is stored in the cache folder for further use in pickle format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>remote</strong> (<em>RemoteFileMetadata</em>) – Named tuple containing remote dataset meta information: url, filename, checksum.</p></li>
+<li><p><strong>dataset_filename</strong> (<em>str</em>) – Name for the dataset file.</p></li>
+<li><p><strong>dataset_folder</strong> (<em>str</em>) – Folder in <cite>data_home</cite> where the dataset is stored.</p></li>
+<li><p><strong>data_home</strong> (<em>str</em><em>, </em><em>default=None</em>) – Download cache folder fot the dataset. By default data is stored in <cite>~/.traffic-weaver-data</cite>.</p></li>
+<li><p><strong>download_if_missing</strong> (<em>bool</em><em>, </em><em>default=True</em>) – If False, raise an OSError if the data is not locally available instead of
+trying to download the data from the source.</p></li>
+<li><p><strong>download_even_if_available</strong> (<em>bool</em><em>, </em><em>default=False</em>) – If True, download the data even if it is already available locally.</p></li>
+<li><p><strong>validate_checksum</strong> (<em>bool</em><em>, </em><em>default=True</em>) – If True, check the SHA256 checksum of the downloaded file.</p></li>
+<li><p><strong>n_retries</strong> (<em>int</em><em>, </em><em>default=3</em>) – Number of retries in case of HTTPError or URLError when downloading the data.</p></li>
+<li><p><strong>delay</strong> (<em>float</em><em>, </em><em>default=1.0</em>) – Number of seconds between retries.</p></li>
+<li><p><strong>gzip</strong> (<em>bool</em><em>, </em><em>default=False</em>) – If True, the file is assumed to be compressed in gzip format in the remote.</p></li>
+<li><p><strong>unpack_dataset_columns</strong> (<em>bool</em><em>, </em><em>default=False</em>) – If True, the dataset is unpacked to two separate arrays x and y.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>dataset</strong> – 2D array with each row representing one point in time series.
+The first column is the x-variable and the second column is the y-variable.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray of shape (nr_of_samples, 2)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traffic_weaver.datasets._base.load_dataset_description">
+<span class="sig-name descname"><span class="pre">load_dataset_description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datasetsource_filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resources_module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'traffic_weaver.datasets.data_description'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_weaver.datasets._base.load_dataset_description" title="Link to this definition"></a></dt>
+<dd><p>Load source of the dataset from filename from resources.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>datasetsource_filename</strong> (<em>str</em>) – name of the file to load.</p></li>
+<li><p><strong>resources_module</strong> (<em>str</em><em>, </em><em>default='traffic_weaver.datasets.datadescription'</em>) – The package name where the resources are located.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>description</strong> – Source of the dataset.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="traffic_weaver.datasets.html" class="btn btn-neutral float-left" title="datasets module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="traffic_weaver.datasets._ams_ix.html" class="btn btn-neutral float-right" title="ams_ix datasets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Piotr T. Lechowicz.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
