@@ -61,4 +61,4 @@ linear functions (f). Finally, the noise is introduced to the signal, starting f
 time (g). To validate the correctness of the applied processing, (h) presents the averaged two periods of the created
 signal, showing that they closely match the original signal (except the applied trend).
 
-<img alt="Signal processing" width="800px" src="https://github.com/w4k2/traffic-weaver/raw/main/docs/source/_static/gfx/signal_processing_overview.png"/>
+<img alt="Signal processing" width="800px" src="https://github.com/w4k2/traffic-weaver/raw/main/docs/source/_static/gfx/introduction/signal_processing_overview.png"/>
