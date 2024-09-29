@@ -166,3 +166,41 @@ def test_integral_matching_reference_stretch(x, y):
         x, y2, range(0, len(x), 2)
     )
     assert_array_almost_equal(actual_integrals, expected_integrals, decimal=2)
+
+
+def test_integral_matching_reference_stretch_with_fixed_points_in_x(x, y):
+    y_ref = [1, 2.1, 6, 2, 3, 6]
+    x_ref = x[::2]
+    fixed_points_in_x = [1, 3, 5, 8, 10]
+    expected_y = [1., 2., 5.2, 1.1, 13.45, 4., 2.75, 2.75, 3., 5., 6.]
+    y2 = integral_matching_reference_stretch(x, y, x_ref, y_ref, fixed_points_in_x=fixed_points_in_x,
+                                             reference_function_integral_method='rectangle')
+    assert_array_almost_equal(y2, expected_y, decimal=2)
+
+
+def test_integral_matching_reference_stretch_with_wrong_fixed_points_in_x(x, y):
+    y_ref = [1, 2.1, 6, 2, 3, 6]
+    x_ref = x[::2]
+    # missing fixed points
+    fixed_points_in_x = [0, 10]
+    with pytest.raises(ValueError) as exc_info:
+        _ = integral_matching_reference_stretch(x, y, x_ref, y_ref, fixed_points_in_x=fixed_points_in_x,
+                                                reference_function_integral_method='rectangle')
+    assert exc_info.type is ValueError
+
+    # too much fixed points
+    fixed_points_in_x = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13]
+    with pytest.raises(ValueError) as exc_info:
+        _ = integral_matching_reference_stretch(x, y, x_ref, y_ref, fixed_points_in_x=fixed_points_in_x,
+                                                reference_function_integral_method='rectangle')
+    assert exc_info.type is ValueError
+
+
+def test_integral_matching_reference_stretch_with_fixed_points_indices_in_x(x, y):
+    y_ref = [1, 2.1, 6, 2, 3, 6]
+    x_ref = x[::2]
+    fixed_indices_in_x = [2, 3, 5, 8, 9]
+    expected_y = [1., 2., 5.2, 1.1, 13.45, 4., 2.75, 2.75, 3., 5., 6.]
+    y2 = integral_matching_reference_stretch(x, y, x_ref, y_ref, fixed_points_indices_in_x=fixed_indices_in_x,
+                                             reference_function_integral_method='rectangle')
+    assert_array_almost_equal(y2, expected_y, decimal=2)

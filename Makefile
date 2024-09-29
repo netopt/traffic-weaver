@@ -11,7 +11,7 @@ build-requirements:
 	pip-compile --extra dev -o dev-requirements.txt pyproject.toml
 
 build: clean
-	pip-sync requirements.txt dev-requirements.txt\
+	pip-sync requirements.txt dev-requirements.txt
 
 tag-release:
 	commit-and-tag-version

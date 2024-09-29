@@ -106,6 +106,22 @@ class IntervalArray:
         ----------
         direction: str, default='both'
             Possible values are 'both', 'left', 'right'.
+
+        Examples
+        --------
+        >>> import numpy as np
+        >>> x = np.arange(10)
+        >>> a = IntervalArray(x, 5)
+        >>> a.to_2d_array()
+        array([[0., 1., 2., 3., 4.],
+               [5., 6., 7., 8., 9.]])
+        >>> a.extend_linspace()
+        >>> a.to_2d_array()
+        array([[-5., -4., -3., -2., -1.],
+               [ 0.,  1.,  2.,  3.,  4.],
+               [ 5.,  6.,  7.,  8.,  9.],
+               [10., 11., 12., 13., 14.]])
+
         """
         self.a = extend_linspace(self.a, self.n, direction=direction)
 
@@ -116,15 +132,58 @@ class IntervalArray:
         ----------
         direction: str, default='both'
             Possible values are 'both', 'left', 'right'.
+
+        Examples
+        --------
+        >>> import numpy as np
+        >>> x = np.arange(10)
+        >>> a = IntervalArray(x, 5)
+        >>> a.to_2d_array()
+        array([[0., 1., 2., 3., 4.],
+               [5., 6., 7., 8., 9.]])
+        >>> a.extend_constant()
+        >>> a.to_2d_array()
+        array([[0., 0., 0., 0., 0.],
+               [0., 1., 2., 3., 4.],
+               [5., 6., 7., 8., 9.],
+               [9., 9., 9., 9., 9.]])
+
         """
         self.a = extend_constant(self.a, self.n, direction=direction)
 
     def nr_of_full_intervals(self):
-        r"""Number of intervals that contain all n items."""
+        r"""Number of intervals that contain all n items.
+
+        Examples
+        --------
+        >>> import numpy as np
+        >>> x = np.arange(14)
+        >>> a = IntervalArray(x, 5)
+        >>> a.to_2d_array()
+        array([[ 0.,  1.,  2.,  3.,  4.],
+               [ 5.,  6.,  7.,  8.,  9.],
+               [10., 11., 12., 13., nan]])
+        >>> a.nr_of_full_intervals()
+        2
+
+        """
         return len(self.a) // self.n
 
     def __len__(self):
-        r"""Total number of elements in all intervals."""
+        r"""Total number of elements in all intervals.
+
+        Examples
+        --------
+        >>> import numpy as np
+        >>> x = np.arange(14)
+        >>> a = IntervalArray(x, 5)
+        >>> a.to_2d_array()
+        array([[ 0.,  1.,  2.,  3.,  4.],
+               [ 5.,  6.,  7.,  8.,  9.],
+               [10., 11., 12., 13., nan]])
+        >>> len(a)
+        14
+        """
         return len(self.a)
 
     @property
@@ -150,6 +209,16 @@ class IntervalArray:
             array([[ 0.,  1.,  2.,  3.],
             [ 4.,  5.,  6.,  7.],
             [ 8.,  9., nan, nan]])
+
+        Examples
+        --------
+        >>> import numpy as np
+        >>> x = np.arange(10)
+        >>> a = IntervalArray(x, 4)
+        >>> a.to_2d_array()
+        array([[ 0.,  1.,  2.,  3.],
+               [ 4.,  5.,  6.,  7.],
+               [ 8.,  9., nan, nan]])
 
         """
         m, n = self.a.size // self.n, self.n
@@ -187,6 +256,19 @@ class IntervalArray:
             array([[ 0.,  1.,  2.,  3., 4.],
             [ 4.,  5.,  6.,  7., 8..]])
 
+        Examples
+        --------
+        >>> import numpy as np
+        >>> x = np.arange(10)
+        >>> a = IntervalArray(x, 4)
+        >>> a.to_2d_array()
+        array([[ 0.,  1.,  2.,  3.],
+               [ 4.,  5.,  6.,  7.],
+               [ 8.,  9., nan, nan]])
+        >>> a.to_2d_array_closed_intervals()
+        array([[0., 1., 2., 3., 4.],
+               [4., 5., 6., 7., 8.]])
+
         """
         interv = self.to_2d_array()
         res = np.concatenate(
@@ -212,6 +294,11 @@ class IntervalArray:
         -------
         IntervalArray
             Oversampled IntervalArray.
+
+        See Also
+        --------
+        :func:`~oversample_linspace`
+        :func:`~oversample_piecewise`
         """
         prev_n = self.n
         a = method(self.a, num)
@@ -229,6 +316,21 @@ class IntervalArray:
         -------
         IntervalArray
             Oversampled IntervalArray.
+
+        Examples
+        --------
+        >>> import numpy as np
+        >>> x = np.arange(10)
+        >>> a = IntervalArray(x, 4)
+        >>> a.to_2d_array()
+        array([[ 0.,  1.,  2.,  3.],
+               [ 4.,  5.,  6.,  7.],
+               [ 8.,  9., nan, nan]])
+        >>> a.oversample_linspace(2).to_2d_array()
+        array([[0. , 0.5, 1. , 1.5, 2. , 2.5, 3. , 3.5],
+               [4. , 4.5, 5. , 5.5, 6. , 6.5, 7. , 7.5],
+               [8. , 8.5, 9. , nan, nan, nan, nan, nan]])
+
         """
         return self.oversample(num, method=oversample_linspace)
 
@@ -244,6 +346,21 @@ class IntervalArray:
         -------
         IntervalArray
             Oversampled IntervalArray.
+
+        Examples
+        --------
+        >>> import numpy as np
+        >>> x = np.arange(10)
+        >>> a = IntervalArray(x, 4)
+        >>> a.to_2d_array()
+        array([[ 0.,  1.,  2.,  3.],
+               [ 4.,  5.,  6.,  7.],
+               [ 8.,  9., nan, nan]])
+        >>> a.oversample_piecewise(2).to_2d_array()
+        array([[ 0.,  0.,  1.,  1.,  2.,  2.,  3.,  3.],
+               [ 4.,  4.,  5.,  5.,  6.,  6.,  7.,  7.],
+               [ 8.,  8.,  9., nan, nan, nan, nan, nan]])
+
         """
         return self.oversample(num, method=oversample_piecewise_constant)
 

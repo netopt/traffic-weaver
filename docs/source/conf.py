@@ -30,6 +30,7 @@ extensions = [
     'sphinx.ext.githubpages',
     'sphinx_mdinclude',
     'sphinxcontrib.bibtex',
+    'sphinx_markdown_tables',
 ]
 
 # configuration ----
@@ -66,3 +67,10 @@ add_module_names = False
 
 # configuration sphinxcontrib.bibtex
 bibtex_bibfiles = ['bibliography.bib']
+
+# configure source parsers
+source_parsers = {
+    '.md': 'recommonmark.parser.CommonMarkParser',
+}
+
+source_suffix = ['.rst', '.md']

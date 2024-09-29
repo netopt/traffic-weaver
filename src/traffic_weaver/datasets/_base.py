@@ -23,6 +23,49 @@ RemoteFileMetadata = namedtuple("RemoteFileMetadata", ["filename", "url", "check
 logger = logging.getLogger(__name__)
 
 
+def load_dataset(dataset, unpack_dataset_columns=False, **kwargs):
+    """Load dataset as np.ndarray of shape (nr_of_samples, 2).
+
+    It is 2D array with each row representing one point in time series.
+    The first column is the x-variable and the second column is the y-variable.
+
+    If `unpack_dataset_columns=True` is specified as kwargs, the dataset is unpacked to two separate arrays x and y.
+
+    The list of available datasets is in the `traffic_weaver.datasets.data_description` module.
+
+
+    Parameters
+    ----------
+    dataset: str
+        Name of the dataset to load.
+    unpack_dataset_columns: bool, default=False
+        If True, the dataset is unpacked to two separate arrays x and y.
+
+    Returns
+    -------
+    dataset: np.ndarray of shape (nr_of_samples, 2)
+        2D array with each row representing one point in time series.
+        The first column is the x-variable and the second column is the y-variable.
+
+    Examples
+    --------
+    >>> data = load_dataset('sandvine_audio')
+
+    """
+    import traffic_weaver.datasets._datasets
+    if dataset.startswith("sandvine"):
+        fun_name = f"load_{dataset.replace('-', '_')}"
+    else:
+        fun_name = f"fetch_{dataset.replace('-', '_')}"
+
+    try:
+        getattr(traffic_weaver.datasets._datasets, fun_name)
+    except AttributeError:
+        print(f"No such dataset: {dataset}")
+        return
+    return getattr(traffic_weaver.datasets._datasets, fun_name)(unpack_dataset_columns=unpack_dataset_columns)
+
+
 def get_data_home(data_home: str = None) -> str:
     """Return the path of the data directory.
 

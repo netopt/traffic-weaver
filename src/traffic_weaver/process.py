@@ -5,7 +5,8 @@ import numpy as np
 from scipy.interpolate import BSpline, splrep, CubicSpline
 
 from traffic_weaver.interval import IntervalArray
-from traffic_weaver.sorted_array_utils import find_closest_lower_equal_element_indices_to_values
+from traffic_weaver.sorted_array_utils import find_closest_lower_equal_element_indices_to_values, \
+    find_closest_higher_equal_element_indices_to_values
 
 
 def _piecewise_constant_interpolate(x, y, new_x, left=None):
@@ -23,7 +24,6 @@ def _piecewise_constant_interpolate(x, y, new_x, left=None):
         The x-coordinates at which to evaluate the interpolated values.
     left: float, optional
         Value to return for new_x < x[0], default is y[0].
-
 
     Returns
     -------
@@ -121,7 +121,7 @@ def repeat(x, y, repeats: int) -> tuple[np.ndarray, np.ndarray]:
 
 
 def trend(
-    x, y, fun: Callable[[np.ndarray], np.ndarray]
+    x, y, fun: Callable[[np.ndarray], np.ndarray], normalized=False
 ) -> Tuple[np.ndarray, np.ndarray]:
     r"""Apply long-term trend to time series data using provided function.
 
@@ -134,8 +134,10 @@ def trend(
     fun: Callable
         Long term trend applied to the data in form of a function.
         Callable signature is `(x) -> y_shift` where
-        `x` independent variable axis normalized to (0, 1) range and
+        `x` independent variable axis and
         `y_shift` is independent variable shift for that `x`.
+    normalized: bool, default: False
+        If true, `x` variable in `fun` is normalized to the range of [0, 1].
 
     Returns
     -------
@@ -148,11 +150,14 @@ def trend(
     y = np.asarray(y, dtype=np.float64)
     range_x = x[-1] - x[0]
     for i in range(len(x)):
-        y[i] += fun(x[i] / range_x)
+        if normalized:
+            y[i] += fun(x[i] / range_x)
+        else:
+            y[i] += fun(x[i])
     return x, y
 
 
-def linear_trend(x, y, a):
+def linear_trend(x, y, a, normalized=False):
     r"""Adding linear trend to time series.
 
     Parameters
@@ -163,6 +168,8 @@ def linear_trend(x, y, a):
         Dependent variable.
     a: float
         Linear coefficient.
+    normalized: bool, default: False
+        If true, `x` variable in `fun` is normalized to the range of [0, 1].
 
     Returns
     -------
@@ -171,11 +178,11 @@ def linear_trend(x, y, a):
     ndarray
         y, shifted dependent variable.
     """
-    return trend(x, y, lambda x: a * x)
+    return trend(x, y, lambda x: a * x, normalized)
 
 
 def spline_smooth(x: np.ndarray, y: np.ndarray, s=None):
-    r"""Smooth a function y=x using smoothing splines
+    r"""Smooth a function y=x using smoothing spline
 
     Value of smoothing `s` needs to be set empirically by trial and error for
     specific data.
@@ -312,3 +319,71 @@ def average(x, y, interval):
     y = np.nanmean(IntervalArray(y, interval).to_2d_array(), axis=1)
     x = IntervalArray(x, interval).to_2d_array()[:, 0]
     return x, y
+
+
+def truncate(x, y, x_left, x_right, x_left_as_ratio=False, x_right_as_ratio=False):
+    """Truncate time series to specific value range or ratio of the range.
+
+    Parameters
+    ----------
+    x: 1-D array-like of size n
+        Independent variable in strictly increasing order.
+    y: 1-D array-like of size n
+        Dependent variable
+    x_left: float
+        Value in x array to which truncate arrays from the left.
+        If value is not present in x array, closest lower value is selected.
+    x_right: float
+        Value in x array to which truncate arrays from the right.
+        If value is not present in x array, closest higher value is selected.
+    x_left_as_ratio: bool, default: False
+        If true, `x_left` is treated as ratio of the x array to truncate from the left,
+        where 0.0 is the start and 1.0 is the end of the array.
+    x_right_as_ratio: bool, default: False
+        Ratio of the x array to truncate from the left, where 0.0 is the start and
+        1.0 is the end of the array. Ignored, if x_left is not None.
+
+    Returns
+    -------
+    ndarray
+        x, truncated independent variable.
+    ndarray
+        y, truncated dependent variable.
+
+    """
+    if x_left_as_ratio:
+        x_left = x_left * (x[-1] - x[0]) + x[0]
+    if x_right_as_ratio:
+        x_right = x_right * (x[-1] - x[0]) + x[0]
+
+    if x_left >= x_right:
+        raise ValueError("x_left must be less than x_right")
+
+    left_id = find_closest_lower_equal_element_indices_to_values(x, [x_left], fill_not_valid=True)[0]
+
+    right_id = find_closest_higher_equal_element_indices_to_values(x, [x_right], fill_not_valid=True)[0] + 1
+    return x[left_id:right_id], y[left_id:right_id]
+
+
+def normalize(a, min_val=0, max_val=1):
+    """Normalize array to specific range.
+
+    Parameters
+    ----------
+    a: array-like
+        Array of values to normalize.
+    min_val: float, default: 0
+        Min value to which normalize array values.
+    max_val: float, default: 1
+        Max value to which normalize array values.
+
+    Returns
+    -------
+    ndarray
+        Normalized array.
+
+    """
+    a = np.asarray(a)
+    a_min = a.min()
+    a_max = a.max()
+    return (a - a_min) / (a_max - a_min) * (max_val - min_val) + min_val

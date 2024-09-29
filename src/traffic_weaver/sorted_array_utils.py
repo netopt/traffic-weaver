@@ -30,6 +30,18 @@ def append_one_sample(x: Union[np.ndarray, List], y: Union[np.ndarray, List], ma
         x, independent variable.
     ndarray
         y, dependent variable.
+
+    Examples
+    --------
+    >>> import numpy as np
+    >>> x = np.linspace(5, 15, 11)
+    >>> y = 2 * x
+    >>> res_x, res_y = append_one_sample(x, y, make_periodic=True)
+    >>> res_x[-1].item() == (2 * x[-1] - x[-2]).item()
+    True
+    >>> y[0].item() == res_y[-1].item()
+    True
+
     """
     x = np.asarray(x, dtype=np.float64)
     y = np.asarray(y, dtype=np.float64)
@@ -238,6 +250,15 @@ def rectangle_integral(x, y):
     -------
     1-D array-like of size n-1
         Values of the integral.
+
+    Examples
+    --------
+    >>> import numpy as np
+    >>> x = np.linspace(0, 10, 6)
+    >>> y = np.array([1, 3, 2, 4, 5, 6])
+    >>> rectangle_integral(x, y)
+    array([ 2.,  6.,  4.,  8., 10.])
+
     """
     d = np.diff(x)
     return y[:-1] * d
@@ -257,6 +278,14 @@ def trapezoid_integral(x, y):
     -------
     1-D array-like of size n-1
         Values of the integral.
+
+    Examples
+    --------
+    >>> import numpy as np
+    >>> x = np.linspace(0, 10, 6)
+    >>> y = np.array([1, 3, 2, 4, 5, 6])
+    >>> trapezoid_integral(x, y)
+    array([ 4.,  5.,  6.,  9., 11.])
 
     """
     return (y[:-1] + y[1:]) / 2 * np.diff(x)
@@ -299,11 +328,21 @@ def find_closest_lower_equal_element_indices_to_values(x: Union[np.ndarray, list
     fill_not_valid: bool, default: True
         If True, fill indices of lookup values that are lower than the first element
         in 'x' with 0.
+
     Returns
     -------
     np.ndarray
         Array of indices of closest lower or equal element in x to each element in
         lookup.
+
+    Examples
+    --------
+    >>> import numpy as np
+    >>> x = np.linspace(0, 10, 11)
+    >>> lookup = np.array([-1, 1.1, 3.3, 9, 10.2])
+    >>> find_closest_lower_equal_element_indices_to_values(x, lookup, fill_not_valid=True)
+    array([ 0,  1,  3,  9, 10])
+
     """
     indices = np.zeros(len(lookup), dtype=np.int64)
 
@@ -358,6 +397,15 @@ def find_closest_higher_equal_element_indices_to_values(x: Union[np.ndarray, lis
     np.ndarray
         Array of indices of closest higher or equal element in x to each element in
         lookup.
+
+    Examples
+    --------
+    >>> import numpy as np
+    >>> x = np.linspace(0, 10, 11)
+    >>> lookup = np.array([-1, 1.1, 3.3, 9, 10.2])
+    >>> find_closest_higher_equal_element_indices_to_values(x, lookup, fill_not_valid=True)
+    array([ 0,  2,  4,  9, 10])
+
     """
     indices = np.zeros(len(lookup), dtype=np.int64)
 
@@ -410,6 +458,15 @@ def find_closest_lower_or_higher_element_indices_to_values(x: Union[np.ndarray, 
     -------
     np.ndarray
         Array of indices of closest element in x to each element in lookup.
+
+    Examples
+    --------
+    >>> import numpy as np
+    >>> x = np.linspace(0, 10, 11)
+    >>> lookup = np.array([-1, 1.1, 1.9, 2.1, 9, 10.2])
+    >>> find_closest_lower_or_higher_element_indices_to_values(x, lookup)
+    array([ 0,  1,  2,  2,  9, 10])
+
     """
     indices = np.zeros(len(lookup), dtype=np.int64)
 
@@ -504,6 +561,15 @@ def sum_over_indices(a, indices):
     Returns
     -------
     Array of sums of values over ranges defined by `indices`.
+
+    Examples
+    --------
+    >>> import numpy as np
+    >>> x = np.linspace(0, 10, 11)
+    >>> indices = np.array([0, 3, 6, 10])
+    >>> sum_over_indices(x, indices)
+    array([ 3., 12., 30.])
+
     """
     a = np.asarray(a)
     indices = np.asarray(indices)

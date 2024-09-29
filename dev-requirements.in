@@ -3,6 +3,8 @@ sphinx
 sphinx-rtd-theme
 sphinx-mdinclude
 sphinxcontrib-bibtex
+sphinx-markdown-tables
+recommonmark
 pandas
 pytest
 pytest-cov

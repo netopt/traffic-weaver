@@ -162,7 +162,7 @@ class IntervalRFA(AbstractRFA):
 class LinearFixedRFA(AbstractRFA):
     r"""Linearly moves between points in fixed transition intervals.
 
-    .. image:: /_static/gfx/linear_fixed_oversample.pdf
+    .. image:: /_static/gfx/apidocs/linear_fixed_rfa.png
 
     Transition linearly between intervals in transition window (part of the interval).
     Transition window is defined in number of samples `a` and divided proportionally
@@ -283,7 +283,7 @@ class LinearFixedRFA(AbstractRFA):
 class LinearAdaptiveRFA(AbstractRFA):
     r"""Linearly moves between points in adaptive transition intervals.
 
-    .. image:: /_static/gfx/linear_adaptive_oversample.pdf
+    .. image:: /_static/gfx/apidocs/linear_adaptive_rfa.png
 
     Transition linearly between intervals in transition window (part of the interval).
     Transition window is defined in number of samples `a` and divided according to the
@@ -504,7 +504,7 @@ class ExpFixedRFA(AbstractRFA):
     r"""Moves between points in fixed transition intervals by combining linear and
     exponential function.
 
-    .. image:: /_static/gfx/exp_fixed_oversample.pdf
+    .. image:: /_static/gfx/apidocs/exp_fixed_rfa.png
 
     Transition combining linear and exponential function between intervals in
     transition window (part of the interval).
@@ -673,7 +673,7 @@ class ExpAdaptiveRFA(AbstractRFA):
     r"""Moves between points in adaptive transition intervals by combining linear and
     exponential function.
 
-    .. image:: /_static/gfx/exp_adaptive_oversample.pdf
+    .. image:: /_static/gfx/apidocs/exp_adaptive_rfa.png
 
     Transition combining linear and exponential function between intervals in
     transition window (part of the interval).

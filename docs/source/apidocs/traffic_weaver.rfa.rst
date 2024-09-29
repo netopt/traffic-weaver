@@ -1,7 +1,7 @@
-oversample module
+rfa module
 =================
 
-.. automodule:: traffic_weaver.oversample
+.. automodule:: traffic_weaver.rfa
    :members:
    :undoc-members:
    :show-inheritance:

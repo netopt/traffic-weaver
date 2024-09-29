@@ -21,7 +21,7 @@ def expected_xy():
 def mock_weaver_delegates(mocker, xy):
     mocker.patch(
         "traffic_weaver.weaver.integral_matching_reference_stretch",
-        side_effect=lambda x, y, orig_x, orig_y: y,
+        side_effect=lambda x, y, orig_x, orig_y, **kwargs: y,
     )
 
     mocker.patch(
@@ -90,21 +90,21 @@ def test_raise_exception_on_wrong_input_dimension():
 
 def test_slice_by_index(xy):
     weaver = Weaver(xy[0], xy[1])
-    weaver.slice_by_index(1, 4)
-    assert_array_equal(weaver.get()[0], np.array([1, 2, 3]))
-    assert_array_equal(weaver.get()[1], np.array([3, 4, 1]))
+    x, y = weaver.slice_by_index(1, 4)
+    assert_array_equal(x, np.array([1, 2, 3]))
+    assert_array_equal(y, np.array([3, 4, 1]))
 
     weaver = Weaver(xy[0], xy[1])
-    weaver.slice_by_index(step=2)
-    assert_array_equal(weaver.get()[0], np.array([0, 2, 4]))
-    assert_array_equal(weaver.get()[1], np.array([1, 4, 2]))
+    x, y = weaver.slice_by_index(step=2)
+    assert_array_equal(x, np.array([0, 2, 4]))
+    assert_array_equal(y, np.array([1, 4, 2]))
 
 
 def test_slice_by_value(xy):
     weaver = Weaver(xy[0], xy[1])
-    weaver.slice_by_value(1, 4)
-    assert_array_equal(weaver.get()[0], np.array([1, 2, 3]))
-    assert_array_equal(weaver.get()[1], np.array([3, 4, 1]))
+    x, y = weaver.slice_by_value(1, 3)
+    assert_array_equal(x, np.array([1, 2, 3]))
+    assert_array_equal(y, np.array([3, 4, 1]))
 
 
 def test_slice_by_index_out_of_bounds(xy):
@@ -116,8 +116,9 @@ def test_slice_by_index_out_of_bounds(xy):
 
 
 def test_copy(xy):
+    import copy
     weaver = Weaver(xy[0], xy[1])
-    weaver2 = weaver.copy()
+    weaver2 = copy.deepcopy(weaver)
     assert_array_equal(weaver.get()[0], weaver2.get()[0])
     assert_array_equal(weaver.get()[1], weaver2.get()[1])
     weaver2.get()[0][0] = 100

@@ -18,12 +18,20 @@ def lin_fit(x, xy_0: tuple, xy_1: tuple):
     xy_0: tuple of two floats
         Starting point `(x0, y0)`
     xy_1: tuple of two floats
-        Ending point `(x0, y0)`
+        Ending point `(x1, y1)`
 
     Returns
     -------
     float
         Value of `y` at point `x`.
+
+    Examples
+    --------
+    >>> xy_0 = (10, 10)
+    >>> xy_1 = (20, 30)
+    >>> x = 11
+    >>> lin_fit(x, xy_0, xy_1)
+    12.0
     """
     x_0, y_0 = xy_0
     x_1, y_1 = xy_1
@@ -44,7 +52,7 @@ def exp_fit(x, xy_0: tuple, xy_1: tuple, alpha: float = 2.0):
     xy_0: tuple of two floats
         Starting point `(x0, y0)`
     xy_1: tuple of two floats
-        Ending point `(x0, y0)`
+        Ending point `(x1, y1)`
     alpha: float, optional
         Exponent factor. Default is 2.
 
@@ -52,6 +60,14 @@ def exp_fit(x, xy_0: tuple, xy_1: tuple, alpha: float = 2.0):
     -------
     float
         Value of `y` at point `x`.
+
+    Examples
+    --------
+    >>> xy_0 = (10, 10)
+    >>> xy_1 = (20, 30)
+    >>> x = 11
+    >>> exp_fit(x, xy_0, xy_1, alpha=2.0)
+    10.2
     """
     (x_0, y_0) = xy_0
     x_1, y_1 = xy_1
@@ -72,7 +88,7 @@ def exp_xy_fit(x, xy_0: tuple, xy_1: tuple, alpha: float = 2.0):
     xy_0: tuple of two floats
         Starting point `(x0, y0)`
     xy_1: tuple of two floats
-        Ending point `(x0, y0)`
+        Ending point `(x1, y1)`
     alpha: float, optional
         Exponent factor. Default is 2.
 
@@ -80,6 +96,15 @@ def exp_xy_fit(x, xy_0: tuple, xy_1: tuple, alpha: float = 2.0):
     -------
     float
         Value of `y` at point `x`.
+
+    Examples
+    --------
+    >>> xy_0 = (10, 10)
+    >>> xy_1 = (20, 30)
+    >>> x = 19
+    >>> exp_xy_fit(x, xy_0, xy_1, alpha=2.0)
+    29.8
+
     """
     x_0, y_0 = xy_0
     x_1, y_1 = xy_1
@@ -104,7 +129,7 @@ def exp_lin_fit(x, xy_0: tuple, xy_1: tuple, alpha=2):
     xy_0: tuple of two floats
         Starting point `(x0, y0)`
     xy_1: tuple of two floats
-        Ending point `(x0, y0)`
+        Ending point `(x1, y1)`
     alpha: float, optional
         Exponent factor. Default is 2.
 
@@ -112,6 +137,15 @@ def exp_lin_fit(x, xy_0: tuple, xy_1: tuple, alpha=2):
     -------
     float
         Value of `y` at point `x`.
+
+    Examples
+    --------
+    >>> xy_0 = (10, 10)
+    >>> xy_1 = (20, 30)
+    >>> x = 19
+    >>> exp_lin_fit(x, xy_0, xy_1, alpha=2.0)
+    27.82
+
     """
     x_0, y_0 = xy_0
     x_1, y_1 = xy_1
@@ -138,7 +172,7 @@ def lin_exp_xy_fit(x, xy_0: tuple, xy_1: tuple, alpha=2):
     xy_0: tuple of two floats
         Starting point `(x0, y0)`
     xy_1: tuple of two floats
-        Ending point `(x0, y0)`
+        Ending point `(x1, y1)`
     alpha: float, optional
         Exponent factor. Default is 2.
 
@@ -146,6 +180,14 @@ def lin_exp_xy_fit(x, xy_0: tuple, xy_1: tuple, alpha=2):
     -------
     float
         Value of `y` at point `x`.
+
+    Examples
+    --------
+    >>> xy_0 = (10, 10)
+    >>> xy_1 = (20, 30)
+    >>> x = 19
+    >>> exp_xy_fit(x, xy_0, xy_1, alpha=2.0)
+    29.8
     """
     x_0, y_0 = xy_0
     x_1, y_1 = xy_1

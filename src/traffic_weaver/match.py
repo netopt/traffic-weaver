@@ -9,7 +9,7 @@ from .sorted_array_utils import find_closest_element_indices_to_values, integral
 def integral_matching_reference_stretch(x, y, x_ref, y_ref, fixed_points_in_x=None, fixed_points_indices_in_x=None,
                                         fixed_points_finding_strategy: str = 'closest',
                                         target_function_integral_method: str = 'trapezoid',
-                                        reference_function_integral_method: str = 'trapezoid', alpha=1.0, s=None):
+                                        reference_function_integral_method: str = 'rectangle', alpha=1.0, s=None):
     """Stretch function to match integrals in reference.
 
     Stretch function evaluated in '(x, y)' to match integral
@@ -28,7 +28,7 @@ def integral_matching_reference_stretch(x, y, x_ref, y_ref, fixed_points_in_x=No
     interval.
     Use 'trapezoidal' integral calculation if target/reference functions are representing sampled values over time.
 
-    .. image:: /_static/gfx/integral_matching_reference.pdf
+    .. image:: /_static/gfx/apidocs/integral_matching_reference.png
 
     Parameters
     ----------
@@ -57,7 +57,7 @@ def integral_matching_reference_stretch(x, y, x_ref, y_ref, fixed_points_in_x=No
     target_function_integral_method: str, default: 'trapezoid'
         Method to calculate integral of target function.
         Available options: 'trapezoid', 'rectangle'
-    reference_function_integral_method: str, default: 'trapezoid'
+    reference_function_integral_method: str, default: 'rectangle'
         Method to calculate integral of reference function.
         Available options: 'trapezoid', 'rectangle'
     alpha: scalar, default: 1
@@ -84,7 +84,7 @@ def integral_matching_reference_stretch(x, y, x_ref, y_ref, fixed_points_in_x=No
     >>> x = np.array([0, 0.5, 1, 1.5, 2, 2.5, 3])
     >>> y_ref = np.array([2.5, 2.5, 4, 3.5])
     >>> x_ref = np.array([0, 1, 2, 3])
-    >>> integral_matching_reference_stretch(x, y, x_ref, y_ref, s=0.0)
+    >>> integral_matching_reference_stretch(x, y, x_ref, y_ref, reference_function_integral_method='trapezoid', s=0.0)
     array([1. , 3.5, 2. , 4. , 3. , 4. , 4. ])
     """
     x, y, x_ref, y_ref = np.asarray(x), np.asarray(y), np.asarray(x_ref), np.asarray(y_ref)
@@ -137,7 +137,7 @@ def integral_matching_reference_stretch(x, y, x_ref, y_ref, fixed_points_in_x=No
 def _integral_matching_stretch(x, y, integral_value=0, integral_method='trapezoid', dx=1.0, alpha=1.0, s=None):
     r"""Stretches function y=f(x) to match integral value.
 
-    .. image:: /_static/gfx/integral_matching.pdf
+    .. image:: /_static/gfx/apidocs/integral_matching_stretch.png
 
     This method creates function :math:`z=g(x)` from :math:`y=f(x)` such that the
     integral of :math:`g(x)` is equal to the provided integral value, and points
