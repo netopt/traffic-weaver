@@ -61,8 +61,7 @@ def load_dataset(dataset, unpack_dataset_columns=False, **kwargs):
     try:
         getattr(traffic_weaver.datasets._datasets, fun_name)
     except AttributeError:
-        print(f"No such dataset: {dataset}")
-        return
+        raise ValueError(f"No such dataset: {dataset}")
     return getattr(traffic_weaver.datasets._datasets, fun_name)(unpack_dataset_columns=unpack_dataset_columns)
 
 

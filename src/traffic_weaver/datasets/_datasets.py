@@ -50,6 +50,7 @@ from ._ams_ix import (
     fetch_ams_ix_grx_yearly_by_day,
     fetch_ams_ix_grx_daily,
     fetch_ams_ix_grx_monthly,
+    fetch_ams_ix_grx_weekly,
     fetch_ams_ix_grx_yearly_input,
     fetch_ams_ix_grx_yearly_output,
     fetch_ams_ix_i_ipx_diameter_daily,

@@ -4,46 +4,23 @@ Internet Exchange Point (IXP) of Internet networks in Italy.
 
 Package contains 12 datasets.
 
-## List of datasets
+Link to [repository](https://figshare.com/projects/Traffic_Weaver_-_Time_Varying_Network_Traffic_Datasets/219601).
 
-* mix-it-bologna_daily
-* mix-it-bologna_monthly
-* mix-it-bologna_weekly
-* mix-it-bologna_yearly
-* mix-it-milan_daily
-* mix-it-milan_monthly
-* mix-it-milan_weekly
-* mix-it-milan_yearly
-* mix-it-palermo_daily
-* mix-it-palermo_monthly
-* mix-it-palermo_weekly
-* mix-it-palermo_yearly
-
+Repository directory: mix-it.
 
 ## Datasets description
 
-* mix-it-bologna - statistics showing MIX Bologna traffic.
-* mix-it-milan - statistics showing MIX Milan traffic.
-* mix-it-palermo - statisti{{cs showing MIX Palermo traffic.
-
-* daily traffic contains 30 hours of traffic
-* weekly traffic contains 11 days of traffic
-* monthly traffic contains 35 days of traffic
-* yearly traffic contains 13 months of traffic
-
-## Units
-
-| name | y-axis |
-|---|---|
-| mix-it-bologna_daily_2024-09-04 | Gbps |
-| mix-it-bologna_monthly_2024-09_04 | Gbps |
-| mix-it-bologna_weekly_2024-09_04 | Gbps |
-| mix-it-bologna_yearly_2024-09_04 | Gbps |
-| mix-it-milan_daily_2024-09_04 | Tbps |
-| mix-it-milan_monthly_2024-09_04 | Tbps |
-| mix-it-milan_weekly_2024-09_04 | Tbps |
-| mix-it-milan_yearly_2024-09_04 | Tbps |
-| mix-it-palermo_daily_2024-09-04 | Gbps |
-| mix-it-palermo_monthly_2024-09-04 | Gbps |
-| mix-it-palermo_weekly_2024-09-04 | Gbps |
-| mix-it-palermo_yearly_2024-09-04 | Gbps |
+| No | name                   | repository_file_name              | description         | unit | period    |
+|---:|------------------------|-----------------------------------|---------------------|------|-----------|
+|  1 | mix-it-bologna_daily   | mix-it-bologna_daily_2024-09-04   | MIX Bologna traffic | Gbps | 30 hours  |
+|  2 | mix-it-bologna_weekly  | mix-it-bologna_weekly_2024-09-04  | MIX Bologna traffic | Gbps | 11 days   |
+|  3 | mix-it-bologna_monthly | mix-it-bologna_monthly_2024-09-04 | MIX Bologna traffic | Gbps | 35 days   |
+|  4 | mix-it-bologna_yearly  | mix-it-bologna_yearly_2024-09-04  | MIX Bologna traffic | Gbps | 13 months |
+|  5 | mix-it-milan_daily     | mix-it-milan_daily_2024-09-04     | MIX Milan traffic   | Tbps | 30 hours  |
+|  6 | mix-it-milan_weekly    | mix-it-milan_weekly_2024-09-04    | MIX Milan traffic   | Tbps | 11 days   |
+|  7 | mix-it-milan_monthly   | mix-it-milan_monthly_2024-09-04   | MIX Milan traffic   | Tbps | 35 days   |
+|  8 | mix-it-milan_yearly    | mix-it-milan_yearly_2024-09-04    | MIX Milan traffic   | Tbps | 13 months |
+|  9 | mix-it-palermo_daily   | mix-it-palermo_daily_2024-09-04   | MIX Palermo traffic | Gbps | 30 hours  |
+| 10 | mix-it-palermo_weekly  | mix-it-palermo_weekly_2024-09-04  | MIX Palermo traffic | Gbps | 11 days   |
+| 11 | mix-it-palermo_monthly | mix-it-palermo_monthly_2024-09-04 | MIX Palermo traffic | Gbps | 35 days   |
+| 12 | mix-it-palermo_yearly  | mix-it-palermo_yearly_2024-09-04  | MIX Palermo traffic | Gbps | 13 months |

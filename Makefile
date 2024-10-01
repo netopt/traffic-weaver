@@ -27,6 +27,9 @@ docs: clean
 	cd docs && make html
 
 test: clean
-	pytest --cov=traffic_weaver --cov-report term-missing --cov-report html --cov-config .coveragerc
+	pytest
 	mkdir -p _images
 	coverage-badge -f -o badges/coverage.svg
+
+test-integration: clean
+	pytest -c ./pytest-integration.ini

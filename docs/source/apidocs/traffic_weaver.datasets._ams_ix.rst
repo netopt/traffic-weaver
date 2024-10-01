@@ -1,4 +1,4 @@
-ams\_ix datasets
+AMS\_IX datasets
 ================
 
 .. mdinclude:: ../../../src/traffic_weaver/datasets/data_description/ams_ix.md
