@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.5.0](https://github.com/w4k2/traffic-weaver/compare/v1.4.0...v1.5.0) (2024-10-01)
+
+
+### Features
+
+* **datasets:** adding new dataset ([3a0e06b](https://github.com/w4k2/traffic-weaver/commit/3a0e06b004ac255d0dea4c347bbedc708e670a4c))
+* **license:** migrate license ([eeb9673](https://github.com/w4k2/traffic-weaver/commit/eeb96732185708c287e6c9a669c46e8bb428b69e))
+
+
+### Bug Fixes
+
+* **documentation:** missing image ([48300fa](https://github.com/w4k2/traffic-weaver/commit/48300facf8e292037ddb55d8deb70f8be6699bca))
+
 ## [1.4.0](https://github.com/w4k2/traffic-weaver/compare/v1.3.6...v1.4.0) (2024-09-29)
 
 
