@@ -17,8 +17,10 @@ Other dataset modules allow to download datasets stored in external repository.
 List of datasets
 ----------------
 - :doc:`Sandvine <apidocs/traffic_weaver.datasets._sandvine>` :footcite:p:`Sandvine2021`, 19 datasets
-- :doc:`MIX-IT <apidocs/traffic_weaver.datasets._mix_it>` :footcite:p:`MixIt`, 12 datasets
-- :doc:`AMS-IX <apidocs/traffic_weaver.datasets._ams_ix>` :footcite:p:`AmsIx`, 34 datasets
+- :doc:`AMS-IX <apidocs/traffic_weaver.datasets._ams_ix>` :footcite:p:`ams-ix`, 34 datasets
+- :doc:`IX-BR <apidocs/traffic_weaver.datasets._ix_br>` :footcite:p:`ix-br`, 30 datasets
+- :doc:`MIX-IT <apidocs/traffic_weaver.datasets._mix_it>` :footcite:p:`mix-it`, 12 datasets
+
 
 Collecting new datasets
 -----------------------
@@ -30,7 +32,7 @@ One of the free tools that allows mapping image to plot is WebPlotDigitizer (ver
 Such tool requires image preprocessing. Below description is based on GIMP :footcite:p:`GIMP`, however, any
 other image manipulation tool can be used for that purpose.
 
-Exemplary process of collecting datasets from plotted images of AMS-IX :footcite:p:`AmsIx`.
+Exemplary process of collecting datasets from plotted images of AMS-IX :footcite:p:`ams-ix`.
 is as follows. First, an image with a data is saved.
 
 .. image:: /_static/gfx/datasets/original.png

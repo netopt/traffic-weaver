@@ -1,4 +1,4 @@
-mix\_it datasets
+MIX\_IT datasets
 ================
 
 .. mdinclude:: ../../../src/traffic_weaver/datasets/data_description/mix_it.md
