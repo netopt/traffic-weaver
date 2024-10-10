@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
@@ -6,18 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Datasets &mdash; Traffic Weaver  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
   
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -37,9 +35,6 @@
             Traffic Weaver
               <img src="_static/logo.png" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                1.5.0
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -294,21 +289,26 @@ Such tool requires image preprocessing. Below description is based on GIMP <a cl
 other image manipulation tool can be used for that purpose.</p>
 <p>Exemplary process of collecting datasets from plotted images of AMS-IX <a class="footnote-reference brackets" href="#footcite-ams-ix" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.
 is as follows. First, an image with a data is saved.</p>
-<a class="reference internal image-reference" href="_images/original.png"><img alt="Source image" src="_images/original.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="_images/original.png"><img alt="Source image" src="_images/original.png" style="width: 800px;" />
+</a>
 <p>Next, its content is cropped using any image manipulation software such that only data is visible.</p>
-<a class="reference internal image-reference" href="_images/cropped.png"><img alt="Cropped image" src="_images/cropped.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="_images/cropped.png"><img alt="Cropped image" src="_images/cropped.png" style="width: 800px;" />
+</a>
 <p>Data on the plot can be selected with fuzzy selection tool. Such tool should select areas based on color similarity
 according to specified threshold. Next border is added to that selection and it is painted with dark blue color
 using bucket tool. The selection is inverted, and rest of the image is colored with light blue color (as using different
 color. Any wrongly detected parts after painting the border can be removed with the eraser/pencil tool.</p>
-<a class="reference internal image-reference" href="_images/border-select.png"><img alt="Border selected and painted with single color" src="_images/border-select.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="_images/border-select.png"><img alt="Border selected and painted with single color" src="_images/border-select.png" style="width: 800px;" />
+</a>
 <p>Prepared image is loaded to plot detection software.
 Such software detects plot values based on four known points
 that forms the coordinate system.
 In this example, image was cropped according to the axes, so the image corners can be selected.</p>
-<a class="reference internal image-reference" href="_images/plot-digitizer-load.png"><img alt="Loading image into plot detection software" src="_images/plot-digitizer-load.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="_images/plot-digitizer-load.png"><img alt="Loading image into plot detection software" src="_images/plot-digitizer-load.png" style="width: 800px;" />
+</a>
 <p>Next, plot values are automatically mapped using interpolation based on fixed step on x-axis.</p>
-<a class="reference internal image-reference" href="_images/plot-digitizer-detect.png"><img alt="Plot detected" src="_images/plot-digitizer-detect.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="_images/plot-digitizer-detect.png"><img alt="Plot detected" src="_images/plot-digitizer-detect.png" style="width: 800px;" />
+</a>
 <p>Obtained result can be exported to csv file, loaded to Traffic Weaver and further processed.</p>
 </section>
 <section id="bibliography">
