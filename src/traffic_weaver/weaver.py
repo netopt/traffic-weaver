@@ -644,7 +644,7 @@ class Weaver:
         >>> import numpy as np
         >>> from traffic_weaver.weaver import Weaver
         >>> x = np.linspace(5, 15, 11)
-        >>> y = np.concat([np.linspace(5, 10, 6), np.linspace(9, 5, 5)])
+        >>> y = np.concatenate([np.linspace(5, 10, 6), np.linspace(9, 5, 5)])
         >>> wv = Weaver(x, y)
         >>> res_x, res_y = wv.smooth(1.0).get()
         >>> res_y
@@ -685,7 +685,7 @@ class Weaver:
         >>> f([6.12, 7.44])
         array([12.24, 14.88])
 
-        >>> y = np.concat([np.linspace(5, 10, 6), np.linspace(9, 5, 5)])
+        >>> y = np.concatenate([np.linspace(5, 10, 6), np.linspace(9, 5, 5)])
         >>> wv = Weaver(x, y)
         >>> f = wv.to_function(1.0)
         >>> f(7.0)
