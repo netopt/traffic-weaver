@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.5.3](https://github.com/w4k2/traffic-weaver/compare/v1.5.2...v1.5.3) (2024-10-10)
+
+
+### Bug Fixes
+
+* **datasets:** fix including datasets in package ([5c779b7](https://github.com/w4k2/traffic-weaver/commit/5c779b71819dc6a04c1add7e79b06e0d678cfe8f))
+
 ## [1.5.2](https://github.com/w4k2/traffic-weaver/compare/v1.5.1...v1.5.2) (2024-10-10)
 
 
