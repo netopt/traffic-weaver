@@ -32,7 +32,7 @@ documentation = "https://w4k2.github.io/traffic-weaver/"
 package-dir = { "" = "src" }
 
 [tool.setuptools.package-data]
-"traffic_weaver.datasets" = ["*.json"]
+"traffic_weaver.datasets" = ["*.json", ".csv", ".md"]
 
 [tool.setuptools.dynamic]
 dependencies = { file = ["requirements.in"] }
