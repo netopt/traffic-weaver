@@ -14,7 +14,7 @@ Please cite this paper when you use this simulator in your publications/lectures
 
 > Piotr Lechowicz, Aleksandra Knapińska, Adam Włodarczyk, Krzysztof Walkowiak,
 "Traffic Weaver: semi-synthetic time-varying traffic generator based on averaged time series,"
-arXiv preprint arXiv:2403.11388, 2024.
+SoftwareX, Volume 28, 101946, 2024.
 
 
 ## Table of content
